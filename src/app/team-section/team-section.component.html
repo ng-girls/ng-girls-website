@@ -1,0 +1,12 @@
+<section id="team" class="team-section">
+    <div class="overlay">
+        <h1 class="section-title">{{title}}</h1>
+        <div class="team-list">
+            <div class="person-card" *ngFor="let person of team" (click)="openDialog(person)">
+                <div class="person-img" [style.backgroundImage]="'url(' + person.photo + ')'"></div>
+                <div class="name">{{person.name}}</div>
+                <div class="company">{{person.company}}</div>
+            </div>
+        </div>
+    </div>
+</section>

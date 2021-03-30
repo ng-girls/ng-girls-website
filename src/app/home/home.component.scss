@@ -1,0 +1,58 @@
+
+@import '../../styles.scss';
+
+.upcoming-text {
+    font-size: 26px;
+    @include sm {
+        font-size: 16px;
+    }
+}
+
+.events-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.workshop-card {
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+    margin-top: 10px;
+    border: 1px solid white;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+    @include sm {
+        height: 60px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .card-overlay {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .workshop-link {
+        color: white;
+        font-size: 22px;
+        line-height: 30px;
+        @include sm { 
+            font-size: 16px;
+            line-height: 20px;
+        }
+        b {
+            font-size: 28px;
+            font-weight: 400;
+            @include sm {
+                font-size: 24px;
+            }
+        }
+    }
+}

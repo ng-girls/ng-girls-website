@@ -1,0 +1,59 @@
+<section id="about" class="section">
+    <h3 class="section-title">About ngGirls</h3>
+    <div class="cards-list">
+        <div *ngFor='let subsection of subsections' class="subsection-card">
+            <div class="subsection-title">{{subsection.title}}</div>
+            <div class='subsection-img' [style.backgroundImage]="'url('+ subsection.img + ')'"></div>
+            <div class='subsection-description'>{{subsection.description}}</div>
+        </div>
+    </div>
+</section>
+
+<section id="description" class="section">
+    <h3 class="section-title">Be a Part of ngGirls</h3>
+    <div class="content-wrapper">
+        <div class="column">
+            <div class="description-title">Who is it for?</div>
+            <p>Are you a woman interested in learning how to build web applications with the latest technologies? We
+                have
+                good news for you: We are planning various events around the world for beginners!
+            </p>
+            <p>We believe that the IT industry will greatly benefit from bringing more women into technology. We want to
+                give you an opportunity to learn how to program and become a programmer.
+            </p>
+            <p>
+                On November 13th, 2016, we held our first event: a one-day workshop, in which selected participants
+                built
+                and deployed their very first <b>Angular Web Application!</b> The participants worked in small groups with the
+                guidance of dedicated mentors.
+
+            </p>
+            <p>
+                <b>Angular</b> is an open-source platform for building web application, developed by Google and the community.
+                It gives various tools to easily create a dynamic, interactive app that can run on browsers, mobile,
+                desktop and even Arduino! <a href="./faq">Why we love Angular</a>
+
+            </p>
+            <p>
+                <a href="{{newsletterLink}}" target="_blank">Subscribe to our newsletter</a> to get notified about our future events.
+            </p>
+        </div>
+        <div class="column">
+            <div class="description-title">Can I help?</div>
+
+            <p>Of course! There are several ways you can help:</p>
+
+            <p><b>Sponsors</b> - with your help we can make our events truly awesome! From funding tickets to Angular
+                conferences, through supplying lunch, to providing swag - lots of opportunities to help. <a href="mailto:{{mailAddress}}" target="_blank">Call for Sponsors - contact us</a></p>
+
+            <p><b>Mentors</b> - you have a great impact on the participants' experience. If you can volunteer at the
+                workshop and
+                give some support on the days before and after, we'd love to have you! You don't need to be an Angular
+                expert - just a web developer. Just click on <b>Call for Mentors</b> on the event page, or <a href="{{newsletterLink}}" target="_blank">subscribe to our
+                newsletter</a> to get notified about our future events.</p>
+
+            <p><b> Anyone</b> - There are many other ways to help us. We'd love to hear your ideas and/or assign you
+                some chores. Huge thanks in advance!</p> Don't be shy, just <a href="mailto:{{mailAddress}}" target="_blank">contact us!</a>
+        </div>
+    </div>
+</section>

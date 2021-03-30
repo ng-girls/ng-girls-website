@@ -1,11 +1,116 @@
-/* You can add global styles to this file, and also import other style files */
+@import './fonts';
+@import './breakpoints';
+@import './mixins';
 
-html {
+body, html {
   height: 100%;
+  margin: 0;
+  z-index: 99;
+  font-family: "Roboto", sans-serif;
+}
+
+// Font weights
+$light: 200;
+$regular: 400;
+$bold: 500;
+$extra-bold: 600;
+
+// Base Font
+$base-font-family: sans-serif;
+$base-font-weight: $regular;
+$base-font-size: 16px;
+$base-line-height: 23px;
+
+// Fixed Font
+$fixed-font-family: 'Roboto';
+$fixed-font-size: 85%;
+$fixed-line-height: $base-line-height;
+
+// Headings
+$header-font-weight: $light;
+$h1-font-size: 6.125 * $base-font-size;
+$h2-font-size: 5.875 * $base-font-size;
+$h3-font-size: 5 * $base-font-size;
+$h4-font-size: 3.125 * $base-font-size;
+$h5-font-size: 2.3 * $base-font-size;
+$h6-font-size: 1.875 * $base-font-size;
+
+// Colors
+$main-color: #03a9f4;
+$link-color: $main-color;
+$link-lighten-amount: 20%;
+$base-background-color: #fff;
+$base-section-background-color: $link-color;
+$primary-color: #4285f4;
+$primary-color-hover: #3266d5;
+$icon-fill-color: #8b8b8b;
+
+// Sizes
+$min-section-height: 350px;
+$section-padding-top: 50px;
+$section-padding-bottom: 60px;
+$small-section-padding-top: 20px;
+$small-section-padding-bottom: 40px;
+
+// Global variables
+$base-transition: all .3s;
+$base-cubic-transition: all .3s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$long-transition: all .5s;
+$long-cubic-transition: all .5s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+// Path
+$image-dir: "../../img";
+$sprites-dir: $image-dir+"/sprites";
+$logos-sprite: $sprites-dir+"/logos.svg";
+
+a {
+  text-decoration: none;
+  color: #03a9f4;
+  font-weight: 400;
+}
+
+.btn {
+  color: #fff !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-transform: uppercase;
+  border: 0;
+  background: #4285f4 !important;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: inherit;
+  background-color: transparent;
+  font-size: 1em;
+  line-height: 1em;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1;
+  font-weight: 500;
+  margin: 0 3px 10px;
+  font-weight: 500;
+  padding: 0.85em 1.1em;
+  border-radius: 0.2em;
+}
+
+html,
+body {
+  height: 100%;
+  color: #333;
 }
 
 body {
-  height: 100%;
-  background: #191919;
-  font-family: "Roboto",sans-serif;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+flex-group[flex-width="50%"]{
+  display: flex;
+  > [flex-item] {
+    width: 50%;
+  }
 }

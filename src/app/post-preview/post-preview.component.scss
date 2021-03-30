@@ -1,0 +1,15 @@
+@import '../../styles.scss';
+
+.post-preview {
+    width: 350px;
+    height: 350px;
+    margin: 20px;
+    text-align: left;
+    img {
+        height: 220px;
+    }
+    @include sm {
+        max-width: 100%;
+        margin: 20px 0;
+    }
+}

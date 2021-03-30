@@ -1,13 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>NgGirlsWebsite</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+
+    <title>ngGirls</title>
+    <link rel="shortcut icon" href="/assets/theme/favicons/favicon.ico?v=5"> 
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/theme/favicons/apple-touch-icon-152x152.png"> 
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/theme/favicons/apple-touch-icon-144x144.png"> 
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/theme/favicons/apple-touch-icon-120x120.png"> 
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/theme/favicons/apple-touch-icon-114x114.png"> 
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/theme/favicons/apple-touch-icon-76x76.png"> 
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/theme/favicons/apple-touch-icon-72x72.png"> 
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/theme/favicons/apple-touch-icon-60x60.png"> 
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/theme/favicons/apple-touch-icon-57x57.png"> 
+<!--<link rel="icon" type="image/png" href="/assets/theme/favicons/favicon-196x196.png">--> 
+<!--<link rel="icon" type="image/png" href="/assets/theme/favicons/favicon-160x160.png">--> 
+<!--<link rel="icon" type="image/png" href="/assets/theme/favicons/favicon-96x96.png">--> 
+<link rel="icon" type="image/png" href="/assets/theme/favicons/favicon-32x32.png"> 
+<link rel="icon" type="image/png" href="/assets/theme/favicons/favicon-16x16.png"> 
+<meta name="msapplication-TileColor" content="#c4161d" bu=""> 
+<meta name="msapplication-TileImage" content="/assets/theme/favicons/mstile-144x144.png"> 
+<meta name="msapplication-config" content="/assets/theme/favicons/browserconfig.xml"> 
+<meta name="theme-color" content="#c4161d">
+    <base href="/" />
+<meta name="author" content="Shmuela Jacobs, ngGirls"> 
+<meta name="description" content="ngGirls is an organization that aims to increase diversity in Tech"> 
+<meta name="keywords" content="event, angular, google, programming, web, chrome, developers, diversity, javascript, single page application, tel aviv"> 
+<meta name="google-site-verification" content="AIzaSyCZoEYpnZkkqUryTf4WAYfWNMfQK5xTqCY"> 
+<link rel="canonical" href="http://ng-girls.org"> 
+<!-- Social: Twitter --> 
+<meta name="twitter:card" content="summary"> 
+<meta name="twitter:site" content="@AngularGirls"> 
+<meta name="twitter:title" content="ngGirls"> 
+<meta name="twitter:description" content="ngGirls is an organization that aims to increase diversity in Tech"> 
+<meta name="twitter:image:src" content="http://ng-girls.org/assets/theme/seo/sharing-twitter.png"> 
+
+<!-- Social: Facebook / Open Graph --> 
+<meta property="og:title" content="ngGirls"> 
+<meta property="og:site_name" content="ngGirls"> 
+<meta property="og:type" content="website"> 
+<meta property="og:url" content="http://ng-girls.org"> 
+<meta property="og:image" content="http://ng-girls.org/assets/theme/seo/sharing-facebook.png"> 
+<meta property="og:description" content="ngGirls is an organization that aims to increase diversity in Tech"> 
+
+    <link rel="icon" type="image/x-icon" href="/assets/theme/favicons/favicon.ico">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="manifest/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="manifest/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="manifest/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/theme/favicons/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#da532c" />
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js");
+        });
+      }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-7105068-3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-7105068-3");
+    </script>
+  </body>
 </html>

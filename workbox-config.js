@@ -1,0 +1,13 @@
+module.exports = {
+    "globDirectory": "dist/static",
+    "globPatterns": [
+      "blog/**/*.html",
+      "workshops/**/*.html",
+      "assets/**/*.*",
+      "manifest/**/*.*",
+      "*.html",
+      "*.{jpg,png,eot,svg,ttf,woff,woff2, webp}"
+    ],
+    "swDest": "dist/static/sw.js",
+    "swSrc": "src/sw.js"
+  };

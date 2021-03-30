@@ -1,0 +1,103 @@
+.coc-page {
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    text-align: center;
+    color: #333;
+
+    .coc-section {
+        margin-bottom: 52px;
+    }
+
+    .coc-title {
+        font-weight: 400;
+        display: block;
+        font-size: 50px;
+        text-align: left;
+        line-height: 1.1;
+    }
+
+    p, li {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 23px;
+    }
+
+    .content-wrapper {
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            width: 90%;
+        }
+
+        .column {
+            padding-left: 30px;
+            padding-right: 30px;
+
+            @media (max-width: 767px) {
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-bottom: 30px;
+            }
+
+            text-align: left;
+            font-size: 18px;
+            flex-basis: 100%;
+
+            .coc-subtitle {
+                font-size: 36.8px;
+                font-weight: 300;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                line-height: 1.1;
+            }
+
+            .coc-body {
+                margin-top: 19px;
+            }
+        }
+    }
+}
+
+.coc-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    /* Set a specific height */
+    height: 55%;
+    /* Position and center the image to scale nicely on all screens */
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+
+    .coc-img-text {
+        text-align: center;
+        position: absolute;
+        top: 75%;
+        left: 33%;
+        transform: translate(-50%, -50%);
+        color: white;
+        z-index: 1;
+
+        h1 {
+            font-size: 63px;
+            line-height: normal;
+        }
+    }
+
+    .overlay-img {
+        content:'\A';
+        position:absolute;
+        width:100%; height:100%;
+        top:0; left:0;
+        background:rgba(0,0,0,0.6);
+        opacity:0.6;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+    }
+}

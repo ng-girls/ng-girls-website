@@ -1,0 +1,28 @@
+<app-hero-section [sectionBg]="(workshop$ | async)?.sectionBg">
+  <p class="hero-description">
+    {{(workshop$ | async)?.date}}<span *ngIf="(workshop$ | async)?.date">, {{(workshop$ | async)?.city}}</span><span *ngIf="(workshop$ | async)?.city">, {{(workshop$ | async)?.country}}</span>
+  </p>
+  <button class="btn" *ngIf="(workshop$ | async)?.participantsFormLink as link" (click)="openLink(link)">
+    APPLY FOR THE WORKSHOP
+  </button>
+
+  <button class="btn" *ngIf="(workshop$ | async)?.mentorsFormLink as link" (click)="openLink(link)">
+    CALL FOR MENTORS
+  </button>
+</app-hero-section>
+
+<div class="content-wrapper workshop-description">
+  <scully-content></scully-content>
+</div>
+
+<app-team-section 
+  [team]="(workshop$ | async)?.mentors" 
+  [title]="'Meet the Mentors'"
+  [showPopups]="false"
+></app-team-section>
+
+<app-partners-section [partners]="(workshop$ | async)?.partners"
+  [sponsorsCallMail]="(workshop$ | async)?.sponsorsCallMail">
+</app-partners-section>
+
+<app-patreon></app-patreon>

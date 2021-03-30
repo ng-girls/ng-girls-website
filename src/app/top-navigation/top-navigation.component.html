@@ -1,0 +1,14 @@
+<header id="top-header" class="top-header">
+  <div class="overlay white-solid"></div>
+  <a href="./" id="logo-header" class="logo-header">
+    <mat-icon class="logo logo-light" [svgIcon]="'logo'"></mat-icon>
+  </a>
+  <nav class="st-menu st-effect" id="menu">
+    <div class="logo-navbar logo logo-dark visible-xs"></div>
+    <ul class="links-container">
+      <li *ngFor="let link of navLinks">
+        <a class="current" href="{{link.link}}">{{link.name}}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
