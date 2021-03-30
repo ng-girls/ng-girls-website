@@ -8,17 +8,20 @@
 
 .ng-girls-logo {
   width: 60%;
+  max-width: 540px;
 }
 
 .ng-girls-name {
   width: 50%;
   margin: 20px auto 0;
+  max-width: 450px;
 }
 
 .message {
   margin: 20px 0;
   font-size: 24px;
   color: darkgray;
+  text-align: center;
   a {
     color: aqua;
   }
