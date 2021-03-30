@@ -21,7 +21,7 @@
   [showPopups]="false"
 ></app-team-section>
 
-<app-partners-section [partners]="(workshop$ | async)?.partners"
+<app-partners-section [partners]="(workshop$ | async)?.partners" [hosts]="(workshop$ | async)?.hosts"
   [sponsorsCallMail]="(workshop$ | async)?.sponsorsCallMail">
 </app-partners-section>
 

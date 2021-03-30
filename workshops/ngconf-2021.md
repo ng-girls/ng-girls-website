@@ -56,7 +56,8 @@ Are you a woman interested in learning how to build web applications with the la
 We believe that the IT industry will greatly benefit from bringing more women into technology. We want to give you an opportunity to learn how to program and become a programmer.<br /><br />
 During the workshop you will build and deploy your very first **Angular Web Application!** Angular is an open-source platform for building web application, developed by Google and the community. It gives various tools to easily create a dynamic, interactive app that can run on desktop browses, mobile and even robots!
 To participate in the workshop you'll need some basic knowledge in web development: HTML, CSS and basic JavaScript or any other programming language. If you're a total beginner, here are some [resources](/faq) to catch up.
-The workshop is **free of charge**. Just fill out the [application form](https://docs.google.com/forms/d/e/1FAIpQLSeIUuMJ4mq5jDOuXH52aq4bM5YxswGcoayOY5xF4MPdUqP84w/viewform).<br /><br />
+The workshop is **free of charge**. Just fill out the [application form](https://docs.google.com/forms/d/e/1FAIpQLSeIUuMJ4mq5jDOuXH52aq4bM5YxswGcoayOY5xF4MPdUqP84w/viewform).
+
 Don’t wait too long - **you can apply for a pass only until Wednesday, April 14, 2021!**<br /><br />
 You are welcome to join the [ngGirls meetup group](http://www.meetup.com/ngGirls/) to get informed about future events.<br /><br />
 For more information [check out the FAQ](/faq)<br /><br />
