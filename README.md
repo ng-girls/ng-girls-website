@@ -10,13 +10,14 @@ Repository's goal is to rewrite current ng-girls page to Angular and Scully. Tha
 - [ ] Replace manual adding subpages with forms and APIs
 
 ## Running locally
--  `npm install`
--  `npm run scully:all`
+-  Installing the project: `npm install`
+-  Make a build: `npm run build`
+-  Serve the page`npm run scully:serve`
 
 ## Git Flow
-- Create feature branch from `base-branch`
+- Create feature branch from `main`
 - Add your changes
-- When ready, merge to `base-branch`
+- When ready, merge to `main`
 - After merging, GitHub Action will rebuild project and deploy your changes to webpage
  
 ## Adding new workshop 
@@ -26,8 +27,8 @@ Repository's goal is to rewrite current ng-girls page to Angular and Scully. Tha
 - Go to workshops folder and open file <event-name>.md
 - update properties in md file
 - create folder `src\assets\<your-workshop-name>` and add all assets there
-- Run `npm install && npm run scully:all` to test it locally
-- When ready create PR to `base-branch`
+- Run `npm install && npm run build` to test it locally
+- When ready create PR to `main`
 
 ## Adding new blog post
 - `npm checkout -b <your-post-name>-branch`
@@ -35,5 +36,5 @@ Repository's goal is to rewrite current ng-girls page to Angular and Scully. Tha
 - Prompt will ask you for the event name.
 - Go to blog folder and open file <post-name>.md
 - update properties in md file
-- Run `npm install && npm run scully:all` to test it locally
-- When ready create PR to `base-branch`
+- Run `npm install && npm run build` to test it locally
+- When ready create PR to `main`
