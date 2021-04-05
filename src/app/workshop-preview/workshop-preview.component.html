@@ -1,0 +1,12 @@
+<a [routerLink]="workshop.route">
+    <mat-card class="workshop-preview">
+        <img mat-card-image src="{{workshop.image}}">
+        <mat-card-header>
+            <mat-card-title>{{workshop.title}}</mat-card-title>
+            <mat-card-subtitle>{{workshop.author}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{workshop.description}}</p>
+        </mat-card-content>
+    </mat-card>
+</a>

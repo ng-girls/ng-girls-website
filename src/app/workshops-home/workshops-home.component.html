@@ -1,0 +1,9 @@
+<section id="blog" class="content-wrapper">
+    <h1 class="header">Workshops</h1>
+    <div class="workshops-list">
+        <div *ngFor="let workshop of workshops$ | async">
+            <app-workshop-preview [workshop]="workshop"></app-workshop-preview>
+        </div>
+    </div>
+</section>
+

@@ -2,7 +2,7 @@ import { ScullyConfig } from '@scullyio/scully';
 require('./extraPlugin/workshop-add-flex');
 const {DisableAngular} = require('scully-plugin-disable-angular');
 
-const postRenderers = [DisableAngular];
+const postRenderers = ['addFlex', DisableAngular ];
 
 
 export const config: ScullyConfig = {
@@ -19,7 +19,7 @@ export const config: ScullyConfig = {
     },
     '/workshops/:workshopId': {
       type: 'contentFolder',
-      postRenderers: ['addFlex'],
+      // postRenderers: ['addFlex'],
       workshopId: {
         folder: "./workshops"
       }

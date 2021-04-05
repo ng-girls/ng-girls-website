@@ -6,13 +6,13 @@ import { CocComponent } from './coc/coc.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'workshops', loadChildren: () => import('./workshops/workshops.module').then(m => m.WorkshopsModule) },
+  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
   // test
   // { path: 'krakow',   redirectTo: '/workshops/krakow', pathMatch: 'full' },
   { path: 'faq', component: FaqComponent },
   { path: 'coc', component: CocComponent },
-  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
+  { path: '', component: HomeComponent },
 ];
 
 @NgModule({

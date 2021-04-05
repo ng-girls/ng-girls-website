@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FaqComponent } from './faq/faq.component';
 import { CocComponent } from './coc/coc.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
+import { WorkshopsHomeComponent } from './workshops-home/workshops-home.component';
 
 // Material
 import {MatIconModule} from '@angular/material/icon';
@@ -26,6 +27,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { PostPreviewComponent } from './post-preview/post-preview.component'
+import { WorkshopPreviewComponent } from './workshop-preview/workshop-preview.component'
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { PostPreviewComponent } from './post-preview/post-preview.component'
     FaqComponent,
     CocComponent,
     BlogHomeComponent,
-    PostPreviewComponent
+    PostPreviewComponent,
+    WorkshopsHomeComponent,
+    WorkshopPreviewComponent
   ],
   imports: [
     BrowserModule,
