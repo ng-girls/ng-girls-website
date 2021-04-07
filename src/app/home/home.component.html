@@ -1,9 +1,16 @@
-<app-hero-section [sectionBg]="'../../../../assets/backgrounds/eclipse.jpg'">
-  <h3 class="upcoming-text">Upcoming events:</h3>
-  <div class="events-list">
+<app-hero-section [image]="'../../../../assets/backgrounds/eclipse.webp'" [full]="true">
+  <div class="button-div" *ngIf="events$ | async; let events">
+    <a href="#workshops"  pageScroll [pageScrollOffset]="100">
+        <button class="btn">
+          {{events.length}} Upcoming event{{events.length > 1 ? 's' : ''}} 
+        </button>
+    </a>
+</div>
+  <!-- <h3 class="upcoming-text">Upcoming events:</h3> -->
+  <!-- <div class="events-events">
     <div *ngFor="let event of events$ | async">
       <a [routerLink]="event.route" *ngIf="!event.archived">
-        <div class="workshop-card" [style.backgroundImage]="'url(' + (event.sectionBgThumb ?  event.sectionBgThumb : event.sectionBg) + ')'">
+        <div class="workshop-card" [style.backgroundImage]="'url(' + (event.imagePreview?  event.imagePreview : event.image) + ')'">
           <div class="card-overlay">
             <div class="workshop-link" >
               <b>{{ event.title }}</b><br/>
@@ -13,8 +20,13 @@
         </div>
       </a>
     </div>
-  </div>
+  </div> -->
 </app-hero-section>
+<app-workshops-home 
+[title]="'Upcoming events:'"
+[postLimit]="3">
+</app-workshops-home>
+
 
 <app-patreon></app-patreon>
 
@@ -24,6 +36,7 @@
   [team]="organizers" 
   [title]="'Organizing Team'"
   [showPopups]="true"
+  [image]="'../../../../assets/backgrounds/djangogirls.webp'"
 ></app-team-section>
 
 <app-partners-section 

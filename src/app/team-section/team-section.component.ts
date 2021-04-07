@@ -12,6 +12,7 @@ export class TeamSectionComponent implements OnInit {
   @Input() team;
   @Input() title: string;
   @Input() showPopups = false;
+  @Input() image;
 
   constructor(public dialog: MatDialog) {
   }

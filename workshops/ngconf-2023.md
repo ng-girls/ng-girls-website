@@ -1,6 +1,6 @@
 ---
 archived: false
-date: 'April 21,2021'
+date: 'April 21,2023'
 city: online
 title: ng-conf
 image: 'assets/workshops/ngconf-2021/ngconf-2021.webp'

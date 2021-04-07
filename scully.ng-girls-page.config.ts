@@ -1,8 +1,9 @@
 import { ScullyConfig } from '@scullyio/scully';
 require('./extraPlugin/workshop-add-flex');
-const {DisableAngular} = require('scully-plugin-disable-angular');
+// const {DisableAngular} = require('scully-plugin-disable-angular');
 
-const postRenderers = ['addFlex', DisableAngular ];
+const postRenderers = ['addFlex' ];
+// const postRenderers = ['addFlex', DisableAngular ];
 
 
 export const config: ScullyConfig = {

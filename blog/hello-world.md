@@ -3,7 +3,8 @@ title: hello-world
 description: Lollipop pudding lollipop dragée jelly beans chupa chups wafer ice cream.
 publish: false
 author: Dominika Zając
-image: ./assets/workshops/sample/sample.jpg
+image: 'assets/blog/sample/sample_small.webp'
+imagePreview: 'assets/blog/sample/sample_small.webp'
 ---
 
 # hello-world

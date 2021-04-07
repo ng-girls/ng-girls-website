@@ -29,6 +29,8 @@ import {MatCardModule} from '@angular/material/card';
 import { PostPreviewComponent } from './post-preview/post-preview.component'
 import { WorkshopPreviewComponent } from './workshop-preview/workshop-preview.component'
 
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { WorkshopPreviewComponent } from './workshop-preview/workshop-preview.co
     MatDialogModule,
     MatFormFieldModule,
     MatCardModule,
+    NgxPageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

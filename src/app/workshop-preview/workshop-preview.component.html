@@ -1,12 +1,9 @@
-<a [routerLink]="workshop.route">
+<a [routerLink]="workshop.route" *ngIf="!workshop.archived">
     <mat-card class="workshop-preview">
-        <img mat-card-image src="{{workshop.image}}">
         <mat-card-header>
             <mat-card-title>{{workshop.title}}</mat-card-title>
-            <mat-card-subtitle>{{workshop.author}}</mat-card-subtitle>
+            <mat-card-subtitle>{{workshop.date}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-            <p>{{workshop.description}}</p>
-        </mat-card-content>
+        <img mat-card-image src="{{workshop.imagePreview?  workshop.imagePreview : workshop.image}}">
     </mat-card>
 </a>

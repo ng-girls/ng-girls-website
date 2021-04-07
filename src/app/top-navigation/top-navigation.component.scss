@@ -27,6 +27,11 @@
     font-size: 16px;
     font-weight: 400;
     transition: all 0.3s;
+    &:hover{
+      // cursor: pointer;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    
 
   }
 
@@ -35,6 +40,10 @@
     padding: 0 8px;
     vertical-align: middle;
     transform: translateY(-20px);
+    &:hover{
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.8);
+    }
   }
 
 
@@ -98,3 +107,25 @@
     }
   }
 }
+
+
+// a {
+//   text-decoration: none;
+//   color: white;
+// }
+// a:hover, a:active{
+//   color: lightgray;
+// }
+// .navigation-items{
+//   list-style-type: none;
+//   padding: 0;
+//   margin: 0;
+// }
+// mat-toolbar{
+//   border-radius: 3px;
+// }
+// @media(max-width: 959px){
+//   mat-toolbar{
+//       border-radius: 0px;
+//   }
+// }

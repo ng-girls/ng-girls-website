@@ -1,7 +1,7 @@
-<section id="blog" class="content-wrapper">
-    <h1 class="header">Workshops</h1>
+<section id="workshops" class="content-wrapper">
+    <h1 class="header" *ngIf="title != ''">{{title}}</h1>
     <div class="workshops-list">
-        <div *ngFor="let workshop of workshops$ | async">
+        <div *ngFor="let workshop of events$ | async">
             <app-workshop-preview [workshop]="workshop"></app-workshop-preview>
         </div>
     </div>
