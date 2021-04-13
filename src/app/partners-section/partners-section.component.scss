@@ -1,5 +1,15 @@
 @import '../../styles.scss';
 
+picture >  img {
+  max-width: 200px;
+  height: 200px;
+  margin-right: 10px;
+    @include sm {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .partners-section {
   display: flex;
   flex-direction: column;
@@ -46,21 +56,21 @@
   margin: auto;
 }
 
-.partner-logo-section {
-  width: 200px;
-  height: 150px;
-  padding-left: 20px;
-  padding-right: 20px;
-  justify-content: center;
-  line-height: 150px;
-  @include sm {
-    width: 100px;
-    height: auto;
-  }
+// .partner-logo-section {
+//   // width: 200px;
+//   // height: 150px;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   justify-content: center;
+//   line-height: 150px;
+//   @include sm {
+//     width: 100px;
+//     height: 100px;
+//   }
 
-  img {
-    max-width: 100%;
-    max-height: 100px;
-    vertical-align: middle;
-  }
-}
+  // img {
+    // max-width: 100%;
+    // max-height: 100px;
+    // vertical-align: middle;
+  // }
+// }

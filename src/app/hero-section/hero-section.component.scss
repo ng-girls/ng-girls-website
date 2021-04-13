@@ -1,6 +1,11 @@
 
 @import '../../styles.scss';
 
+picture >  img {
+  max-width: 100%;
+  height: auto;
+}
+
 .hero-image {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
@@ -25,6 +30,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    @include sm {
+      // top: 35%;
+    }
   }
   
   .logo-section {
@@ -48,6 +56,26 @@
     @include sm {
       height: 100px;
       width: auto;
+    }
+  }
+  .logo-vertical {
+    // width: 333px;
+    // height: 518px;
+    margin: 20px auto 0;
+    background-size: 100% auto;
+    @include sm {
+     display: none;
+    }
+    
+    
+  }
+  .logo-vertical--sm{
+    // @include sm {
+    //   width: 140px;
+    //   height: 218px;
+    // }
+    @include md {
+      display: none;
     }
   }
   

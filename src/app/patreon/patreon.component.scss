@@ -18,11 +18,15 @@
     .link-container {
         text-align: center;
     }
-    .patreon-img {
+    // .patreon-img {
+    //     max-width: 100%;
+    //     width: 430px;
+    //     margin-bottom: 0.5em;
+    // }
+    picture >  img {
         max-width: 100%;
-        width: 430px;
-        margin-bottom: 0.5em;
-    }
+        height: auto;
+      }
 }
 .patreon-section {
     background: antiquewhite;

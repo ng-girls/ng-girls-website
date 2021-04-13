@@ -16,7 +16,11 @@
         <div class="partners-list">
             <div class="partner-logo-section" *ngFor="let partner of partners">
                 <a href="{{partner.link}}" target="_blank">
-                    <img src="{{partner.logo}}" />
+                    <picture>
+                        <source media="(min-width: 500px)" srcset="{{partner.logo}}">
+                        <source media="(min-width: 300px)" srcset="{{partner.logo.replace('-200.webp', '-100.webp' )}}">
+                        <img src="{{partner.logo}}" alt="{{partner.title || ''}} logo" width="200" height="200">
+                      </picture>
                 </a>
             </div>
         </div>
@@ -25,7 +29,7 @@
     <div *ngIf="isDjangoLabelVisible" class="django-label">
         <p>ngGirls is inspired by Django Girls and makes use of its resources</p>
         <a href="https://djangogirls.org/" target="_blank">
-            <img src="../../assets/partners/jpg/django-girls.jpg" class="logo">
+            <img src="../../assets/partners/django-girls-200.webp" class="logo" alt="DjangoGirls Logo" width="250" height="68">
         </a>
         </div>
 

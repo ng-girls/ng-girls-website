@@ -1,10 +1,14 @@
+
 <div id="home" class="hero-image" [style.backgroundImage]="'url(' + image + ')'">
     <div class="content">
         <div class="">
             <div class="hero-text">
                 <div class="logo-section">
-                    <img class="logo logo-big" src='../../../../assets/logo_big.png'>
-                    <img class="logo logo-name" src='../../../../assets/logo_name.png'>
+                    <picture>
+                        <source media="(min-width: 577px)" srcset="../../../../assets/logo_vertical.webp">
+                        <source media="(min-width: 300px)" srcset="../../../../assets/logo_vertical_small.webp">
+                        <img src="../../../../assets/logo_vertical.webp" alt="Logo ngGirls" width="333" height="518">
+                      </picture>
                     <div class="animated hiding" data-animation="fadeInDown" data-delay="500"></div>
                 </div>
                 <ng-content></ng-content>

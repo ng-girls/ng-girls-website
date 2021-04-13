@@ -4,28 +4,28 @@ date: April 4th,2020
 city: SampleCity
 country: SampleCountry
 title: Krakow
-sectionBg: assets/workshops/sample/sample.jpg
-sectionBgThumb: assets/workshops/sample/sample_small.jpg
+sectionBg: assets/workshops/sample/sample.webp
+sectionBgThumb: assets/workshops/sample/sample_small.webp
 participantsFormLink: 
 mentorsFormLink: 
 sponsorsCallMail: hello@ng-girls.org
 mentors:
   - name: Martina Kraus
     company: Organizer
-    photo: assets/people/jpg/you.jpg
+    photo: assets/people/you.webp
   - name: Amina Hasimbegovic
     company: Siemens Healthcare
-    photo: assets/people/jpg/you.jpg
+    photo: assets/people/you.webp
   - name: Revital Friedman
     company: Opster
-    photo: assets/people/jpg/you.jpg
+    photo: assets/people/you.webp
   - name: Robert Willemelis
     company: STRATO
-    photo: assets/people/jpg/you.jpg
+    photo: assets/people/you.webp
 partners:
-  - logo: assets/partners/jpg/angular-austria.jpg
+  - logo: assets/partners/angular-austria.webp
     link: https://angular-austria.at/
-  - logo: assets/partners/jpg/ng-nights.jpg
+  - logo: assets/partners/ng-nights.webp
     link: http://www.meetup.com/Angular-Nights/
 ---
 

@@ -11,30 +11,30 @@ sponsorsCallMail: hello@ng-girls.org
 mentors:
   - name: Shmuela Jacobs
     company: ngGirls Founder
-    photo: assets/people/jpg/shmuela_jacobs_small.jpg
+    photo: assets/people/shmuela_jacobs_small.webp
   - name: Robert Willemelis
     company: ngGirls Team
-    photo: assets/people/jpg/robert_willemelis_small.jpg
+    photo: assets/people/robert_willemelis_small.webp
   - name: Revital Friedman
     company: ngGirls Team
-    photo: assets/people/jpg/revital_friedman_small.jpg
+    photo: assets/people/revital_friedman_small.webp
   - name: Martina Kraus
     company: ngGirls Team
-    photo: assets/people/jpg/martina_kraus_small.jpg
+    photo: assets/people/martina_kraus_small.webp
   - name: Katarzyna Płocka
     company: ngGirls Team
-    photo: assets/people/jpg/katarzyna_pucczko_small.jpg
+    photo: assets/people/katarzyna_pucczko_small.webp
   - name: Alisa Duncan
     company: ngGirls Team
-    photo: assets/people/jpg/alisa_duncan_small.jpg
+    photo: assets/people/alisa_duncan_small.webp
   - name: And You?
     company: 
-    photo: assets/people/jpg/you.jpg
+    photo: assets/people/you.webp
 hosts:
-  - logo: 'assets/workshops/ngconf-2021/ngconf-2021.png'
+  - logo: 'assets/workshops/ngconf-2021/ngconf-logo-2021.webp'
     link: https://www.ng-conf.org/
 partners:
-  - logo: 'assets/partners/svg/ultimate-courses.svg'
+  - logo: 'assets/partners/ultimate-courses-200.webp'
     link: https://ultimatecourses.com/
 ---
 
