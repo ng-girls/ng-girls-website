@@ -4,8 +4,7 @@ date: 'April 21,2022'
 city: online
 title: ng-conf
 image: 'assets/workshops/ngconf-2021/ngconf-2021.webp'
-# imagePreview: 'assets/workshops/ngconf-2021/ngconf-2021_small.webp'
-imagePreview: 'assets/workshops/default/default_small.webp'
+imagePreview: 'assets/workshops/ngconf-2021/ngconf-2021_small.webp'
 participantsFormLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeIUuMJ4mq5jDOuXH52aq4bM5YxswGcoayOY5xF4MPdUqP84w/viewform'
 mentorsFormLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdqalj7gna2ZlyByqn0LBAzMzaZ7086FB7Kq7NsoaYfH4xY0g/viewform'
 sponsorsCallMail: hello@ng-girls.org

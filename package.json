@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --stats-json",
+    "build": "ng build --stats-json --prod",
     "postbuild": "npm run scully -- --scanRoutes && npm run sw-build && npm run static",
     "static": "cp -r static/* dist/static/",
     "test": "ng test",
