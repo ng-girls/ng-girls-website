@@ -14,7 +14,7 @@ googleAnalytics.initialize();
 skipWaiting();
 clientsClaim();
 
-const fontHandler = strategies.cacheFirst({
+const fontHandler = strategies.CacheFirst({
   cacheName: "fonts-cache",
   plugins: [
     new workbox.expiration.Plugin({
