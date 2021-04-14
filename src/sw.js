@@ -2,7 +2,7 @@
 import * as googleAnalytics from "workbox-google-analytics";
 import { precacheAndRoute } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
-import * as strategies from "workbox-strategies";
+import {CacheFirst,StaleWhileRevalidate} from "workbox-strategies";
 import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 
@@ -14,7 +14,7 @@ googleAnalytics.initialize();
 skipWaiting();
 clientsClaim();
 
-const fontHandler = strategies.CacheFirst({
+const fontHandler = new CacheFirst({
   cacheName: "fonts-cache",
   plugins: [
     new ExpirationPlugin({
@@ -40,7 +40,7 @@ precacheAndRoute(self.__WB_MANIFEST, {
 // Google fonts
 registerRoute(
   new RegExp("https://fonts.(?:googleapis|gstatic).com/(.*)"),
-  new strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: "googleapis",
     plugins: [
       new ExpirationPlugin({
