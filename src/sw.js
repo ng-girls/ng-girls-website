@@ -17,7 +17,7 @@ clientsClaim();
 const fontHandler = strategies.CacheFirst({
   cacheName: "fonts-cache",
   plugins: [
-    new workbox.expiration.Plugin({
+    new ExpirationPlugin({
       maxAgeSeconds: 30 * 24 * 60 * 60,
       maxEntries: 10
     })
