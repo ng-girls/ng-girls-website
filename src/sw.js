@@ -14,6 +14,16 @@ googleAnalytics.initialize();
 skipWaiting();
 clientsClaim();
 
+const fontHandler = strategies.cacheFirst({
+  cacheName: "fonts-cache",
+  plugins: [
+    new workbox.expiration.Plugin({
+      maxAgeSeconds: 30 * 24 * 60 * 60,
+      maxEntries: 10
+    })
+  ]
+});
+
 // PRECACHING
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
@@ -39,6 +49,11 @@ registerRoute(
     ],
   })
 );
+
+//  local fonts
+registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
+  return fontHandler.handle(args);
+});
 
 // PUSH NOTIFICATIONS
 
@@ -101,3 +116,10 @@ self.addEventListener("notificationclick", function (event) {
 self.addEventListener("notificationclose", function (event) {
   log("[Service Worker]: Received notificationclose event");
 });
+
+var terminationEvent = 'onpagehide' in self ? 'pagehide' : 'unload';
+self.addEventListener(terminationEvent, function (event) {
+  log("[Service Worker]: termination event");
+  // Note: if the browser is able to cache the page, `event.persisted`
+  // is `true`, and the state is frozen rather than terminated.
+}, {capture: true});
