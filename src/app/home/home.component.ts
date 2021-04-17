@@ -19,21 +19,20 @@ export class HomeComponent implements OnInit {
   posts$: Observable<ScullyRoute[]>;
   homeImage = '../../../../assets/backgrounds/eclipse.webp';
   innerWidth: any;
-  breakpoint: string = '';
+  breakpointSuffix: string = '';
+  private breakpoint: string = '-xl';
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.innerWidth = window.innerWidth;
-    this.breakpoint = this.getBreakpoint(this.innerWidth);
+    this.getBreakpoint();
   }
 
   constructor(private srs: ScullyRoutesService, private sts: TransferStateService) {
-    this.breakpoint = this.getBreakpoint(this.innerWidth);
+    this.getBreakpoint();
    }
 
   ngOnInit() {
-    this.innerWidth = window.innerWidth;
-    // this.breakpoint = this.getBreakpoint(this.innerWidth);
+    this.getBreakpoint();
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
@@ -63,17 +62,30 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getBreakpoint(width){
+  getBreakpoint(){
+    const width = window.innerWidth;
+    if(!width){
+      return;
+    }
+    let bpOld = this.breakpointSuffix;
+    let bpNew;
     if(width >= 1200){
-      return '-xl';
+      bpNew =
+      bpNew = '-xl';
     } else if(width >=992){
-      return '-lg';
+      bpNew = '-lg';
     } else if(width >=768){
-      return '-md';
+      bpNew = '-md';
     } else if(width >=576){
-      return '-sm';
+      bpNew = '-sm';
     } else {
-      return '-xs';
+      bpNew = '-xs';
+    }
+    if(bpNew !== bpOld){
+      this.breakpointSuffix = bpNew;
+      this.breakpoint = bpNew;
+    } else {
+      console.log('else');
     }
   }
 }
