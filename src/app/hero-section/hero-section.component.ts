@@ -8,10 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeroSectionComponent implements OnInit {
   @Input()   image;
   @Input()   full = false;
+  // innerWidth: any;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event) {
+  //   this.innerWidth = window.innerWidth;
+  // }
+
+constructor() { }
+
+ngOnInit(): void {
+//     this.innerWidth = window.innerWidth;
   }
 
 }

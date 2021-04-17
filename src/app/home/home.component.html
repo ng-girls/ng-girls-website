@@ -1,4 +1,4 @@
-<app-hero-section [image]="'../../../../assets/backgrounds/eclipse.webp'" [full]="true">
+<app-hero-section [image]="'../../../../assets/backgrounds/eclipse/eclipse' + breakpoint + '.webp'" [full]="true">
   <div class="button-div" *ngIf="events$ | async; let events">
     <a href="#workshops"  pageScroll [pageScrollOffset]="100">
         <button class="btn">

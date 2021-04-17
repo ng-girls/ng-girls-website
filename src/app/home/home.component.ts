@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
 import { map, filter } from 'rxjs/operators';
@@ -18,10 +18,20 @@ export class HomeComponent implements OnInit {
   events: any;
   posts$: Observable<ScullyRoute[]>;
   homeImage = '../../../../assets/backgrounds/eclipse.webp';
+  innerWidth: any;
+  breakpoint: string = '';
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+    this.breakpoint = this.getBreakpoint(this.innerWidth);
+  }
 
   constructor(private srs: ScullyRoutesService, private sts: TransferStateService) { }
 
   ngOnInit() {
+    this.innerWidth = window.innerWidth;
+    this.breakpoint = this.getBreakpoint(this.innerWidth);
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
@@ -49,5 +59,19 @@ export class HomeComponent implements OnInit {
       map(posts => posts.slice(0, 3))
     )
     );
+  }
+
+  getBreakpoint(width){
+    if(width >= 1200){
+      return '-xl';
+    } else if(width >=992){
+      return '-lg';
+    } else if(width >=768){
+      return '-md';
+    } else if(width >=576){
+      return '-xs';
+    } else {
+      return '';
+    }
   }
 }

@@ -36,11 +36,11 @@ picture >  img {
   }
   
   .logo-section {
-    max-width: 550px;
+    // max-width: 550px;
     margin: auto;
-    @include sm {
-      max-width: 200px;
-    }
+    // @include sm {
+    //   max-width: 200px;
+    // }
   }
 
   .logo {
