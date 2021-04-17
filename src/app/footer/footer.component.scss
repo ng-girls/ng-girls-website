@@ -7,7 +7,7 @@ $footer-links-color: #555;
     padding: 40px 52px 13px;
     border-top: 1px solid #e7e7e7;
     background-color: $footer-background-color;
-    @include sm {
+    @include smx {
         padding: 26px 20px 13px;
         
     }
@@ -57,7 +57,7 @@ $footer-links-color: #555;
     display: flex;
     width: 80%;
     margin: auto;
-    @include sm {
+    @include smx {
         flex-direction: column;
     }
     .footer-section {

@@ -5,7 +5,7 @@
     margin: auto;
     // margin-top: 100px;
     text-align: center;
-    @include sm {
+    @include smx {
         width: 100%;
     }
 }
@@ -15,7 +15,7 @@
     font-size: 40px;
     margin-bottom: 50px;
     margin-top: 50px;
-    @include sm {
+    @include smx {
         font-size: 30px;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -33,7 +33,7 @@
 //     top: -300px;
 //     position: relative;
 // }
-// @include sm {
+// @include smx {
 //     #workshops{
 //         top: -150px;
 //     }

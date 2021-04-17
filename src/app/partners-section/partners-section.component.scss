@@ -4,7 +4,7 @@ picture >  img {
   max-width: 200px;
   height: 200px;
   margin-right: 10px;
-    @include sm {
+    @include smx {
     width: 100px;
     height: 100px;
   }
@@ -23,7 +23,7 @@ picture >  img {
   font-size: 80px;
   margin: 60px;
   font-weight: 500;
-  @include sm {
+  @include smx {
     margin: auto;
     margin-bottom: 30px;
     font-size: 50px;

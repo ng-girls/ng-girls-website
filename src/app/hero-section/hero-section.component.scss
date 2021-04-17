@@ -4,6 +4,35 @@
 picture >  img {
   max-width: 100%;
   height: auto;
+  @include sm {
+    width: 140px;
+    height: 218px;
+        max-width: none;
+        aspect-ratio: unset;
+  }
+}
+.hero-logo{
+  height: 518px;
+  width: 333px;
+  background-repeat: no-repeat;
+  @include sm {
+    height: 448px;
+    width: 288px;
+  }
+  @include xs {
+    width: 175px;
+    height: 272px;
+  }
+  @include md {
+    height: 518px;
+    width: 333px;
+  }
+  // @include lg {
+  //   height: 518px;
+  // }
+  // @include xl {
+  //   height: 518px;
+  // }
 }
 
 .hero-image {
@@ -30,7 +59,7 @@ picture >  img {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    @include sm {
+    @include smx {
       // top: 35%;
     }
   }
@@ -38,6 +67,7 @@ picture >  img {
   .logo-section {
     // max-width: 550px;
     margin: auto;
+    margin-bottom: 20px;
     // @include sm {
     //   max-width: 200px;
     // }
@@ -53,7 +83,7 @@ picture >  img {
     height: 340px;
     margin: 20px auto 0;
     background-size: 100% auto;
-    @include sm {
+    @include smx {
       height: 100px;
       width: auto;
     }
@@ -84,7 +114,7 @@ picture >  img {
     background-size: 100% auto;
     width: 330px;
     height: 155px;
-    @include sm {
+    @include smx {
       width: 140px;
       height: auto;
     }

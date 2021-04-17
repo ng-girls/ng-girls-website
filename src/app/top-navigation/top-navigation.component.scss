@@ -9,7 +9,7 @@
   @media (min-width: 768px) and (max-width: 991px) {
     padding: 13px 0 0 34px;
   }
-  @include sm {
+  @include smx {
     padding: 0 25px;
     .links-container {
       display: none;

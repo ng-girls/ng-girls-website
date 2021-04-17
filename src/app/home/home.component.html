@@ -1,4 +1,6 @@
-<app-hero-section [image]="'../../../../assets/backgrounds/eclipse/eclipse' + breakpoint +'.webp'" [full]="true">
+<app-hero-section 
+  [image]="'../../../../assets/backgrounds/eclipse/eclipse' + breakpoint +'.webp'"
+  [imageLogo]="'../../../../assets/theme/logo-vertical/logo-vertical' + breakpoint +'.webp'" [full]="true">
   <div class="button-div" *ngIf="events$ | async; let events">
     <a href="#workshops"  pageScroll [pageScrollOffset]="100">
         <button class="btn">
@@ -22,7 +24,7 @@
   [team]="organizers" 
   [title]="'Organizing Team'"
   [showPopups]="true"
-  [image]="'../../../../assets/backgrounds/djangogirls.webp'"
+  [image]="'../../../../assets/backgrounds/djangogirls/djangogirls'+breakpoint+'.webp'"
 ></app-team-section>
 
 <app-partners-section 

@@ -25,7 +25,7 @@
     width: 80%;
     margin: auto;
     flex-wrap: wrap;
-    @include sm {
+    @include smx {
       width: 100%;
     }
   }
@@ -37,7 +37,7 @@
     padding-bottom: 80px;
     margin-bottom: 10px;
     font-weight: 400;
-    @include sm {
+    @include smx {
       margin: auto;
       font-size: 50px;
       line-height: normal;
@@ -51,7 +51,7 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 30px;
-    @include sm {
+    @include smx {
       width: 110px;
       height: auto;
       margin-left: 10px;
@@ -63,7 +63,7 @@
       padding: 15px 0;
       width: 100%;
       font-weight: 400;
-      @include sm {
+      @include smx {
         font-size: 20px;
         padding: 10px 0;
       }
@@ -74,7 +74,7 @@
       line-height: 25px;
       color: #03a9f4;
       font-weight: 300;
-      @include sm {
+      @include smx {
         font-size: 20px;
       }
     }
@@ -86,7 +86,7 @@
       margin: 0 auto;
       background-position: center center;
       background-size: cover;
-      @include sm {
+      @include smx {
         width: 100px;
         height: 100px;
       }

@@ -5,7 +5,7 @@
     margin: auto;
     margin-top: 100px;
     text-align: center;
-    @include sm {
+    @include smx {
         width: 100%;
     }
 }
