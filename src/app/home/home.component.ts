@@ -27,11 +27,13 @@ export class HomeComponent implements OnInit {
     this.breakpoint = this.getBreakpoint(this.innerWidth);
   }
 
-  constructor(private srs: ScullyRoutesService, private sts: TransferStateService) { }
+  constructor(private srs: ScullyRoutesService, private sts: TransferStateService) {
+    this.breakpoint = this.getBreakpoint(this.innerWidth);
+   }
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
-    this.breakpoint = this.getBreakpoint(this.innerWidth);
+    // this.breakpoint = this.getBreakpoint(this.innerWidth);
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
@@ -69,9 +71,9 @@ export class HomeComponent implements OnInit {
     } else if(width >=768){
       return '-md';
     } else if(width >=576){
-      return '-xs';
+      return '-sm';
     } else {
-      return '';
+      return '-xs';
     }
   }
 }
