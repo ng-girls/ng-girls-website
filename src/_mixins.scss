@@ -1,4 +1,9 @@
 // Small devices
+@mixin xss {
+    @media (min-width: #{$screen-xs-min}) {
+        @content;
+    }
+ }
 @mixin xs {
     @media (max-width: #{$screen-sm-min}) {
         @content;

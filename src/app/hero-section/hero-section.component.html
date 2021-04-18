@@ -1,14 +1,29 @@
-
-
-<div id="home" class="hero-image" [style.backgroundImage]="'url(' + image + ')'">
-    <div class="content">
-        <div class="">
-            <div class="hero-text">
-                <div class="logo-section">
-                    <div class="hero-logo" [style.backgroundImage]="'url(' + imageLogo + ')'"></div>
+<div id="masthead" class="site-header" role="banner">
+    <div class="custom-header">
+        <div class="custom-header-media">
+            <div id="wp-custom-header" class="wp-custom-header">
+                <img class="hero-bg" src="http://user.coffee/wp-content/uploads/2017/12/171231-blog-bild-optimiert.jpg" 
+                width="1200" height="700" alt="ngGirls eclipse" 
+                srcset="../../../../assets/backgrounds/eclipse/eclipse-xl.webp 1200w, 
+                ../../../../assets/backgrounds/eclipse/eclipse-xs.webp 350w, 
+                ../../../../assets/backgrounds/eclipse/eclipse-md.webp 768w, 
+                ../../../../assets/backgrounds/eclipse/eclipse-lg.webp 992w,
+                ../../../../assets/backgrounds/eclipse/eclipse-xl.webp 1200w" sizes="100vw" />
+            </div>		
+        </div>
+        <div class="site-branding">
+            <div class="wrap">
+                <a href="#" class="custom-logo-link" rel="home" itemprop="url">
+                    <img class="hero-logo" width="333" height="518" 
+                    srcset="../../../../assets/theme/logo-vertical/logo-vertical-xl.webp 992w,
+                    ../../../../assets/theme/logo-vertical/logo-vertical-xs.webp 350w, 
+                                ../../../../assets/theme/logo-vertical/logo-vertical-md.webp 768w, " sizes="100vw" class="custom-logo" alt="User.Coffee" itemprop="logo" />
+                </a>
+                <div class="site-branding-text">
+                        <ng-content></ng-content>
                 </div>
-                <ng-content></ng-content>
             </div>
         </div>
+
     </div>
 </div>
