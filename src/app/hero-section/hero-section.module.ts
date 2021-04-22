@@ -1,3 +1,5 @@
+import { BgImageComponent } from './../bg-image/bg-image.component';
+import { LogoComponent } from './../logo/logo.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroSectionComponent } from './hero-section.component';
@@ -7,7 +9,9 @@ import { HeroSectionComponent } from './hero-section.component';
         CommonModule
     ],
     declarations: [
-        HeroSectionComponent
+        HeroSectionComponent,
+        LogoComponent,
+        BgImageComponent
     ],
     exports: [
         HeroSectionComponent

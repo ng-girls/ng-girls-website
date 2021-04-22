@@ -1,4 +1,4 @@
-<app-hero-section [image]="(workshop$ | async)?.image" [full]="false">
+<app-hero-section [image]="(workshop$ | async)?.image">
   <p class="hero-description">
     {{(workshop$ | async)?.date}}<span *ngIf="(workshop$ | async)?.date">, {{(workshop$ | async)?.city}}</span><span *ngIf="(workshop$ | async)?.city">, {{(workshop$ | async)?.country}}</span>
   </p>

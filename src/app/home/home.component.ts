@@ -17,7 +17,10 @@ export class HomeComponent implements OnInit {
   partners = partners;
   events: any;
   posts$: Observable<ScullyRoute[]>;
-  homeImage = '../../../../assets/backgrounds/eclipse.webp';
+  rootPath: string = '../../../../';
+  homeImage = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
+  homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
+  teamLogo = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
   innerWidth: any;
   breakpointSuffix: string = '';
   private breakpoint: string = '-xl';

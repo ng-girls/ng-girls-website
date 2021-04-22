@@ -7,7 +7,7 @@ import { TeamSectionComponent } from './team-section.component';
         CommonModule
     ],
     declarations: [
-        TeamSectionComponent
+        TeamSectionComponent,
     ],
     exports: [
         TeamSectionComponent

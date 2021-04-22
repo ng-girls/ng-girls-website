@@ -1,0 +1,13 @@
+<div class="site-branding" *ngIf="logo">
+    <div class="wrap">
+        <a href="#" class="custom-logo-link" rel="home" itemprop="url">
+            <img class="hero-logo" width="333" height="518" 
+            srcset="{{logo.replace('.webp', '-xl.webp')}} 992w,
+            {{logo.replace('.webp', '-xs.webp')}} 350w, 
+            {{logo.replace('.webp', '-md.webp')}} 768w, " sizes="100vw" class="custom-logo" alt="{{logoAlt}}" itemprop="logo" />
+        </a>
+        <div class="site-branding-text">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

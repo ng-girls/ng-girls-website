@@ -30,6 +30,8 @@ import { PostPreviewComponent } from './post-preview/post-preview.component'
 import { WorkshopPreviewComponent } from './workshop-preview/workshop-preview.component'
 
 import { NgxPageScrollModule } from 'ngx-page-scroll';
+// import { LogoComponent } from './logo/logo.component';
+// import { BgImageComponent } from './bg-image/bg-image.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     BlogHomeComponent,
     PostPreviewComponent,
     WorkshopsHomeComponent,
-    WorkshopPreviewComponent
+    WorkshopPreviewComponent,
+   
+    // BgImageComponent
   ],
   imports: [
     BrowserModule,

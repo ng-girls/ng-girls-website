@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero-section',
@@ -7,20 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroSectionComponent implements OnInit {
   @Input()   image;
-  @Input()   imageLogo;
-  @Input()   full = false;
-  // innerWidth: any;
+  @Input()   imageAlt;
+  @Input()   logo;
+  @Input()   logoAlt;
 
-
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event) {
-  //   this.innerWidth = window.innerWidth;
-  // }
-
-constructor() { }
-
-ngOnInit(): void {
-//     this.innerWidth = window.innerWidth;
+  constructor() { 
+  }
+  ngOnInit(): void {
+    this.imageAlt = this.imageAlt ? this.imageAlt : 'eclipse';
+    this.logoAlt = this.logoAlt ? this.logoAlt : 'logo';
   }
 
 }
