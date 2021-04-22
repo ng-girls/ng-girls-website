@@ -19,7 +19,7 @@ const fontHandler = new CacheFirst({
   plugins: [
     new ExpirationPlugin({
       maxAgeSeconds: 30 * 24 * 60 * 60,
-      maxEntries: 10
+      maxEntries: 30
     })
   ]
 });
