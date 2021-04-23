@@ -132,7 +132,7 @@
   "defaultProject": "ng-girls-page",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
