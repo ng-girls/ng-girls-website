@@ -1,3 +1,4 @@
+import { ResponsivePipe } from './../pipes/responsive.pipe';
 import { BgImageComponent } from './../bg-image/bg-image.component';
 import { LogoComponent } from './../logo/logo.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ import { HeroSectionComponent } from './hero-section.component';
     declarations: [
         HeroSectionComponent,
         LogoComponent,
-        BgImageComponent
+        BgImageComponent,
+        ResponsivePipe
     ],
     exports: [
         HeroSectionComponent

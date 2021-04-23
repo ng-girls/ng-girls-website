@@ -1,3 +1,4 @@
+// import { ResponsivePipe } from './pipes/responsive.pipe';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
@@ -48,6 +49,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     PostPreviewComponent,
     WorkshopsHomeComponent,
     WorkshopPreviewComponent,
+    // ResponsivePipe
    
     // BgImageComponent
   ],

@@ -1,11 +1,11 @@
 <div class="bg-image bg-image--{{imageHeight}}">
     <div class="bg-image__wrapper">
-        <img class="bg-image__image" src="{{image.replace('.webp', '-xl.webp')}}" 
+        <img class="bg-image__image" src="{{image | responsive: 'xl'}}" 
         width="1200" height="700" alt="{{imageAlt}}" 
-        srcset="{{image.replace('.webp', '-xl.webp')}} 1200w, 
-        {{image.replace('.webp', '-xs.webp')}} 350w, 
-        {{image.replace('.webp', '-md.webp')}} 768w, 
-        {{image.replace('.webp', '-lg.webp')}} 992w,
-        {{image.replace('.webp', '-xl.webp')}} 1200w" sizes="100vw" />
+        srcset="{{image | responsive: 'xl'}} 1200w, 
+        {{image | responsive: 'xs'}} 350w, 
+        {{image | responsive: 'md'}} 768w, 
+        {{image | responsive: 'lg'}} 992w,
+        {{image | responsive: 'xl'}} 1200w" sizes="100vw" />
     </div>
 </div>
