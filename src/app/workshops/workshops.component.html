@@ -1,4 +1,7 @@
-<app-hero-section [image]="(workshop$ | async)?.image">
+<app-hero-section 
+  [image]="(workshop$ | async)?.image"
+  [logo]="homeLogo"
+  >
   <p class="hero-description">
     {{(workshop$ | async)?.date}}<span *ngIf="(workshop$ | async)?.date">, {{(workshop$ | async)?.city}}</span><span *ngIf="(workshop$ | async)?.city">, {{(workshop$ | async)?.country}}</span>
   </p>
@@ -19,6 +22,7 @@
   [team]="(workshop$ | async)?.mentors" 
   [title]="'Meet the Mentors'"
   [showPopups]="false"
+  [image]="'../../../../assets/backgrounds/djangogirls/djangogirls' + breakpointSuffix + '.webp'"
 ></app-team-section>
 
 <app-partners-section [partners]="(workshop$ | async)?.partners" [hosts]="(workshop$ | async)?.hosts"

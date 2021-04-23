@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router, ROUTES} from '@angular/router';
-import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
+import { ScullyRoutesService, ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -16,7 +16,10 @@ export class BlogComponent implements OnInit {
 
   article$;
 
-  constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService) {
-    this.article$ = (this.srs.getCurrent() as Observable<ScullyRoute>);
+  constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService, private sts: TransferStateService) {
+    this.article$ = this.sts.useScullyTransferState(
+      'blogRoutes',
+      (this.srs.getCurrent() as Observable<ScullyRoute>)
+    );
   }
 }

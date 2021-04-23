@@ -31,7 +31,7 @@ mentors:
     company: 
     photo: assets/people/you.webp
 hosts:
-  - logo: 'assets/workshops/ngconf-2021/ngconf-logo-2021.webp'
+  - logo: 'assets/workshops/ngconf-2021/ngconf-logo-2021-200.webp'
     link: https://www.ng-conf.org/
 partners:
   - logo: 'assets/partners/ultimate-courses-200.webp'
