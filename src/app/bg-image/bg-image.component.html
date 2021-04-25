@@ -1,10 +1,10 @@
-<div class="bg-image bg-image--{{imageHeight}}">
+<div class="bg-image bg-image--{{imageHeight}} bg-image-mobile--{{mobileHeight}}" [ngClass]="{'bg-image--responsive': responsive == true, 'bg--mobile': isMobile}">
     <div class="bg-image__wrapper">
         <img class="bg-image__image" src="{{image | responsive: 'xl'}}" 
         width="1200" height="700" alt="{{imageAlt}}" 
         srcset="{{image | responsive: 'xl'}} 1200w, 
-        {{image | responsive: 'xs'}} 350w, 
-        {{image | responsive: 'md'}} 768w, 
+        {{image | responsive: 'xs' : mobileHeight}} 350w, 
+        {{image | responsive: 'md' : mobileHeight}} 768w, 
         {{image | responsive: 'lg'}} 992w,
         {{image | responsive: 'xl'}} 1200w" sizes="100vw" />
     </div>

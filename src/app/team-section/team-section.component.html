@@ -1,5 +1,10 @@
-<section id="team" class="team-section" [style.backgroundImage]="'url(' + image + ')'">
-    <div class="overlay">
+<section id="team" class="team-section team-section--{{height}}" [ngClass]="{'team-section--mobile': isMobile}">
+    <app-bg-image
+        [image]="image"
+        [mobileHeight]="mobileHeight"
+        [imageAlt]="imageAlt">
+    </app-bg-image>
+    <div class="team-section__overlay overlay--{{mobileHeight}}" >
         <h1 class="section-title">{{title}}</h1>
         <div class="team-list">
             <div class="person-card" *ngFor="let person of team" (click)="openDialog(person)">
@@ -10,3 +15,4 @@
         </div>
     </div>
 </section>
+

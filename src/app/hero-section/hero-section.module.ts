@@ -1,3 +1,4 @@
+import { BgImageModule } from './../bg-image/bg-image.module';
 import { ResponsivePipe } from './../pipes/responsive.pipe';
 import { BgImageComponent } from './../bg-image/bg-image.component';
 import { LogoComponent } from './../logo/logo.component';
@@ -7,13 +8,14 @@ import { HeroSectionComponent } from './hero-section.component';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        BgImageModule
     ],
     declarations: [
         HeroSectionComponent,
         LogoComponent,
-        BgImageComponent,
-        ResponsivePipe
+        // BgImageComponent,
+        // ResponsivePipe
     ],
     exports: [
         HeroSectionComponent
