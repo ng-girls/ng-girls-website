@@ -6,7 +6,7 @@
   <div class="button-div" *ngIf="events$ | async; let events">
     <a href="#workshops"  pageScroll [pageScrollOffset]="100">
         <button class="btn">
-          {{events.length}} Upcomin event{{events.length > 1 ? 's' : ''}} 
+          {{events.length}} Upcoming event{{events.length > 1 ? 's' : ''}} 
         </button>
     </a>
 </div>
