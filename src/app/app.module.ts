@@ -15,7 +15,7 @@ import {PartnersSectionModule} from './partners-section/partners-section.module'
 import {AboutSectionComponent} from './about-section/about-section.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FaqComponent } from './faq/faq.component';
-import { CocComponent } from './coc/coc.component';
+// import { CocComponent } from './coc/coc.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { WorkshopsHomeComponent } from './workshops-home/workshops-home.component';
 
@@ -43,15 +43,10 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     FooterComponent,
     AboutSectionComponent,
     DialogPersonComponent,
-    FaqComponent,
-    CocComponent,
     BlogHomeComponent,
     PostPreviewComponent,
     WorkshopsHomeComponent,
     WorkshopPreviewComponent,
-    // ResponsivePipe
-   
-    // BgImageComponent
   ],
   imports: [
     BrowserModule,
@@ -64,9 +59,9 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule,
+    // FormsModule,
     MatDialogModule,
-    MatFormFieldModule,
+    // MatFormFieldModule,
     MatCardModule,
     NgxPageScrollModule
   ],
