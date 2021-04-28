@@ -23,6 +23,15 @@ const fontHandler = new CacheFirst({
     })
   ]
 });
+const imgHandler = new CacheFirst({
+  cacheName: "img-cache",
+  plugins: [
+    new ExpirationPlugin({
+      maxAgeSeconds: 30 * 24 * 60 * 60,
+      maxEntries: 30
+    })
+  ]
+});
 
 // PRECACHING
 
@@ -53,6 +62,10 @@ registerRoute(
 //  local fonts
 registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
   return fontHandler.handle(args);
+});
+//  local images
+registerRoute(/.*\.(?:webp)/, args => {
+  return imgHandler.handle(args);
 });
 
 // PUSH NOTIFICATIONS
