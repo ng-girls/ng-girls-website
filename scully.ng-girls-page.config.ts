@@ -26,6 +26,10 @@ export const config: ScullyConfig = {
       }
     }
 },
+extraRoutes: [
+  '/coc',
+  '/faq'
+],
   puppeteerLaunchOptions: {
     args: ['--no-sandbox']
   }

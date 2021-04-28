@@ -5,7 +5,10 @@ import {CocComponent} from './coc.component';
 
 
 const routes: Routes = [
- 
+  {
+    path: ':slug',
+    component: CocComponent,
+  },
   {
     path: '**',
     component: CocComponent,
