@@ -10,6 +10,7 @@ export class HeroSectionComponent implements OnInit {
   @Input()   imageAlt;
   @Input()   logo;
   @Input()   logoAlt;
+  @Input() device;
 
   constructor() { 
   }
