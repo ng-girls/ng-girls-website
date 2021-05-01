@@ -5,7 +5,32 @@ import { registerRoute } from "workbox-routing";
 import {CacheFirst,StaleWhileRevalidate} from "workbox-strategies";
 import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import { ExpirationPlugin } from 'workbox-expiration';
 
+const cacheName = 'images';
+const matchCallback = ({ request }) =>{
+  console.log(request);
+  return request.destination === 'image';
+} 
+const maxAgeSeconds = 30 * 24 * 60 * 60;
+const maxEntries = 60;
+
+registerRoute(
+  matchCallback,
+  new CacheFirst({
+    cacheName,
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxEntries,
+        maxAgeSeconds,
+      }),
+    ],
+  }),
+);
 googleAnalytics.initialize();
 
 // SETTINGS
@@ -23,15 +48,15 @@ const fontHandler = new CacheFirst({
     })
   ]
 });
-const imgHandler = new CacheFirst({
-  cacheName: "img-cache",
-  plugins: [
-    new ExpirationPlugin({
-      maxAgeSeconds: 30 * 24 * 60 * 60,
-      maxEntries: 30
-    })
-  ]
-});
+// const imgHandler = new CacheFirst({
+//   cacheName: "img-cache",
+//   plugins: [
+//     new ExpirationPlugin({
+//       maxAgeSeconds: 30 * 24 * 60 * 60,
+//       maxEntries: 30
+//     })
+//   ]
+// });
 
 // PRECACHING
 
@@ -43,7 +68,7 @@ precacheAndRoute(self.__WB_MANIFEST, {
     console.log(navigator.userAgent);
     return [url];
   },
-  ignoreURLParametersMatching: [/.*/],
+  ignoreURLParametersMatching: [/.*/, /.*\.jpg/],
 });
 
 // RUNTIME CACHING
