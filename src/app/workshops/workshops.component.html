@@ -1,5 +1,6 @@
 <app-hero-section 
   [image]="(workshop$ | async)?.image"
+  [device]="device"
   [logo]="homeLogo"
   >
   <p class="hero-description">
@@ -21,6 +22,7 @@
 <app-team-section 
   [team]="(workshop$ | async)?.mentors" 
   [title]="'Meet the Mentors'"
+  [device]="device"
   [showPopups]="false"
   [image]="'../../../../assets/backgrounds/djangogirls/djangogirls.webp'"
 ></app-team-section>

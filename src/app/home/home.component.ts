@@ -4,6 +4,7 @@ import { ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyi
 import { map, filter } from 'rxjs/operators';
 import { organizers } from './organizers-list';
 import { partners } from './parnters';
+import { GetDeviceService } from '../service/get-device/get-device.service';
 
 @Component({
   selector: 'app-home',
@@ -22,9 +23,11 @@ export class HomeComponent implements OnInit {
   homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
   teamLogo = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
   innerWidth: any;
+  device: any;
 
-  constructor(private srs: ScullyRoutesService, private sts: TransferStateService) {
-    // this.getBreakpoint();
+  constructor(private srs: ScullyRoutesService, private sts: TransferStateService,
+    getDevice: GetDeviceService) {
+    this.device = getDevice.getDevice();
    }
 
   ngOnInit() {

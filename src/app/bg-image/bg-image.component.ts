@@ -1,4 +1,3 @@
-import { GetDeviceService } from './../service/get-device/get-device.service';
 import { Component,  OnInit, Input } from '@angular/core';
 
 @Component({
@@ -12,14 +11,13 @@ export class BgImageComponent implements OnInit {
   @Input()   imageHeight: string = '700';
   @Input()   mobileHeight: number = 700;
   @Input()   imageAlt: string;
+  @Input() device;
   ua = navigator.userAgent;
   isMobile = false;
   height = 700;
-  device: any;
 
     
-  constructor(getDevice: GetDeviceService) {
-    this.device = getDevice.getDevice();
+  constructor() {
     if(this.device.isMobile){
       this.isMobile = true;
       this.height = this.mobileHeight;

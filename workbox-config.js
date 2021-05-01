@@ -3,7 +3,7 @@ module.exports = {
     "globPatterns": [
       "blog/**/*.html",
       "workshops/**/*.html",
-      "assets/**/*.{woff,woff2,webp}",
+      "assets/**/*.{woff,woff2,webp,svg}",
       "manifest/**/*.*",
       "*.html",
       "*.{jpg,png,eot,ttf,woff,woff2, webp}"

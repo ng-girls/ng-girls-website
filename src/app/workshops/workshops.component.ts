@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/cor
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ScullyRoutesService, ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
+import { GetDeviceService } from '../service/get-device/get-device.service';
 
 declare var ng: any;
 
@@ -17,11 +18,14 @@ export class WorkshopsComponent implements OnInit {
   rootPath: string = '../../../../';
   homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
   workshop$;
+  device: any;
 
   
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService, private sts: TransferStateService) {
+  constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService, private sts: TransferStateService,
+    getDevice: GetDeviceService) {
+      this.device = getDevice.getDevice();
     this.workshop$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       (this.srs.getCurrent() as Observable<ScullyRoute>)

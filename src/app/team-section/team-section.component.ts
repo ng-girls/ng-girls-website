@@ -12,7 +12,7 @@ export class TeamSectionComponent implements OnInit {
   @Input()   imageAlt;
 
  
-  
+  @Input() device;
   @Input() team;
   @Input() title: string;
   @Input() showPopups = false;
@@ -22,7 +22,7 @@ export class TeamSectionComponent implements OnInit {
   height = 700;
 
   constructor(public dialog: MatDialog) {
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(this.ua)){
+    if(this.device.isMobile){
       this.isMobile = true;
       this.height = this.mobileHeight;
     }
