@@ -7,28 +7,16 @@ import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
-const cacheName = 'images';
-const matchCallback = ({ request }) =>{
+const matchWebP = ({ request }) =>{
   return request.destination === 'image' && request.url.indexOf('.webp') !== -1;
-} 
+};
+const matchNotWebP = ({ request }) =>{
+  return request.destination === 'image' && request.url.indexOf('.webp') === -1;
+};
 const maxAgeSeconds = 30 * 24 * 60 * 60;
 const maxEntries = 60;
 
-registerRoute(
-  matchCallback,
-  new CacheFirst({
-    cacheName,
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-      new ExpirationPlugin({
-        maxEntries,
-        maxAgeSeconds,
-      }),
-    ],
-  }),
-);
+
 googleAnalytics.initialize();
 
 // SETTINGS
@@ -36,63 +24,67 @@ googleAnalytics.initialize();
 // Modify SW update cycle
 skipWaiting();
 clientsClaim();
+const imageHandler = new CacheFirst({
+  cacheName: 'webp-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [0, 200],
+    }),
+    new ExpirationPlugin({
+      maxEntries,
+      maxAgeSeconds,
+    }),
+  ],
+}),
+const assetsHandler = new CacheFirst({
+  cacheName: 'assets-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [0, 200],
+    }),
+    new ExpirationPlugin({
+      maxEntries,
+      maxAgeSeconds,
+    }),
+  ],
+}),
 
 const fontHandler = new CacheFirst({
   cacheName: "fonts-cache",
   plugins: [
     new ExpirationPlugin({
-      maxAgeSeconds: 30 * 24 * 60 * 60,
+      maxAgeSeconds: maxAgeSeconds,
       maxEntries: 30
     })
   ]
 });
-// const imgHandler = new CacheFirst({
-//   cacheName: "img-cache",
-//   plugins: [
-//     new ExpirationPlugin({
-//       maxAgeSeconds: 30 * 24 * 60 * 60,
-//       maxEntries: 30
-//     })
-//   ]
-// });
 
 // PRECACHING
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
 precacheAndRoute(self.__WB_MANIFEST, {
   urlManipulation: ({ url }) => {
-    console.log('service worker');
-    console.log(url);
-    console.log(navigator.userAgent);
     return [url];
   },
-  ignoreURLParametersMatching: [/.*/, /.*\.jpg/],
+  ignoreURLParametersMatching: [/.*/],
 });
 
 // RUNTIME CACHING
 
-// Google fonts
-registerRoute(
-  new RegExp("https://fonts.(?:googleapis|gstatic).com/(.*)"),
-  new StaleWhileRevalidate({
-    cacheName: "googleapis",
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 30,
-      }),
-    ],
-  })
-);
+
 
 //  local fonts
 // registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
 registerRoute(/.*\.(?:woff|woff2)/, args => {
   return fontHandler.handle(args);
 });
-//  local images
-registerRoute(/.*\.(?:webp)/, args => {
-  return imgHandler.handle(args);
+registerRoute(matchWebP, args => {
+  return imageHandler.handle(args);
 });
+registerRoute(matchNotWebP, args => {
+  return assetsHandler.handle(args);
+});
+
 
 // PUSH NOTIFICATIONS
 
