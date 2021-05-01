@@ -26,13 +26,15 @@ export class HomeComponent implements OnInit {
   teamBg = this.rootPath + 'assets/backgrounds/djangogirls/djangogirls.webp';
   innerWidth: any;
   device: {isMobile: Boolean, browser: any};
+ 
 
   constructor(private srs: ScullyRoutesService, private sts: TransferStateService,
-    getDevice: GetDeviceService) {
-    this.device = getDevice.getDevice();
-   }
-   
-   ngOnInit() {
+    public getDevice: GetDeviceService) {
+    }
+    
+    ngOnInit() {
+     this.device = this.getDevice.getDevice();
+     
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(

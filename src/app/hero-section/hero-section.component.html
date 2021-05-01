@@ -1,14 +1,14 @@
 <div id="masthead" class="site-header" role="banner">
     <div>
         <app-bg-image
-            [image]="image"
+            [image]="image.src"
             [responsive]=true
             [device]="device"
-            [imageAlt]="imageAlt">
+            [imageAlt]="image.alt">
         </app-bg-image>
         <app-logo *ngIf="logo"
-            [logo]="logo"
-            [logoAlt]="logoAlt">
+            [logo]="logo.src"
+            [logoAlt]="logo.alt">
             <ng-content></ng-content>
         </app-logo>
     </div>

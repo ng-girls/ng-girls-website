@@ -1,9 +1,9 @@
-<section id="team" class="team-section team-section--{{height}}" [ngClass]="{'team-section--mobile': isMobile}">
+<section id="team" class="team-section team-section--{{height}}" [ngClass]="{'team-section--mobile': device.isMobile}">
     <app-bg-image
-        [image]="image"
+        [image]="image.src"
         [mobileHeight]="mobileHeight"
         [device]="device"
-        [imageAlt]="imageAlt">
+        [imageAlt]="image.alt">
     </app-bg-image>
     <div class="team-section__overlay overlay--{{mobileHeight}}" >
         <h1 class="section-title">{{title}}</h1>

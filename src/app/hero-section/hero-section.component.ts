@@ -6,17 +6,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./hero-section.component.scss']
 })
 export class HeroSectionComponent implements OnInit {
-  @Input()   image;
-  @Input()   imageAlt;
-  @Input()   logo;
-  @Input()   logoAlt;
-  @Input() device: any;
+  @Input()  image;
+  @Input()  logo;
+  @Input() device;
 
   constructor() { 
   }
   ngOnInit(): void {
-    this.imageAlt = this.imageAlt ? this.imageAlt : 'eclipse';
-    this.logoAlt = this.logoAlt ? this.logoAlt : 'logo';
+    this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
+    this.logo.alt = this.logo.alt ? this.logo.alt : 'logo';
   }
 
 }

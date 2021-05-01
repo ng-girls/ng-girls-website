@@ -9,7 +9,6 @@ import {DialogPersonComponent} from '../dialog-person/dialog-person.component';
 })
 export class TeamSectionComponent implements OnInit {
   @Input()   image;
-  @Input()   imageAlt;
 
  
   @Input() device;
@@ -25,8 +24,7 @@ export class TeamSectionComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    console.log(this.device)
-    this.imageAlt = this.imageAlt ? this.imageAlt : 'eclipse';
+    this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
     if(this.device.isMobile){
       this.isMobile = true;
       this.height = this.mobileHeight;

@@ -19,7 +19,8 @@ export class WorkshopsComponent implements OnInit {
   homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
   workshop$;
   device: any;
-
+  teamBg = this.rootPath + '../../../../assets/backgrounds/djangogirls/djangogirls.webp';
+  
   
 
 
