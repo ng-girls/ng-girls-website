@@ -60,7 +60,8 @@ registerRoute(
 );
 
 //  local fonts
-registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
+// registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
+registerRoute(/.*\.(?:woff|woff2)/, args => {
   return fontHandler.handle(args);
 });
 //  local images
