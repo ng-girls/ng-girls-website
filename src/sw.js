@@ -7,6 +7,14 @@ import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
+googleAnalytics.initialize();
+
+// SETTINGS
+
+// Modify SW update cycle
+skipWaiting();
+clientsClaim();
+
 const matchWebP = ({ request }) =>{
   return request.destination === 'image' && request.url.indexOf('.webp') !== -1;
 };
@@ -64,13 +72,7 @@ registerRoute(matchNotWebP, args => {
   return assetsHandler.handle(args);
 });
 
-googleAnalytics.initialize();
 
-// SETTINGS
-
-// Modify SW update cycle
-skipWaiting();
-clientsClaim();
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
 precacheAndRoute(self.__WB_MANIFEST, {
