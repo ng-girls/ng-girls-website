@@ -22,14 +22,15 @@ export class TeamSectionComponent implements OnInit {
   height = 700;
 
   constructor(public dialog: MatDialog) {
+  }
+  
+  ngOnInit(): void {
+    console.log(this.device)
+    this.imageAlt = this.imageAlt ? this.imageAlt : 'eclipse';
     if(this.device.isMobile){
       this.isMobile = true;
       this.height = this.mobileHeight;
     }
-  }
-
-  ngOnInit(): void {
-    this.imageAlt = this.imageAlt ? this.imageAlt : 'eclipse';
   }
 
   openDialog(person): void {

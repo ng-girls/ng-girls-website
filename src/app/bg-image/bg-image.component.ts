@@ -11,20 +11,20 @@ export class BgImageComponent implements OnInit {
   @Input()   imageHeight: string = '700';
   @Input()   mobileHeight: number = 700;
   @Input()   imageAlt: string;
-  @Input() device;
+  @Input() device: any;
   ua = navigator.userAgent;
   isMobile = false;
   height = 700;
 
     
   constructor() {
+  }
+
+  ngOnInit(): void {
     if(this.device.isMobile){
       this.isMobile = true;
       this.height = this.mobileHeight;
     }
-  }
-
-  ngOnInit(): void {
   }
 
 }

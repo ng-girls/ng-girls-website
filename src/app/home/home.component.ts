@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
@@ -22,15 +23,16 @@ export class HomeComponent implements OnInit {
   homeImage = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
   homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
   teamLogo = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
+  teamBg = this.rootPath + 'assets/backgrounds/djangogirls/djangogirls.webp';
   innerWidth: any;
-  device: any;
+  device: {isMobile: Boolean, browser: any};
 
   constructor(private srs: ScullyRoutesService, private sts: TransferStateService,
     getDevice: GetDeviceService) {
     this.device = getDevice.getDevice();
    }
-
-  ngOnInit() {
+   
+   ngOnInit() {
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
