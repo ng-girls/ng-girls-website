@@ -6,6 +6,7 @@ import { map, filter } from 'rxjs/operators';
 import { organizers } from './organizers-list';
 import { partners } from './parnters';
 import { GetDeviceService } from '../service/get-device/get-device.service';
+import { DEFAULTS } from '../defaults.consts';
 
 @Component({
   selector: 'app-home',
@@ -19,21 +20,17 @@ export class HomeComponent implements OnInit {
   partners = partners;
   events: any;
   posts$: Observable<ScullyRoute[]>;
-  rootPath: string = '../../../../';
-  homeImage = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
-  homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
-  teamLogo = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
-  teamBg = this.rootPath + 'assets/backgrounds/djangogirls/djangogirls.webp';
   innerWidth: any;
+  DEFAULTS = DEFAULTS;
   device: {isMobile: Boolean, browser: any};
  
 
   constructor(private srs: ScullyRoutesService, private sts: TransferStateService,
-    public getDevice: GetDeviceService) {
+    getDevice: GetDeviceService) {
+      this.device = getDevice.getDevice();
     }
     
     ngOnInit() {
-     this.device = this.getDevice.getDevice();
      
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',

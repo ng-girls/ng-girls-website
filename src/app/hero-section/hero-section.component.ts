@@ -8,13 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeroSectionComponent implements OnInit {
   @Input()  image;
   @Input()  logo;
-  @Input() device;
 
   constructor() { 
   }
   ngOnInit(): void {
     this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
     this.logo.alt = this.logo.alt ? this.logo.alt : 'logo';
+    this.image['responsive'] = true;
   }
 
 }

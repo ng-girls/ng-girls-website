@@ -8,27 +8,25 @@ import {DialogPersonComponent} from '../dialog-person/dialog-person.component';
   styleUrls: ['./team-section.component.scss']
 })
 export class TeamSectionComponent implements OnInit {
-  @Input()   image;
-
- 
-  @Input() device;
+  @Input() image;
   @Input() team;
   @Input() title: string;
   @Input() showPopups = false;
-  mobileHeight = 6/2*250 + 200;
-  ua = navigator.userAgent;
-  isMobile = false;
+  mobileHeight = 700; //6/2*250 + 200;
   height = 700;
+  device: any;
 
   constructor(public dialog: MatDialog) {
   }
   
   ngOnInit(): void {
+    this.mobileHeight = this.team ? this.team.length / 2*250 + 200 : 700;
     this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
+    this.device = this.image.device;
     if(this.device.isMobile){
-      this.isMobile = true;
       this.height = this.mobileHeight;
     }
+    this.image['mobileHeight'] = this.mobileHeight;
   }
 
   openDialog(person): void {

@@ -1,7 +1,6 @@
 <app-hero-section 
-  [image]="{ src: (workshop$ | async)?.image, alt: 'workshop bg'}"
-  [device]="device"
-  [logo]="{ src: homeLogo, alt: 'logo'}"
+  [image]="{ src: (workshop$ | async)?.image, alt: 'workshop bg', device: device}"
+  [logo]="{ src: DEFAULTS.homeLogo, alt: 'logo'}"
   >
   <p class="hero-description">
     {{(workshop$ | async)?.date}}<span *ngIf="(workshop$ | async)?.date">, {{(workshop$ | async)?.city}}</span><span *ngIf="(workshop$ | async)?.city">, {{(workshop$ | async)?.country}}</span>
@@ -22,9 +21,8 @@
 <app-team-section 
   [team]="(workshop$ | async)?.mentors" 
   [title]="'Meet the Mentors'"
-  [device]="device"
   [showPopups]="false"
-  [image]="{ src: teamBg, alt: 'bg team'}"
+  [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
 ></app-team-section>
 
 <app-partners-section 

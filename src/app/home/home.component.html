@@ -1,7 +1,6 @@
 <app-hero-section 
-  [image]="{src: homeImage, alt: 'ngGirls eclipse'}"
-  [logo]="{src:homeLogo, alt: 'ngGirls logo'}"
-  [device]="device"
+  [image]="{src: DEFAULTS.homeImage, alt: 'ngGirls eclipse', device: device}"
+  [logo]="{src: DEFAULTS.homeLogo, alt: 'ngGirls logo'}"
   >
   <div class="button-div" *ngIf="events$ | async; let events">
     <a href="#workshops"  pageScroll [pageScrollOffset]="100">
@@ -26,8 +25,7 @@
   [team]="organizers" 
   [title]="'Organizing Team'"
   [showPopups]="true"
-  [device]="device"
-  [image]="{ src: teamBg, alt: 'bg team'}"
+  [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
 >
 
 </app-team-section>

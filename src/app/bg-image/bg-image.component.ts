@@ -6,14 +6,11 @@ import { Component,  OnInit, Input } from '@angular/core';
   styleUrls: ['./bg-image.component.scss']
 })
 export class BgImageComponent implements OnInit {
-  @Input()   image: string;
-  @Input()   responsive: boolean = false;
-  @Input()   imageHeight: string = '700';
-  @Input()   mobileHeight: number = 700;
-  @Input()   imageAlt: string;
-  @Input() device: any;
-  ua = navigator.userAgent;
-  isMobile = false;
+  @Input()   image: any;
+  responsive: boolean = false;
+  imageHeight: string = '700';
+  mobileHeight: number = 700;
+  device: any;
   height = 700;
 
     
@@ -21,10 +18,10 @@ export class BgImageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.device.isMobile){
-      this.isMobile = true;
-      this.height = this.mobileHeight;
-    }
+    this.device = this.image.device;
+    this.height = (this.device.isMobile) ? this.mobileHeight : 700;
+    this.responsive = (this.image.responsive) ? this.image.responsive : this.responsive;
+    this.mobileHeight = (this.image.mobileHeight) ? this.image.mobileHeight : this.mobileHeight;
   }
 
 }
