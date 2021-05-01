@@ -6,7 +6,6 @@ import {CacheFirst,StaleWhileRevalidate} from "workbox-strategies";
 import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { ExpirationPlugin } from 'workbox-expiration';
 
 const cacheName = 'images';
 const matchCallback = ({ request }) =>{
