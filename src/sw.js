@@ -17,13 +17,7 @@ const maxAgeSeconds = 30 * 24 * 60 * 60;
 const maxEntries = 60;
 
 
-googleAnalytics.initialize();
 
-// SETTINGS
-
-// Modify SW update cycle
-skipWaiting();
-clientsClaim();
 const imageHandler = new CacheFirst({
   cacheName: 'webp-cache',
   plugins: [
@@ -60,6 +54,23 @@ const fontHandler = new CacheFirst({
 });
 
 // PRECACHING
+registerRoute(/.*\.(?:woff|woff2)/, args => {
+  return fontHandler.handle(args);
+});
+registerRoute(matchWebP, args => {
+  return imageHandler.handle(args);
+});
+registerRoute(matchNotWebP, args => {
+  return assetsHandler.handle(args);
+});
+
+googleAnalytics.initialize();
+
+// SETTINGS
+
+// Modify SW update cycle
+skipWaiting();
+clientsClaim();
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
 precacheAndRoute(self.__WB_MANIFEST, {
@@ -75,15 +86,7 @@ precacheAndRoute(self.__WB_MANIFEST, {
 
 //  local fonts
 // registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
-registerRoute(/.*\.(?:woff|woff2)/, args => {
-  return fontHandler.handle(args);
-});
-registerRoute(matchWebP, args => {
-  return imageHandler.handle(args);
-});
-registerRoute(matchNotWebP, args => {
-  return assetsHandler.handle(args);
-});
+
 
 
 // PUSH NOTIFICATIONS
