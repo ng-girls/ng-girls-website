@@ -22,20 +22,12 @@ export class HomeComponent implements OnInit {
   homeLogo = this.rootPath + 'assets/theme/logo-vertical/logo-vertical.webp';
   teamLogo = this.rootPath + 'assets/backgrounds/eclipse/eclipse.webp';
   innerWidth: any;
-  // breakpointSuffix: string = '';
-  // private breakpoint: string = '-xl';
-
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event) {
-  //   this.getBreakpoint();
-  // }
 
   constructor(private srs: ScullyRoutesService, private sts: TransferStateService) {
     // this.getBreakpoint();
    }
 
   ngOnInit() {
-    // this.getBreakpoint();
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
@@ -65,30 +57,4 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  // getBreakpoint(){
-  //   const width = window.innerWidth;
-  //   if(!width){
-  //     return;
-  //   }
-  //   let bpOld = this.breakpointSuffix;
-  //   let bpNew;
-  //   if(width >= 1200){
-  //     bpNew =
-  //     bpNew = '-xl';
-  //   } else if(width >=992){
-  //     bpNew = '-lg';
-  //   } else if(width >=768){
-  //     bpNew = '-md';
-  //   } else if(width >=576){
-  //     bpNew = '-sm';
-  //   } else {
-  //     bpNew = '-xs';
-  //   }
-  //   if(bpNew !== bpOld){
-  //     this.breakpointSuffix = bpNew;
-  //     this.breakpoint = bpNew;
-  //   } else {
-  //     console.log('else');
-  //   }
-  // }
 }
