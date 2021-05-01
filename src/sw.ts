@@ -7,6 +7,7 @@ import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
+console.log('ts');
 const cacheName = 'images';
 const matchCallback = ({ request }) =>{
   return request.destination === 'image' && request.url.indexOf('.webp') !== -1;
