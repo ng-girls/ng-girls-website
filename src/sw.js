@@ -9,7 +9,7 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
 const cacheName = 'images';
 const matchCallback = ({ request }) =>{
-  console.log(request);
+  console.log(Object.keys (request));
   return request.destination === 'image';
 } 
 const maxAgeSeconds = 30 * 24 * 60 * 60;
