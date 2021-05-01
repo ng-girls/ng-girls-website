@@ -35,7 +35,7 @@ const imageHandler = new CacheFirst({
       maxAgeSeconds,
     }),
   ],
-}),
+});
 const assetsHandler = new CacheFirst({
   cacheName: 'assets-cache',
   plugins: [
@@ -47,7 +47,7 @@ const assetsHandler = new CacheFirst({
       maxAgeSeconds,
     }),
   ],
-}),
+});
 
 const fontHandler = new CacheFirst({
   cacheName: "fonts-cache",
