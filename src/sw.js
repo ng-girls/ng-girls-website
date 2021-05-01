@@ -38,7 +38,8 @@ const imgHandler = new CacheFirst({
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
 precacheAndRoute(self.__WB_MANIFEST, {
   urlManipulation: ({ url }) => {
-    //console.log(url);
+    console.log('service worker');
+    console.log(url);
     return [url];
   },
   ignoreURLParametersMatching: [/.*/],
