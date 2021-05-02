@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'responsive'
+  name: 'responsive',
+  pure: true
 })
 export class ResponsivePipe implements PipeTransform {
   private cachedData: any = null;
