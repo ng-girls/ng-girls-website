@@ -2,10 +2,12 @@
 import * as googleAnalytics from "workbox-google-analytics";
 import { precacheAndRoute } from "workbox-precaching";
 import { registerRoute } from "workbox-routing";
-import {CacheFirst,StaleWhileRevalidate} from "workbox-strategies";
+import {
+  // CacheFirst,
+  StaleWhileRevalidate} from "workbox-strategies";
 import { skipWaiting, clientsClaim } from "workbox-core";
 import { ExpirationPlugin } from "workbox-expiration";
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+// import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
 googleAnalytics.initialize();
 
@@ -30,7 +32,7 @@ precacheAndRoute(self.__WB_MANIFEST, {
 // Google fonts
 registerRoute(
   new RegExp(".*\.(?:woff|woff2)"),
-  new strategies.StaleWhileRevalidate({
+  new StaleWhileRevalidate({
     cacheName: "font-cache",
     plugins: [
       new ExpirationPlugin({
