@@ -75,12 +75,12 @@ registerRoute(matchNotWebP, args => {
 
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
-// precacheAndRoute(self.__WB_MANIFEST, {
-//   urlManipulation: ({ url }) => {
-//     return [url];
-//   },
-//   ignoreURLParametersMatching: [/.*/],
-// });
+precacheAndRoute(self.__WB_MANIFEST, {
+  urlManipulation: ({ url }) => {
+    return [url];
+  },
+  ignoreURLParametersMatching: [/.*/],
+});
 
 // RUNTIME CACHING
 
