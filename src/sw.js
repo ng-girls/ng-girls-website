@@ -15,86 +15,30 @@ googleAnalytics.initialize();
 skipWaiting();
 clientsClaim();
 
-const matchWebP = ({ request }) =>{
-  return request.destination === 'image' && request.url.indexOf('.webp') !== -1;
-};
-const matchNotWebP = ({ request }) =>{
-  return request.destination === 'image' && request.url.indexOf('.webp') === -1;
-};
-///.*\.(?:woff|woff2)/
-const matchFont  = ({ request }) =>{
-  return request.url.indexOf('.woff') !== -1;
-};
-const maxAgeSeconds = 30 * 24 * 60 * 60;
-const maxEntries = 60;
 
-
-
-const imageHandler = new CacheFirst({
-  cacheName: 'webp-cache',
-  plugins: [
-    new CacheableResponsePlugin({
-      statuses: [0, 200],
-    }),
-    new ExpirationPlugin({
-      maxEntries,
-      maxAgeSeconds,
-    }),
-  ],
-});
-const assetsHandler = new CacheFirst({
-  cacheName: 'assets-cache',
-  plugins: [
-    new CacheableResponsePlugin({
-      statuses: [0, 200],
-    }),
-    new ExpirationPlugin({
-      maxEntries,
-      maxAgeSeconds,
-    }),
-  ],
-});
-
-const fontHandler = new CacheFirst({
-  cacheName: "fonts-cache",
-  plugins: [
-    new ExpirationPlugin({
-      maxAgeSeconds: maxAgeSeconds,
-      maxEntries: 30
-    })
-  ]
-});
 
 // PRECACHING
-// registerRoute(/.*\.(?:woff|woff2)/, args => {
-registerRoute(matchFont, args => {
-  return fontHandler.handle(args);
-});
-registerRoute(matchWebP, args => {
-  return imageHandler.handle(args);
-});
-registerRoute(matchNotWebP, args => {
-  return assetsHandler.handle(args);
-});
-
-
-
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
-// precacheAndRoute(self.__WB_MANIFEST, {
-//   urlManipulation: ({ url }) => {
-//     return [url];
-//   },
-//   ignoreURLParametersMatching: [/.*/],
-// });
+precacheAndRoute(self.__WB_MANIFEST, {
+  urlManipulation: ({ url }) => {
+    return [url];
+  },
+  ignoreURLParametersMatching: [/.*/],
+});
 
 // RUNTIME CACHING
-
-
-
-//  local fonts
-// registerRoute(/.*\.(?:woff|woff2|ttf|otf)/, args => {
-
-
+// Google fonts
+registerRoute(
+  new RegExp(".*\.(?:woff|woff2)"),
+  new strategies.StaleWhileRevalidate({
+    cacheName: "font-cache",
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 30,
+      }),
+    ],
+  })
+);
 
 // PUSH NOTIFICATIONS
 
