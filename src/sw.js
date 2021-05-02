@@ -21,6 +21,10 @@ const matchWebP = ({ request }) =>{
 const matchNotWebP = ({ request }) =>{
   return request.destination === 'image' && request.url.indexOf('.webp') === -1;
 };
+///.*\.(?:woff|woff2)/
+const matchFont  = ({ request }) =>{
+  return request.url.indexOf('.woff') !== -1;
+};
 const maxAgeSeconds = 30 * 24 * 60 * 60;
 const maxEntries = 60;
 
@@ -62,7 +66,8 @@ const fontHandler = new CacheFirst({
 });
 
 // PRECACHING
-registerRoute(/.*\.(?:woff|woff2)/, args => {
+// registerRoute(/.*\.(?:woff|woff2)/, args => {
+registerRoute(matchFont, args => {
   return fontHandler.handle(args);
 });
 registerRoute(matchWebP, args => {
@@ -75,12 +80,12 @@ registerRoute(matchNotWebP, args => {
 
 
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
-precacheAndRoute(self.__WB_MANIFEST, {
-  urlManipulation: ({ url }) => {
-    return [url];
-  },
-  ignoreURLParametersMatching: [/.*/],
-});
+// precacheAndRoute(self.__WB_MANIFEST, {
+//   urlManipulation: ({ url }) => {
+//     return [url];
+//   },
+//   ignoreURLParametersMatching: [/.*/],
+// });
 
 // RUNTIME CACHING
 
