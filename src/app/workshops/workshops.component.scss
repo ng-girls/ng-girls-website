@@ -10,7 +10,7 @@
 }
 
 .content-wrapper {
-  width: 70%;
+  width: 80%; // ex 70%
   margin: auto;
 }
 
@@ -31,11 +31,26 @@
       font-size: 80px;
       text-align: center;
       padding: 10px;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
+      font-weight: 200;
       line-height: normal;
     }
-    h3 {
+    hr{
+      margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+    }
+    h2 {
       font-size: 30px;
       margin: 10px 0;
+      line-height: 1.1;
+      font-weight: 200;
+    }
+    p{
+      font-size: 17px;
+    font-weight: 300;
+    line-height: 23px;
+    margin: 0 0 10px;
     }
 }

@@ -57,7 +57,7 @@ We want to give you an opportunity to learn how to program and become a programm
 
 [flex:50%]
 
-### Who is it for?
+## Who is it for?
 Are you a woman interested in learning how to build web applications with the latest technologies? We have good news for you: We are holding a one-day workshop for beginners! It will take place on **Wednesday, April 21, 2021 and will be fully virtual, meaning you can join from anywhere using your computer and an internet connection.**
 
 We believe that the IT industry will greatly benefit from bringing more women into technology. We want to give you an opportunity to learn how to program and become a programmer.
@@ -75,15 +75,14 @@ For more information [check out the FAQ](/faq)
 
 [flex:50%]
 
-### Schedule
+## Schedule
 
 **Tentative schedule** - Mountain Daylight Time (Utah, USA, GMT-6)
-- **until 9:00** - check in
 - **9:00 - 10:00** - ngGirls and Angular overview
 - **10:00 - 16:00** - coding, networking, lightning talks
 - **16:00 - 17:00** - closing remarks and raffle prizes
 
-### Can I help?
+## Can I help?
 
 Of course! There are several ways you can help:
 
