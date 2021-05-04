@@ -37,12 +37,12 @@ export class WorkshopsComponent implements OnInit {
       }
       ngOnInit() {
         // loading demo static content
-        if(environment.production === false){
-          const id = document.getElementsByTagName('scully-content')[0].attributes[0].name;
-          window['scullyContent'] = {
-            'html': environment.workshopHTML.replace(/aes\-c37/, id.replace('_ngcontent-', '')),
-            'cssId': id
-        }
-      }
+        // if(environment.production === false && !window.scullyContent){
+        //   const id = document.getElementsByTagName('scully-content')[0].attributes[0].name;
+        //   window['scullyContent'] = {
+        //     'html': environment.workshopHTML.replace(/aes\-c37/ig, id.replace('_ngcontent-', '')),
+        //     'cssId': id
+        // }
+      // }
   }
 }

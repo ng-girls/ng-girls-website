@@ -49,22 +49,31 @@ We want to give you an opportunity to learn how to program and become a programm
 **With the generous support from ng-conf** we offer discounted tickets for the conference to the ngGirls workshop participants, plus raffle three free tickets!
 </center>
 
+----
+
+
+
+[section]
+
+[flex:50%]
 
 ### Who is it for?
-[flex:50%]
-Are you a woman interested in learning how to build web applications with the latest technologies? We have good news for you: We are holding a one-day workshop for beginners! It will take place on **Wednesday, April 21, 2021 and will be fully virtual, meaning you can join from anywhere using your computer and an internet connection.**<br /><br />
-We believe that the IT industry will greatly benefit from bringing more women into technology. We want to give you an opportunity to learn how to program and become a programmer.<br /><br />
+Are you a woman interested in learning how to build web applications with the latest technologies? We have good news for you: We are holding a one-day workshop for beginners! It will take place on **Wednesday, April 21, 2021 and will be fully virtual, meaning you can join from anywhere using your computer and an internet connection.**
+
+We believe that the IT industry will greatly benefit from bringing more women into technology. We want to give you an opportunity to learn how to program and become a programmer.
+
 During the workshop you will build and deploy your very first **Angular Web Application!** Angular is an open-source platform for building web application, developed by Google and the community. It gives various tools to easily create a dynamic, interactive app that can run on desktop browses, mobile and even robots!
 To participate in the workshop you'll need some basic knowledge in web development: HTML, CSS and basic JavaScript or any other programming language. If you're a total beginner, here are some [resources](/faq) to catch up.
 The workshop is **free of charge**. Just fill out the [application form](https://docs.google.com/forms/d/e/1FAIpQLSeIUuMJ4mq5jDOuXH52aq4bM5YxswGcoayOY5xF4MPdUqP84w/viewform).
 
-Don’t wait too long - **you can apply for a pass only until Wednesday, April 14, 2021!**<br /><br />
-You are welcome to join the [ngGirls meetup group](http://www.meetup.com/ngGirls/) to get informed about future events.<br /><br />
-For more information [check out the FAQ](/faq)<br /><br />
-We believe that the IT industry will greatly benefit from bringing more women into technology. We want to give you an opportunity to learn how to program and become a programmer.
+Don’t wait too long - **you can apply for a pass only until Wednesday, April 14, 2021!**<br />
+You are welcome to join the [ngGirls meetup group](http://www.meetup.com/ngGirls/) to get informed about future events.
+
+For more information [check out the FAQ](/faq)
+
 [flex:end]
 
-
+[flex:50%]
 
 ### Schedule
 
@@ -84,3 +93,8 @@ Of course! There are several ways you can help:
 
 
 Don't be shy, just [contact us](mailto:hello@ng-girls.org)
+
+[flex:end]
+
+[section:end]
+
