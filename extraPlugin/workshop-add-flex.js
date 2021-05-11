@@ -11,6 +11,7 @@ const addFlex = async (html, options) => {
     const {window} = dom;
     const all = [...window.document.querySelectorAll('app-workshops')];
     // let str = all.innerHTML;
+    
     all.forEach((a, index) => {
     // console.log(a.innerHTML);
     let html = a.innerHTML;
