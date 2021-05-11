@@ -1,13 +1,18 @@
+
 <div id="masthead" class="site-header" role="banner">
     <div>
-        <app-bg-image
-            [image]="image"
+        <app-bg-image *ngIf="image.src"
+        [image]="image"
+            >
+        </app-bg-image>
+        <app-bg-image *ngIf="url$ && !image.src"
+        [image]="{ src: (url$ | async), alt: image.alt, device: image.device }"
             >
         </app-bg-image>
         <app-logo *ngIf="logo"
-            [logo]="logo.src"
-            [logoAlt]="logo.alt">
-            <ng-content></ng-content>
+        [logo]="logo.src"
+        [logoAlt]="logo.alt">
+        <ng-content></ng-content>
         </app-logo>
     </div>
 </div>

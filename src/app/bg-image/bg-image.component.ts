@@ -7,6 +7,7 @@ import { Component,  OnInit, Input } from '@angular/core';
 })
 export class BgImageComponent implements OnInit {
   @Input()   image: any;
+  @Input()   fadeout = false;
   responsive: boolean = false;
   imageHeight: string = '700';
   mobileHeight: number = 700;

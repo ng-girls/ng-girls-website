@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   posts$: Observable<ScullyRoute[]>;
   innerWidth: any;
   DEFAULTS = DEFAULTS;
+  mobileHeight = 700;
   device: {isMobile: Boolean, browser: any};
  
 
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
     }
     
     ngOnInit() {
+      this.mobileHeight = this.organizers ? Math.ceil(this.organizers.length  / 2)*250 + 200 : 700;
      
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',

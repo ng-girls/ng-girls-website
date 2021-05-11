@@ -23,9 +23,9 @@ clientsClaim();
 // We inject manifest here using "workbox-build" in workbox-build-inject.js
 precacheAndRoute(self.__WB_MANIFEST, {
   urlManipulation: ({ url }) => {
-    return [url];
+      return [url];
   },
-  ignoreURLParametersMatching: [/.*/],
+ignoreURLParametersMatching: [/.*/, /.*127\.0\.0\.1:8080\/.*/],
 });
 
 // RUNTIME CACHING

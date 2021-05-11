@@ -12,15 +12,14 @@ export class ResponsivePipe implements PipeTransform {
   // constructor(private http: HttpClient) { }
 
   transform(url: string, suffix?: string, height?: any): any {
-    // console.log(navigator.userAgent);
     var ua = navigator.userAgent;
     let isMobile = false;
-
+    
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(ua)){
       isMobile = true;
     }
     let newUrl = url;
-    if(url && suffix && suffix !== ''){
+    if(url && url !== '' && suffix && suffix !== ''){
       if(height && height !== 700 && isMobile === true){
         if(url.indexOf('.webp')){
           newUrl = url.replace('.webp', '-' + height + '-' + suffix + '.webp');
