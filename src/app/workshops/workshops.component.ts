@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ScullyRoutesService, ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
@@ -28,7 +28,9 @@ export class WorkshopsComponent implements OnInit {
   xxx;
 
   constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService, private sts: TransferStateService,
-    getDevice: GetDeviceService) {
+    getDevice: GetDeviceService,
+     private cdref: ChangeDetectorRef
+     ) {
       this.device = getDevice.getDevice();
       // this.workshop$ = this.sts.useScullyTransferState(
       //   'workshopRoutes',
@@ -54,7 +56,9 @@ export class WorkshopsComponent implements OnInit {
         //       route.route.startsWith(`/workshops/`),
         //     );
         //   }),
-      
+        ngAfterContentChecked() {
+          this.cdref.detectChanges();    
+           }
       openLink(link: string) {
         link = link.indexOf("http") > -1 ? link : `http://${link}`;
         window.open(link, "_blank");
@@ -68,7 +72,6 @@ export class WorkshopsComponent implements OnInit {
               // this.team ? this.team.length / 2*250 + 200 : 700;
               let mentors = routeList.mentors.length;
               this.xxx =  routeList.image ;
-              console.log(this.xxx)
               // this.xxx = { src: routeList.image };
               if(this.device.isMobile){
                 this.teamLength$ = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;

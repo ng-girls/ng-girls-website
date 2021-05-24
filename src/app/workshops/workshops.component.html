@@ -1,6 +1,6 @@
 <app-hero-section 
-  url="{{xxx}}"
-  [image]="{  alt: 'workshop bg', device: device}"
+  [data]="workshop$ | async"
+  [image]="{ src: xxx,  alt: 'workshop bg', device: device}"
   [logo]="{ src: DEFAULTS.homeLogo, alt: 'logo'}"
   >
   <p class="hero-description">
@@ -14,7 +14,6 @@
     CALL FOR MENTORS
   </button>
 </app-hero-section>
-{{xxx}}
 <div class="content-wrapper workshop-description XX">
   <scully-content></scully-content>
 </div>

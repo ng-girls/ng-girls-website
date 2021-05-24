@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { ObservableInput } from "ngx-observable-input";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -10,12 +10,21 @@ import { map } from 'rxjs/operators';
 })
 export class HeroSectionComponent implements OnInit {
   @Input()  image;
+  // @Input()  data;
   @Input()  imageBg;
   @ObservableInput() @Input("url") public url$: Observable<string>;
   @Input()  logo;
+    private _data$ = new BehaviorSubject<any>({} as any);
+  @Input() public set data(val: any){ this._data$.next(val); }
+public get data(): any { return this._data$.getValue(); }
 
-  constructor() { 
+  constructor(
+    private cdref: ChangeDetectorRef
+  ) { 
   }
+  ngAfterContentChecked() {
+    this.cdref.detectChanges();    
+     }
   ngOnInit(): void {
     if(this.image.src){
       this.image.src = this.image.src;
