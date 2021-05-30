@@ -68,12 +68,12 @@ export class WorkshopsComponent implements OnInit {
           'workshopRoutes',
           this.srs.getCurrent().pipe(
             map(routeList => {
-              console.log(routeList);
+              console.info(routeList);
               this.team$ = routeList.mentors;
               // this.team ? this.team.length / 2*250 + 200 : 700;
               let mentors = routeList.mentors.length;
               this.xxx =  routeList.image ;
-              console.log(this.xxx)
+              console.info(this.xxx)
               // this.xxx = { src: routeList.image };
               if(this.device.isMobile){
                 this.teamLength$ = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
