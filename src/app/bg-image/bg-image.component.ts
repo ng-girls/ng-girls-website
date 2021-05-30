@@ -20,7 +20,7 @@ export class BgImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.device = this.image.device;
-    this.height = (this.device.isMobile) ? this.mobileHeight : 700;
+    this.height = (this.device && this.device.isMobile) ? this.mobileHeight : 700;
     this.responsive = (this.image.responsive) ? this.image.responsive : this.responsive;
     this.mobileHeight = (this.image.mobileHeight) ? this.image.mobileHeight : this.mobileHeight;
   }

@@ -2,12 +2,12 @@
 <div id="masthead" class="site-header" role="banner">
     <div>
       
-        <!-- <app-bg-image 
+        <app-bg-image  *ngIf="isObservable == false"
         [image]="{ src: image.src, alt: image.alt, device: image.device }"
             >
-            </app-bg-image> -->
-        <app-bg-image *ngIf="data && data.image"
-        [image]="{ src: data.image, alt: image.alt, device: image.device }"
+            </app-bg-image>
+        <app-bg-image *ngIf="isObservable == true && data && data.image != undefined"
+        [image]="{ src: data.image, alt: alt }"
             >
         </app-bg-image>
         <app-logo *ngIf="logo"
@@ -17,4 +17,3 @@
         </app-logo>
     </div>
 </div>
-{{ image.src}} | {{data.image}}

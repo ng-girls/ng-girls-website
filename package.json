@@ -32,7 +32,6 @@
     "@scullyio/init": "0.0.28",
     "@scullyio/ng-lib": "latest",
     "@scullyio/scully": "latest",
-    "ngx-observable-input": "^3.0.3",
     "ngx-page-scroll": "^7.0.4",
     "ngx-page-scroll-core": "^7.0.4",
     "rxjs": "~6.5.4",

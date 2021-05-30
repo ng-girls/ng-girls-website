@@ -1,5 +1,6 @@
 <app-hero-section 
   [image]="{src: DEFAULTS.homeImage, alt: 'ngGirls eclipse', device: device}"
+  [isObservable]="false"
   [logo]="{src: DEFAULTS.homeLogo, alt: 'ngGirls logo'}"
   >
   <div class="button-div" *ngIf="events$ | async; let events">

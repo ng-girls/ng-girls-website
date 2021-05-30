@@ -1,6 +1,6 @@
 <app-hero-section 
   [data]="workshop$ | async"
-  [image]="{ src: xxx,  alt: 'workshop bg', device: device}"
+  [isObservable]="true"
   [logo]="{ src: DEFAULTS.homeLogo, alt: 'logo'}"
   >
   <p class="hero-description">
