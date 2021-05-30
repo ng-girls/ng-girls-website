@@ -21,7 +21,7 @@ export class WorkshopsComponent implements OnInit {
   DEFAULTS = DEFAULTS;
   workshop$;
   team$;
-  teamLength$ = 700;
+  teamLength$;
   device: any;
   environment: any;
   image$;
@@ -80,6 +80,19 @@ export class WorkshopsComponent implements OnInit {
             })
           // (this.srs.getCurrent() as Observable<ScullyRoute>)
         ));
+        this.teamLength$ = this.sts.useScullyTransferState(
+          'workshopRoutes',
+          this.srs.getCurrent().pipe(
+            map(routeList => {
+              let len = 700;
+              if(this.device.isMobile){
+                len = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
+              }
+              return len;
+            })
+          // (this.srs.getCurrent() as Observable<ScullyRoute>)
+        ));
+        
         // loading demo static content
         
         if(environment.production === false && !window.scullyContent){
