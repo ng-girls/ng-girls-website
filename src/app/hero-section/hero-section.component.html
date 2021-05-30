@@ -2,14 +2,14 @@
 <div id="masthead" class="site-header" role="banner">
     <div>
       
-        <app-bg-image 
+        <!-- <app-bg-image 
         [image]="{ src: image.src, alt: image.alt, device: image.device }"
             >
-            </app-bg-image>
-        <!-- <app-bg-image *ngIf="data && data.image"
+            </app-bg-image> -->
+        <app-bg-image *ngIf="data && data.image"
         [image]="{ src: data.image, alt: image.alt, device: image.device }"
             >
-        </app-bg-image> -->
+        </app-bg-image>
         <app-logo *ngIf="logo"
         [logo]="logo.src"
         [logoAlt]="logo.alt">
