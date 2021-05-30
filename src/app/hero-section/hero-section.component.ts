@@ -26,11 +26,11 @@ public get data(): any {  this.alt="observable bg image";  return this._data$.ge
     this.cdref.detectChanges();    
      }
   ngOnInit(): void {
-    if(this.isObservable === false){
+    // if(this.isObservable === false){
       this.image.src = this.image.src;
       this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
       this.image['responsive'] = true;
-    } 
+    // } 
     this.logo.alt = this.logo.alt ? this.logo.alt : 'logo';
   }
 
