@@ -68,14 +68,11 @@ export class WorkshopsComponent implements OnInit {
           'workshopRoutes',
           this.srs.getCurrent().pipe(
             map(routeList => {
-              this.team$ = routeList.mentors;
               // this.team ? this.team.length / 2*250 + 200 : 700;
-              // let mentors = routeList.mentors.length;
-              // this.xxx =  routeList.image ;
               // this.xxx = { src: routeList.image };
-              // if(this.device.isMobile){
-              //   this.teamLength$ = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
-              // }
+              if(this.device.isMobile == true){
+                this.teamLength$ = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
+              }
               return routeList;
             })
           // (this.srs.getCurrent() as Observable<ScullyRoute>)
@@ -85,7 +82,7 @@ export class WorkshopsComponent implements OnInit {
           this.srs.getCurrent().pipe(
             map(routeList => {
               let len = 700;
-              if(routeList.mentors && this.device.isMobile == true){
+              if(this.device.isMobile == true){
                 len = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
               }
               return len;
