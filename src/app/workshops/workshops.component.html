@@ -17,7 +17,7 @@
   <scully-content></scully-content>
 </div>
 <app-team-section 
-  [team]="(team$ )" 
+  [team]="(workshop$ | async)?.mentors" 
   [mobileHeight]="(teamLength$ )" 
   [title]="'Meet the Mentors'"
   [showPopups]="false"
