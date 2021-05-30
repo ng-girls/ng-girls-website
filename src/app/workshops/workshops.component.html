@@ -1,6 +1,5 @@
 <app-hero-section 
-  [data]="workshop$ | async"
-  [image]="{ src: xxx,  alt: 'workshop bg', device: device}"
+  [image]="{ src: (workshop$ | async)?.image,  alt: 'workshop bg', device: device}"
   [logo]="{ src: DEFAULTS.homeLogo, alt: 'logo'}"
   >
   <p class="hero-description">

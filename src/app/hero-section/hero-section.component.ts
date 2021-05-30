@@ -9,14 +9,13 @@ import { map } from 'rxjs/operators';
 })
 export class HeroSectionComponent implements OnInit {
   @Input()  image;
-  // @Input()  data;
   @Input()  imageBg;
   @Input()  isObservable = true;
   @Input()  logo;
   alt = '';
-    private _data$ = new BehaviorSubject<any>({} as any);
-  @Input() public set data(val: any){ this._data$.next(val); }
-public get data(): any {  this.alt="observable bg image";  return this._data$.getValue(); }
+//     private _data$ = new BehaviorSubject<any>({} as any);
+//   @Input() public set data(val: any){ console.log('sd'); this._data$.next(val); }
+// public get data(): any {  console.log('gd'); const x = this._data$.getValue(); console.log(x);  return x; }
 
   constructor(
     private cdref: ChangeDetectorRef
@@ -31,6 +30,7 @@ public get data(): any {  this.alt="observable bg image";  return this._data$.ge
       this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
       this.image['responsive'] = true;
     // } 
+    
     this.logo.alt = this.logo.alt ? this.logo.alt : 'logo';
   }
 
