@@ -70,9 +70,9 @@ export class WorkshopsComponent implements OnInit {
             map(routeList => {
               // this.team ? this.team.length / 2*250 + 200 : 700;
               // this.xxx = { src: routeList.image };
-              if(this.device.isMobile == true){
-                this.teamLength$ = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
-              }
+              // if(this.device.isMobile == true){
+              //   this.teamLength$ = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
+              // }
               return routeList;
             })
           // (this.srs.getCurrent() as Observable<ScullyRoute>)
