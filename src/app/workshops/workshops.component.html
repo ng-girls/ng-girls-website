@@ -18,7 +18,6 @@
 </div>
 <app-team-section 
   [team]="(workshop$ | async)?.mentors" 
-  [mobileHeight]="(teamLength$ )" 
   [title]="'Meet the Mentors'"
   [showPopups]="false"
   [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
