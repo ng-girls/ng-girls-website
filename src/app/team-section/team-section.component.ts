@@ -25,15 +25,6 @@ export class TeamSectionComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    // this.team$ = this.team.pipe(
-    //     map(routeList => {
-    //       // this.team$ = routeList.mentors;
-    //       // this.teamLength$ = routeList.mentors.length;
-    //       console.log(routeList)
-    //       return routeList;
-    //     })
-    //   // (this.srs.getCurrent() as Observable<ScullyRoute>)
-    // );
     this.mobileHeight = this.team ? this.team.length / 2*250 + 200 : 700;
     this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
     this.device = this.image.device;

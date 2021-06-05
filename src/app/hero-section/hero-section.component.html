@@ -1,19 +1,9 @@
 
 <div id="masthead" class="site-header" role="banner">
     <div>
-      
-        <app-bg-image 
-        [image]="{ src: image.src, alt: image.alt, device: image.device }"
-            >
-            </app-bg-image>
-        <!-- <app-bg-image *ngIf="isObservable == true && data && data.image != undefined"
-        [image]="{ src: data.image, alt: alt }"
-            >
-        </app-bg-image> -->
-        <app-logo *ngIf="logo"
-        [logo]="logo.src"
-        [logoAlt]="logo.alt">
-        <ng-content></ng-content>
+        <app-bg-image [image]="image"></app-bg-image>
+        <app-logo *ngIf="logo" [logo]="logo">
+            <ng-content></ng-content>
         </app-logo>
     </div>
 </div>
