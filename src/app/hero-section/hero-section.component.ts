@@ -25,13 +25,13 @@ export class HeroSectionComponent implements OnInit {
     this.cdref.detectChanges();    
      }
   ngOnInit(): void {
+    console.log(this.image);
     // if(this.isObservable === false){
-      this.image.src = this.image.src;
-      this.image.alt = this.image.alt ? this.image.alt : 'eclipse';
-      this.image['responsive'] = true;
+      // this.image.alt = this.image !== null && this.image.alt ? this.image.alt : 'eclipse';
+      // this.image['responsive'] = true;
     // } 
     
-    this.logo.alt = this.logo.alt ? this.logo.alt : 'logo';
+    // this.logo.alt = this.logo.alt ? this.logo.alt : 'logo';
   }
 
 }

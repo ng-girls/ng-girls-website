@@ -1,7 +1,11 @@
-<app-hero-section 
-  [image]="{ src: (workshop$ | async)?.image,  alt: 'workshop bg', device: device}"
+
+<div *ngIf="(workshop$ | async) as workshop">
+  <app-hero-section 
+  [image]="workshop"
   [logo]="{ src: DEFAULTS.homeLogo, alt: 'logo'}"
   >
+  
+  
   <p class="hero-description">
     {{(workshop$ | async)?.date}}<span *ngIf="(workshop$ | async)?.date">, {{(workshop$ | async)?.city}}</span><span *ngIf="(workshop$ | async)?.city">, {{(workshop$ | async)?.country}}</span>
   </p>
@@ -13,6 +17,7 @@
     CALL FOR MENTORS
   </button>
 </app-hero-section>
+</div>
 <div class="content-wrapper workshop-description XX">
   <scully-content></scully-content>
 </div>
