@@ -1,19 +1,16 @@
 <app-hero-section 
-  [image]="{src: DEFAULTS.homeImage, alt: 'ngGirls eclipse', device: device}"
-  [logo]="{src: DEFAULTS.homeLogo, alt: 'ngGirls logo'}"
+  [image]="page$.bg"
+  [logo]="page$.logo"
   >
   <div class="button-div" *ngIf="events$ | async; let events">
-    <a href="#workshops"  pageScroll [pageScrollOffset]="100">
-        <button class="btn">
-          {{events.length}} Upcoming event{{events.length > 1 ? 's' : ''}} 
-        </button>
-    </a>
+    <app-button [anchor]="'#workshops'" [label]="heroButtonLabel"></app-button>
 </div>
 </app-hero-section>
 
 <app-workshops-home 
-[title]="'Upcoming events:'"
-[postLimit]="3">
+  [title]="'Upcoming events:'"
+  [postLimit]="3"
+>
 </app-workshops-home>
 
 

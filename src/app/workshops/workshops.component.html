@@ -1,37 +1,28 @@
 
 <div *ngIf="(workshop$ | async) as workshop">
   <app-hero-section 
-  [image]="workshop"
-  [logo]="{ src: DEFAULTS.homeLogo, alt: 'logo'}"
-  >
-  
-  
-  <p class="hero-description">
-    {{(workshop$ | async)?.date}}<span *ngIf="(workshop$ | async)?.date">, {{(workshop$ | async)?.city}}</span><span *ngIf="(workshop$ | async)?.city">, {{(workshop$ | async)?.country}}</span>
-  </p>
-  <button class="btn" *ngIf="(workshop$ | async)?.participantsFormLink as link" (click)="openLink(link)">
-    APPLY FOR THE WORKSHOP
-  </button>
+    [image]="workshop.bg"
+    [logo]="workshop.logo"
+    >
+    <p class="hero-description">{{heroDescription}}</p>
+    <app-button [label]="'APPLY FOR THE WORKSHOP'" [link]="workshop.participantsFormLink"></app-button>
+    <app-button [label]="'CALL FOR MENTORS'" [link]="workshop.mentorsFormLink"></app-button>
+  </app-hero-section>
+  <div class="content-wrapper workshop-description XX">
+    <scully-content></scully-content>
+  </div>
+  <app-team-section 
+    [team]="workshop?.mentors" 
+    [title]="'Meet the Mentors'"
+    [showPopups]="true"
+    [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
+    >
+  </app-team-section>
+  <app-partners-section 
+    [partners]="workshop?.partners" 
+    [hosts]="workshop?.hosts"
+    [sponsorsCallMail]="workshop?.sponsorsCallMail">
+  </app-partners-section>
 
-  <button class="btn" *ngIf="(workshop$ | async)?.mentorsFormLink as link" (click)="openLink(link)">
-    CALL FOR MENTORS
-  </button>
-</app-hero-section>
+  <app-patreon></app-patreon>
 </div>
-<div class="content-wrapper workshop-description XX">
-  <scully-content></scully-content>
-</div>
-<app-team-section 
-  [team]="(workshop$ | async)?.mentors" 
-  [title]="'Meet the Mentors'"
-  [showPopups]="false"
-  [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
-></app-team-section>
-
-<app-partners-section 
-  [partners]="(workshop$ | async)?.partners" 
-  [hosts]="(workshop$ | async)?.hosts"
-  [sponsorsCallMail]="(workshop$ | async)?.sponsorsCallMail">
-</app-partners-section>
-
-<app-patreon></app-patreon>

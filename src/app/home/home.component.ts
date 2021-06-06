@@ -1,5 +1,5 @@
 import { browser } from 'protractor';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
 import { map, filter } from 'rxjs/operators';
@@ -15,14 +15,14 @@ import { DEFAULTS } from '../defaults.consts';
 })
 export class HomeComponent implements OnInit {
   events$: Observable<ScullyRoute[]>;
+  page$: any;
   eventsLength = 0;
   organizers = organizers;
   partners = partners;
   events: any;
   posts$: Observable<ScullyRoute[]>;
-  innerWidth: any;
   DEFAULTS = DEFAULTS;
-  mobileHeight = 700;
+  heroButtonLabel: String;
   device: {isMobile: Boolean, browser: any};
  
 
@@ -30,10 +30,19 @@ export class HomeComponent implements OnInit {
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
     }
-    
     ngOnInit() {
-      this.mobileHeight = this.organizers ? Math.ceil(this.organizers.length  / 2)*250 + 200 : 700;
-     
+      this.heroButtonLabel = '';
+      // TODO: refactor with scully observable
+      this.page$ = {};
+      this.page$['bg'] = {
+        src: DEFAULTS.homeImage,
+        alt: 'ngGirls eclipse', 
+        device: this.device
+      }
+      this.page$['logo'] = {
+        src: DEFAULTS.homeLogo,
+        alt: 'logo'
+      }
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
@@ -43,8 +52,12 @@ export class HomeComponent implements OnInit {
         );
       }),
       map(workshops => workshops.filter(workshop => { 
-        this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-        return workshop.archived == false;
+        const isPublished = workshop.archived == false;
+        this.eventsLength = isPublished ? this.eventsLength + 1 : this.eventsLength;
+        if(this.eventsLength > 0 && isPublished){
+          this.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+        }
+        return isPublished;
       } ))
     )
     );

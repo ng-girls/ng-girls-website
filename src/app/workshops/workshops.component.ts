@@ -20,12 +20,9 @@ declare var ng: any;
 export class WorkshopsComponent implements OnInit {
   DEFAULTS = DEFAULTS;
   workshop$;
-  team$;
-  teamLength$;
   device: any;
   environment: any;
-  image$;
-  xxx;
+  heroDescription: String;
 
   constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService, private sts: TransferStateService,
     getDevice: GetDeviceService,
@@ -36,54 +33,38 @@ export class WorkshopsComponent implements OnInit {
   ngAfterContentChecked() {
     this.cdref.detectChanges();    
   }
-  openLink(link: string) {
-    link = link.indexOf("http") > -1 ? link : `http://${link}`;
-    window.open(link, "_blank");
-  }
   ngOnInit() {
-    // this.workshop$ = this.srs.getCurrent().pipe(
-    //     map(routeList => {
-    //       console.log(routeList)
-    //       return {
-    //         src: routeList.image,
-    //         alt: 'logo', 
-    //         device: this.device
-    //       }
-    //     }));
-      // (this.srs.getCurrent() as Observable<ScullyRoute>)
-    // ));
+    this.heroDescription = '';
+    // {{workshop.date}}<span>, {{workshop.city}}</span><span>, {{workshop.country}}</span>
     this.workshop$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.getCurrent().pipe(
         map(routeList => {
-          console.log(routeList)
-          return {
+          const data = routeList;
+          this.heroDescription = `${data.date || ''}${data.city ? ', ' + data.city : ''} ${data.country ? ', ' + data.country : ''}`;
+          data['bg'] = {
             src: routeList.image,
-            alt: 'logo', 
+            alt: `${routeList.title || ''} stage`, 
             device: this.device
           }
-        })
-      // (this.srs.getCurrent() as Observable<ScullyRoute>)
-    ));
-    this.teamLength$ = this.sts.useScullyTransferState(
-      'workshopRoutes',
-      this.srs.getCurrent().pipe(
-        map(routeList => {
-          let len = 700;
-          if(this.device.isMobile == true){
-            len = routeList.mentors ? Math.ceil(routeList.mentors.length / 2)*250 + 200 : 700;
+          data['logo'] = {
+            src: DEFAULTS.homeLogo,
+            alt: 'logo'
           }
-          return len;
+          return data;
         })
-      // (this.srs.getCurrent() as Observable<ScullyRoute>)
     ));
     // loading demo static content
-    if(environment.production === false && !window.scullyContent){
-      const id = document.getElementsByTagName('scully-content')[0].attributes[0].name;
-      window['scullyContent'] = {
-        'html': environment.workshopHTML.replace(/ikn\-c37/ig, id.replace('_ngcontent-', '')),
-        'cssId': id
-      }
-    }
+    // console.log(document.getElementsByTagName('scully-content'))
+    // if(environment.production === false && !window.scullyContent){
+    //   const content = document.getElementsByTagName('scully-content');
+    //   if(content && content[0]){
+    // //     const id = content[0].attributes[0].name;
+    // //     window['scullyContent'] = {
+    // //       'html': environment.workshopHTML.replace(/ikn\-c37/ig, id.replace('_ngcontent-', '')),
+    // //       'cssId': id
+    // //     }
+    //   }
+    // }
   }
 }

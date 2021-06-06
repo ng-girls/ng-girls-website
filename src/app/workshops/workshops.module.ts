@@ -1,3 +1,4 @@
+import { ButtonModule } from './../button/button.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
@@ -17,7 +18,9 @@ import { PartnersSectionModule } from '../partners-section/partners-section.modu
     PatreonModule,
     HeroSectionModule,
     PartnersSectionModule,
-    TeamSectionModule
+    TeamSectionModule,
+    ButtonModule
+    
   ],
 })
 export class WorkshopsModule { }
