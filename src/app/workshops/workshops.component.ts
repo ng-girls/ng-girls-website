@@ -41,20 +41,7 @@ export class WorkshopsComponent implements OnInit {
     window.open(link, "_blank");
   }
   ngOnInit() {
-    this.workshop$ = this.srs.getCurrent().pipe(
-        map(routeList => {
-          console.log(routeList)
-          return {
-            src: routeList.image,
-            alt: 'logo', 
-            device: this.device
-          }
-        }));
-      // (this.srs.getCurrent() as Observable<ScullyRoute>)
-    // ));
-    // this.workshop$ = this.sts.useScullyTransferState(
-    //   'workshopRoutes',
-    //   this.srs.getCurrent().pipe(
+    // this.workshop$ = this.srs.getCurrent().pipe(
     //     map(routeList => {
     //       console.log(routeList)
     //       return {
@@ -62,9 +49,22 @@ export class WorkshopsComponent implements OnInit {
     //         alt: 'logo', 
     //         device: this.device
     //       }
-    //     })
-    //   // (this.srs.getCurrent() as Observable<ScullyRoute>)
+    //     }));
+      // (this.srs.getCurrent() as Observable<ScullyRoute>)
     // ));
+    this.workshop$ = this.sts.useScullyTransferState(
+      'workshopRoutes',
+      this.srs.getCurrent().pipe(
+        map(routeList => {
+          console.log(routeList)
+          return {
+            src: routeList.image,
+            alt: 'logo', 
+            device: this.device
+          }
+        })
+      // (this.srs.getCurrent() as Observable<ScullyRoute>)
+    ));
     this.teamLength$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.getCurrent().pipe(
