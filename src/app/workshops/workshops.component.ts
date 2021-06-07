@@ -41,7 +41,7 @@ export class WorkshopsComponent implements OnInit {
       this.srs.getCurrent().pipe(
         map(routeList => {
           const data = routeList;
-          this.heroDescription = `${data.date || ''}${data.city ? ', ' + data.city : ''} ${data.country ? ', ' + data.country : ''}`;
+          data['heroDescription'] = `${data.date || ''}${data.city ? ', ' + data.city : ''} ${data.country ? ', ' + data.country : ''}`;
           data['bg'] = {
             src: routeList.image,
             alt: `${routeList.title || ''} stage`, 
