@@ -31,7 +31,7 @@ export class WorkshopsComponent implements OnInit {
       this.device = getDevice.getDevice();
   }
   ngAfterContentChecked() {
-    this.cdref.detectChanges();    
+    this.cdref.detectChanges();
   }
   ngOnInit() {
     this.heroDescription = '';
