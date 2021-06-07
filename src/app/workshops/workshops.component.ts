@@ -51,6 +51,7 @@ export class WorkshopsComponent implements OnInit {
             src: DEFAULTS.homeLogo,
             alt: 'logo'
           }
+          console.log(data);
           return data;
         })
     ));
