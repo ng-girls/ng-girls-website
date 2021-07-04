@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
         src: DEFAULTS.homeLogo,
         alt: 'logo'
       }
+      this.page$['heroButtonLabel'] = 'UPPCOMING events';
       // this.page$['heroButtonLabel'] = this.heroButtonLabel
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
