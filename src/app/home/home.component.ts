@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
       // this.page$['heroButtonLabel'] = 'UPPCOMING events';
       // this.page$['heroButtonLabel'] = this.heroButtonLabel
     this.events$ = this.sts.useScullyTransferState(
-      'workshopRoutesAll',
+      'workshopRoutes',
       this.srs.available$.pipe(
       map(routeList => {
         console.log(routeList);
@@ -55,18 +55,19 @@ export class HomeComponent implements OnInit {
         );
       }),
       map(workshops => workshops.filter(workshop => { 
-        const data = workshop;
-        console.log(workshop)
+        // const data = workshop;
+        console.log(workshop);
+        this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
+        if(this.eventsLength > 0){
+          this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+        }
         // const isPublished = workshop.archived == false;
-        data['isPublished'] = workshop.archived == false;
-
-        this.eventsLength = data['isPublished'] === true ? this.eventsLength + 1 : this.eventsLength;
         // this.page$.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
         if(this.eventsLength > 0){
           this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
           // data['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
         } 
-        return data;
+        return workshop.archived == false;
       } ))
     )
     );
