@@ -3,7 +3,7 @@
   [logo]="page$.logo"
   >
   <div class="button-div" *ngIf="events$ | async; let events">
-    <app-button [anchor]="'#workshops'" [label]="events$.heroButtonLabel"></app-button>
+    <app-button [anchor]="'#workshops'" [label]="page$.heroButtonLabel"></app-button>
 </div>
 </app-hero-section>
 
