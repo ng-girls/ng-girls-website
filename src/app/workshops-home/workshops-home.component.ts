@@ -27,15 +27,11 @@ export class WorkshopsHomeComponent implements OnInit {
       'workshopRoutes',
       this.srs.available$.pipe(
       map(routeList => {
-        console.log('routeList2');
-        console.log(routeList);
         return routeList.filter((route: ScullyRoute) =>
           route.route.startsWith(`/workshops/`),
         );
       }),
       map(workshops => workshops.filter(workshop => { 
-        console.log('workshop2');
-        console.log(workshop);
         this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
         return workshop.archived == false;
       } ))
