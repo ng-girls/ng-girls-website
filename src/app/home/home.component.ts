@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
       map(workshops => workshops.filter(workshop => { 
         console.log('workshop1');
         console.log(workshop);
+        workshop['foo'] = 'bar';
         this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
         if(this.eventsLength > 0){
           this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
