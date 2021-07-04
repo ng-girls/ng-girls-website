@@ -56,18 +56,12 @@ export class HomeComponent implements OnInit {
         );
       }),
       map(workshops => workshops.filter(workshop => { 
-        // const data = workshop;
+        console.log('workshop1');
         console.log(workshop);
         this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
         if(this.eventsLength > 0){
           this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
         }
-        // const isPublished = workshop.archived == false;
-        // this.page$.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-        if(this.eventsLength > 0){
-          this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-          // data['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-        } 
         return workshop.archived == false;
       } ))
     )

@@ -34,6 +34,8 @@ export class WorkshopsHomeComponent implements OnInit {
         );
       }),
       map(workshops => workshops.filter(workshop => { 
+        console.log('workshop2');
+        console.log(workshop);
         this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
         return workshop.archived == false;
       } ))
