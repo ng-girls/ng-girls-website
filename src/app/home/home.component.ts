@@ -53,13 +53,19 @@ export class HomeComponent implements OnInit {
         );
       }),
       map(workshops => workshops.filter(workshop => { 
-        const isPublished = workshop.archived == false;
-        this.eventsLength = isPublished ? this.eventsLength + 1 : this.eventsLength;
-        if(this.eventsLength > 0 && isPublished){
-          this.page$.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-          // this.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+        const data = workshop;
+        // const isPublished = workshop.archived == false;
+        data['isPublished'] = workshop.archived == false;
+
+        this.eventsLength = data['isPublished'] ? this.eventsLength + 1 : this.eventsLength;
+        this.page$.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+        if(this.eventsLength > 0 && data['isPublished']){
+
+          data['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+        } else {
+          data['heroButtonLabel'] = 'no label';
         }
-        return isPublished;
+        return data;
       } ))
     )
     );
