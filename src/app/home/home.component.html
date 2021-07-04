@@ -2,11 +2,10 @@
   [image]="page$.bg"
   [logo]="page$.logo"
   >
-  <div class="button-div" *ngIf="events$ | async; let events">
+  <div class="button-div" *ngIf="(events$ | async) as events">
     <app-button [anchor]="'#workshops'" [label]="page$.heroButtonLabel"></app-button>
-</div>
+  </div>
 </app-hero-section>
-
 <app-workshops-home 
   [title]="'Upcoming events:'"
   [postLimit]="3"
