@@ -35,12 +35,12 @@ export class HomeComponent implements OnInit {
       );
     }),
     map(workshops => workshops.filter(workshop => { 
-      workshop['foo'] = 'bar';
-      this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-      if(this.eventsLength > 0){
-        this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-        // this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-      }
+      // workshop['foo'] = 'bar';
+      // this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
+      // if(this.eventsLength > 0){
+      //   this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+      //   // this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+      // }
       return workshop.archived == false;
     } ))
   )
