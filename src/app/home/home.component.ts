@@ -1,5 +1,5 @@
 import { browser } from 'protractor';
-import { Component, HostListener, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
 import { map, filter } from 'rxjs/operators';
@@ -26,10 +26,16 @@ export class HomeComponent implements OnInit {
   device: {isMobile: Boolean, browser: any};
  
 
-  constructor(private srs: ScullyRoutesService, private sts: TransferStateService,
+  constructor(
+    private srs: ScullyRoutesService, 
+    private cdref: ChangeDetectorRef,
+    private sts: TransferStateService,
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
     }
+    ngAfterContentChecked() {
+      this.cdref.detectChanges();    
+       }
     ngOnInit() {
       this.heroButtonLabel = '';
       // TODO: refactor with scully observable
