@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
       'workshopRoutesAll',
       this.srs.available$.pipe(
       map(routeList => {
+        console.log(routeList);
         return routeList.filter((route: ScullyRoute) =>
           route.route.startsWith(`/workshops/`),
         );
