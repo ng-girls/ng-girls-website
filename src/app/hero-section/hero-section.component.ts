@@ -25,8 +25,6 @@ export class HeroSectionComponent implements OnInit {
     this.cdref.detectChanges();    
      }
   ngOnInit(): void {
-    console.log('this.image');
-    console.log(this.image);
     // if(this.isObservable === false){
       // this.image.alt = this.image !== null && this.image.alt ? this.image.alt : 'eclipse';
       // this.image['responsive'] = true;

@@ -63,15 +63,7 @@ export class HomeComponent implements OnInit {
     //   )
     //    }
     ngOnInit() {
-      this.events$.subscribe(value => {
-        console.log(value);
-        const len = value.length;
-        if(len > 0){
-          // this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-          this.page$.heroButtonLabel =  `${len} Upcoming event${len > 1 ? 's' : ''} `;
-        }
-        return value;
-      });
+      
       this.heroButtonLabel = '';
       // TODO: refactor with scully observable
       this.page$ = {};
@@ -84,6 +76,17 @@ export class HomeComponent implements OnInit {
         src: DEFAULTS.homeLogo,
         alt: 'logo'
       }
+      this.page$['heroButtonLabel'] = '';
+      this.events$.subscribe(value => {
+        console.log(value);
+        console.log(this.page$['heroButtonLabel']);
+        const len = value.length;
+        if(len > 0){
+          // this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+          this.page$['heroButtonLabel'] =  `${len} Upcoming event${len > 1 ? 's' : ''} `;
+        }
+        return value;
+      });
       
       // this.page$['heroButtonLabel'] = 'UPPCOMING events';
       // this.page$['heroButtonLabel'] = this.heroButtonLabel
