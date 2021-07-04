@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
         src: DEFAULTS.homeLogo,
         alt: 'logo'
       }
+      // this.page$['heroButtonLabel'] = this.heroButtonLabel
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
@@ -55,7 +56,8 @@ export class HomeComponent implements OnInit {
         const isPublished = workshop.archived == false;
         this.eventsLength = isPublished ? this.eventsLength + 1 : this.eventsLength;
         if(this.eventsLength > 0 && isPublished){
-          this.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+          this.page$.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
+          // this.heroButtonLabel = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
         }
         return isPublished;
       } ))
