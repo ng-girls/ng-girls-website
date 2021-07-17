@@ -1,27 +1,40 @@
-# NgGirlsWebsite
+* preview url: https://black-water-05ac71003-19.westeurope.azurestaticapps.net/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+# new ngGirls page with Scully
+Repository's goal is to rewrite current ng-girls page to Angular and Scully. Thanks to that it will be possible to easily add new workshop's subpage.
 
-## Development server
+## Steps
+- [x] Create scully mechanism to autogenerate new workshops
+- [x] Connect to GitHub pages to deploy changes automatically
+- [ ] Recreate current secions and its styles in Angular approach
+- [ ] Replace manual adding subpages with forms and APIs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running locally
+-  Installing the project: `npm install`
+-  Make a build: `npm run build`
+-  Serve the page`npm run scully:serve`
 
-## Code scaffolding
+## Git Flow
+- Create feature branch from `main`
+- Add your changes
+- When ready, merge to `main`
+- After merging, GitHub Action will rebuild project and deploy your changes to webpage
+ 
+## Adding new workshop 
+- `npm checkout -b <your-workshop-name>-branch`
+- `npm run new-event`
+- Prompt will ask you for the event name.
+- Go to workshops folder and open file <event-name>.md
+- update properties in md file
+- create folder `src\assets\<your-workshop-name>` and add all assets there
+- Run `npm install && npm run build` to test it locally
+- When ready create PR to `main`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Adding new blog post
+- `npm checkout -b <your-post-name>-branch`
+- `npm run new-post`
+- Prompt will ask you for the event name.
+- Go to blog folder and open file <post-name>.md
+- update properties in md file
+- Run `npm install && npm run build` to test it locally
+- When ready create PR to `main`

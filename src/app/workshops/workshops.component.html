@@ -1,0 +1,28 @@
+
+<div *ngIf="(workshop$ | async) as workshop">
+  <app-hero-section 
+    [image]="workshop.bg"
+    [logo]="workshop.logo"
+    >
+    <p class="hero-description">{{workshop.heroDescription }}</p>
+    <app-button [label]="'APPLY FOR THE WORKSHOP'" [link]="workshop.participantsFormLink"></app-button>
+    <app-button [label]="'CALL FOR MENTORS'" [link]="workshop.mentorsFormLink"></app-button>
+  </app-hero-section>
+  <div class="content-wrapper workshop-description XX">
+    <scully-content></scully-content>
+  </div>
+  <app-team-section 
+    [team]="workshop?.mentors" 
+    [title]="'Meet the Mentors'"
+    [showPopups]="true"
+    [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
+    >
+  </app-team-section>
+  <app-partners-section 
+    [partners]="workshop?.partners" 
+    [hosts]="workshop?.hosts"
+    [sponsorsCallMail]="workshop?.sponsorsCallMail">
+  </app-partners-section>
+
+  <app-patreon></app-patreon>
+</div>

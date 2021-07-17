@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {IconElementService} from './service/icon-element/icon-element.service';
+import {ICONS} from './service/icon-element/icon-element.consts';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-girls-website';
+
+  constructor(private iconElementService: IconElementService) {
+
+    for (const iconsKey of Object.keys(ICONS)) {
+      this.iconElementService.initIcon(iconsKey as any);
+    }
+  }
 }

@@ -1,0 +1,32 @@
+<div mat-dialog-title>
+  <h1>{{data.name}}</h1>
+  <h2>{{data.title}}, {{data.company}}</h2>
+</div>
+<div mat-dialog-content>
+  <p *ngIf="data.description" class="person-description">{{data.description}}</p>
+  <hr>
+  <div class="person-details">
+    <div class="img" [style.backgroundImage]="'url(' + data.photo + ')'"></div>
+    <div class="about">
+      <p [innerText]="data.about"></p>
+      <ul class="social">
+        <li *ngIf="data.github">
+          <a href="{{data.github}}" target="_blank">
+            <mat-icon [svgIcon]="'github'"></mat-icon>
+          </a>
+        </li>
+        <li *ngIf="data.linkedIn">
+          <a href="{{data.linkedIn}}" target="_blank">
+            <mat-icon [svgIcon]="'linkedin'"></mat-icon>
+          </a>
+        </li>
+        <li *ngIf="data.twitter">
+          <a href="{{data.twitter}}" target="_blank">
+            <mat-icon [svgIcon]="'twitter'"></mat-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,36 @@
+<app-hero-section 
+  [image]="page$.bg"
+  [logo]="page$.logo"
+  >
+  <div class="button-div" *ngIf="(events$ | async) as events">
+    <app-button [anchor]="'#workshops'" [label]="page$.heroButtonLabel"></app-button>
+  </div>
+</app-hero-section>
+<app-workshops-home 
+  [title]="'Upcoming events:'"
+  [postLimit]="3"
+>
+</app-workshops-home>
+
+
+<app-patreon></app-patreon>
+
+<app-about-section></app-about-section>
+
+<app-team-section 
+  [team]="organizers" 
+  [title]="'Organizing Team'"
+  [showPopups]="true"
+  [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
+>
+
+</app-team-section>
+
+<app-partners-section 
+  [isDjangoLabelVisible]="true" 
+  [partners]="partners">
+</app-partners-section>
+
+<app-blog-home 
+  [postLimit]="3">
+</app-blog-home>

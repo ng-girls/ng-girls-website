@@ -1,0 +1,10 @@
+{
+    "routes": [
+        {
+            "route": "/ng-conf",
+            "serve": "/workshops/ngconf-2021",
+            "statusCode": 301
+        }
+    ]
+}
+
