@@ -1,8 +1,7 @@
-import { browser } from 'protractor';
 import { ChangeDetectorRef, Component, HostListener, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
 import { Observable } from 'rxjs';
 import { isScullyGenerated, ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { organizers } from './organizers-list';
 import { partners } from './parnters';
 import { GetDeviceService } from '../service/get-device/get-device.service';
