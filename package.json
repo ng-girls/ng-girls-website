@@ -8,8 +8,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --stats-json --prod",
-    "postbuild": "npm run scully -- --scanRoutes && npm run sw-build && npm run static",
+    "postbuild": "npm run scully -- --scanRoutes && npm run sw-build && npm run static && npm run optimize",
     "static": "cp -r static/* dist/static/",
+    "optimize": "node scripts/optimize.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -72,6 +73,7 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.7",
+    "webpack-bundle-analyzer": "^4.4.2",
     "workbox-build": "^5.1.3"
   }
 }
