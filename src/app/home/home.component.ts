@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostListener, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { isScullyGenerated, ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
 import { map } from 'rxjs/operators';
@@ -29,28 +29,18 @@ export class HomeComponent implements OnInit {
   :this.sts.useScullyTransferState(
     'workshopRoutes',
     this.srs.available$.pipe(
-      map(this.pageFilter.getPages('workshops')),
+      map(this.pageFilter.getPages('workshops', false, 'foobar')),
       map(this.pageFilter.filterBy('published'))
   )
   );
 
   constructor(
     private srs: ScullyRoutesService, 
-    private cdref: ChangeDetectorRef,
     private sts: TransferStateService,
     private pageFilter: PageFilterService,
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
     }
-    // ngAfterContentChecked() {
-    //   this.cdref.detectChanges();    
-    //   this.sts.getState('workshopRoutes').pipe(
-    //     map(workshop => {
-    //       console.log(workshop);
-    //       return workshop;
-    //     })
-    //   )
-    //    }
     ngOnInit() {
       
       this.heroButtonLabel = '';
@@ -67,8 +57,8 @@ export class HomeComponent implements OnInit {
       }
       this.page$['heroButtonLabel'] = '';
       this.events$.subscribe(value => {
-        console.log(value);
-        console.log(this.page$['heroButtonLabel']);
+        // console.log(value);
+        // console.log(this.page$['heroButtonLabel']);
         const len = value.length;
         if(len > 0){
           // this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
@@ -77,31 +67,7 @@ export class HomeComponent implements OnInit {
         return value;
       });
       
-      // this.page$['heroButtonLabel'] = 'UPPCOMING events';
-      // this.page$['heroButtonLabel'] = this.heroButtonLabel
-    // this.events$ = this.sts.useScullyTransferState(
-    //   'workshopRoutes',
-    //   this.srs.available$.pipe(
-    //   map(routeList => {
-    //     return routeList.filter((route: ScullyRoute) =>
-    //       route.route.startsWith(`/workshops/`),
-    //     );
-    //   }),
-    //   map(workshops => workshops.filter(workshop => { 
-    //     workshop['foo'] = 'bar';
-    //     this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-    //     if(this.eventsLength > 0){
-    //       this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-    //       // this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-    //     }
-    //     return workshop.archived == false;
-    //   } ))
-    // )
-    // );
-    
-    // this.events = this.events$.subscribe(data => data.map( workshop => console.log(workshop.archived) ));
-
-    // this.eventsLength = this.events$.length;
+     
     this.posts$ = this.sts.useScullyTransferState(
       'blogRoutes',
       this.srs.available$.pipe(

@@ -8,17 +8,11 @@ import { ScullyRoute } from '@scullyio/ng-lib';
 export class PageFilterService {
 
   constructor() { }
-  public getPages(path, reverse = false): (value: ScullyRoute[]) => ScullyRoute[] {
-    if(!reverse){
-      return routeList => {
-        return routeList.filter((route: ScullyRoute) => route.route.startsWith(`/${path}/`)
-        );
-      };
-    } else {
-      return routeList => {
-        return routeList.filter((route: ScullyRoute) => route.route.startsWith(`/${path}/`)
-        ).reverse();
-      };
+  public getPages(path, reverse = false, custom = 'default'): (value: ScullyRoute[]) => ScullyRoute[] {
+    return routeList => {
+      let pages = routeList.filter((route: ScullyRoute) => route.route.startsWith(`/${path}/`)); 
+      return reverse ? pages.reverse() : pages;
+      
     }
   }
   public getStage(logo, device): (value: ScullyRoute) => ScullyRoute {
