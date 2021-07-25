@@ -20,13 +20,15 @@ import { FaqComponent } from './faq/faq.component';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { WorkshopsHomeComponent } from './workshops-home/workshops-home.component';
 
+
+
 // Material
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 import { DialogPersonComponent } from './dialog-person/dialog-person.component';
-import {FormsModule} from '@angular/forms';
+// import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+// import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { PostPreviewComponent } from './post-preview/post-preview.component'
 import { WorkshopPreviewComponent } from './workshop-preview/workshop-preview.component'
