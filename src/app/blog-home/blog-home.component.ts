@@ -1,5 +1,6 @@
+import { PageFilterService } from './../service/page-filter/page-filter.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
+import { ScullyRoutesService,  TransferStateService } from '@scullyio/ng-lib';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -13,20 +14,17 @@ export class BlogHomeComponent implements OnInit {
   @Input() 
   postLimit = 0;
 
-  constructor(private srs: ScullyRoutesService) { }
+  constructor(private srs: ScullyRoutesService, private sts: TransferStateService, private pageFilter: PageFilterService) { }
 
 
   ngOnInit() {
-    
-    this.posts$ = this.srs.available$.pipe(
-      map(routeList => {
-        return routeList.filter((route: ScullyRoute) =>
-          route.route.startsWith(`/blog/`),
-        )
-        .reverse()
-      }),
-      map(posts => posts.slice(0, this.postLimit ? this.postLimit : posts.length))
+    this.posts$ = this.sts.useScullyTransferState(
+      'blogRoutes',
+      this.srs.available$.pipe(
+        map(this.pageFilter.getPages('blog', true)),
+        map(this.pageFilter.filterBy('lastLimit', this.postLimit))
+      )
     );
+   
   }
-
 }

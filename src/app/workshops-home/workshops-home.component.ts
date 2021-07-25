@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
 
 import { map } from 'rxjs/operators';
+import { PageFilterService } from '../service/page-filter/page-filter.service';
 
 @Component({
   selector: 'app-workshops-home',
@@ -18,28 +19,14 @@ export class WorkshopsHomeComponent implements OnInit {
   title = '';
   length = 0;
 
-  constructor(private srs: ScullyRoutesService, private sts: TransferStateService) { }
-
-
-
+  constructor(private srs: ScullyRoutesService, private sts: TransferStateService, private pageFilter: PageFilterService) { }
   ngOnInit() {
     this.events$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.available$.pipe(
-      map(routeList => {
-        return routeList.filter((route: ScullyRoute) =>
-          route.route.startsWith(`/workshops/`),
-        );
-      }),
-      map(workshops => workshops.filter(workshop => { 
-        this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-        return workshop.archived == false;
-      } ))
-    )
+        map(this.pageFilter.getPages('workshops')),
+        map(this.pageFilter.filterBy('published'))
+      )
     );
-    
-
-    // console.log(this.workshops$.length)
   }
-
 }

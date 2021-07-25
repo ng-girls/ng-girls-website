@@ -6,6 +6,7 @@ import { organizers } from './organizers-list';
 import { partners } from './parnters';
 import { GetDeviceService } from '../service/get-device/get-device.service';
 import { DEFAULTS } from '../defaults.consts';
+import { PageFilterService } from '../service/page-filter/page-filter.service';
 
 @Component({
   selector: 'app-home',
@@ -28,20 +29,8 @@ export class HomeComponent implements OnInit {
   :this.sts.useScullyTransferState(
     'workshopRoutes',
     this.srs.available$.pipe(
-    map(routeList => {
-      return routeList.filter((route: ScullyRoute) =>
-        route.route.startsWith(`/workshops/`),
-      );
-    }),
-    map(workshops => workshops.filter(workshop => { 
-      // workshop['foo'] = 'bar';
-      // this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-      // if(this.eventsLength > 0){
-      //   this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-      //   // this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-      // }
-      return workshop.archived == false;
-    } ))
+      map(this.pageFilter.getPages('workshops')),
+      map(this.pageFilter.filterBy('published'))
   )
   );
 
@@ -49,6 +38,7 @@ export class HomeComponent implements OnInit {
     private srs: ScullyRoutesService, 
     private cdref: ChangeDetectorRef,
     private sts: TransferStateService,
+    private pageFilter: PageFilterService,
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
     }
@@ -115,12 +105,9 @@ export class HomeComponent implements OnInit {
     this.posts$ = this.sts.useScullyTransferState(
       'blogRoutes',
       this.srs.available$.pipe(
-      map(routeList => {
-        return routeList.filter((route: ScullyRoute) => 
-        route.route.startsWith(`/blog/`))
-      }),
-      map(posts => posts.slice(0, 3))
-    )
+        map(this.pageFilter.getPages('blog', true)),
+        map(this.pageFilter.filterBy('lastLimit', 3))
+      )
     );
   }
 
