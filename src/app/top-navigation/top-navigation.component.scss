@@ -1,4 +1,6 @@
-@import '../../styles.scss';
+// @import '../../styles.scss';
+@import '../../breakpoints';
+@import '../../mixins';
 
 .top-header {
   position: fixed;
@@ -80,15 +82,13 @@
   }
 }
 
-
+// TODO:  $base-transition needed?
 .logo-header {
   display: block;
   transform: translateY(20px);
-  transition: $base-transition;
+  // transition: $base-transition;
   transform: translateY(1px);
-  @media (max-width: 767px) {
-    transform: translateX(-45px);
-  }
+ 
 
   @media (max-width: 767px) {
     transform: translateX(-45px);

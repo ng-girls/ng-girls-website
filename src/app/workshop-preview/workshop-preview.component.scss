@@ -1,5 +1,6 @@
-@import '../../styles.scss';
-
+// @import '../../styles.scss';
+@import '../../breakpoints';
+@import '../../mixins';
 .workshop-preview {
     width: 320px;
     height: 220px; // 350px
