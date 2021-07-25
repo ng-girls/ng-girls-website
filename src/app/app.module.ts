@@ -1,3 +1,4 @@
+import { TitleModule } from './title/title.module';
 import { ButtonModule } from './button/button.module';
 // import { ResponsivePipe } from './pipes/responsive.pipe';
 import {BrowserModule} from '@angular/platform-browser';
@@ -69,7 +70,8 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     // MatFormFieldModule,
     MatCardModule,
     NgxPageScrollModule,
-    ButtonModule
+    ButtonModule,
+    TitleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -62,22 +62,7 @@
     }
   }
 
-  .section-title {
-    font-size: 80px;
-    color: white;
-    padding-top: 40px;
-    padding-bottom: 80px;
-    margin-bottom: 10px;
-    font-weight: 400;
-    @include smx {
-      margin: auto;
-      font-size: 50px;
-      line-height: normal;
-    }
-    @include smx {
-      padding-bottom: 40px;
-    }
-  }
+ 
 
   .person-card {
     padding-bottom: 30px;

@@ -5,14 +5,16 @@ import { LogoComponent } from '../logo/logo.component';
 import { ResponsivePipe } from '../pipes/responsive.pipe';
 import { BgImageComponent } from '../bg-image/bg-image.component';
 import { BgImageModule } from '../bg-image/bg-image.module';
+import { TitleModule } from '../title/title.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        BgImageModule
+        BgImageModule,
+        TitleModule
     ],
     declarations: [
-        TeamSectionComponent,
+        TeamSectionComponent
         // LogoComponent,
         // BgImageComponent,
         // ResponsivePipe

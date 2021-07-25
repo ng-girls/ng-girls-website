@@ -1,18 +1,22 @@
 <section id="partners" class="partners-section">
-    <h2 class="section-title">Partners</h2>
+    <app-title label="Partners"></app-title>
     <div class="partners-container" *ngIf="hosts">
-        <h4 class="partners-title">Hosted by</h4>
+        <app-title label="Hosted by" range="3"></app-title>
         <div class="partners-list">
             <div class="partner-logo-section" *ngFor="let host of hosts">
                 <a href="{{host.link}}" target="_blank">
-                    <img src="{{host.logo}}" />
+                    <picture>
+                        <source media="(min-width: 500px)" srcset="{{host.logo}}">
+                        <source media="(min-width: 300px)" srcset="{{host.logo.replace('-200.webp', '-100.webp' )}}">
+                        <img src="{{host.logo}}" alt="{{host.title || ''}} logo" width="200" height="200" >
+                      </picture>
                 </a>
             </div>
         </div>
     </div>
 
     <div class="partners-container" *ngIf="partners">
-        <h2 class="partners-title">With support of</h2>
+        <app-title label="With support of" range="3"></app-title>
         <div class="partners-list">
             <div class="partner-logo-section" *ngFor="let partner of partners">
                 <a href="{{partner.link}}" target="_blank" rel="noopener">
@@ -26,19 +30,12 @@
         </div>
     </div>
 
-    <div *ngIf="isDjangoLabelVisible" class="django-label">
+    <div *ngIf="isDjangoLabelVisible">
         <p>ngGirls is inspired by Django Girls and makes use of its resources</p>
         <a href="https://djangogirls.org/" target="_blank" rel="noopener">
             <img src="../../assets/partners/django-girls-200.webp" class="logo" alt="DjangoGirls Logo" width="200" height="200" >
         </a>
         </div>
-
-    <div class="button-div">
-        <a href="mailto:{{sponsorsCallMail}}" target="_top">
-            <button class="btn">
-                BECOME A SPONSOR
-            </button>
-        </a>
-    </div>
+        <app-button [link]="sponsorsCallMail" [label]="'BECOME A SPONSOR'" [type]="'mail'"></app-button>
 
 </section>

@@ -1,6 +1,6 @@
 // @import '../../styles.scss';
-@import '../../breakpoints';
-@import '../../mixins';
+// @import '../../breakpoints';
+// @import '../../mixins';
 
 .content-wrapper {
     position: relative;
@@ -8,23 +8,11 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    h1 {
-        font-size: 50px;
-        color: #7b1fa2;
-        margin: 40px 10px;
-        line-height: normal;
-        @include smx {
-            font-size: 45px;
-        }
-    }
+    
     .link-container {
         text-align: center;
     }
-    // .patreon-img {
-    //     max-width: 100%;
-    //     width: 430px;
-    //     margin-bottom: 0.5em;
-    // }
+    
     picture >  img {
         max-width: 100%;
         height: auto;

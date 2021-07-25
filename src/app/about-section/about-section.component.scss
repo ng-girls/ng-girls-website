@@ -8,19 +8,7 @@
   padding-bottom: 40px;
   text-align: center;
 
-  .section-title {
-    font-size: 80px;
-    font-weight: 400;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    line-height: normal;
-    // mobile: smaller centered headline
-    @include smx {
-      margin: auto;
-      margin-bottom: 30px;
-      font-size: 50px;
-    }
-  }
+
 
   .cards-list {
     display: flex;

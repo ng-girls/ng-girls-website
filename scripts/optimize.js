@@ -43,6 +43,6 @@ ${d}
 }
 var n =data.match(regexOptimized);
 if(n && n[1]){
-    console.log('code is already optimized');
+    console.log('code is optimized');
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8'});
