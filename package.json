@@ -9,7 +9,7 @@
     "start": "ng serve",
     "build": "ng build --stats-json --prod",
     "postbuild": "npm run scully -- --scanRoutes && npm run sw-build && npm run static && npm run optimize",
-    "static": "cp -r static/* dist/static/",
+    "static": "cp -r static/* dist/static/ && cp static/.htaccess dist/static/.htaccess",
     "optimize": "node scripts/optimize.js",
     "test": "ng test",
     "lint": "ng lint",
