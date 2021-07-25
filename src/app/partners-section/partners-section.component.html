@@ -4,7 +4,7 @@
         <app-title label="Hosted by" range="3"></app-title>
         <div class="partners-list">
             <div class="partner-logo-section" *ngFor="let host of hosts">
-                <a href="{{host.link}}" target="_blank">
+                <a href="{{host.link}}" target="_blank" rel="noopener">
                     <picture>
                         <source media="(min-width: 500px)" srcset="{{host.logo}}">
                         <source media="(min-width: 300px)" srcset="{{host.logo.replace('-200.webp', '-100.webp' )}}">
