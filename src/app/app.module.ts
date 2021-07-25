@@ -1,5 +1,5 @@
-import { TitleModule } from './title/title.module';
-import { ButtonModule } from './button/button.module';
+import { TitleModule } from './_shared/title/title.module';
+import { ButtonModule } from './_shared/button/button.module';
 // import { ResponsivePipe } from './pipes/responsive.pipe';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';

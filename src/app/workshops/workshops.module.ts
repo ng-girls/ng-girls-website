@@ -1,4 +1,4 @@
-import { ButtonModule } from './../button/button.module';
+import { ButtonModule } from './../_shared/button/button.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';

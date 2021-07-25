@@ -5,7 +5,7 @@ import { LogoComponent } from '../logo/logo.component';
 import { ResponsivePipe } from '../pipes/responsive.pipe';
 import { BgImageComponent } from '../bg-image/bg-image.component';
 import { BgImageModule } from '../bg-image/bg-image.module';
-import { TitleModule } from '../title/title.module';
+import { TitleModule } from '../_shared/title/title.module';
 
 @NgModule({
     imports: [
