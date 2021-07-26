@@ -1,16 +1,4 @@
-// @import '../../styles.scss';
-@import '../../breakpoints';
-@import '../../mixins';
 
-picture >  img {
-  max-width: 200px;
-  height: 200px;
-  margin-right: 10px;
-    @include smx {
-    width: 100px;
-    height: 100px;
-  }
-}
 
 .partners-section {
   display: flex;
