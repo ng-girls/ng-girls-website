@@ -16,7 +16,7 @@ import {HeroSectionModule} from './hero-section/hero-section.module';
 import {TeamSectionModule} from './team-section/team-section.module';
 import {PartnersSectionModule} from './partners-section/partners-section.module';
 import {AboutSectionComponent} from './about-section/about-section.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FaqComponent } from './faq/faq.component';
 // import { CocComponent } from './coc/coc.component';
 import { PreviewComponent } from './preview/preview.component';
@@ -57,7 +57,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     HeroSectionModule,
     TeamSectionModule,
     PartnersSectionModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
     CardModule,
