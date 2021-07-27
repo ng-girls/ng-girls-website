@@ -6,11 +6,12 @@
     <app-button [anchor]="'#workshops'" [label]="page$.heroButtonLabel" [type]="'anchor'"></app-button>
   </div>
 </app-hero-section>
-<app-workshops-home 
+<app-preview 
   [title]="'Upcoming events:'"
-  [postLimit]="3"
+  [itemsLimit]="3"
+  slug="workshops"
 >
-</app-workshops-home>
+</app-preview>
 
 
 <app-patreon></app-patreon>
@@ -30,6 +31,11 @@
   [partners]="partners">
 </app-partners-section>
 
-<app-blog-home 
-  [postLimit]="3">
-</app-blog-home>
+<app-preview 
+  [title]="'Articles'"  
+  [itemsLimit]="3"
+  slug="blog"
+  reverse="true"
+  
+  >
+</app-preview>

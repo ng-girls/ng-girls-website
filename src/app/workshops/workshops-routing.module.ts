@@ -1,14 +1,14 @@
+import { PreviewComponent } from '../preview/preview.component';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {WorkshopsComponent} from './workshops.component';
-import { WorkshopsHomeComponent } from '../workshops-home/workshops-home.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: WorkshopsHomeComponent
+    component: PreviewComponent
   },
   {
     path: ':workshopId',
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: WorkshopsHomeComponent,
+    component: PreviewComponent
   }
 ];
 

@@ -1,0 +1,57 @@
+
+mat-card{
+    width: 320px;
+    margin: 20px;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-top: 0; 
+}
+.card-workshops {
+    height: 220px; // 350px
+    margin-bottom: 0; 
+}
+.card-article {
+    height: 350px;
+}
+.mat-card-image:first-child {
+    margin-top: 0;
+}
+
+// TODO: theme?
+.card-workshops mat-card-title {
+    font-size: 60px;
+    line-height: 70px;
+    color: white;
+}
+.card-workshops mat-card-subtitle {
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.card-workshops   mat-card-header{
+    position: absolute;
+    top: 90px;
+}
+
+@media (max-width: 768px){
+    mat-card{
+        width: 320px;
+        margin: 20px 0;
+    }
+}
+
+.card-article mat-card-header .mat-card-header-text {
+    margin-left: 0;
+}
+.card-article  img {
+    height: 220px;
+}
+
+// .card-workshops img{
+//     margin-bottom: 0;
+//     padding-bottom: 0;
+// }
+   

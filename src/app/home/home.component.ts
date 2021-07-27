@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
   heroButtonLabel: String;
   device: {isMobile: Boolean, browser: any};
   events$ = isScullyGenerated()
-  ? this.sts.getState<any>('workshopRoutes')
+  ? this.sts.getState<any>('workshopsRoutes')
   :this.sts.useScullyTransferState(
-    'workshopRoutes',
+    'workshopsRoutes',
     this.srs.available$.pipe(
       map(this.pageFilter.getPages('workshops', false, 'foobar')),
       map(this.pageFilter.filterBy('published'))

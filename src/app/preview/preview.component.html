@@ -1,0 +1,9 @@
+<section class="content-wrapper {{slug}}">
+    <h1 class="header" *ngIf="title != ''">{{title}}</h1>
+    <div class="item-list">
+        <div *ngFor="let item of items$ | async">
+            <app-card [card]="item" [type]="slug"></app-card>
+        </div>
+    </div>
+</section>
+
