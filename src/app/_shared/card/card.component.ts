@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   template: `
   <a [routerLink]="card.route" *ngIf="!card.archived">
     <mat-card class="card-{{type}}">
-      <img mat-card-image src="{{card.imagePreview? card.imagePreview : card.image}}" alt="workshop {{card.title}}"  >
+      <img mat-card-image src="{{card.imagePreview? card.imagePreview : card.image}}" alt="workshop {{card.title}}" loading="lazy" >
       <mat-card-header>
           <mat-card-title>{{card.title}}</mat-card-title>
           <mat-card-subtitle>{{card.date}}</mat-card-subtitle>
