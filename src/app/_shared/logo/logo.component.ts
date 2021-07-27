@@ -7,7 +7,7 @@ import { Component,  Input, OnInit } from '@angular/core';
         <picture>
             <source media="(min-width: 500px)" srcset="{{item.logo}}">
             <source media="(min-width: 300px)" srcset="{{item.logo.replace('-200.webp', '-100.webp' )}}">
-            <img src="{{item.logo}}" alt="{{item.title || ''}} logo" width="200" height="200" >
+            <img src="{{item.logo}}" alt="{{item.title || ''}} logo" width="200" height="200"  loading="lazy" >
         </picture>
     </a>
   `,
