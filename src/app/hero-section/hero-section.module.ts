@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { BgImageModule } from './../bg-image/bg-image.module';
 import { ResponsivePipe } from './../pipes/responsive.pipe';
 import { BgImageComponent } from './../bg-image/bg-image.component';
@@ -9,7 +10,8 @@ import { HeroSectionComponent } from './hero-section.component';
 @NgModule({
     imports: [
         CommonModule,
-        BgImageModule
+        BgImageModule,
+        MatIconModule
     ],
     declarations: [
         HeroSectionComponent,
