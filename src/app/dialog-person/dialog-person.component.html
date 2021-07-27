@@ -11,17 +11,17 @@
       <p [innerText]="data.about"></p>
       <ul class="social">
         <li *ngIf="data.github">
-          <a href="{{data.github}}" target="_blank">
+          <a href="https://github.com/{{data.github}}" target="_blank">
             <mat-icon [svgIcon]="'github'"></mat-icon>
           </a>
         </li>
         <li *ngIf="data.linkedIn">
-          <a href="{{data.linkedIn}}" target="_blank">
+          <a href="https://www.linkedin.com/{{data.linkedIn}}" target="_blank">
             <mat-icon [svgIcon]="'linkedin'"></mat-icon>
           </a>
         </li>
         <li *ngIf="data.twitter">
-          <a href="{{data.twitter}}" target="_blank">
+          <a href="https://twitter.com/{{data.twitter}}" target="_blank">
             <mat-icon [svgIcon]="'twitter'"></mat-icon>
           </a>
         </li>

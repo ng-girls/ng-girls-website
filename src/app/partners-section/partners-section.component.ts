@@ -20,7 +20,7 @@ export class PartnersSectionComponent implements OnInit {
 
   djangos = [{
     link: 'https://djangogirls.org/', 
-    logo: '../../assets/partners/django-girls-200.webp',
+    logo: 'django-girls-200.webp',
     title: 'DjangoGirls'
   }]
 
