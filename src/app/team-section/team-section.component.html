@@ -1,5 +1,5 @@
 <section id="team" class="team-section team-section--{{height}}" [ngClass]="{'team-section--mobile': device.isMobile}" [style.height.px]="mobileHeight">
-    <app-bg-image [image]="image" [fadeout]="true"></app-bg-image>
+    <app-bg-image [image]="image" [fadeout]="true" [lazy]="true"></app-bg-image>
     <div class="team-section__overlay overlay--{{mobileHeight}}" [style.height.px]="mobileHeight">
         <app-title [label]="title" type="dark"></app-title>
 

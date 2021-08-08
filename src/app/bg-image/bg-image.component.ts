@@ -7,10 +7,12 @@ import { Component,  OnInit, Input } from '@angular/core';
 })
 export class BgImageComponent implements OnInit {
   @Input()   image: any;
+  @Input()   lazy = false;
   @Input()   fadeout = false;
   responsive: boolean = false;
   imageHeight: string = '700';
   mobileHeight: number = 700;
+  loading = 'eager';
   device: any;
   height = 700;
 
@@ -20,6 +22,7 @@ export class BgImageComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.loading = this.lazy === true ? 'lazy' : this.loading;
     this.device = this.image ? this.image.device : null;
     this.height = (this.device && this.device.isMobile) ? this.mobileHeight : 700;
     this.responsive = (this.image && this.image.responsive) ? this.image.responsive : this.responsive;
