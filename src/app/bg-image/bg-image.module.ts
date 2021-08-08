@@ -4,7 +4,7 @@ import { BgImageComponent } from './bg-image.component';
 import { NgModule } from '@angular/core';
 @NgModule({
     imports: [
-        CommonModule
+        // CommonModule
     ], 
     declarations: [
         BgImageComponent,
