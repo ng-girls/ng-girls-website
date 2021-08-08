@@ -1,4 +1,3 @@
-lazy: {{lazy}}
 <div class="bg-image bg-image--{{imageHeight}} bg-image-mobile--{{mobileHeight}}" 
     [ngClass]="{'bg-image--responsive': responsive == true, 'bg--mobile': device && device.isMobile, 'bg-image--fadout': fadeout == true}">
     <div class="bg-image__wrapper" *ngIf="image.src && image.src !== ''">
