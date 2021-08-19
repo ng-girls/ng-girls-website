@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoComponent } from './logo.component';
-import { TitleModule } from '../title/title.module';
+import { SVGComponent } from './svg.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     imports: [
         CommonModule,
-        TitleModule,
+        MatIconModule,
 
     ],
     declarations: [
-        LogoComponent
+        SVGComponent
     ],
     exports: [
-        LogoComponent
+        SVGComponent
     ]
 })
-export class LogoModule { }
+export class SVGModule { }

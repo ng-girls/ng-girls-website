@@ -55,5 +55,7 @@ export class TitleComponent {
   @Input() label: any;
   @Input() range: any = 2;
   @Input() type: any = 'light';
-  constructor() { }
+  constructor() {
+
+   }
 }

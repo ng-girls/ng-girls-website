@@ -21,7 +21,7 @@ export class PartnersSectionComponent implements OnInit {
   djangos = [{
     link: 'https://djangogirls.org/', 
     logo: 'django-girls-200.webp',
-    title: 'DjangoGirls'
+    alt: 'DjangoGirls'
   }]
 
   constructor() {

@@ -1,3 +1,4 @@
+import { SVGModule } from './_shared/svg/svg.module';
 import { CardModule } from './_shared/card/card.module';
 import { TitleModule } from './_shared/title/title.module';
 import { ButtonModule } from './_shared/button/button.module';
@@ -67,7 +68,8 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     // MatCardModule,
     NgxPageScrollModule,
     ButtonModule,
-    TitleModule
+    TitleModule,
+    SVGModule
   ],
   providers: [],
   bootstrap: [AppComponent]

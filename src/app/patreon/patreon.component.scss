@@ -1,7 +1,3 @@
-// @import '../../styles.scss';
-// @import '../../breakpoints';
-// @import '../../mixins';
-
 .content-wrapper {
     position: relative;
     z-index: 1;
@@ -9,17 +5,12 @@
     display: flex;
     justify-content: center;
     
-    .link-container {
-        text-align: center;
-    }
-    
-    picture >  img {
-        max-width: 100%;
-        height: auto;
-      }
 }
 .patreon-section {
     background: antiquewhite;
     padding: 40px;
     margin-top: 30px;
+}
+app-logo{
+    text-align: center;
 }

@@ -1,10 +1,7 @@
 <header id="top-header" class="top-header">
   <div class="overlay white-solid"></div>
-  <a href="#home" *ngIf="isHome == true" id="logo-header" class="logo-header" aria-label="Home of ngGirls"  pageScroll [pageScrollOffset]="50">
-    <mat-icon class="logo logo-light" [svgIcon]="'logo'"></mat-icon>
-  </a>
-  <a href="/" *ngIf="isHome == false" id="logo-header2" class="logo-header" aria-label="Home of ngGirls">
-    <mat-icon class="logo logo-light" [svgIcon]="'logo'"></mat-icon>
+  <a [routerLink] = "['/']" fragment="{{isHome == true ? 'home' : ''}}"  id="logo-header" class="logo-header" aria-label="Home of ngGirls"  pageScroll [pageScrollOffset]="50">
+    <app-svg [class]="'logo logo--header'" [icon]="'logo'" [size]="sizeLogo"></app-svg>
   </a>
   <nav class="st-menu st-effect" id="menu">
     <div class="logo-navbar logo logo-dark visible-xs"></div>
