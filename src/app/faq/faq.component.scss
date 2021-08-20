@@ -1,3 +1,6 @@
+.flex__container{
+    max-width: 800px;
+}
 .faq-page {
     margin-top: 30px;
     padding-top: 10px;
@@ -23,44 +26,18 @@
         line-height: 23px;
     }
 
-    .content-wrapper {
-        max-width: 800px;
-        margin: auto;
-        display: flex;
-        flex-direction: row;
+   
+}
+.faq-subtitle {
+    font-size: 36.8px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
 
-        @media (max-width: 767px) {
-            flex-direction: column;
-            width: 90%;
-        }
-
-        .column {
-            padding-left: 30px;
-            padding-right: 30px;
-
-            @media (max-width: 767px) {
-                padding-left: 10px;
-                padding-right: 10px;
-                margin-bottom: 30px;
-            }
-
-            text-align: left;
-            font-size: 18px;
-            flex-basis: 100%;
-
-            .faq-subtitle {
-                font-size: 36.8px;
-                font-weight: 300;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                line-height: 1.1;
-            }
-
-            .faq-body {
-                margin-top: 19px;
-            }
-        }
-    }
+.faq-body {
+    margin-top: 19px;
 }
 
 .faq-image {

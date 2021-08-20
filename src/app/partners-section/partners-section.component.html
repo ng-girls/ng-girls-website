@@ -1,15 +1,20 @@
-<section id="partners" class="partners-section">
-    <app-title label="Partners"></app-title>
-    <div *ngFor="let item of items">
-        <div class="partners-container">
-            <app-title [label]="item.title" range="3" *ngIf="item.title"></app-title>
-            <p *ngIf="item.description">{{item.description}}</p>
-            <div class="partners-list">
-                <div class="partner-logo-section" *ngFor="let host of item.items">
-                    <app-logo [item]="host"></app-logo>
+<section id="partners" class="flex__column flex--center">
+    <app-title label="Partners" type="text--center"></app-title>
+
+    <section class="partners-section">
+        <div *ngFor="let item of items">
+            <div class="partners-container flex__column">
+                <app-title [label]="item.title" range="3"  type="text--center" *ngIf="item.title"></app-title>
+                <p *ngIf="item.description" class="text--center">{{item.description}}</p>
+                <div class="partners-list">
+                    <div class="partner-logo-section" *ngFor="let host of item.items">
+                        <app-logo [item]="host"></app-logo>
+                    </div>
                 </div>
             </div>
+            <div class="text--center">
+                <app-button *ngIf="item.mail" [link]="item.mail.link" [label]="item.mail.label" [type]="'mail'" ></app-button>
+            </div>
         </div>
-        <app-button *ngIf="item.mail" [link]="item.mail.link" [label]="item.mail.label" [type]="'mail'"></app-button>
-    </div>
+    </section>
 </section>

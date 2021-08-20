@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-card',
   template: `
-  <a [routerLink]="card.route" *ngIf="!card.archived">
+  <a [routerLink]="card.route" *ngIf="!card.archived"> 
     <mat-card class="card-{{type}}">
       <img mat-card-image src="{{card.imagePreview? card.imagePreview : card.image}}"
         width="352" height="220" alt="card {{card.title}}" loading="lazy" >

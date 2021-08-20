@@ -9,9 +9,10 @@ export class PatreonComponent {
   item: any;
 
   constructor() { 
+    // TODO: extract eternalaly
     this.item = {
       title: 'Support ngGirls on Patreon',
-      titleType: 'yellow',
+      titleType: 'yellow text--center',
       alt: 'Patreon ngGirls',
       link: 'https://www.patreon.com/ngGirls',
       width: '430',
