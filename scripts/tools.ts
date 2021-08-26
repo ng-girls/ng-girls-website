@@ -1,6 +1,6 @@
 const os = require('os');
 let noEmojis = os.release().toLocaleLowerCase().includes('microsoft') && process.platform.includes('linux') && (!(process.env.TERM_PROGRAM && process.env.TERM_PROGRAM.includes('vscode')));
-exports.DIST_PATH = DIST_PATH = './dist/output';
+exports.DIST_PATH = DIST_PATH = './output/statistics';
 const fs = require('fs');
 // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
 const colors = {

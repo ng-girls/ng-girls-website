@@ -38,8 +38,8 @@ jobs:
           PRE_BUILD_COMMAND: './scripts/setup-puppeteer.sh'
       - name: run lighthouse
         env:
-            CI: true
-            API_KEY: ${{ secrets.PSI_KEY }}
+          CI: true
+          API_KEY: ${{ secrets.PSI_KEY }}
         run: |
           mkdir -p output/statistics/
           ls -al
