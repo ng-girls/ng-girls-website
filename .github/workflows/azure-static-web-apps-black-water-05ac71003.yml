@@ -36,11 +36,24 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           PRE_BUILD_COMMAND: './scripts/setup-puppeteer.sh'
-      - uses: peter-evans/repository-dispatch@v1
+      - name: run lighthouse
+        run: |
+          mkdir -p output/statistics/
+          ls -al
+          [[ -d node_modules ]] || npm install
+          npm run psi
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ env.GITHUB_REPOSITORY }}
-          event-type: my-event
+          name: psi-data
+          path: |
+            output/statistics/
+            !output/statistics/raw_*.json
+      - name: Archive PSI report results
+        uses: actions/upload-artifact@v2
+        with:
+          name: psi-report
+          path: output/statistics/index.html
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
