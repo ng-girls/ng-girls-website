@@ -53,7 +53,7 @@ jobs:
       - name: run lighthouse
         env:
           CI: true
-          API_KEY: ${{ secrets.PSI_KEY }}
+          PSI_KEY: ${{ secrets.PSI_KEY }}
         run: |
           mkdir -p docs/
           ls -al
