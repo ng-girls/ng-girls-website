@@ -7,7 +7,7 @@ env:
 jobs:
   ionos-space:
     runs-on: ubuntu-latest
-    if: ${{ secrets.IS_FORK == 'true' }}
+    if: ${{ github.repository_owner == 'willi84' )}}
     steps:
       - name: Get Ionos Project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
