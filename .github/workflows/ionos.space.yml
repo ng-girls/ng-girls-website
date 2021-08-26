@@ -54,12 +54,10 @@ jobs:
           storage-quota: ${{ steps.project.outputs.storage-quota }}
           branch-id: ${{ steps.project.outputs.branch-id }}
       - name: run lighthouse
-        env:
-          CI: true
-          PSI_KEY: ${{ secrets.PSI_KEY }}
         run: |
           mkdir -p docs/
           ls -al
+          echo $IS_FORK
           [[ -d node_modules ]] || npm install
           npm run psi
       - name: Archive production artifacts
