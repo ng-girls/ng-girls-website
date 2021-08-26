@@ -1,9 +1,8 @@
 <app-hero-section 
   [image]="page$.bg"
   [logo]="page$.logo"
-  *rxLet="[]"
   >
-  <div class="button-div" *rxLet="events$; let events">
+  <div class="button-div" *ngIf="(events$ | async) as events">
     <app-button [anchor]="'#workshops'" [label]="page$.heroButtonLabel" [type]="'anchor'"></app-button>
   </div>
 </app-hero-section>
@@ -11,29 +10,25 @@
   [title]="'Upcoming events:'"
   [itemsLimit]="3"
   slug="workshops"
-  *rxLet="[]"
 >
 </app-preview>
 
 
-<app-patreon *rxLet="[]"
-></app-patreon>
+<app-patreon></app-patreon>
 
-<app-about-section *rxLet="[]"></app-about-section>
+<app-about-section></app-about-section>
 
 <app-team-section 
   [team]="organizers" 
   [title]="'Organizing Team'"
   [showPopups]="true"
   [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
-  *rxLet="[]"
 >
 
 </app-team-section>
 
 <app-partners-section 
-  [partners]="partners"
-  *rxLet="[]">
+  [partners]="partners">
 </app-partners-section>
 
 <app-preview 
@@ -41,6 +36,6 @@
   [itemsLimit]="3"
   slug="blog"
   reverse="true"
-  *rxLet="[]"
+  
   >
 </app-preview>

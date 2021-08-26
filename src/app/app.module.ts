@@ -1,4 +1,4 @@
-import { LetModule } from '@rx-angular/template';
+// import { LetModule } from '@rx-angular/template';
 import { SVGModule } from './_shared/svg/svg.module';
 import { CardModule } from './_shared/card/card.module';
 import { TitleModule } from './_shared/title/title.module';
@@ -63,7 +63,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     MatIconModule,
     HttpClientModule,
     CardModule,
-    LetModule,
+    // LetModule,
     // FormsModule,
     MatDialogModule,
     // MatFormFieldModule,

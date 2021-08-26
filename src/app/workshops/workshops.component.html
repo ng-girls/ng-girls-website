@@ -1,5 +1,6 @@
 
-  <app-hero-section  *rxLet="workshop$; let workshop"
+<div *ngIf="(workshop$ | async) as workshop">
+  <app-hero-section 
     [image]="workshop.bg"
     [logo]="workshop.logo"
     >
@@ -10,17 +11,18 @@
   <div class="content-wrapper workshop-description XX">
     <scully-content></scully-content>
   </div>
-  <app-team-section  *rxLet="workshop$; let workshop"
+  <app-team-section 
     [team]="workshop?.mentors" 
     [title]="'Meet the Mentors'"
     [showPopups]="true"
     [image]="{ src: DEFAULTS.teamBg, alt: 'bg team', device: device}"
     >
   </app-team-section>
-  <app-partners-section  *rxLet="workshop$; let workshop"
+  <app-partners-section 
     [partners]="workshop?.partners" 
     [hosts]="workshop?.hosts"
     [sponsorsCallMail]="workshop?.sponsorsCallMail">
   </app-partners-section>
 
-  <app-patreon *rxLet="[]"></app-patreon>
+  <app-patreon></app-patreon>
+</div>
