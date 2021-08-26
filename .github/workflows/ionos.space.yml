@@ -1,6 +1,6 @@
 name: IONOS.space
 
-on: [push]
+on: [pull]
 
 jobs:
   ionos-space:
