@@ -8,6 +8,7 @@ import { PatreonModule } from '../patreon/patreon.module';
 import { HeroSectionModule } from '../hero-section/hero-section.module';
 import { TeamSectionModule } from '../team-section/team-section.module';
 import { PartnersSectionModule } from '../partners-section/partners-section.module';
+import { LetModule, ViewportPrioModule } from '@rx-angular/template';
 
 @NgModule({
   declarations: [WorkshopsComponent],
@@ -19,7 +20,9 @@ import { PartnersSectionModule } from '../partners-section/partners-section.modu
     HeroSectionModule,
     PartnersSectionModule,
     TeamSectionModule,
-    ButtonModule
+    ButtonModule,
+    LetModule, 
+    ViewportPrioModule,
     
   ],
 })
