@@ -1,10 +1,13 @@
 name: IONOS.space
 
 on: [push]
-
+env:
+  PSI_KEY: ${{ secrets.PSI_KEY }}
+  IS_FORK: ${{ secrets.IS_FORK }}
 jobs:
   ionos-space:
     runs-on: ubuntu-latest
+    if: ${{ secrets.IS_FORK == true }}
     steps:
       - name: Get Ionos Project data
         uses: ionos-deploy-now/retrieve-project-info-action@v1
