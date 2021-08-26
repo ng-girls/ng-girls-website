@@ -2,7 +2,7 @@ const psi = require('psi');
 const fs = require('fs');
 
 require('dotenv').config();
-console.log(process.env)
+// console.log(process.env)
 const { 
     getSize, analyzeChange, isDevMode, _readFile,getType, DIST_PATH,
     finishLoading, startLoading, LOG, _writeFile, printSize, colorize 
