@@ -39,7 +39,7 @@ jobs:
       - uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{GITHUB_REPOSITORY}}
+          repository: ${{ env.GITHUB_REPOSITORY }}
           event-type: my-event
 
   close_pull_request_job:
