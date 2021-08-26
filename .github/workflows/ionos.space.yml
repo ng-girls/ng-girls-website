@@ -23,6 +23,7 @@ jobs:
           path: | 
             node_modules 
             output 
+            docs 
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: Setup Node.js 12.16.x
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
@@ -54,7 +55,7 @@ jobs:
           CI: true
           API_KEY: ${{ secrets.PSI_KEY }}
         run: |
-          mkdir -p output/statistics/
+          mkdir -p docs/
           ls -al
           [[ -d node_modules ]] || npm install
           npm run psi
@@ -63,8 +64,8 @@ jobs:
         with:
           name: psi-data
           path: |
-            output/statistics/
-            !output/statistics/raw_*.json
+            docs/
+            !docs/raw_*.json
       - name: Archive PSI report results
         uses: actions/upload-artifact@v2
         with:
