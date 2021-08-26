@@ -1,0 +1,26 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run psi
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: psi-data
+          path: |
+            dist/statistics/
+            !dist/statistics/raw_*.json
+      - name: Archive PSI report results
+        uses: actions/upload-artifact@v2
+        with:
+          name: psi-report
+          path: dist/statistics/index.html

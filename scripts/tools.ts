@@ -68,8 +68,10 @@ exports.startLoading = (text) => {
 }
 exports.finishLoading = (timer, text) => {
     clearInterval(timer);
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
+    if(process && process.stdout && process.stdout.clearLine){
+        process.stdout.clearLine();
+        process.stdout.cursorTo(0);
+    }
     LOG('ok', text);
 }
 exports.isDevMode = () => {
