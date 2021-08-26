@@ -20,6 +20,7 @@ jobs:
         with:
           path: | 
             node_modules 
+            output 
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: Build And Deploy
         id: builddeploy
