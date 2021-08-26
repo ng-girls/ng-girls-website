@@ -27,7 +27,6 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_WATER_05AC71003 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-          event-type: psi-event
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
@@ -37,6 +36,11 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           PRE_BUILD_COMMAND: './scripts/setup-puppeteer.sh'
+      - uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{GITHUB_REPOSITORY}}
+          event-type: my-event
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
