@@ -1,5 +1,8 @@
 const psi = require('psi');
 const fs = require('fs');
+
+require('dotenv').config();
+console.log(process.env)
 const { 
     getSize, analyzeChange, isDevMode, _readFile,getType, DIST_PATH,
     finishLoading, startLoading, LOG, _writeFile, printSize, colorize 
@@ -17,7 +20,7 @@ async function asyncForEach(array, callback) {
   }
 
 if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+    fs.mkdirSync(dir, { recursive: true });
 }
 if (!fs.existsSync(SETTINGS)){
     fs.writeFileSync(SETTINGS, '{}', { flag: 'a+' });
