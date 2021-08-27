@@ -18,10 +18,10 @@ export class SVGComponent implements OnInit {
     if(device.isMobile()){
       this.isMobile = true;
     }
-    console.log(this.size)
   }
   ngOnInit(): void {
-    this.transform = `scale(${this.isMobile ? this.size.scale.m : this.size.scale.d})`;
+    let isMobile = this.size.isMobile !== undefined ? this.size.isMobile : this.isMobile;
+    this.transform = `scale(${isMobile ? this.size.scale.m : this.size.scale.d})`;
 
   }
 }

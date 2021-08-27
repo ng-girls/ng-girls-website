@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GetDeviceService } from '../service/get-device/get-device.service';
 
 @Component({
   selector: 'app-logo',
@@ -7,9 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LogoComponent implements OnInit {
   @Input()   logo: any;
-  sizeLogo =  {width: '305px', height: '325px', scale: {d:'1', m: '0.8'} };
+  sizeLogo =  {width: '305px', height: '325px', scale: {d:'1', m: '0.8'}, isMobile: false };
  
 
+  constructor(device: GetDeviceService) {
+    if(device.isMobile()){
+      this.sizeLogo.isMobile = true;
+    }
+  }
   ngOnInit(): void {
   }
 
