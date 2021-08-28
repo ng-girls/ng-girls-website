@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GetDeviceService } from 'src/app/service/get-device/get-device.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-svg',
@@ -10,18 +10,15 @@ import { GetDeviceService } from 'src/app/service/get-device/get-device.service'
 })
 export class SVGComponent implements OnInit {
   transform= '';
-  isMobile = false;
   @Input() size;
   @Input() class: any;
   @Input() icon: any;
-  constructor(device: GetDeviceService) {
-    if(device.isMobile()){
-      this.isMobile = true;
-    }
+  isMobile = false;
+  constructor(private host:AppComponent) {
+    this.isMobile = this.host.class.indexOf('desktop') === -1 ? true : false;
   }
   ngOnInit(): void {
-    let isMobile = this.size.isMobile !== undefined ? this.size.isMobile : this.isMobile;
-    this.transform = `scale(${isMobile ? this.size.scale.m : this.size.scale.d})`;
+    this.transform = `scale(${this.isMobile ? this.size.scale.m : this.size.scale.d})`;
 
   }
 }

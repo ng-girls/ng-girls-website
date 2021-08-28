@@ -1,5 +1,5 @@
 import { Component,  OnInit, Input } from '@angular/core';
-import { GetDeviceService } from '../service/get-device/get-device.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-bg-image',
@@ -11,6 +11,7 @@ export class BgImageComponent implements OnInit {
   @Input()   lazy = false;
   @Input()   fadeout = false;
   responsive: boolean = false;
+  isMobile = false;
   
   loading = 'eager';
   device: any;
@@ -19,9 +20,11 @@ export class BgImageComponent implements OnInit {
   extraClasses = '';
 
     
-  constructor(getDevice: GetDeviceService,
+  constructor(private host:AppComponent
      ) {
-      this.device = getDevice.getDevice();
+      this.isMobile = this.host.class.indexOf('desktop') === -1 ? true : false;
+      // this.device = getDevice.getDevice();
+      // console.log(this.image)
   }
 
   ngOnInit(): void {
@@ -30,10 +33,10 @@ export class BgImageComponent implements OnInit {
   let imageHeight: string = '700';
 // [ngClass]="{'bg-image--responsive': responsive == true,  'bg-image--fadout': fadeout == true}"
     this.loading = this.lazy === true ? 'lazy' : this.loading;
-    height = (this.device && this.device.isMobile) ? this.mobileHeight : 700;
+    height = (this.isMobile) ? this.mobileHeight : 700;
     this.responsive = (this.image && this.image.responsive) ? this.image.responsive : this.responsive;
     // this.extraClasses = 'bg-image--responsive';
-    if(this.device.isMobile === true){
+    if(this.isMobile === true){
       this.extraClasses += ' bg--mobile';
     }
     if(this.fadeout){
