@@ -2,11 +2,22 @@ const fs = require('fs');
 let data = fs.readFileSync('dist/static/index.html',
 {encoding:'utf8', flag:'r'});
 
-const regex = /(<script\ssrc.*<\/script>)/
+const regex = /(<script\ssrc.*<\/script>)/;
+const styles = /(<link\srel="stylesheet"[^\>]*)/
 const regexOptimized = /(<script\sid="optimized"\ssrc.*<\/script>)/
 let m = data.match(regex);
 let allES5 = '';
 let allES6 = '';
+if(styles){
+    let style = data.match(styles);
+    console.log(style[0]);
+    let newStyles = style[0];
+    newStyles = newStyles.replace('>', '></noscript>' );
+    newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
+console.log(newStyles);
+data = data.replace(style[0], newStyles);
+
+}
 if(!m){
     console.log('cant find inout')
 } else {
