@@ -10,12 +10,15 @@ let allES5 = '';
 let allES6 = '';
 if(styles){
     let style = data.match(styles);
-    console.log(style[0]);
-    let newStyles = style[0];
+    console.log(style[1]);
+    // <link rel="stylesheet" href="styles.315effb89cdf9675a6b4.css"
+    let styleID = style[1].match(/href="([^\"]*)"/)[1];
+    console.log(styleID);
+    let newStyles = style[1];
     newStyles = newStyles.replace('>', '></noscript>' );
-    newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
+    newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="styles.${styleID}.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
 console.log(newStyles);
-data = data.replace(style[0], newStyles);
+data = data.replace(style[1], newStyles);
 
 }
 if(!m){
