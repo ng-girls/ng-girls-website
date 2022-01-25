@@ -1,10 +1,11 @@
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import { ResponsivePipe } from './../pipes/responsive.pipe';
 import { BgImageComponent } from './bg-image.component';
 import { NgModule } from '@angular/core';
 @NgModule({
     imports: [
-        CommonModule
+        // CommonModule
+        
     ], 
     declarations: [
         BgImageComponent,

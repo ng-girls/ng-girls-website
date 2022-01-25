@@ -13,6 +13,9 @@ export class DialogPersonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('onointi')
+    console.log(this.data)
+    this.data.photo = this.data.photo.indexOf('assets/') === -1 ? `assets/people/${this.data.photo}` : this.data.photo;
   }
 
 }

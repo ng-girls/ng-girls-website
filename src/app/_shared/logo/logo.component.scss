@@ -1,0 +1,31 @@
+picture{
+    &.img-430 > img{
+      max-width: 430px;
+      height: 229px;
+    }
+    > img{
+      max-width: 200px;
+      height: 200px;
+      margin-right: 10px;
+    }
+  }
+  
+  @media (max-width: 768px){
+    picture{
+      &.img-430 > img{
+        width: 295px;
+        height: 157px;
+      }
+      > img{
+        width: 100px;
+        height: 100px;
+      }
+    }
+   
+  }
+a{
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}

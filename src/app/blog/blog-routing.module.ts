@@ -2,12 +2,12 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {BlogComponent} from './blog.component';
-import { BlogHomeComponent } from '../blog-home/blog-home.component';
+import { PreviewComponent } from '../preview/preview.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: BlogHomeComponent
+    component: PreviewComponent
   },
   {
     path: ':slug',
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: BlogHomeComponent,
+    component: PreviewComponent,
   }
 ];
 

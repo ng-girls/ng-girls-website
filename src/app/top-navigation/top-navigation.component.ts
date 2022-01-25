@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 export class TopNavigationComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   baseroute: boolean;
+  sizeLogo =  {width: '185px', height: '61px', scale: {d:'0.7',m: '0.6'} };
   route: string;
   isHome: boolean = false;
   baseUrl : string = '';
@@ -40,8 +41,10 @@ export class TopNavigationComponent implements OnInit {
       }
     });
   }
-
-
+  getLink(){
+    return this.isHome === true ? '#home' : '/';
+  }
+  
   ngOnInit(): void {
   }
   

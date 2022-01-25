@@ -1,4 +1,6 @@
-@import '../../styles.scss';
+// @import '../../styles.scss';
+@import '../../breakpoints';
+@import '../../mixins';
 
 .section {
   margin-top: 30px;
@@ -6,83 +8,52 @@
   padding-bottom: 40px;
   text-align: center;
 
-  .section-title {
-    font-size: 80px;
-    font-weight: 400;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    line-height: normal;
-    @include smx {
-      margin: auto;
-      margin-bottom: 30px;
-      font-size: 50px;
-    }
-  }
 
-  .cards-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-left: 30px;
-    margin-right: 30px;
-  }
 
-  .subsection-card {
-    width: 350px;
-    padding: 30px 50px;
-  }
+  
+}
+.cards-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-right: 30px;
+}
 
-  .subsection-title {
-    font-size: 36px;
-    font-weight: 400;
-  }
+.subsection-card {
+  width: 350px;
+  padding: 30px 50px;
+}
 
-  .subsection-img {
-    border-radius: 50%;
-    width: 140px;
-    height: 140px;
-    vertical-align: center;
-    background-position: center center;
-    background-size: cover;
-    margin: 20px auto;
-  }
+.subsection-title {
+  font-size: 36px;
+  font-weight: 400;
+}
 
-  .subsection-description {
-    font-size: 17px;
-    line-height: 23px;
-    font-weight: 300;
-    margin-top: 10px;
-  }
+.subsection-img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  vertical-align: center;
+  background-position: center center;
+  background-size: cover;
+  margin: 20px auto;
+}
 
-  .content-wrapper {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    @include smx {
-      flex-direction: column;
-      width: 90%;
-    }
+.subsection-description {
+  font-size: 17px;
+  line-height: 23px;
+  font-weight: 300;
+  margin-top: 10px;
+}
 
-    .column {
-      padding-left: 30px;
-      padding-right: 30px;
-      @media (max-width: 767px) {
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-bottom: 30px;
-      }
-      text-align: left;
-      font-size: 18px;
-      flex-basis: 100%;
-      a {
-        color: #673ab7;
-      }
 
-      .description-title {
-        font-size: 30px;
-        margin-bottom: 30px;
-      }
-    }
-  }
+// a {
+//     text-decoration: none;
+//     font-weight: 400;
+//   }
+  
+  .description-title {
+  font-size: 30px;
+  margin-bottom: 30px;
 }

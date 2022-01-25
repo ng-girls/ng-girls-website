@@ -1,62 +1,62 @@
 export const partners = [
   {
     link: "http://www.meetup.com/Angular-Nights/",
-    logo: "./assets/partners/ng-nights-200.webp",
-    title: "Angular Nights"
+    logo: "ng-nights-200.webp",
+    alt: "Angular Nights"
   },
   {
     link: "https://youtu.be/IEfn4oOIkHg",
-    logo: "./assets/partners/ng-air-200.webp",
-    title: "ngAir"
+    logo: "ng-air-200.webp",
+    alt: "ngAir"
   },
   {
     link: "https://www.jetbrains.com/",
-    logo: "./assets/partners/jet-brains-200.webp",
-    title: "JetBrains"
+    logo: "jet-brains-200.webp",
+    alt: "JetBrains"
   },
   {
     link: "https://ultimatecourses.com/",
-    logo: "./assets/partners/ultimate-courses-200.webp",
-    title: "Ultimate Courses"
+    logo: "ultimate-courses-200.webp",
+    alt: "Ultimate Courses"
   },
   {
-    link: "https://www.angularconnect.com/?utm_source=ng-girls.org&utm_medium=referral&utm_content=ng-girls&utm_campaign=workshops",
-    logo: "./assets/partners/angular-connect-200.webp",
-    title: "AngularConnect"
+    link: "https://www.angularconnect.com/",
+    logo: "angular-connect-200.webp",
+    alt: "AngularConnect"
   },
   {
     link: "http://www.js-poland.pl/",
-    logo: "./assets/partners/js-poland-200.webp",
-    title: "JS POLAND"
+    logo: "js-poland-200.webp",
+    alt: "JS POLAND"
   },
   {
     link: "http://ng-poland.pl/",
-    logo: "./assets/partners/ng-poland-200.webp",
-    title: "NG POLAND"
+    logo: "ng-poland-200.webp",
+    alt: "NG POLAND"
   },
   {
     link: "https://www.ng-conf.org/",
-    logo: "./assets/partners/ng-conf-200.webp",
-    title: "ng-conf"
+    logo: "ng-conf-200.webp",
+    alt: "ng-conf"
   },
   {
     link: "https://ngvikings.org/",
-    logo: "./assets/partners/ng-vikings-200.webp",
-    title: "ngVikings"
+    logo: "ng-vikings-200.webp",
+    alt: "ngVikings"
   },
   {
     link: "https://angular-austria.at/",
-    logo: "./assets/partners/angular-austria-200.webp",
-    title: "Angular Austria"
+    logo: "angular-austria-200.webp",
+    alt: "Angular Austria"
   },
   {
     link: "https://ngrome.io/home",
-    logo: "./assets/partners/ng-rome-200.webp",
-    title: "NG ROME"
+    logo: "ng-rome-200.webp",
+    alt: "NG ROME"
   },
   {
     link: "https://softwarearchitekt.at/",
-    logo: "./assets/partners/software-architect-200.webp",
-    title: "Software Architect"
+    logo: "software-architect-200.webp",
+    alt: "Software Architect"
   }
 ];

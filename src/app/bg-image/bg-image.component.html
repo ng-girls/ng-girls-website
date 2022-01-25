@@ -1,7 +1,6 @@
-<div class="bg-image bg-image--{{imageHeight}} bg-image-mobile--{{mobileHeight}}" 
-    [ngClass]="{'bg-image--responsive': responsive == true, 'bg--mobile': device && device.isMobile, 'bg-image--fadout': fadeout == true}">
-    <div class="bg-image__wrapper" *ngIf="image.src && image.src !== ''">
-        <img class="bg-image__image" src="{{image.src | responsive: 'xl'}}" 
+<div class="bg-image  XX{{extraClasses}}">
+    <div class="bg-image__wrapper" >
+        <img class="bg-image__image" src="{{image.src | responsive: 'xl'}}" [attr.loading]="loading"
         width="1200" height="700" alt="{{image.alt || 'default value' }}" 
         srcset="{{image.src | responsive: 'xl'}} 1200w, 
         {{image.src | responsive: 'xs' : mobileHeight}} 350w, 

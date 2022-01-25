@@ -1,11 +1,11 @@
 <div class="coc-image xx" [style.backgroundImage]="'url(' + (article$ | async)?.image + ')'">
-    <div class="content-wrapper">
+    <div class="flex__container">
         <div class="header-text">
             <h1>{{ (article$ | async)?.title }} </h1>
         </div>
     </div>
     <div class="overlay-img"></div>
 </div>
-<div class="content-wrapper scully-content"> 
+<div class="flex__container scully-content"> 
     <scully-content></scully-content>
 </div>

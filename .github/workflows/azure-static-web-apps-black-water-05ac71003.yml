@@ -8,7 +8,9 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-
+env:
+  PSI_KEY: ${{ secrets.PSI_KEY }}
+  IS_FORK: ${{ secrets.IS_FORK }}
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -20,6 +22,8 @@ jobs:
         with:
           path: | 
             node_modules 
+            output 
+            docs 
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: Build And Deploy
         id: builddeploy
@@ -36,6 +40,24 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           PRE_BUILD_COMMAND: './scripts/setup-puppeteer.sh'
+      - name: run lighthouse
+        run: |
+          mkdir -p docs/
+          ls -al
+          [[ -d node_modules ]] || npm install
+          npm run psi
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: psi-data
+          path: |
+            docs/
+            !docs/raw_*.json
+      - name: Archive PSI report results
+        uses: actions/upload-artifact@v2
+        with:
+          name: psi-report
+          path: output/statistics/index.html
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

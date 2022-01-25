@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DEFAULTS } from '../defaults.consts';
 import { GetDeviceService } from '../service/get-device/get-device.service';
+import { PageFilterService } from '../service/page-filter/page-filter.service';
 
 declare var ng: any;
 
@@ -22,10 +23,12 @@ export class WorkshopsComponent implements OnInit {
   workshop$;
   device: any;
   environment: any;
-  heroDescription: String;
 
-  constructor(private router: Router, private route: ActivatedRoute, private srs: ScullyRoutesService, private sts: TransferStateService,
+  constructor(
+    private srs: ScullyRoutesService, 
+    private sts: TransferStateService,
     getDevice: GetDeviceService,
+    private pageFilter: PageFilterService,
      private cdref: ChangeDetectorRef
      ) {
       this.device = getDevice.getDevice();
@@ -34,38 +37,10 @@ export class WorkshopsComponent implements OnInit {
     this.cdref.detectChanges();
   }
   ngOnInit() {
-    this.heroDescription = '';
-    // {{workshop.date}}<span>, {{workshop.city}}</span><span>, {{workshop.country}}</span>
     this.workshop$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.getCurrent().pipe(
-        map(routeList => {
-          const data = routeList;
-          data['heroDescription'] = `${data.date || ''}${data.city ? ', ' + data.city : ''} ${data.country ? ', ' + data.country : ''}`;
-          data['bg'] = {
-            src: routeList.image,
-            alt: `${routeList.title || ''} stage`, 
-            device: this.device
-          }
-          data['logo'] = {
-            src: DEFAULTS.homeLogo,
-            alt: 'logo'
-          }
-          console.log(data);
-          return data;
-        })
+        map(this.pageFilter.getStage(DEFAULTS.homeLogo, this.device))
     ));
-    // loading demo static content
-    // console.log(document.getElementsByTagName('scully-content'))
-    // if(environment.production === false && !window.scullyContent){
-    //   const content = document.getElementsByTagName('scully-content');
-    //   if(content && content[0]){
-    // //     const id = content[0].attributes[0].name;
-    // //     window['scullyContent'] = {
-    // //       'html': environment.workshopHTML.replace(/ikn\-c37/ig, id.replace('_ngcontent-', '')),
-    // //       'cssId': id
-    // //     }
-    //   }
-    // }
   }
 }

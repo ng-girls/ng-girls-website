@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-section',
   templateUrl: './about-section.component.html',
   styleUrls: ['./about-section.component.scss']
 })
-export class AboutSectionComponent implements OnInit {
+export class AboutSectionComponent {
 
   subsections = [
     {
@@ -29,8 +29,5 @@ export class AboutSectionComponent implements OnInit {
   newsletterLink = "https://docs.google.com/forms/d/e/1FAIpQLSdWw5cOjjGNM7cxUpk7F7fYBZU4_1okOH9sYlwU-WcY6U8Sjg/viewform";
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -1,7 +1,8 @@
-<section id="team" class="team-section team-section--{{height}}" [ngClass]="{'team-section--mobile': device.isMobile}" [style.height.px]="mobileHeight">
-    <app-bg-image [image]="image" [fadeout]="true"></app-bg-image>
+<section id="team" class="team-section team-section--{{height}}" [ngClass]="{'team-section--mobile': isMobile}" [style.height.px]="mobileHeight">
+    <app-bg-image [image]="image" [fadeout]="true" [lazy]="true"></app-bg-image>
     <div class="team-section__overlay overlay--{{mobileHeight}}" [style.height.px]="mobileHeight">
-        <h1 class="section-title">{{title}}</h1>
+            <app-title [label]="title" type="dark"></app-title>
+
         <div class="team-list">
             <div class="person-card" *ngFor="let person of team" (click)="openDialog(person)">
                 <div class="person-img" [style.backgroundImage]="'url(' + person.photo + ')'"></div>

@@ -1,44 +1,20 @@
-<section id="partners" class="partners-section">
-    <h2 class="section-title">Partners</h2>
-    <div class="partners-container" *ngIf="hosts">
-        <h4 class="partners-title">Hosted by</h4>
-        <div class="partners-list">
-            <div class="partner-logo-section" *ngFor="let host of hosts">
-                <a href="{{host.link}}" target="_blank">
-                    <img src="{{host.logo}}" />
-                </a>
+<section id="partners" class="flex__column flex--center">
+    <app-title label="Partners" type="text--center"></app-title>
+
+    <section class="partners-section">
+        <div *ngFor="let item of items">
+            <div class="partners-container flex__column">
+                <app-title [label]="item.title" range="3"  type="text--center" *ngIf="item.title"></app-title>
+                <p *ngIf="item.description" class="text--center">{{item.description}}</p>
+                <div class="partners-list">
+                    <div class="partner-logo-section" *ngFor="let host of item.items">
+                        <app-logo [item]="host"></app-logo>
+                    </div>
+                </div>
+            </div>
+            <div class="text--center">
+                <app-button *ngIf="item.mail" [link]="item.mail.link" [label]="item.mail.label" [type]="'mail'" ></app-button>
             </div>
         </div>
-    </div>
-
-    <div class="partners-container" *ngIf="partners">
-        <h2 class="partners-title">With support of</h2>
-        <div class="partners-list">
-            <div class="partner-logo-section" *ngFor="let partner of partners">
-                <a href="{{partner.link}}" target="_blank" rel="noopener">
-                    <picture>
-                        <source media="(min-width: 500px)" srcset="{{partner.logo}}">
-                        <source media="(min-width: 300px)" srcset="{{partner.logo.replace('-200.webp', '-100.webp' )}}">
-                        <img src="{{partner.logo}}" alt="{{partner.title || ''}} logo" width="200" height="200" >
-                      </picture>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="isDjangoLabelVisible" class="django-label">
-        <p>ngGirls is inspired by Django Girls and makes use of its resources</p>
-        <a href="https://djangogirls.org/" target="_blank" rel="noopener">
-            <img src="../../assets/partners/django-girls-200.webp" class="logo" alt="DjangoGirls Logo" width="200" height="200" >
-        </a>
-        </div>
-
-    <div class="button-div">
-        <a href="mailto:{{sponsorsCallMail}}" target="_top">
-            <button class="btn">
-                BECOME A SPONSOR
-            </button>
-        </a>
-    </div>
-
+    </section>
 </section>

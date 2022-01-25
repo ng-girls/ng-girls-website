@@ -1,4 +1,8 @@
-import { ButtonModule } from './button/button.module';
+// import { LetModule } from '@rx-angular/template';
+import { SVGModule } from './_shared/svg/svg.module';
+import { CardModule } from './_shared/card/card.module';
+import { TitleModule } from './_shared/title/title.module';
+import { ButtonModule } from './_shared/button/button.module';
 // import { ResponsivePipe } from './pipes/responsive.pipe';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
@@ -17,19 +21,18 @@ import {AboutSectionComponent} from './about-section/about-section.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FaqComponent } from './faq/faq.component';
 // import { CocComponent } from './coc/coc.component';
-import { BlogHomeComponent } from './blog-home/blog-home.component';
-import { WorkshopsHomeComponent } from './workshops-home/workshops-home.component';
+import { PreviewComponent } from './preview/preview.component';
+
+
 
 // Material
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 import { DialogPersonComponent } from './dialog-person/dialog-person.component';
-import {FormsModule} from '@angular/forms';
+// import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import { PostPreviewComponent } from './post-preview/post-preview.component'
-import { WorkshopPreviewComponent } from './workshop-preview/workshop-preview.component'
+// import {MatFormFieldModule} from '@angular/material/form-field';
+// import {MatCardModule} from '@angular/material/card';
 
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 // import { ButtonComponent } from './button/button.component';
@@ -45,10 +48,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     FooterComponent,
     AboutSectionComponent,
     DialogPersonComponent,
-    BlogHomeComponent,
-    PostPreviewComponent,
-    WorkshopsHomeComponent,
-    WorkshopPreviewComponent,
+    PreviewComponent,
     // ButtonComponent,
   ],
   imports: [
@@ -62,12 +62,16 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
+    CardModule,
+    // LetModule,
     // FormsModule,
     MatDialogModule,
     // MatFormFieldModule,
-    MatCardModule,
+    // MatCardModule,
     NgxPageScrollModule,
-    ButtonModule
+    ButtonModule,
+    TitleModule,
+    SVGModule
   ],
   providers: [],
   bootstrap: [AppComponent]

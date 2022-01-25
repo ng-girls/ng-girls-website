@@ -65,37 +65,12 @@ $logos-sprite: $sprites-dir+"/logos.svg";
 
 a {
   text-decoration: none;
-  color: #03a9f4;
+  color: #673ab7;
+  // color: #03a9f4; 
   font-weight: 400;
 }
 
-.btn {
-  color: #fff !important;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-transform: uppercase;
-  border: 0;
-  background: #4352ff !important;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  color: inherit;
-  background-color: transparent;
-  font-size: 1em;
-  line-height: 1em;
-  text-align: center;
-  text-decoration: none;
-  z-index: 1;
-  font-weight: 500;
-  margin: 0 3px 10px;
-  font-weight: 500;
-  padding: 0.85em 1.1em;
-  border-radius: 0.2em;
-}
+
 
 html,
 body {
@@ -133,3 +108,53 @@ p{
     font-weight: 300;
     line-height: 23px;
 }
+.flex__container {
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  // on mobile no 50:50
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+.flex__container--100{
+  max-width: 100%;
+  width: 100%;
+}
+.flex__column {
+  padding-left: 30px;
+  padding-right: 30px;
+  @media (max-width: 767px) {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 30px;
+  }
+  text-align: left;
+  font-size: 18px;
+  flex-basis: 100%;
+}
+.flex--center{
+  justify-content: center;
+}
+.text--center{
+  text-align: center;
+}
+// .pd0{
+//   padding: 0;
+// }
+// .pd0--top{
+//   padding-top: 0;
+// }
+a{
+  color: #673ab7;
+  font-weight: 400;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// .fs--30{
+//   font-size: 30px;
+// }

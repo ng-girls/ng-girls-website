@@ -1,16 +1,4 @@
 
-  .content-wrapper {
-      max-width: 800px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-
-      @media (max-width: 767px) {
-          flex-direction: column;
-          width: 90%;
-      }
-}
-
 .scully-content {
     margin-top: 60px;
     margin-bottom: 40px;

@@ -1,17 +1,16 @@
-import { browser } from 'protractor';
-import { ChangeDetectorRef, Component, HostListener, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { isScullyGenerated, ScullyRoute, ScullyRoutesService, TransferStateService } from '@scullyio/ng-lib';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { organizers } from './organizers-list';
 import { partners } from './parnters';
 import { GetDeviceService } from '../service/get-device/get-device.service';
 import { DEFAULTS } from '../defaults.consts';
+import { PageFilterService } from '../service/page-filter/page-filter.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   // events$: Observable<ScullyRoute[]>;
@@ -25,43 +24,22 @@ export class HomeComponent implements OnInit {
   heroButtonLabel: String;
   device: {isMobile: Boolean, browser: any};
   events$ = isScullyGenerated()
-  ? this.sts.getState<any>('workshopRoutes')
+  ? this.sts.getState<any>('workshopsRoutes')
   :this.sts.useScullyTransferState(
-    'workshopRoutes',
+    'workshopsRoutes',
     this.srs.available$.pipe(
-    map(routeList => {
-      return routeList.filter((route: ScullyRoute) =>
-        route.route.startsWith(`/workshops/`),
-      );
-    }),
-    map(workshops => workshops.filter(workshop => { 
-      // workshop['foo'] = 'bar';
-      // this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-      // if(this.eventsLength > 0){
-      //   this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-      //   // this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-      // }
-      return workshop.archived == false;
-    } ))
+      map(this.pageFilter.getPages('workshops', false, 'foobar')),
+      map(this.pageFilter.filterBy('published'))
   )
   );
 
   constructor(
     private srs: ScullyRoutesService, 
-    private cdref: ChangeDetectorRef,
     private sts: TransferStateService,
+    private pageFilter: PageFilterService,
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
     }
-    // ngAfterContentChecked() {
-    //   this.cdref.detectChanges();    
-    //   this.sts.getState('workshopRoutes').pipe(
-    //     map(workshop => {
-    //       console.log(workshop);
-    //       return workshop;
-    //     })
-    //   )
-    //    }
     ngOnInit() {
       
       this.heroButtonLabel = '';
@@ -78,8 +56,8 @@ export class HomeComponent implements OnInit {
       }
       this.page$['heroButtonLabel'] = '';
       this.events$.subscribe(value => {
-        console.log(value);
-        console.log(this.page$['heroButtonLabel']);
+        // console.log(value);
+        // console.log(this.page$['heroButtonLabel']);
         const len = value.length;
         if(len > 0){
           // this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
@@ -88,40 +66,13 @@ export class HomeComponent implements OnInit {
         return value;
       });
       
-      // this.page$['heroButtonLabel'] = 'UPPCOMING events';
-      // this.page$['heroButtonLabel'] = this.heroButtonLabel
-    // this.events$ = this.sts.useScullyTransferState(
-    //   'workshopRoutes',
-    //   this.srs.available$.pipe(
-    //   map(routeList => {
-    //     return routeList.filter((route: ScullyRoute) =>
-    //       route.route.startsWith(`/workshops/`),
-    //     );
-    //   }),
-    //   map(workshops => workshops.filter(workshop => { 
-    //     workshop['foo'] = 'bar';
-    //     this.eventsLength = workshop.archived == false ? this.eventsLength + 1 : this.eventsLength;
-    //     if(this.eventsLength > 0){
-    //       this['heroButtonLabel'] = `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-    //       // this.page$.heroButtonLabel =  `${this.eventsLength} Upcoming event${this.eventsLength > 1 ? 's' : ''} `;
-    //     }
-    //     return workshop.archived == false;
-    //   } ))
-    // )
-    // );
-    
-    // this.events = this.events$.subscribe(data => data.map( workshop => console.log(workshop.archived) ));
-
-    // this.eventsLength = this.events$.length;
+     
     this.posts$ = this.sts.useScullyTransferState(
       'blogRoutes',
       this.srs.available$.pipe(
-      map(routeList => {
-        return routeList.filter((route: ScullyRoute) => 
-        route.route.startsWith(`/blog/`))
-      }),
-      map(posts => posts.slice(0, 3))
-    )
+        map(this.pageFilter.getPages('blog', true)),
+        map(this.pageFilter.filterBy('lastLimit', 3))
+      )
     );
   }
 
