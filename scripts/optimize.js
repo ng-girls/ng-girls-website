@@ -17,8 +17,10 @@ if(styles){
     let newStyles = style[1];
     // newStyles = newStyles.replace('>', '></noscript>' );
     newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="${styleID}" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
-    data = data.replace(style[1], newStyles);
-    data = data.replace('.css"><style>', '.css"></noscript><style>' );
+
+    // DISABLE
+    // data = data.replace(style[1], newStyles);
+    // data = data.replace('.css"><style>', '.css"></noscript><style>' );
 console.log(newStyles);
 
 }
