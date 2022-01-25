@@ -15,8 +15,9 @@ if(styles){
     let styleID = style[1].match(/href="([^\"]*)"/)[1];
     console.log(styleID);
     let newStyles = style[1];
-    newStyles = newStyles.replace('>', '></noscript>' );
+    // newStyles = newStyles.replace('>', '></noscript>' );
     newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="${styleID}" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
+    newStyles = newStyles.replace('.css"><style>', '.css"></noscript><style>' );
 console.log(newStyles);
 data = data.replace(style[1], newStyles);
 
