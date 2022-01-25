@@ -1,10 +1,10 @@
-<div class="bg-image  XX{{extraClasses}}">
+<div class="bg-image  XX{{extraClasses}}"  [style.height.px]="height">
     <div class="bg-image__wrapper" >
         <img class="bg-image__image" src="{{image.src | responsive: 'xl'}}" [attr.loading]="loading"
         width="1200" height="700" alt="{{image.alt || 'default value' }}" 
         srcset="{{image.src | responsive: 'xl'}} 1200w, 
-        {{image.src | responsive: 'xs' : mobileHeight}} 350w, 
-        {{image.src | responsive: 'md' : mobileHeight}} 768w, 
+        {{image.src | responsive: 'xs' : height}} 350w, 
+        {{image.src | responsive: 'md' : height}} 768w, 
         {{image.src | responsive: 'lg'}} 992w,
         {{image.src | responsive: 'xl'}} 1200w" sizes="100vw" />
     </div>
