@@ -12,11 +12,11 @@ if (rev.indexOf(':') === -1) {
 console.log(`gitMsg: ${gitMsg}`)
 const head = /<head>/;
 const header = data.match(head);
-console.log(header[0]);
-console.log(data);
-data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
+console.log(header[1]);
+data = data.replace(header[1], `<head><meta name="version" content="${gitMsg}">`)
 const header2 = data.match(head);
-console.log(header2[0]);
+console.log(header2[1]);
+console.log(data);
 
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
