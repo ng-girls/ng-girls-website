@@ -3,14 +3,26 @@ let data = fs.readFileSync('dist/static/index.html',
 
 {encoding:'utf8', flag:'r'});
 
-LOG_OK = (message) => {
+const getVersion = (data) => {
+    return data.match(/(<meta\sname="version"[^\>]*)/ig);
+}
+const hasVersions = (data) => {
+
+    const versions = getVersion(data);
+    return versions && versions.length >= 1;
+}
+
+const LOG_OK = (message) => {
     console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
 }
-LOG_FAIL = (message) => {
+const LOG_FAIL = (message) => {
     console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
 }
-LOG_INFO = (message) => {
+const LOG_INFO = (message) => {
     console.log(`${colors.BgWhite}${colors.FgBlack}[INFO]${colors.Reset}: ${message}`);
+}
+const LOG_WARN = (message) => {
+    console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
 }
 
 const colors = {
@@ -45,12 +57,15 @@ const colors = {
 LOG_INFO(` read data (len: ${data.length})`);
 const lenData = data.length;
 
+
 const rev = fs.readFileSync('.git/HEAD').toString().trim();
 let gitMsg = '';
 if (rev.indexOf(':') === -1) {
     gitMsg =  rev;
 } else {
+    LOG_INFO('start git')
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
+    LOG_INFO('end git')
 }
 if(gitMsg && gitMsg !== ''){
     LOG_OK(`gitMsg: ${gitMsg}`);
@@ -58,11 +73,21 @@ if(gitMsg && gitMsg !== ''){
     LOG_FAIL('no gitMsg found');
 }
 
-const head = /<head>/ig;
+const head = /(<head>)/ig;
 const header = data.match(head);
-console.log(header);
-console.log(header[0]);
-data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
+console.log(header.length);
+console.log(header[1]);
+if(hasVersions(data)){
+    LOG_WARN(`has already versions set`)
+} else {
+    data = data.replace(header[1], `<head><meta name="version" content="${gitMsg}">`)
+    LOG_INFO(`try to set version ${gitMsg}`)
+    if(hasVersions(data)){
+        LOG_OK(`version ${gitMsg} replaced`)
+    } else {
+        LOG_OK(`nothing happend`)
+    }
+}
 
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
@@ -77,15 +102,16 @@ if(styles){
     let newStyles = style[1];
     // newStyles = newStyles.replace('>', '></noscript>' );
     newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="${styleID}" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
-
+    
     // DISABLE
     // data = data.replace(style[1], newStyles);
     // data = data.replace('.css"><style>', '.css"></noscript><style>' );
-
+    
 }
 if(!m){
     console.log('cant find inout')
 } else {
+    LOG_INFO('start scripts')
     let replaceable = m[1];
     const scripts = replaceable.split('><');
     scripts.forEach(script => {
@@ -95,25 +121,27 @@ if(!m){
             file = x[1];
             let d = fs.readFileSync(`dist/static/${file}`,
             {encoding:'utf8', flag:'r'});
+            LOG_INFO(`read file ${file}` );
             if(file.indexOf('-es2015') !== -1){
                 allES6 += 
-`
-//${file}
+                `
+                //${file}
 ${d}
 `
-            } else {
-                allES5 += 
-`
-//${file}
-${d}
-`
-            }
+} else {
+    allES5 += 
+    `
+    //${file}
+    ${d}
+    `
+}
 
-        }
-        
-    });
-    fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
-    fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
+}
+
+});
+LOG_INFO('end scripts')
+fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
+fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
     LOG_OK(`es5/es6 created`);
     data = data.replace(replaceable, `<script data-test="true" id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
 
@@ -124,4 +152,10 @@ if(n && n[1]){
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8'});
 LOG_OK(`index.html file rewritten`);
-LOG_INFO(` write data (len: ${data.length} AND different: ${lenData === data.length})`);
+LOG_INFO(` write data (len: ${data.length} AND different: ${lenData !== data.length})`);
+
+const finalData = fs.readFileSync('dist/static/index.html', {encoding:'utf8', flag:'r'});
+console.log(getVersion(finalData));
+// if(hasVersions(finalData)){
+//     LOG_OK('version written');
+// }
