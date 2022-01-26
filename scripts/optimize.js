@@ -9,7 +9,8 @@ if (rev.indexOf(':') === -1) {
 } else {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
-data = data.replace('</title>', ` - ${gitMsg} </title>`)
+console.log(`gitMsg: ${gitMsg}`)
+data = data.replace(/<\/title>/, ` - ${gitMsg} </title>`)
 
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
@@ -19,10 +20,8 @@ let allES5 = '';
 let allES6 = '';
 if(styles){
     let style = data.match(styles);
-    console.log(style[1]);
     // <link rel="stylesheet" href="styles.315effb89cdf9675a6b4.css"
     let styleID = style[1].match(/href="([^\"]*)"/)[1];
-    console.log(styleID);
     let newStyles = style[1];
     // newStyles = newStyles.replace('>', '></noscript>' );
     newStyles = newStyles.replace('<link rel="stylesheet"', `<link rel="preload" href="${styleID}" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" `);
@@ -30,7 +29,6 @@ if(styles){
     // DISABLE
     // data = data.replace(style[1], newStyles);
     // data = data.replace('.css"><style>', '.css"></noscript><style>' );
-console.log(newStyles);
 
 }
 if(!m){
