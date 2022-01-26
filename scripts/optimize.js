@@ -1,5 +1,6 @@
 const fs = require('fs');
 let data = fs.readFileSync('dist/static/index.html',
+
 {encoding:'utf8', flag:'r'});
 
 LOG_OK = (message) => {
@@ -7,6 +8,9 @@ LOG_OK = (message) => {
 }
 LOG_FAIL = (message) => {
     console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
+}
+LOG_INFO = (message) => {
+    console.log(`${colors.BgWhite}${colors.FgBlack}[INFO]${colors.Reset}: ${message}`);
 }
 
 const colors = {
@@ -38,7 +42,8 @@ const colors = {
 
 }
 
-
+LOG_INFO(` read data (len: ${data.length})`);
+const lenData = data.length;
 
 const rev = fs.readFileSync('.git/HEAD').toString().trim();
 let gitMsg = '';
@@ -48,7 +53,7 @@ if (rev.indexOf(':') === -1) {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
 if(gitMsg && gitMsg !== ''){
-    LOG_OK('gitMsg: ${gitMsg}');
+    LOG_OK(`gitMsg: ${gitMsg}`);
 } else {
     LOG_FAIL('no gitMsg found');
 }
@@ -119,3 +124,4 @@ if(n && n[1]){
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8'});
 LOG_OK(`index.html file rewritten`);
+LOG_INFO(` write data (len: ${data.length} AND different: ${lenData === data.length})`);
