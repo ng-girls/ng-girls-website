@@ -2,6 +2,15 @@ const fs = require('fs');
 let data = fs.readFileSync('dist/static/index.html',
 {encoding:'utf8', flag:'r'});
 
+const rev = fs.readFileSync('.git/HEAD').toString().trim();
+let gitMsg = '';
+if (rev.indexOf(':') === -1) {
+    gitMsg =  rev;
+} else {
+    gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
+}
+data = data.replace('</title>', ` - ${gitMsg} </title>`)
+
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
 const regexOptimized = /(<script\sid="optimized"\ssrc.*<\/script>)/
