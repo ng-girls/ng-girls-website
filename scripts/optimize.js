@@ -10,7 +10,7 @@ if (rev.indexOf(':') === -1) {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
 console.log(`gitMsg: ${gitMsg}`)
-data = data.replace(/<\/title>/, ` - ${gitMsg} </title>`)
+data = data.replace(/<head>/, `<head><meta name="version" content="${gitMsg}">`)
 
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
