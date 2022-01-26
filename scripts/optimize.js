@@ -5,9 +5,11 @@ let data = fs.readFileSync('dist/static/index.html',
 LOG_OK = (message) => {
     console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
 }
+LOG_FAIL = (message) => {
+    console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
+}
 
 const colors = {
-
     Reset : "\x1b[0m",
     Bright : "\x1b[1m",
     Dim : "\x1b[2m",
@@ -45,14 +47,17 @@ if (rev.indexOf(':') === -1) {
 } else {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
-LOG_OK('gitMsg: ${gitMsg}');
+if(gitMsg && gitMsg !== ''){
+    LOG_OK('gitMsg: ${gitMsg}');
+} else {
+    LOG_FAIL('no gitMsg found');
+}
 
 const head = /<head>/ig;
 const header = data.match(head);
 console.log(header);
 console.log(header[0]);
 data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
-console.log(data);
 
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
