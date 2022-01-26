@@ -67,7 +67,7 @@ ${d}
     });
     fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
     fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
-    data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
+    data = data.replace(replaceable, `<script data-test="true" id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
 
 }
 var n =data.match(regexOptimized);
