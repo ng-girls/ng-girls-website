@@ -76,11 +76,12 @@ if(gitMsg && gitMsg !== ''){
 const head = /(<head>)/ig;
 const header = data.match(head);
 console.log(header.length);
-console.log(header[1]);
+console.log(header);
+console.log(header[0]);
 if(hasVersions(data)){
     LOG_WARN(`has already versions set`)
 } else {
-    data = data.replace(header[1], `<head><meta name="version" content="${gitMsg}">`)
+    data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
     LOG_INFO(`try to set version ${gitMsg}`)
     if(hasVersions(data)){
         LOG_OK(`version ${gitMsg} replaced`)
