@@ -10,8 +10,10 @@ if (rev.indexOf(':') === -1) {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
 console.log(`gitMsg: ${gitMsg}`)
-const head = /<head>/;
+const head = /<head>/ig;
 const header = data.match(head);
+console.log(header);
+console.log(header[0]);
 console.log(header[1]);
 data = data.replace(header[1], `<head><meta name="version" content="${gitMsg}">`)
 const header2 = data.match(head);
