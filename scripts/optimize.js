@@ -10,7 +10,12 @@ if (rev.indexOf(':') === -1) {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
 console.log(`gitMsg: ${gitMsg}`)
-data = data.replace(/<head>/, `<head><meta name="version" content="${gitMsg}">`)
+const head = /<head>/;
+const header = data.match(head);
+console.log(header[0]);
+data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
+const header2 = data.match(head);
+console.log(header2[0]);
 
 const regex = /(<script\ssrc.*<\/script>)/;
 const styles = /(<link\srel="stylesheet"[^\>]*)/
@@ -35,7 +40,7 @@ if(!m){
     console.log('cant find inout')
 } else {
     let replaceable = m[1];
-    const scripts = replaceable. split('><');
+    const scripts = replaceable.split('><');
     scripts.forEach(script => {
         let x = script.match(/.*src="([^\"]*)\".*/);
         // let file = x[1];
