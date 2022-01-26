@@ -13,6 +13,7 @@ console.log(`gitMsg: ${gitMsg}`)
 const head = /<head>/;
 const header = data.match(head);
 console.log(header[0]);
+console.log(data);
 data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
 const header2 = data.match(head);
 console.log(header2[0]);
