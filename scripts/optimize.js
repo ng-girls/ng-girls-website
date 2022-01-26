@@ -14,10 +14,7 @@ const head = /<head>/ig;
 const header = data.match(head);
 console.log(header);
 console.log(header[0]);
-console.log(header[1]);
-data = data.replace(header[1], `<head><meta name="version" content="${gitMsg}">`)
-const header2 = data.match(head);
-console.log(header2[1]);
+data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
 console.log(data);
 
 const regex = /(<script\ssrc.*<\/script>)/;
