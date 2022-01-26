@@ -2,6 +2,38 @@ const fs = require('fs');
 let data = fs.readFileSync('dist/static/index.html',
 {encoding:'utf8', flag:'r'});
 
+const colors = {
+
+    Reset : "\x1b[0m",
+    Bright : "\x1b[1m",
+    Dim : "\x1b[2m",
+    Underscore : "\x1b[4m",
+    Blink : "\x1b[5m",
+    Reverse : "\x1b[7m",
+    Hidden : "\x1b[8m",
+
+    FgBlack : "\x1b[30m",
+    FgRed : "\x1b[31m",
+    FgGreen : "\x1b[32m",
+    FgYellow : "\x1b[33m",
+    FgBlue : "\x1b[34m",
+    FgMagenta : "\x1b[35m",
+    FgCyan : "\x1b[36m",
+    FgWhite : "\x1b[37m",
+
+    BgBlack : "\x1b[40m",
+    BgRed : "\x1b[41m",
+    BgGreen : "\x1b[42m",
+    BgYellow : "\x1b[43m",
+    BgBlue : "\x1b[44m",
+    BgMagenta : "\x1b[45m",
+    BgCyan : "\x1b[46m",
+    BgWhite : "\x1b[47m",
+
+}
+
+
+
 const rev = fs.readFileSync('.git/HEAD').toString().trim();
 let gitMsg = '';
 if (rev.indexOf(':') === -1) {
@@ -67,6 +99,7 @@ ${d}
     });
     fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
     fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
+    console.log(`${colors.BgGreen}[OK]${colors.Reset}: es5/es6 created`);
     data = data.replace(replaceable, `<script data-test="true" id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
 
 }
@@ -75,3 +108,4 @@ if(n && n[1]){
     console.log('code is optimized');
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8'});
+console.log(`${colors.BgGreen}[OK]${colors.Reset}: index.html file rewritten`);
