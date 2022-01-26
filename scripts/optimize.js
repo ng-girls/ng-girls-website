@@ -2,6 +2,10 @@ const fs = require('fs');
 let data = fs.readFileSync('dist/static/index.html',
 {encoding:'utf8', flag:'r'});
 
+LOG_OK = (message) => {
+    console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
+}
+
 const colors = {
 
     Reset : "\x1b[0m",
@@ -41,7 +45,8 @@ if (rev.indexOf(':') === -1) {
 } else {
     gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
 }
-console.log(`gitMsg: ${gitMsg}`)
+LOG_OK('gitMsg: ${gitMsg}');
+
 const head = /<head>/ig;
 const header = data.match(head);
 console.log(header);
@@ -99,13 +104,13 @@ ${d}
     });
     fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
     fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
-    console.log(`${colors.BgGreen}[OK]${colors.Reset}: es5/es6 created`);
+    LOG_OK(`es5/es6 created`);
     data = data.replace(replaceable, `<script data-test="true" id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
 
 }
 var n =data.match(regexOptimized);
 if(n && n[1]){
-    console.log('code is optimized');
+    LOG_OK(`code is optimized`);
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8'});
-console.log(`${colors.BgGreen}[OK]${colors.Reset}: index.html file rewritten`);
+LOG_OK(`index.html file rewritten`);
