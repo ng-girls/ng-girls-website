@@ -16,6 +16,7 @@ export class TeamSectionComponent{
   team$;
 
   constructor(public dialog: MatDialog) {
+    console.log('constructro team section')
   }
   
   openDialog(person): void {
