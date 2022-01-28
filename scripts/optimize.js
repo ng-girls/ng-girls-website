@@ -173,6 +173,7 @@ if(n && n[1]){
     LOG_OK(`code is optimized`);
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8',flag:'w'});
+fs.writeFileSync('dist/static/test.html', data, {encoding:'utf8',flag:'w'});
 LOG_OK(`index.html file rewritten`);
 LOG_INFO(` write data (len: ${data.length} AND different: ${lenData !== data.length})`);
 
