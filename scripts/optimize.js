@@ -3,6 +3,22 @@ let data = fs.readFileSync('dist/static/index.html',
 
 {encoding:'utf8', flag:'r'});
 
+const runCommand = (command) => {
+    const { exec } = require("child_process");
+
+exec(`${command}`, (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`${stdout}`);
+});
+}
+
 const getVersion = (data) => {
     return data.match(/(<meta\sname="version"[^\>]*)/ig);
 }
@@ -57,6 +73,7 @@ const colors = {
 LOG_INFO(` read data (len: ${data.length})`);
 const lenData = data.length;
 
+runCommand('ls -la');
 
 const rev = fs.readFileSync('.git/HEAD').toString().trim();
 let gitMsg = '';
@@ -160,3 +177,4 @@ console.log(getVersion(finalData));
 // if(hasVersions(finalData)){
 //     LOG_OK('version written');
 // }
+runCommand('ls -la');
