@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   sizeLogo =  {width: '185px', height: '61px', scale: {d:'0.7',m: '0.6'} };
+  currentDate = new Date().getFullYear();
   constructor() {
   
 

@@ -107,8 +107,7 @@ if(hasVersions(data)){
     const BUILD_URL = process.env.BUILD_URL;
     if(!GITHUB_RUN_NUMBER) LOG_FAIL(`no run number ${GITHUB_RUN_NUMBER}`);
     data = data.replace(header[0], `<head><meta name="version" content="${gitMsg},${GITHUB_RUN_NUMBER}">`)
-    data = data.replace(`#BUILD_URL`, `${BUILD_URL}`)
-    data = data.replace(`#GITHUB_RUN_NUMBER`, `#${GITHUB_RUN_NUMBER}`)
+   
     LOG_INFO(`try to set version ${gitMsg}`)
     if(hasVersions(data)){
         LOG_OK(`version ${gitMsg} replaced`)
@@ -171,7 +170,8 @@ LOG_INFO('end scripts')
 fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
 fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
     LOG_OK(`es5/es6 created`);
-    data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
+    const buildLink = `<a href="${BUILD_URL}">#${GITHUB_RUN_NUMBER}</a>`
+    data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script><small>${buildLink}</small>`)
 
 }
 var n =data.match(regexOptimized);
