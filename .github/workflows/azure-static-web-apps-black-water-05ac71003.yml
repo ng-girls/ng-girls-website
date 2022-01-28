@@ -24,7 +24,7 @@ jobs:
       - name: Create .env file
         run: |
           touch .env
-          echo BUILD_URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} >> .env
+          echo BUILD_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> .env
           echo GITHUB_RUN_NUMBER=${{ github.run_number }} >> .env
       - name: Build And Deploy
         id: builddeploy
