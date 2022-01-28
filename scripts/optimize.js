@@ -74,10 +74,10 @@ const colors = {
 LOG_INFO(` read data (len: ${data.length})`);
 const lenData = data.length;
 
-runCommand('ls -la');
-runCommand('ls -la dist/');
-runCommand('ls -la dist/static');
-runCommand('grep "version" dist/static/index.html');
+// runCommand('ls -la');
+// runCommand('ls -la dist/');
+// runCommand('ls -la dist/static');
+// runCommand('grep "version" dist/static/index.html');
 
 const rev = fs.readFileSync('.git/HEAD').toString().trim();
 let gitMsg = '';
@@ -188,7 +188,7 @@ console.log(getVersion(finalData));
 // if(hasVersions(finalData)){
 //     LOG_OK('version written');
 // }
-runCommand('ls -la');
-runCommand('ls -la dist/');
-runCommand('ls -la dist/static');
-runCommand('grep "version" dist/static/index.html');
+// runCommand('ls -la');
+// runCommand('ls -la dist/');
+// runCommand('ls -la dist/static');
+// runCommand('grep "version" dist/static/index.html');
