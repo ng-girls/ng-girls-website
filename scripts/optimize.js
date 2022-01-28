@@ -96,15 +96,16 @@ if(gitMsg && gitMsg !== ''){
 
 const head = /(<head>)/ig;
 const header = data.match(head);
-console.log(header.length);
-console.log(header);
-console.log(header[0]);
+// console.log(header.length);
+// console.log(header);
+// console.log(header[0]);
+const GITHUB_RUN_NUMBER = process.env.GITHUB_RUN_NUMBER;
+const BUILD_URL = process.env.BUILD_URL;
 if(hasVersions(data)){
     LOG_WARN(`has already versions set`)
 } else {
 
-    const GITHUB_RUN_NUMBER = process.env.GITHUB_RUN_NUMBER;
-    const BUILD_URL = process.env.BUILD_URL;
+ 
     if(!GITHUB_RUN_NUMBER) LOG_FAIL(`no run number ${GITHUB_RUN_NUMBER}`);
     data = data.replace(header[0], `<head><meta name="version" content="${gitMsg},${GITHUB_RUN_NUMBER}">`)
    
