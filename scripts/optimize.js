@@ -102,7 +102,10 @@ console.log(header[0]);
 if(hasVersions(data)){
     LOG_WARN(`has already versions set`)
 } else {
-    data = data.replace(header[0], `<head><meta name="version" content="${gitMsg}">`)
+
+    const GITHUB_RUN_NUMBER = process.env.GITHUB_RUN_NUMBER;
+    if(!GITHUB_RUN_NUMBER) LOG_FAIL(`no run number ${GITHUB_RUN_NUMBER}`);
+    data = data.replace(header[0], `<head><meta name="version" content="${gitMsg},${ITHUB_RUN_NUMBER}">`)
     LOG_INFO(`try to set version ${gitMsg}`)
     if(hasVersions(data)){
         LOG_OK(`version ${gitMsg} replaced`)
@@ -165,7 +168,7 @@ LOG_INFO('end scripts')
 fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
 fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
     LOG_OK(`es5/es6 created`);
-    data = data.replace(replaceable, `<script data-test="true" id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
+    data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script>`)
 
 }
 var n =data.match(regexOptimized);
@@ -173,7 +176,6 @@ if(n && n[1]){
     LOG_OK(`code is optimized`);
 }
 fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8',flag:'w'});
-fs.writeFileSync('dist/static/test.html', data, {encoding:'utf8',flag:'w'});
 LOG_OK(`index.html file rewritten`);
 LOG_INFO(` write data (len: ${data.length} AND different: ${lenData !== data.length})`);
 
