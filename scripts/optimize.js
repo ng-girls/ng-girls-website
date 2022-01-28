@@ -107,7 +107,8 @@ if(hasVersions(data)){
     const BUILD_URL = process.env.BUILD_URL;
     if(!GITHUB_RUN_NUMBER) LOG_FAIL(`no run number ${GITHUB_RUN_NUMBER}`);
     data = data.replace(header[0], `<head><meta name="version" content="${gitMsg},${GITHUB_RUN_NUMBER}">`)
-    data = data.replace(`Last Build: BUILD`, `<a href="${BUILD_URL}">#${GITHUB_RUN_NUMBER}</a>`)
+    data = data.replace(`#BUILD_URL`, `${BUILD_URL}`)
+    data = data.replace(`#GITHUB_RUN_NUMBER`, `#${GITHUB_RUN_NUMBER}`)
     LOG_INFO(`try to set version ${gitMsg}`)
     if(hasVersions(data)){
         LOG_OK(`version ${gitMsg} replaced`)
