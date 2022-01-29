@@ -33,12 +33,21 @@ const colors = {
     BgWhite : "\x1b[47m",
 
 }
+const LOG_OK = (message) => {
+    console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
+}
+const LOG_FAIL = (message) => {
+    console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
+}
+const LOG_INFO = (message) => {
+    console.log(`${colors.BgWhite}${colors.FgBlack}[INFO]${colors.Reset}: ${message}`);
+}
+const LOG_WARN = (message) => {
+    console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
+}
 
 const runCommand = (command) => {
-    console.log('run command')
-    const { exec } = require("child_process");
-    exec(`${command}`, (error, stdout, stderr) => {
-        console.log('exec')
+    require('child_process').execSync(`${command}`, (error, stdout, stderr) => {
         if (error) {
             LOG_FAIL(`error: ${error.message}`);
             return;
@@ -66,21 +75,11 @@ const hasVersions = (data) => {
     return versions && versions.length >= 1;
 }
 
-const LOG_OK = (message) => {
-    console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
-}
-const LOG_FAIL = (message) => {
-    console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
-}
-const LOG_INFO = (message) => {
-    console.log(`${colors.BgWhite}${colors.FgBlack}[INFO]${colors.Reset}: ${message}`);
-}
-const LOG_WARN = (message) => {
-    console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
-}
+
 runCommand(`pwd`);
 if (!fs.existsSync(DIST_PATH)){
     LOG_FAIL('no dist path detected');
+    runCommand(`ls -al ${DIST_PATH}`);
     // fs.mkdirSync(dir, { recursive: true });
 }
 if (!fs.existsSync(INDEX_FILE)){
