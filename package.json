@@ -7,8 +7,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --stats-json --prod",
-    "postbuild": "npm run scully -- --scanRoutes && npm run sw-build && npm run static && npm run optimize",
+    "prebuild": "ng build --stats-json --prod",
+    "build": "npm run scully -- --scanRoutes && npm run sw-build && npm run static",
+    "postbuild": " npm run prepare",
     "static": "cp -r static/* dist/static/ && cp static/.htaccess dist/static/.htaccess",
     "optimize": "node scripts/optimize.js",
     "prepare": "node scripts/prepare.ts",
