@@ -79,11 +79,19 @@ const hasVersions = (data) => {
 }
 let pwd = require('child_process').execSync("pwd").toString();
 LOG_OK(pwd);
-let ls = require('child_process').execSync("ls -al ").toString();
-LOG_OK(ls);
-let ls2 = require('child_process').execSync("ls -al ./dist/", {stdio: 'inherit', cwd: pwd}).toString();
+// let ls = require('child_process').execSync("ls -al ").toString();
+// LOG_OK(ls);
 
+let ls2 = require('child_process').execSync("ls -al ./static", {stdio: 'inherit', cwd: pwd}).toString();
 LOG_OK(ls2);
+
+if (!fs.existsSync(DIST_PATH)){
+    LOG_FAIL('no dist path detected');
+    let lsX = require('child_process').execSync("ls -al ").toString();
+    LOG_OK(lsX);
+    // fs.mkdirSync(dir, { recursive: true });
+}
+
 
 // runCommand(`pwd`);
 // runCommand(`ls -al`);
