@@ -82,9 +82,11 @@ LOG_OK(pwd);
 // let ls = require('child_process').execSync("ls -al ").toString();
 // LOG_OK(ls);
 
-let ls1 = require('child_process').execSync("ls -al ./", {stdio: 'inherit', cwd: pwd}).toString();
+let ls1 = require('child_process').execSync("ls -al ./").toString();
+// let ls1 = require('child_process').execSync("ls -al ./", {stdio: 'inherit', cwd: pwd}).toString();
 LOG_OK(ls1);
-let ls2 = require('child_process').execSync("ls -al ./static", {stdio: 'inherit', cwd: pwd}).toString();
+let ls2 = require('child_process').execSync("ls -al ./static").toString();
+// let ls2 = require('child_process').execSync("ls -al ./static", {stdio: 'inherit', cwd: pwd}).toString();
 LOG_OK(ls2);
 
 if (!fs.existsSync(DIST_PATH)){
