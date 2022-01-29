@@ -148,7 +148,7 @@ if(!m){
         let x = script.match(/.*src="([^\"]*)\".*/);
         // let file = x[1];
         if(x && x.length > 1){
-            file = x[1];
+            const file = x[1];
             let d = fs.readFileSync(`dist/static/${file}`,
             {encoding:'utf8', flag:'r'});
             LOG_INFO(`read file ${file}` );
