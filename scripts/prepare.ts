@@ -1,14 +1,13 @@
 
-const fs = require('fs');
+const  _fs= require('_fs');
 require('dotenv').config();
 
-const DIST_PATH = './dist';
-const STATIC_PATH = `${DIST_PATH}/static`;
-const INDEX_FILE = `${STATIC_PATH}/index.html`;
 
 const { 
-    LOG_OK, LOG_FAIL, LOG_INFO, LOG_WARN 
+    LOG_OK, LOG_FAIL, LOG_INFO, LOG_WARN , DIST_PATH,
 } = require('./tools.ts');
+const STATIC_PATH = `${DIST_PATH}/static`;
+const INDEX_FILE = `${STATIC_PATH}/index.html`;
 
 const runCommandSync = (command) => {
     let output = require('child_process').execSync(command).toString();
@@ -30,7 +29,7 @@ const runCommand = (command) => {
 }
 
 const checkFolderExists = (path) => {
-    if (!fs.existsSync(path)){
+    if (!_fs.existsSync(path)){
         LOG_FAIL(`no path "${path}" detected`);
         runCommand(`ls -al ${path}`);
     } else {
@@ -53,7 +52,7 @@ checkFolderExists(DIST_PATH);
 checkFolderExists(STATIC_PATH);
 checkFolderExists(INDEX_FILE);
 
-let data = fs.readFileSync(INDEX_FILE, {encoding:'utf8', flag:'r'});
+let data = _fs.readFileSync(INDEX_FILE, {encoding:'utf8', flag:'r'});
 LOG_INFO(` read data (len: ${data.length})`);
 const lenData = data.length;
 
@@ -62,13 +61,13 @@ const lenData = data.length;
 // runCommand('ls -la dist/static');
 // runCommand('grep "version" dist/static/index.html');
 
-const rev = fs.readFileSync('.git/HEAD').toString().trim();
+const rev = _fs.readFileSync('.git/HEAD').toString().trim();
 let gitMsg = '';
 if (rev.indexOf(':') === -1) {
     gitMsg =  rev;
 } else {
     LOG_INFO('start git')
-    gitMsg = fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
+    gitMsg = _fs.readFileSync('.git/' + rev.substring(5)).toString().trim();
     LOG_INFO('end git')
 }
 if(gitMsg && gitMsg !== ''){
@@ -132,7 +131,7 @@ if(!m){
         // let file = x[1];
         if(x && x.length > 1){
             const file = x[1];
-            let d = fs.readFileSync(`dist/static/${file}`,
+            let d = _fs.readFileSync(`dist/static/${file}`,
             {encoding:'utf8', flag:'r'});
             LOG_INFO(`read file ${file}` );
             if(file.indexOf('-es2015') !== -1){
@@ -153,8 +152,8 @@ ${d}
 
 });
 LOG_INFO('end scripts')
-fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
-fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
+_fs.writeFileSync('dist/static/all-es5.js', allES5, {encoding:'utf8'});
+_fs.writeFileSync('dist/static/all-es6.js', allES6, {encoding:'utf8'});
     LOG_OK(`es5/es6 created`);
     const buildLink = `<a href="${BUILD_URL}" style="color: #AAA">build: #${GITHUB_RUN_NUMBER}</a>`
     data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script><small>${buildLink}</small>`)
@@ -164,11 +163,11 @@ var n =data.match(regexOptimized);
 if(n && n[1]){
     LOG_OK(`code is optimized`);
 }
-fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8',flag:'w'});
+_fs.writeFileSync('dist/static/index.html', data, {encoding:'utf8',flag:'w'});
 LOG_OK(`index.html file rewritten`);
 LOG_INFO(` write data (len: ${data.length} AND different: ${lenData !== data.length})`);
 
-const finalData = fs.readFileSync('dist/static/index.html', {encoding:'utf8', flag:'r'});
+const finalData = _fs.readFileSync('dist/static/index.html', {encoding:'utf8', flag:'r'});
 console.log(getVersion(finalData));
 // if(hasVersions(finalData)){
 //     LOG_OK('version written');

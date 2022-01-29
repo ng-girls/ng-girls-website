@@ -1,6 +1,7 @@
 const os = require('os');
 let noEmojis = os.release().toLocaleLowerCase().includes('microsoft') && process.platform.includes('linux') && (!(process.env.TERM_PROGRAM && process.env.TERM_PROGRAM.includes('vscode')));
-exports.DIST_PATH = DIST_PATH = './docs';
+exports.DOCS_PATH =  './docs';
+exports.DIST_PATH =  './dist';
 const fs = require('fs');
 // https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
 const colors = {
@@ -59,7 +60,7 @@ exports.LOG = (type, message, icon) => {
     }
 }
 // src: // https://www.netzprogrammierer.de/mit-javascript-auf-beliebige-dezimalstellen-runden/
-exports.round = round = (wert, dez) =>  {
+exports.round = (wert, dez) =>  {
     wert = parseFloat(wert);
     if (!wert) return 0;
     dez = parseInt(dez);
@@ -81,27 +82,28 @@ exports.startLoading = (text) => {
 exports.finishLoading = (timer, text) => {
     clearInterval(timer);
     if(process && process.stdout && process.stdout.clearLine){
-        process.stdout.clearLine();
+        process.stdout.clearLine(-1);
         process.stdout.cursorTo(0);
     }
     LOG('ok', text);
 }
-exports.isDevMode = () => {
+const isDevModeBase = () => {
     let isDev = false;
     process.argv.forEach(function (val) {
         if(val === '--dev') isDev = true;
     });
     return isDev;
 }
+exports.isDevMode = () =>  isDevModeBase;
 exports.getSize = (name, value) => {
     if(typeof value === 'object') value = JSON.stringify(value);
     let size = Buffer.from(value).length;
     const str = name !== '' ? `size of  ${name} is` : '';
-    return `${str} ${round(size /1024,2)} kb (${size} B)`;
+    return `${str} ${this.round(size /1024,2)} kb (${size} B)`;
     // LOG('OK', `size of  ${name} is ${round(size /1024,2)} kb (${size} B)`, '💾')
 }
 
-exports.analyzeChange = analyzeChange = (oldData, newData, host) => {
+exports.analyzeChange =  (oldData, newData, host) => {
     const strOldData = JSON.stringify(oldData); 
     const strNewData = JSON.stringify(newData); 
     let result = '';
@@ -122,7 +124,7 @@ exports.analyzeChange = analyzeChange = (oldData, newData, host) => {
     let suffix = isChange ? `differs to new one ${result}` : `has not changed`;
     let state = isChange ? 'fail' : 'ok';
     LOG(state, `data entry for ${host.name}  already defined and ${suffix}`)
-    if(isChange && this.isDevMode()){
+    if(isChange && isDevModeBase()){
         _writeFile(`./tmp/diff_${host.id}_new.json`, `diff_${host.id}_new.json`, strNewData, {}, false)
         LOG('newline', ` - ${colorize(`diff_${host.id}_new.json`)} created`);
         _writeFile(`./tmp/diff_${host.id}_old.json`, `diff_${host.id}_old.json`, strOldData,{}, false)
@@ -130,26 +132,26 @@ exports.analyzeChange = analyzeChange = (oldData, newData, host) => {
     }
 }
 
-exports._writeFile = _writeFile = (path, name,  data, flag, optional ) => {
+exports._writeFile = (path, name,  data, flag, optional ) => {
     optional = optional !== undefined ? optional :  true;
     fs.writeFileSync(path, data, flag); //, { flag: 'a+' });
     if(optional) printSize(path, name);
 }
 // read and parse
-exports._readFile = _readFile = (file) => {
+exports._readFile = (file) => {
     const data = fs.readFileSync(file, {encoding:'utf8', flag:'r'});
     return JSON.parse(data);
 }
-exports.printSize = printSize = (path, name) => {
+exports.printSize =  (path, name) => {
     const stats  = fs.statSync(path);
-    LOG('OK', `size of ${name} is ${round(stats.size /1024,2)} kb (${stats.size} B)`, '💾');
+    LOG('OK', `size of ${name} is ${this.round(stats.size /1024,2)} kb (${stats.size} B)`, '💾');
 }
 
-exports.colorize = colorize = (value, optional) => {
+exports.colorize =  (value, optional) => {
     optional = optional || 'FgYellow';
     return `${colors[optional]}${value}${colors.Reset}`;
 }
-exports.getType = getType = (value) => {
+exports.getType =  (value) => {
     let type;
     if(Array.isArray(value)){
         return 'array';
@@ -158,3 +160,5 @@ exports.getType = getType = (value) => {
  
     }
 }
+
+

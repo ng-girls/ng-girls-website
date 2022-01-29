@@ -1,17 +1,18 @@
 const psi = require('psi');
-const fs = require('fs');
+const _FS = require('fs');
 
 require('dotenv').config();
 // console.log(process.env)
 const { 
-    getSize, analyzeChange, isDevMode, _readFile,getType, DIST_PATH,
+    getSize, analyzeChange, isDevMode, _readFile,getType, DOCS_PATH,
     finishLoading, startLoading, LOG, _writeFile, printSize, colorize 
 } = require('./tools.ts');
-const dir = DIST_PATH;
-const SETTINGS = `${DIST_PATH}/settings.json`;
-const ALL_AUDITS = `${DIST_PATH}/all_audits.json`;
-const HTML = `${DIST_PATH}/index.html`;
-const DECODED = `${DIST_PATH}/decoded.json`;
+const DIST_PAT2 = DOCS_PATH;
+const dir = DIST_PAT2;
+const SETTINGS = `${DIST_PAT2}/settings.json`;
+const ALL_AUDITS = `${DIST_PAT2}/all_audits.json`;
+const HTML = `${DIST_PAT2}/index.html`;
+const DECODED = `${DIST_PAT2}/decoded.json`;
 
 async function asyncForEach(array, callback) {
     for (let index = 0; index < array.length; index++) {
@@ -19,16 +20,16 @@ async function asyncForEach(array, callback) {
     }
   }
 
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir, { recursive: true });
+if (!_FS.existsSync(dir)){
+    _FS.mkdirSync(dir, { recursive: true });
 }
-if (!fs.existsSync(SETTINGS)){
-    fs.writeFileSync(SETTINGS, '{}', { flag: 'a+' });
+if (!_FS.existsSync(SETTINGS)){
+    _FS.writeFileSync(SETTINGS, '{}', { flag: 'a+' });
 }
-if (!fs.existsSync(ALL_AUDITS)){
-    fs.writeFileSync(ALL_AUDITS, '{}', { flag: 'a+' });
+if (!_FS.existsSync(ALL_AUDITS)){
+    _FS.writeFileSync(ALL_AUDITS, '{}', { flag: 'a+' });
 }
-let html = fs.readFileSync('scripts/index.html', {encoding:'utf8', flag:'r'});
+let html = _FS.readFileSync('scripts/index.html', {encoding:'utf8', flag:'r'});
 
 
 
@@ -110,15 +111,15 @@ const getReport = async(path, opts, file) => {
     const timer = (startLoading('Loading Lighthouse data'))();
     const { data } = await psi(path, opts);
     finishLoading(timer, 'Lighthouse data loaded')
-    if (!fs.existsSync(file) && isDevMode()){
-        fs.writeFileSync(file, JSON.stringify(data), { flag: 'a+' });
+    if (!_FS.existsSync(file) && isDevMode()){
+        _FS.writeFileSync(file, JSON.stringify(data), { flag: 'a+' });
         LOG('info', `write data to cache`);
     }
     return data;
 }
 const getData = async(host, process, indexPath) => {
     const path = host.path;
-    const DATA_FILE = `${DIST_PATH}/raw_${indexPath}.json`;
+    const DATA_FILE = `${DIST_PAT2}/raw_${indexPath}.json`;
     let opts = {};
     if(host.strategy){
         opts['strategy'] = host.strategy;
@@ -247,89 +248,90 @@ const updateSettingsAndValue = (type, node, key) => {
                             Object.entries(object1).forEach(([key1, entries1]) => {
                                 switch(getType(entries1)){
                                     case 'array': 
-                                        for (let entry1 of entries1) {
-                                            switch(getType(entry1)){
-                                                case 'array':  // TODO
-                                                    break
-                                                case 'object': 
-                                                    Object.entries(entry1).forEach(([key2, element2]) => {
-                                                        switch(getType(element2)){
-                                                            case 'array': 
-                                                                for(let entry2 of element2 ){
-                                                                    if(typeof entry2 !== 'object'){ return; } /** NOOP */
-                                                                    Object.entries(entry2).forEach(([key3, element3]) => {
-                                                                        switch(getType(element3)){
-                                                                            case 'array': 
-                                                                                for(let entry3 of element3 ){
-                                                                                    if(typeof entry3 !== 'object'){ return; } /** NOOP */
-                                                                                    for (const [key4, element4] of Object.entries(entry3)) {
-                                                                                        switch(getType(element4)){
-                                                                                            case 'array': 
-                                                                                                for(let entry4 of element4 ){
-                                                                                                    if(typeof entry4 !== 'object'){ return; } /** NOOP */
-                                                                                                    for (const [key5, element5] of Object.entries(entry4)) {
-                                                                                                        switch(getType(element5)){
-                                                                                                            case 'array': 
-                                                                                                                for(let entry5 of element5 ){
-                                                                                                                    if(typeof entry5 !== 'object'){ return; } /** NOOP */
-                                                                                                                    for (const [key6, element6] of Object.entries(entry5)) {
-                                                                                                                        switch(getType(element6)){                                                                                                                            
-                                                                                                                            case 'array': 
-                                                                                                                                for(let entry6 of element6 ){
-                                                                                                                                    if(typeof entry6 !== 'object'){ return; } /** NOOP */
-                                                                                                                                    for (const [key7, element7] of Object.entries(entry6)) {
-                                                                                                                                        switch(getType(element7)){
-                                                                                                                                            // case 'object': break; // NOOP ?
-                                                                                                                                            case 'array': 
-                                                                                                                                                for(let entry8 of element7 ){
-                                                                                                                                                    if(typeof entry8 !== 'object'){ return; } /** NOOP */
-                                                                                                                                                };
-                                                                                                                                                break;
-                                                                                                                                            default:
-                                                                                                                                                updatePrimitives(entry6, key7, type);
-                                                                                                                                        }
-                                                                                                                                    };
-                                                                                                                                };
-                                                                                                                                break;
-                                                                                                                            // case 'object': break; // NOOP ?
-                                                                                                                            default:
-                                                                                                                                updatePrimitives(entry5, key6, type);
-                                                                                                                        }
-                                                                                                                    };
-                                                                                                                };
-                                                                                                                break;
-                                                                                                            // case 'object': break; // NOOP ?
-                                                                                                            default:
-                                                                                                                updatePrimitives(entry4, key5, type);
-                                                                                                        }
-                                                                                                    };
+                                    // TODO: need to be fixed
+                                        // for (let entry1 of entries1) {
+                                        //     switch(getType(entry1)){
+                                        //         case 'array':  // TODO
+                                        //             break
+                                        //         case 'object': 
+                                        //             Object.entries(entry1).forEach(([key2, element2]) => {
+                                        //                 switch(getType(element2)){
+                                        //                     case 'array': 
+                                        //                         for(let entry2 of element2 ){
+                                        //                             if(typeof entry2 !== 'object'){ return; } /** NOOP */
+                                        //                             Object.entries(entry2).forEach(([key3, element3]) => {
+                                        //                                 switch(getType(element3)){
+                                        //                                     case 'array': 
+                                        //                                         for(let entry3 of element3 ){
+                                        //                                             if(typeof entry3 !== 'object'){ return; } /** NOOP */
+                                        //                                             for (const [key4, element4] of Object.entries(entry3)) {
+                                        //                                                 switch(getType(element4)){
+                                        //                                                     case 'array': 
+                                        //                                                         for(let entry4 of element4 ){
+                                        //                                                             if(typeof entry4 !== 'object'){ return; } /** NOOP */
+                                        //                                                             for (const [key5, element5] of Object.entries(entry4)) {
+                                        //                                                                 switch(getType(element5)){
+                                        //                                                                     case 'array': 
+                                        //                                                                         for(let entry5 of element5 ){
+                                        //                                                                             if(typeof entry5 !== 'object'){ return; } /** NOOP */
+                                        //                                                                             for (const [key6, element6] of Object.entries(entry5)) {
+                                        //                                                                                 switch(getType(element6)){                                                                                                                            
+                                        //                                                                                     case 'array': 
+                                        //                                                                                         for(let entry6 of element6 ){
+                                        //                                                                                             if(typeof entry6 !== 'object'){ return; } /** NOOP */
+                                        //                                                                                             for (const [key7, element7] of Object.entries(entry6)) {
+                                        //                                                                                                 switch(getType(element7)){
+                                        //                                                                                                     // case 'object': break; // NOOP ?
+                                        //                                                                                                     case 'array': 
+                                        //                                                                                                         for(let entry8 of element7 ){
+                                        //                                                                                                             if(typeof entry8 !== 'object'){ return; } /** NOOP */
+                                        //                                                                                                         };
+                                        //                                                                                                         break;
+                                        //                                                                                                     default:
+                                        //                                                                                                         updatePrimitives(entry6, key7, type);
+                                        //                                                                                                 }
+                                        //                                                                                             };
+                                        //                                                                                         };
+                                        //                                                                                         break;
+                                        //                                                                                     // case 'object': break; // NOOP ?
+                                        //                                                                                     default:
+                                        //                                                                                         updatePrimitives(entry5, key6, type);
+                                        //                                                                                 }
+                                        //                                                                             };
+                                        //                                                                         };
+                                        //                                                                         break;
+                                        //                                                                     // case 'object': break; // NOOP ?
+                                        //                                                                     default:
+                                        //                                                                         updatePrimitives(entry4, key5, type);
+                                        //                                                                 }
+                                        //                                                             };
 
-                                                                                                };
-                                                                                                break;
-                                                                                            // case 'object': break; // NOOP ?
-                                                                                            default:
-                                                                                                updatePrimitives(entry3, key4, type);
-                                                                                        }
-                                                                                    };
-                                                                                };
-                                                                                break;
-                                                                            // case 'object': break; // NOOP ?
-                                                                            default:
-                                                                                updatePrimitives(entry2, key3, type);
-                                                                        }
-                                                                    })
-                                                                };
-                                                                break;
-                                                            case 'object':   break;
-                                                            default:
-                                                                updatePrimitives(entry1, key2, type);
-                                                        }
-                                                    });
-                                                    break
-                                                default:
-                                                    // noop
-                                            }
-                                        }
+                                        //                                                         };
+                                        //                                                         break;
+                                        //                                                     // case 'object': break; // NOOP ?
+                                        //                                                     default:
+                                        //                                                         updatePrimitives(entry3, key4, type);
+                                        //                                                 }
+                                        //                                             };
+                                        //                                         };
+                                        //                                         break;
+                                        //                                     // case 'object': break; // NOOP ?
+                                        //                                     default:
+                                        //                                         updatePrimitives(entry2, key3, type);
+                                        //                                 }
+                                        //                             })
+                                        //                         };
+                                        //                         break;
+                                        //                     case 'object':   break;
+                                        //                     default:
+                                        //                         updatePrimitives(entry1, key2, type);
+                                        //                 }
+                                        //             });
+                                        //             break
+                                        //         default:
+                                        //             // noop
+                                        //     }
+                                        // }
                                         break;
                                     case 'object':  break;
                                     default:
@@ -504,16 +506,16 @@ const optimizeRefs = (node, type) => {
     })
     let newData = '<table>';
     let decodedData = JSON.parse(decodedAudits);
-    Object.entries(decodedData).forEach(([url, value]) => {
-        console.log(url)
-        Object.entries(value).forEach(([plattform, value2]) => {
-            console.log(plattform);
-            Object.entries(value2).forEach(([timestamp, data]) => {
-                newData += `<tr><td>${data['commit'] ? data['commit'].msg : ''}</td><td>${url}</td><td>${plattform}</td><td>${timestamp}</td><td>${data.categories.performance.score}</td></tr>`
+    // Object.entries(decodedData).forEach(([url, value]) => {
+    //     console.log(url)
+    //     Object.entries(value).forEach(([plattform, value2]) => {
+    //         console.log(plattform);
+    //         Object.entries(value2).forEach(([timestamp, data]) => {
+    //             newData += `<tr><td>${data['commit'] ? data['commit'].msg : ''}</td><td>${url}</td><td>${plattform}</td><td>${timestamp}</td><td>${data.categories.performance.score}</td></tr>`
                 
-            })
-        });
-    });
+    //         })
+    //     });
+    // });
     newData += '</table>'
     
     html = html.replace(/\{\{APP\}\}/, newData);
