@@ -77,10 +77,14 @@ const hasVersions = (data) => {
     const versions = getVersion(data);
     return versions && versions.length >= 1;
 }
+let pwd = require('child_process').execSync("pwd").toString();
+let ls = require('child_process').execSync("ls -al").toString();
 
+LOG_OK(pwd);
+LOG_OK(ls);
 
-runCommand(`pwd`);
-runCommand(`ls -al`);
+// runCommand(`pwd`);
+// runCommand(`ls -al`);
 // if (!fs.existsSync(DIST_PATH)){
 //     LOG_FAIL('no dist path detected');
 //     runCommand(`ls -al`);
