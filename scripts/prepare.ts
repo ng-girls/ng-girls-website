@@ -35,8 +35,10 @@ const colors = {
 }
 
 const runCommand = (command) => {
+    console.log('run command')
     const { exec } = require("child_process");
     exec(`${command}`, (error, stdout, stderr) => {
+        console.log('exec')
         if (error) {
             LOG_FAIL(`error: ${error.message}`);
             return;
@@ -76,7 +78,11 @@ const LOG_INFO = (message) => {
 const LOG_WARN = (message) => {
     console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
 }
-
+runCommand(`pwd`);
+if (!fs.existsSync(DIST_PATH)){
+    LOG_FAIL('no dist path detected');
+    // fs.mkdirSync(dir, { recursive: true });
+}
 if (!fs.existsSync(INDEX_FILE)){
     LOG_FAIL('no index file detected');
     runCommand(`ls -al ${DIST_PATH}`);
