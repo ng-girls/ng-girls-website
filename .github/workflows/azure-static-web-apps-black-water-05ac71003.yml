@@ -27,10 +27,9 @@ jobs:
         run: |
           touch .env
           echo "write env to script: $GITHUB_RUN_ID"
-          echo BUILD_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> .env
           echo GITHUB_RUN_NUMBER=${{ github.run_number }} >> .env
-          echo TEST_VAR="$GH_SERVER_URL"
-          echo TEST_VAR2="$GH_SERVER_URL/$GH_SERVER_URL"
+          echo TEST_VAR="$GH_SERVER_URL" >> .env
+          echo TEST_VAR2="$GH_SERVER_URL/$GH_SERVER_URL" >> .env
           echo GITHUB_SERVER_URL=${{ github.server_url }} >> .env
           echo GITHUB_REPOSITORY=${{ github.repository }} >> .env
           echo GITHUB_RUN_ID=${{ github.run_id }} >> .env
