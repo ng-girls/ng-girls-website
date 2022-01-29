@@ -96,22 +96,20 @@ if(gitMsg && gitMsg !== ''){
 
 const head = /(<head>)/ig;
 const header = data.match(head);
-// console.log(header.length);
-// console.log(header);
-// console.log(header[0]);
 const GITHUB_RUN_NUMBER = process.env.GITHUB_RUN_NUMBER;
-// const BUILD_URL = process.env.BUILD_URL;
-console.log(process.env.TEST_VAR);
-console.log(process.env.TEST_VAR2);
-console.log(process.env.GITHUB_SERVER_URL);
-const BUILD_URL = `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
+const GITHUB = {
+    SERVER_URL: process.env.GITHUB_SERVER_URL,
+    REPOSITORY: process.env.GITHUB_REPOSITORY,
+    RUN_ID: process.env.GITHUB_RUN_ID
+}
+const BUILD_URL = `${GITHUB.SERVER_URL}/${GITHUB.REPOSITORY}/actions/runs/${GITHUB.RUN_ID}`;
 if(hasVersions(data)){
     LOG_WARN(`has already versions set`)
 } else {
 
  
     if(!GITHUB_RUN_NUMBER) LOG_FAIL(`no run number ${GITHUB_RUN_NUMBER}`);
-    data = data.replace(header[0], `<head><meta name="version" content="${gitMsg},${GITHUB_RUN_NUMBER}">`)
+    data = data.replace(header[0], `<head><meta name="version" content="${gitMsg},${process.env.GITHUB_RUN_NUMBER}">`)
    
     LOG_INFO(`try to set version ${gitMsg}`)
     if(hasVersions(data)){
