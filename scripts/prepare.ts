@@ -1,51 +1,9 @@
 const fs = require('fs');
-
-const runCommand = (command) => {
-    const { exec } = require("child_process");
-    exec(`${command}`, (error, stdout, stderr) => {
-        if (error) {
-            LOG_FAIL(`error: ${error.message}`);
-            return;
-        }
-        if (stderr) {
-            LOG_FAIL(`stderr: ${stderr}`);
-            return;
-        }
-        LOG_OK(`command: ${command}`);
-        console.log(`${stdout}`);
-    });
-}
-
-console.log(process.env);
 require('dotenv').config();
-runCommand('ls -al dist/');
-runCommand('ls -al ./dist/');
-console.log(process.env);
-let data = fs.readFileSync('dist/static/index.html', {encoding:'utf8', flag:'r'});
 
-
-
-const getVersion = (data) => {
-    return data.match(/(<meta\sname="version"[^\>]*)/ig);
-}
-const hasVersions = (data) => {
-
-    const versions = getVersion(data);
-    return versions && versions.length >= 1;
-}
-
-const LOG_OK = (message) => {
-    console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
-}
-const LOG_FAIL = (message) => {
-    console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
-}
-const LOG_INFO = (message) => {
-    console.log(`${colors.BgWhite}${colors.FgBlack}[INFO]${colors.Reset}: ${message}`);
-}
-const LOG_WARN = (message) => {
-    console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
-}
+const DIST_PATH = './dist'
+const dir = DIST_PATH;
+const INDEX_FILE = `${DIST_PATH}/static/index.html`;
 
 const colors = {
     Reset : "\x1b[0m",
@@ -75,6 +33,59 @@ const colors = {
     BgWhite : "\x1b[47m",
 
 }
+
+const runCommand = (command) => {
+    const { exec } = require("child_process");
+    exec(`${command}`, (error, stdout, stderr) => {
+        if (error) {
+            LOG_FAIL(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            LOG_FAIL(`stderr: ${stderr}`);
+            return;
+        }
+        LOG_OK(`command: ${command}`);
+        console.log(`${stdout}`);
+    });
+}
+
+
+runCommand('ls -al dist/');
+runCommand(`ls -al ${DIST_PATH}`);
+
+console.log(process.env);
+let data = fs.readFileSync(INDEX_FILE, {encoding:'utf8', flag:'r'});
+
+
+
+const getVersion = (data) => {
+    return data.match(/(<meta\sname="version"[^\>]*)/ig);
+}
+const hasVersions = (data) => {
+
+    const versions = getVersion(data);
+    return versions && versions.length >= 1;
+}
+
+const LOG_OK = (message) => {
+    console.log(`${colors.BgGreen}${colors.FgBlack}[OK]${colors.Reset}: ${message}`);
+}
+const LOG_FAIL = (message) => {
+    console.log(`${colors.BgRed}${colors.FgBlack}[FAIL]${colors.Reset}: ${message}`);
+}
+const LOG_INFO = (message) => {
+    console.log(`${colors.BgWhite}${colors.FgBlack}[INFO]${colors.Reset}: ${message}`);
+}
+const LOG_WARN = (message) => {
+    console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
+}
+
+if (!fs.existsSync(INDEX_FILE)){
+    LOG_FAIL('no index file detected');
+    runCommand(`ls -al ${DIST_PATH}`);
+}
+
 
 LOG_INFO(` read data (len: ${data.length})`);
 const lenData = data.length;
