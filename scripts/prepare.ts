@@ -51,11 +51,7 @@ const runCommand = (command) => {
 }
 
 
-runCommand('ls -al dist/');
-runCommand(`ls -al ${DIST_PATH}`);
 
-console.log(process.env);
-let data = fs.readFileSync(INDEX_FILE, {encoding:'utf8', flag:'r'});
 
 
 
@@ -87,6 +83,7 @@ if (!fs.existsSync(INDEX_FILE)){
 }
 
 
+let data = fs.readFileSync(INDEX_FILE, {encoding:'utf8', flag:'r'});
 LOG_INFO(` read data (len: ${data.length})`);
 const lenData = data.length;
 
