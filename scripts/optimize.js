@@ -101,9 +101,9 @@ const header = data.match(head);
 // console.log(header[0]);
 const GITHUB_RUN_NUMBER = process.env.GITHUB_RUN_NUMBER;
 // const BUILD_URL = process.env.BUILD_URL;
-console.log(env.process.TEST_VAR);
-console.log(env.process.TEST_VAR2);
-console.log(env.process.GITHUB_SERVER_URL);
+console.log(process.env.TEST_VAR);
+console.log(process.env.TEST_VAR2);
+console.log(process.env.GITHUB_SERVER_URL);
 const BUILD_URL = `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
 if(hasVersions(data)){
     LOG_WARN(`has already versions set`)
