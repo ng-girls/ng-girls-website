@@ -1,3 +1,5 @@
+import { async } from "rxjs/internal/scheduler/async";
+
 const fs = require('fs');
 require('dotenv').config();
 
@@ -46,8 +48,8 @@ const LOG_WARN = (message) => {
     console.log(`${colors.BgYellow}${colors.FgBlack}[WARN]${colors.Reset}: ${message}`);
 }
 
-const runCommand = (command) => {
-    require('child_process').execSync(`${command}`, (error, stdout, stderr) => {
+const runCommand = async (command) => {
+    await require('child_process').execSync(`${command}`, (error, stdout, stderr) => {
         if (error) {
             LOG_FAIL(`error: ${error.message}`);
             return;
