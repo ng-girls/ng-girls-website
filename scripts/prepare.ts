@@ -78,7 +78,7 @@ const hasVersions = (data) => {
     return versions && versions.length >= 1;
 }
 let pwd = require('child_process').execSync("pwd").toString();
-let ls = require('child_process').execSync("ls -al").toString();
+let ls = require('child_process').execSync("ls -al dist/").toString();
 
 LOG_OK(pwd);
 LOG_OK(ls);
