@@ -1,24 +1,29 @@
 const fs = require('fs');
-let data = fs.readFileSync('dist/static/index.html',
-
-{encoding:'utf8', flag:'r'});
 
 const runCommand = (command) => {
     const { exec } = require("child_process");
-
-exec(`${command}`, (error, stdout, stderr) => {
-    if (error) {
-        LOG_FAIL(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        LOG_FAIL(`stderr: ${stderr}`);
-        return;
-    }
-    LOG_OK(`command: ${command}`);
-    console.log(`${stdout}`);
-});
+    exec(`${command}`, (error, stdout, stderr) => {
+        if (error) {
+            LOG_FAIL(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            LOG_FAIL(`stderr: ${stderr}`);
+            return;
+        }
+        LOG_OK(`command: ${command}`);
+        console.log(`${stdout}`);
+    });
 }
+
+console.log(process.env);
+require('dotenv').config();
+runCommand('ls -al dist/');
+runCommand('ls -al ./dist/');
+console.log(process.env);
+let data = fs.readFileSync('dist/static/index.html', {encoding:'utf8', flag:'r'});
+
+
 
 const getVersion = (data) => {
     return data.match(/(<meta\sname="version"[^\>]*)/ig);
