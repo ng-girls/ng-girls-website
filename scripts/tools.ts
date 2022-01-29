@@ -32,6 +32,13 @@ const colors = {
     BgWhite : "\x1b[47m",
 
 }
+
+exports.LOG_NEW = LOG_NEW = (key, message, context, BgColor, FgColor) => {
+    console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}`);
+    if(context){
+        console.log(context);
+    }
+}
 exports.LOG = LOG = (type, message, icon) => {
     icon = icon === undefined || noEmojis === true ? '' : ` ${icon}`;
     switch(type.toLowerCase()){
