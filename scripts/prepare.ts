@@ -41,10 +41,10 @@ const LOG = (key, message, context, BgColor, FgColor) => {
     }
 }
 
-const LOG_OK = (message, context?) => LOG('OK', message, context, colors.BgGreen, colors.FgBlack);
-const LOG_FAIL = (message, context?) => LOG('FAIL', message, context, colors.BgRed, colors.FgBlack);
-const LOG_INFO = (message, context?) => LOG('INFO', message, context, colors.BgWhite, colors.FgBlack);
-const LOG_WARN = (message, context?) => LOG('WARN', message, context, colors.BgYellow, colors.FgBlack);
+const LOG_OK = (message: string, context?: string) => LOG('OK', message, context, colors.BgGreen, colors.FgBlack);
+const LOG_FAIL = (message: string, context?: string) => LOG('FAIL', message, context, colors.BgRed, colors.FgBlack);
+const LOG_INFO = (message: string, context?: string) => LOG('INFO', message, context, colors.BgWhite, colors.FgBlack);
+const LOG_WARN = (message: string, context?: string) => LOG('WARN', message, context, colors.BgYellow, colors.FgBlack);
 
 const runCommandSync = (command) => {
     let output = require('child_process').execSync(command).toString();
