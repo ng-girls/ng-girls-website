@@ -78,11 +78,11 @@ const hasVersions = (data) => {
     return versions && versions.length >= 1;
 }
 let pwd = require('child_process').execSync("pwd").toString();
-let ls = require('child_process').execSync("ls -al ").toString();
-let ls2 = require('child_process').execSync("ls -al ./dist/", {stdio: 'inherit'}).toString();
-
 LOG_OK(pwd);
+let ls = require('child_process').execSync("ls -al ").toString();
 LOG_OK(ls);
+let ls2 = require('child_process').execSync("ls -al ./dist/", {stdio: 'inherit', cwd: pwd}).toString();
+
 LOG_OK(ls2);
 
 // runCommand(`pwd`);
