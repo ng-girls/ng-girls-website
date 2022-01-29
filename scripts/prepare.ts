@@ -48,7 +48,9 @@ const LOG_WARN = (message) => {
 }
 
 const runCommand = (command) => {
+    console.log('run comend');
     require('child_process').execSync(`${command}`, (error, stdout, stderr) => {
+        console.log('child process');
         if (error) {
             LOG_FAIL(`error: ${error.message}`);
             return;
@@ -78,6 +80,7 @@ const hasVersions = (data) => {
 
 
 runCommand(`pwd`);
+runCommand(`ls -al`);
 // if (!fs.existsSync(DIST_PATH)){
 //     LOG_FAIL('no dist path detected');
 //     runCommand(`ls -al`);
