@@ -79,7 +79,7 @@ const hasVersions = (data) => {
 runCommand(`pwd`);
 if (!fs.existsSync(DIST_PATH)){
     LOG_FAIL('no dist path detected');
-    runCommand(`ls -al ${DIST_PATH}`);
+    runCommand(`ls -al`);
     // fs.mkdirSync(dir, { recursive: true });
 }
 if (!fs.existsSync(INDEX_FILE)){
