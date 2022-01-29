@@ -12,7 +12,7 @@
     "postbuild": " npm run optimize",
     "static": "cp -r static/* dist/static/ && cp static/.htaccess dist/static/.htaccess",
     "optimizeOld": "node scripts/optimize.js",
-    "optimize": "node scripts/prepare.ts",
+    "optimize": "npx ts-node scripts/prepare.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
