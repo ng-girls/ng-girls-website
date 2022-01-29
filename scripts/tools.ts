@@ -33,13 +33,18 @@ const colors = {
 
 }
 
-exports.LOG_NEW = LOG_NEW = (key, message, context, BgColor, FgColor) => {
+const LOG_NEW = (key, message, context, BgColor, FgColor) => {
     console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}`);
     if(context){
         console.log(context);
     }
 }
-exports.LOG = LOG = (type, message, icon) => {
+exports.LOG_OK  = (message: string, context?: string) => LOG_NEW('OK', message, context, colors.BgGreen, colors.FgBlack);
+exports.LOG_FAIL  = (message: string, context?: string) => LOG_NEW('FAIL', message, context, colors.BgRed, colors.FgBlack);
+exports.LOG_INFO = (message: string, context?: string) => LOG_NEW('INFO', message, context, colors.BgWhite, colors.FgBlack);
+exports.LOG_WARN = (message: string, context?: string) => LOG_NEW('WARN', message, context, colors.BgYellow, colors.FgBlack);
+
+exports.LOG = (type, message, icon) => {
     icon = icon === undefined || noEmojis === true ? '' : ` ${icon}`;
     switch(type.toLowerCase()){
         case 'ok': console.log(`${colors.BgGreen} ✔ ${colors.Reset} ${icon} ${message}`); break;
