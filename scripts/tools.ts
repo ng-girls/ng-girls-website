@@ -40,12 +40,8 @@ const LOG_NEW = (key, message, context, BgColor, FgColor) => {
         console.log(context);
     }
 }
-exports.LOG_OK  = (message: string, context?: string) => LOG_NEW('OK', message, context, colors.BgGreen, colors.FgBlack);
-exports.LOG_FAIL  = (message: string, context?: string) => LOG_NEW('FAIL', message, context, colors.BgRed, colors.FgBlack);
-exports.LOG_INFO = (message: string, context?: string) => LOG_NEW('INFO', message, context, colors.BgWhite, colors.FgBlack);
-exports.LOG_WARN = (message: string, context?: string) => LOG_NEW('WARN', message, context, colors.BgYellow, colors.FgBlack);
 
-exports.LOG = (type, message, icon) => {
+const _LOG = (type, message, icon?) => {
     icon = icon === undefined || noEmojis === true ? '' : ` ${icon}`;
     switch(type.toLowerCase()){
         case 'ok': console.log(`${colors.BgGreen} ✔ ${colors.Reset} ${icon} ${message}`); break;
@@ -59,8 +55,9 @@ exports.LOG = (type, message, icon) => {
         // case 'warn':    console.log(`${colors.BgYellow} WARN ${colors.Reset} ${message}`); break;
     }
 }
+
 // src: // https://www.netzprogrammierer.de/mit-javascript-auf-beliebige-dezimalstellen-runden/
-exports.round = (wert, dez) =>  {
+const _round = (wert, dez) =>  {
     wert = parseFloat(wert);
     if (!wert) return 0;
     dez = parseInt(dez);
@@ -68,7 +65,7 @@ exports.round = (wert, dez) =>  {
     var umrechnungsfaktor = Math.pow(10,dez);
     return Math.round(wert * umrechnungsfaktor) / umrechnungsfaktor;
 }
-exports.startLoading = (text) => {
+const _startLoading = (text) => {
     return function() {
         var P = ["\\", "|", "/", "-"];
         var DOTS = [".   ", "..  ", "... ", "...."];
@@ -79,31 +76,30 @@ exports.startLoading = (text) => {
         }, 250);
       }
 }
-exports.finishLoading = (timer, text) => {
+const _finishLoading = (timer, text) => {
     clearInterval(timer);
     if(process && process.stdout && process.stdout.clearLine){
         process.stdout.clearLine(-1);
         process.stdout.cursorTo(0);
     }
-    LOG('ok', text);
+    _LOG('ok', text);
 }
-const isDevModeBase = () => {
+const _isDevMode = () => {
     let isDev = false;
     process.argv.forEach(function (val) {
         if(val === '--dev') isDev = true;
     });
     return isDev;
 }
-exports.isDevMode = () =>  isDevModeBase;
-exports.getSize = (name, value) => {
+const _getSize = (name, value) => {
     if(typeof value === 'object') value = JSON.stringify(value);
     let size = Buffer.from(value).length;
     const str = name !== '' ? `size of  ${name} is` : '';
-    return `${str} ${this.round(size /1024,2)} kb (${size} B)`;
+    return `${str} ${_round(size /1024,2)} kb (${size} B)`;
     // LOG('OK', `size of  ${name} is ${round(size /1024,2)} kb (${size} B)`, '💾')
 }
 
-exports.analyzeChange =  (oldData, newData, host) => {
+const _analyzeChange =  (oldData, newData, host) => {
     const strOldData = JSON.stringify(oldData); 
     const strNewData = JSON.stringify(newData); 
     let result = '';
@@ -111,7 +107,6 @@ exports.analyzeChange =  (oldData, newData, host) => {
         let icon = noEmojis ? '↓' : '⬇️';
         let diff = Buffer.from(strOldData).length - Buffer.from(strNewData).length;
         result = `${colors.FgGreen}(${diff} Bytes ${icon} )${colors.Reset}`
-        
     } else if (strOldData.length < strNewData.length){ // increased
         let icon = noEmojis ? '↑' : '⬆️';
         let diff = Buffer.from(strNewData).length - Buffer.from(strOldData).length;
@@ -123,42 +118,56 @@ exports.analyzeChange =  (oldData, newData, host) => {
     let isChange = strOldData !== strNewData;
     let suffix = isChange ? `differs to new one ${result}` : `has not changed`;
     let state = isChange ? 'fail' : 'ok';
-    LOG(state, `data entry for ${host.name}  already defined and ${suffix}`)
-    if(isChange && isDevModeBase()){
-        _writeFile(`./tmp/diff_${host.id}_new.json`, `diff_${host.id}_new.json`, strNewData, {}, false)
-        LOG('newline', ` - ${colorize(`diff_${host.id}_new.json`)} created`);
-        _writeFile(`./tmp/diff_${host.id}_old.json`, `diff_${host.id}_old.json`, strOldData,{}, false)
-        LOG('newline', ` - ${colorize(`diff_${host.id}_old.json`)} created`);
+    _LOG(state, `data entry for ${host.name}  already defined and ${suffix}`)
+    if(isChange && _isDevMode()){
+        __writeFile(`./tmp/diff_${host.id}_new.json`, `diff_${host.id}_new.json`, strNewData, {}, false)
+        _LOG('newline', ` - ${colorize(`diff_${host.id}_new.json`)} created`);
+        __writeFile(`./tmp/diff_${host.id}_old.json`, `diff_${host.id}_old.json`, strOldData,{}, false)
+        _LOG('newline', ` - ${colorize(`diff_${host.id}_old.json`)} created`);
     }
 }
-
-exports._writeFile = (path, name,  data, flag, optional ) => {
+const __writeFile = (path, name,  data, flag, optional ) => {
     optional = optional !== undefined ? optional :  true;
     fs.writeFileSync(path, data, flag); //, { flag: 'a+' });
     if(optional) printSize(path, name);
 }
+
 // read and parse
-exports._readFile = (file) => {
+const __readFile = (file) => {
     const data = fs.readFileSync(file, {encoding:'utf8', flag:'r'});
     return JSON.parse(data);
 }
-exports.printSize =  (path, name) => {
+const _printSize =  (path, name) => {
     const stats  = fs.statSync(path);
-    LOG('OK', `size of ${name} is ${this.round(stats.size /1024,2)} kb (${stats.size} B)`, '💾');
+    LOG('OK', `size of ${name} is ${_round(stats.size /1024,2)} kb (${stats.size} B)`, '💾');
 }
 
-exports.colorize =  (value, optional) => {
+const _colorize =  (value, optional) => {
     optional = optional || 'FgYellow';
     return `${colors[optional]}${value}${colors.Reset}`;
 }
-exports.getType =  (value) => {
+const _getType =  (value) => {
     let type;
     if(Array.isArray(value)){
         return 'array';
     } else {
         return typeof value;
- 
     }
 }
 
-
+exports.isDevMode = () =>  _isDevMode;
+exports._writeFile = __writeFile;
+exports.colorize = _colorize;
+exports.getType = _getType;
+exports.LOG  = _LOG;
+exports.printSize = _printSize;
+exports._readFile = __readFile;
+exports.analyzeChange = _analyzeChange;
+exports.getSize = _getSize;
+exports.finishLoading = _finishLoading;
+exports.startLoading = _startLoading;
+exports.round = _round;
+exports.LOG_OK  = (message: string, context?: string) => LOG_NEW('OK', message, context, colors.BgGreen, colors.FgBlack);
+exports.LOG_FAIL  = (message: string, context?: string) => LOG_NEW('FAIL', message, context, colors.BgRed, colors.FgBlack);
+exports.LOG_INFO = (message: string, context?: string) => LOG_NEW('INFO', message, context, colors.BgWhite, colors.FgBlack);
+exports.LOG_WARN = (message: string, context?: string) => LOG_NEW('WARN', message, context, colors.BgYellow, colors.FgBlack);

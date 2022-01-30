@@ -3,9 +3,9 @@ const _FS = require('fs');
 
 require('dotenv').config();
 // console.log(process.env)
-const { 
-    getSize, analyzeChange, isDevMode, _readFile,getType, DOCS_PATH,
-    finishLoading, startLoading, LOG, _writeFile, printSize, colorize 
+const {
+    getSize, analyzeChange, isDevMode, _readFile, getType, DOCS_PATH,
+    finishLoading, startLoading, LOG, _writeFile, printSize, colorize
 } = require('./tools.ts');
 const DIST_PAT2 = DOCS_PATH;
 const dir = DIST_PAT2;
@@ -29,16 +29,16 @@ if (!_FS.existsSync(SETTINGS)){
 if (!_FS.existsSync(ALL_AUDITS)){
     _FS.writeFileSync(ALL_AUDITS, '{}', { flag: 'a+' });
 }
-let html = _FS.readFileSync('scripts/index.html', {encoding:'utf8', flag:'r'});
+let html = _FS.readFileSync('scripts/index.html', {encoding: 'utf8', flag: 'r'});
 
 
 
-let lastCommitMsg = require('child_process').execSync("git log -1 --pretty=%B | cat | tr -d '\r' | tr -d '\n'").toString();
-let lastCommitSha = require('child_process').execSync("git log --pretty=format:'%H' -n 1").toString();
-LOG('ok','commit: ', '🆕');
-LOG('newline','   \x1b[4mmessage\x1b[0m: '+ lastCommitMsg);
-LOG('newline','   \x1b[4mSHA\x1b[0m:     '+ lastCommitSha);
-//git log -1 --pretty=%B | cat
+let lastCommitMsg = require('child_process').execSync(`git log -1 --pretty=%B | cat | tr -d '\r' | tr -d '\n'`).toString();
+let lastCommitSha = require('child_process').execSync(`git log --pretty=format:'%H' -n 1`).toString();
+LOG('ok', 'commit: ', '🆕');
+LOG('newline', '   \x1b[4mmessage\x1b[0m: ' + lastCommitMsg);
+LOG('newline', '   \x1b[4mSHA\x1b[0m:     ' + lastCommitSha);
+// git log -1 --pretty=%B | cat
 
 
 
@@ -51,77 +51,77 @@ printSize(SETTINGS, 'existing settings');
 printSize(ALL_AUDITS, 'existing audits');
 const settings =  _readFile(SETTINGS);
 const PREFIXES = {
-    'audits': '$a',
+    audits: '$a',
     // 'xxx': '$b',
-    'placeholders': '$c',
-    'replaceables': '$d',
-    'categoryGroups': '$e',
-    'auditRefs': '$f',
-    'auditValues': '$g',
-    'auditKeys': '$h',
-    'performance': '$i',
-    'rendererFormattedStrings': '$j',
-    'auditRefsKeys': '$k',  //auditRefKeys
-    'base': '$m',
-    'keys': '$n',  // 'categoryGroupsKeys'
-    'categoryGroupsCats': '$o',
-    'i18nKeys': '$p',
-    'last': '#',
-    'valuePlaceholders': '$r',
-    'valueKeys': '$s',
-    'detailsValues': '$t',
-    'detailsKeys': '$u',
-    'values': '$'
-}
+    placeholders: '$c',
+    replaceables: '$d',
+    categoryGroups: '$e',
+    auditRefs: '$f',
+    auditValues: '$g',
+    auditKeys: '$h',
+    performance: '$i',
+    rendererFormattedStrings: '$j',
+    auditRefsKeys: '$k',  // auditRefKeys
+    base: '$m',
+    keys: '$n',  // 'categoryGroupsKeys'
+    categoryGroupsCats: '$o',
+    i18nKeys: '$p',
+    last: '#',
+    valuePlaceholders: '$r',
+    valueKeys: '$s',
+    detailsValues: '$t',
+    detailsKeys: '$u',
+    values: '$'
+};
 const config = {
     rendererFormattedStrings: { keys: 'i18nKeys', values: 'rendererFormattedStrings' },
     details: { keys: 'detailsKeys', values: 'detailsValues' },
     detailsNode: { keys: 'detailsKeys', values: 'placeholders' },
     detailsNodeValues: { keys: 'valueKeys', values: 'valuePlaceholders' },
-}
+};
 
 const optimizeNodeKeys = (node, type) => {
-    let keys = Object.keys(node);
+    const keys = Object.keys(node);
     keys.forEach(key => {
         optimizeNodeBy(node[key], type, false);
     });
-}
+};
 const optimizeNode = (key, node) => {
     optimizeNodeBy(node, config[key].values, true);
     optimizeNodeBy(node,  config[key].keys, false);
-}
+};
 const addAudit = (allAudits, data, host) => {
-    LOG('OK', `${getSize(`new Audit ${host.name} `, data.lighthouseResult)}`, '💾')
-    let id = data.id
-    let platform = data.lighthouseResult.configSettings.emulatedFormFactor;
-    let time = data.analysisUTCTimestamp
-    if(allAudits[id] === undefined){
+    LOG('OK', `${getSize(`new Audit ${host.name} `, data.lighthouseResult)}`, '💾');
+    const id = data.id;
+    const platform = data.lighthouseResult.configSettings.emulatedFormFactor;
+    const time = data.analysisUTCTimestamp;
+    if (allAudits[id] === undefined){
         allAudits[id] = {};
     }
-    if(allAudits[id][platform] === undefined){
+    if (allAudits[id][platform] === undefined){
         allAudits[id][platform] = {};
     }
-    if(allAudits[id][platform][time] === undefined){
+    if (allAudits[id][platform][time] === undefined){
         allAudits[id][platform][time] = data.lighthouseResult;
     } else {
          analyzeChange(allAudits[id][platform][time], data.lighthouseResult, host);
     }
-}
-const getReport = async(path, opts, file) => {
+};
+const getReport = async (path, opts, file) => {
     const timer = (startLoading('Loading Lighthouse data'))();
     const { data } = await psi(path, opts);
-    finishLoading(timer, 'Lighthouse data loaded')
+    finishLoading(timer, 'Lighthouse data loaded');
     if (!_FS.existsSync(file) && isDevMode()){
         _FS.writeFileSync(file, JSON.stringify(data), { flag: 'a+' });
         LOG('info', `write data to cache`);
     }
     return data;
-}
-const getData = async(host, process, indexPath) => {
+};
+const getData = async (host, process, indexPath) => {
     const path = host.path;
     const DATA_FILE = `${DIST_PAT2}/raw_${indexPath}.json`;
-    let opts = {};
-    if(host.strategy){
+    const opts = {};
+    if (host.strategy){
         opts['strategy'] = host.strategy;
     }
     if(process.env.PSI_KEY){
