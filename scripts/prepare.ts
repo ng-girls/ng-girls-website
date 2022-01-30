@@ -140,7 +140,7 @@ if (!m){
     __FS.writeFileSync('dist/static/all-es5.js', allES5, {encoding: 'utf8'});
     __FS.writeFileSync('dist/static/all-es6.js', allES6, {encoding: 'utf8'});
     LOG_OK(`es5/es6 created`);
-    const buildLink = `<a href="${BUILD_URL}" style="color: #AAA">build: #${GITHUB_RUN_NUMBER}</a>`;
+    const buildLink = `<a href="${BUILD_URL}" style="color: rgb(37 32 31 / 80%)">build: #${GITHUB_RUN_NUMBER}</a>`;
     data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script><small>${buildLink}</small>`);
 
 }
