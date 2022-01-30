@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 const {
-    LOG_OK, LOG_FAIL, LOG_INFO, LOG_WARN , DIST_PATH,
+    LOG_OK, LOG_FAIL, LOG_INFO, LOG_WARN , DIST_PATH, addSourceCode,
 } = require('./tools.ts');
 const STATIC_PATH = `${DIST_PATH}/static`;
 const INDEX_FILE = `${STATIC_PATH}/index.html`;
@@ -40,11 +40,11 @@ const checkFolderExists = (path) => {
 
 
 
-const getVersion = (data: string) => {
-    return data.match(/(<meta\sname="version"[^\>]*)/ig);
+const getVersion = (html: string) => {
+    return html.match(/(<meta\sname="version"[^\>]*)/ig);
 };
-const hasVersions = (data: string) => {
-    const versions = getVersion(data);
+const hasVersions = (html: string) => {
+    const versions = getVersion(html);
     return versions && versions.length >= 1;
 };
 runCommandSync('pwd');
@@ -124,32 +124,21 @@ if (!m){
     const replaceable = m[1];
     const scripts = replaceable.split('><');
     scripts.forEach(script => {
-        const x = script.match(/.*src="([^\"]*)\".*/);
-        // let file = x[1];
-        if (x && x.length > 1){
-            const file = x[1];
-            const d = __FS.readFileSync(`dist/static/${file}`, {encoding: 'utf8', flag: 'r'});
+        const path = script.match(/.*src="([^\"]*)\".*/);
+        if (path && path.length > 1){
+            const file = path[1];
+            const sourceCode = __FS.readFileSync(`dist/static/${file}`, {encoding: 'utf8', flag: 'r'});
             LOG_INFO(`read file ${file}` );
             if (file.indexOf('-es2015') !== -1){
-                allES6 +=
-                `
-                //${file}
-${d}
-`;
-} else {
-    allES5 +=
-    `
-    //${file}
-    ${d}
-    `;
-}
-
-}
-
-});
-LOG_INFO('end scripts');
-__FS.writeFileSync('dist/static/all-es5.js', allES5, {encoding: 'utf8'});
-__FS.writeFileSync('dist/static/all-es6.js', allES6, {encoding: 'utf8'});
+                allES6 += addSourceCode(file, sourceCode);
+            } else {
+                allES5 +=  addSourceCode(file, sourceCode);
+            }
+        }
+    });
+    LOG_INFO('end scripts');
+    __FS.writeFileSync('dist/static/all-es5.js', allES5, {encoding: 'utf8'});
+    __FS.writeFileSync('dist/static/all-es6.js', allES6, {encoding: 'utf8'});
     LOG_OK(`es5/es6 created`);
     const buildLink = `<a href="${BUILD_URL}" style="color: #AAA">build: #${GITHUB_RUN_NUMBER}</a>`;
     data = data.replace(replaceable, `<script id="optimized" src="all-es6.js" type="module"></script><script src="all-es5.js" nomodule="" defer=""></script><small>${buildLink}</small>`);
