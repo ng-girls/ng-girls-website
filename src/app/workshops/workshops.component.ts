@@ -25,6 +25,15 @@ export class WorkshopsComponent implements OnInit {
   environment: any;
   isScullyGenerated = isScullyGenerated();
   hasState = this.sts.stateHasKey('workshopsRoutes')
+  events$ = isScullyGenerated() && this.sts.stateHasKey('workshopsRoutes')
+  ? this.sts.getState<any>('workshopsRoutes')
+  : this.sts.useScullyTransferState(
+    'workshopsRoutes',
+    this.srs.available$.pipe(
+      map(this.pageFilter.getPages('workshops', false, 'foobar')),
+      map(this.pageFilter.filterBy('published'))
+  )
+  );
 
   constructor(
     private srs: ScullyRoutesService, 
