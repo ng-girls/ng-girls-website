@@ -53,11 +53,13 @@ export class WorkshopsComponent implements OnInit {
     this.cdref.detectChanges();
   }
   ngOnInit() {
+   
     console.log('on init workshop compoenten');
-    console.log(this.srs.getCurrent())
+    
     this.workshop$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.getCurrent().pipe(
+        map( data => { console.log('CURRENT: '); console.log(data); return data; }),
         map(this.pageFilter.getStage(DEFAULTS.homeLogo, this.device))
     ));
   }
