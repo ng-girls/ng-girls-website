@@ -1,5 +1,5 @@
 
-<div *ngIf="(events$ | async) as workshop">
+<div *ngIf="(workshop$ | async) as workshop">
   <app-hero-section 
     [image]="workshop.bg"
     [logo]="workshop.logo"

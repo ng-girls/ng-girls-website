@@ -27,14 +27,15 @@ export class WorkshopsComponent implements OnInit {
   hasState = this.sts.stateHasKey('workshopsRoutes')
   events$ = isScullyGenerated() && this.sts.stateHasKey('workshopsRoutes')
   ? this.sts.getState<any>('workshopsRoutes').pipe(
-    map(data => { console.log('ws route active'); console.log(data); return data; })
+    map(this.pageFilter.getPages('workshops', false, 'foobar')),
+    map(this.pageFilter.filterBy('published'))
 )
   : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
-      map(data => { console.log('ws route'); console.log(data); return data; })
-  )
-  );
+      map(this.pageFilter.getPages('workshops', false, 'foobar')),
+      map(this.pageFilter.filterBy('published'))
+  ));
 
   constructor(
     private srs: ScullyRoutesService, 
@@ -43,9 +44,9 @@ export class WorkshopsComponent implements OnInit {
     private pageFilter: PageFilterService,
      private cdref: ChangeDetectorRef
      ) {
-      console.log('=== state workshop ===')
-      console.log(this.isScullyGenerated )
-      console.log(this.hasState )
+      console.log('=== state workshop ===');
+      console.log(this.isScullyGenerated );
+      console.log(this.hasState );
       this.device = getDevice.getDevice();
   }
   ngAfterContentChecked() {
@@ -53,6 +54,7 @@ export class WorkshopsComponent implements OnInit {
   }
   ngOnInit() {
     console.log('on init workshop compoenten');
+    console.log(this.srs.getCurrent())
     this.workshop$ = this.sts.useScullyTransferState(
       'workshopRoutes',
       this.srs.getCurrent().pipe(

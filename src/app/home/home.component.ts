@@ -26,7 +26,10 @@ export class HomeComponent implements OnInit {
   isScullyGenerated = isScullyGenerated();
   hasState = this.sts.stateHasKey('workshopsRoutes')
   events$ = isScullyGenerated() && this.sts.stateHasKey('workshopsRoutes')
-  ? this.sts.getState<any>('workshopsRoutes') // TODO map and pipe
+  ? this.sts.getState<any>('workshopsRoutes').pipe(
+    map(this.pageFilter.getPages('workshops', false, 'foobar')),
+    map(this.pageFilter.filterBy('published'))
+)
   : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
