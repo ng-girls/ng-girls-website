@@ -27,13 +27,13 @@ export class WorkshopsComponent implements OnInit {
   hasState = this.sts.stateHasKey('workshopsRoutes')
   events$ = isScullyGenerated() && this.sts.stateHasKey('workshopsRoutes')
   ? this.sts.getState<any>('workshopsRoutes').pipe(
-    map(this.pageFilter.getPages('workshops', false, 'foobar')),
+    map(this.pageFilter.getPages('workshops', false, 'hasState')),
     map(this.pageFilter.filterBy('published'))
 )
   : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
-      map(this.pageFilter.getPages('workshops', false, 'foobar')),
+      map(this.pageFilter.getPages('workshops', false, 'getstate')),
       map(this.pageFilter.filterBy('published'))
   ));
 

@@ -9,7 +9,7 @@ export class PageFilterService {
 
   constructor() { }
   public getPages(path, reverse = false, custom = 'default'): (value: ScullyRoute[]) => ScullyRoute[] {
-    console.log('getPAges')
+    console.log('getPAges: ' + custom)
     return routeList => {
       console.log('routeList')
       console.log(routeList)
