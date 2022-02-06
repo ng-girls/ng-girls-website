@@ -23,9 +23,11 @@ export class HomeComponent implements OnInit {
   DEFAULTS = DEFAULTS;
   heroButtonLabel: String;
   device: {isMobile: Boolean, browser: any};
-  events$ = isScullyGenerated()
+  isScullyGenerated = isScullyGenerated();
+  hasState = this.sts.stateHasKey('workshopsRoutes')
+  events$ = isScullyGenerated() && this.sts.stateHasKey('workshopsRoutes')
   ? this.sts.getState<any>('workshopsRoutes')
-  :this.sts.useScullyTransferState(
+  : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
       map(this.pageFilter.getPages('workshops', false, 'foobar')),
@@ -39,9 +41,12 @@ export class HomeComponent implements OnInit {
     private pageFilter: PageFilterService,
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
+      console.log('=== state ===')
+      console.log(this.isScullyGenerated )
+      console.log(this.hasState )
     }
     ngOnInit() {
-      console.log('on init home compoenten');
+      console.log('on init home comXXpoenten');
       this.heroButtonLabel = '';
       // TODO: refactor with scully observable
       this.page$ = {};
@@ -56,7 +61,7 @@ export class HomeComponent implements OnInit {
       }
       this.page$['heroButtonLabel'] = '';
       this.events$.subscribe(value => {
-        // console.log(value);
+        console.log(value);
         // console.log(this.page$['heroButtonLabel']);
         const len = value.length;
         if(len > 0){
