@@ -30,8 +30,7 @@ export class WorkshopsComponent implements OnInit {
   : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
-      map(this.pageFilter.getPages('workshops', false, 'foobar')),
-      map(this.pageFilter.filterBy('published', 1))
+      map(data => console.log(data))
   )
   );
 
