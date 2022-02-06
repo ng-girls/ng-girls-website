@@ -9,7 +9,10 @@ export class PageFilterService {
 
   constructor() { }
   public getPages(path, reverse = false, custom = 'default'): (value: ScullyRoute[]) => ScullyRoute[] {
+    console.log('getPAges')
     return routeList => {
+      console.log('routeList')
+      console.log(routeList)
       let pages = routeList.filter((route: ScullyRoute) => route.route.startsWith(`/${path}/`)); 
       return reverse ? pages.reverse() : pages;
       
@@ -33,6 +36,7 @@ export class PageFilterService {
     }
   }
   public filterBy(type, limit?): (value: ScullyRoute[]) => ScullyRoute[] {
+    console.log('filterBy')
     if(type === 'published'){
       return pages =>pages.filter(page => { 
         return page.archived == false;
