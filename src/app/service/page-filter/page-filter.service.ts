@@ -17,8 +17,8 @@ export class PageFilterService {
   }
   public getStage(logo, device): (value: ScullyRoute) => ScullyRoute {
     return routeList => {
-      const data = routeList;
-      console.log(data)
+      console.log(routeList)
+      const data = Array.isArray(routeList) ? routeList[0] : routeList;
       data['heroDescription'] = `${data['date'] || ''}${data['city'] ? ', ' + data['city'] : ''} ${data['country'] ? ', ' + data['country'] : ''}`;
       data['bg'] = {
         src: routeList['image'],
