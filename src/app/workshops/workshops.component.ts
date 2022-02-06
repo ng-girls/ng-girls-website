@@ -26,7 +26,9 @@ export class WorkshopsComponent implements OnInit {
   isScullyGenerated = isScullyGenerated();
   hasState = this.sts.stateHasKey('workshopsRoutes')
   events$ = isScullyGenerated() && this.sts.stateHasKey('workshopsRoutes')
-  ? this.sts.getState<any>('workshopsRoutes')
+  ? this.sts.getState<any>('workshopsRoutes').pipe(
+    map(data => { console.log('ws route active'); console.log(data); return data; })
+)
   : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
