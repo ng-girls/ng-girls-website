@@ -31,7 +31,7 @@ export class WorkshopsComponent implements OnInit {
     'workshopsRoutes',
     this.srs.available$.pipe(
       map(this.pageFilter.getPages('workshops', false, 'foobar')),
-      map(this.pageFilter.filterBy('published'))
+      map(this.pageFilter.filterBy('published', 1))
   )
   );
 
