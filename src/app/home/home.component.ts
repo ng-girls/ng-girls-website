@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       this.device = getDevice.getDevice();
     }
     ngOnInit() {
-      
+      console.log('on init home compoenten');
       this.heroButtonLabel = '';
       // TODO: refactor with scully observable
       this.page$ = {};
