@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     private pageFilter: PageFilterService,
     getDevice: GetDeviceService) {
       this.device = getDevice.getDevice();
-      console.log('=== state ===')
+      console.log('=== state HOME ===')
       console.log(this.isScullyGenerated )
       console.log(this.hasState )
     }

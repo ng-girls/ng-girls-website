@@ -1,7 +1,7 @@
 import { environment } from './../../environments/environment';
 import { ChangeDetectorRef, Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
-import { ScullyRoutesService, ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
+import { ScullyRoutesService, ScullyRoute, TransferStateService, isScullyGenerated } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DEFAULTS } from '../defaults.consts';
@@ -23,6 +23,8 @@ export class WorkshopsComponent implements OnInit {
   workshop$;
   device: any;
   environment: any;
+  isScullyGenerated = isScullyGenerated();
+  hasState = this.sts.stateHasKey('workshopsRoutes')
 
   constructor(
     private srs: ScullyRoutesService, 
@@ -31,6 +33,9 @@ export class WorkshopsComponent implements OnInit {
     private pageFilter: PageFilterService,
      private cdref: ChangeDetectorRef
      ) {
+      console.log('=== state workshop ===')
+      console.log(this.isScullyGenerated )
+      console.log(this.hasState )
       this.device = getDevice.getDevice();
   }
   ngAfterContentChecked() {
