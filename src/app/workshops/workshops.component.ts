@@ -30,7 +30,7 @@ export class WorkshopsComponent implements OnInit {
   : this.sts.useScullyTransferState(
     'workshopsRoutes',
     this.srs.available$.pipe(
-      map(data => console.log(data))
+      map(data => { console.log('ws route'); console.log(data); return data;)
   )
   );
 
