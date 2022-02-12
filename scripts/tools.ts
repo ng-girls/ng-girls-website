@@ -46,10 +46,10 @@ ${sourceCode}
 const LOG_NEW = (key, message, context, BgColor, FgColor) => {
     const isInline = typeof context === 'string' && context.length < 60 || typeof context !== 'object';
     if (isInline){
-        console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}  ${context} `);
+        console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}  ${context !== undefined ? context : ''} `);
     } else {
         console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}`);
-        console.log(context);
+        console.log(`${context !== undefined ? context : ''}`);
     }
 };
 
