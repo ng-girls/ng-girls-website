@@ -50,3 +50,6 @@ scully.log
 
 docs
 output
+
+# avoid checkin in generates js
+scully.ng-girls-page.config.js

@@ -44,8 +44,11 @@ ${sourceCode}
     `;
 };
 const LOG_NEW = (key, message, context, BgColor, FgColor) => {
-    console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}`);
-    if (context){
+    const isInline = typeof context === 'string' && context.length < 60 || typeof context !== 'object';
+    if (isInline){
+        console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}  ${context} `);
+    } else {
+        console.log(`${BgColor}${FgColor}[${key}]${colors.Reset}: ${message}`);
         console.log(context);
     }
 };
@@ -53,17 +56,21 @@ const LOG_NEW = (key, message, context, BgColor, FgColor) => {
 const _LOG = (type, message, icon = undefined) => {
     icon = icon === undefined || noEmojis === true ? '' : ` ${icon}`;
     switch (type.toLowerCase()){
-        case 'ok': console.log(`${colors.BgGreen} ✔ ${colors.Reset} ${icon} ${message}`); break;
-        case 'fail': console.log(`${colors.BgRed} ✖ ${colors.Reset} ${icon} ${message}`); break;
-        case 'warn': console.log(`${colors.BgYellow} ! ${colors.Reset} ${icon} ${message}`); break;
+        case 'ok': console.log(`${colors.BgGreen} [OK] ${colors.Reset} ${icon} ${message}`); break;
+        case 'fail': console.log(`${colors.BgRed} [FAIL] ${colors.Reset} ${icon} ${message}`); break;
+        case 'warn': console.log(`${colors.BgYellow} [WARN] ${colors.Reset} ${icon} ${message}`); break;
         case 'newline': console.log(`    ${icon} ${message}`); break;
         // case 'info': console.log(`${colors.BgWhite} I ${colors.Reset} ${message}`); break;
-        default: console.log(`${colors.BgBlue} # ${colors.Reset} ${icon} ${message}`); break;
+        default: console.log(`${colors.BgBlue} [INFO] ${colors.Reset} ${icon} ${message}`); break;
         // case 'ok':      console.log(`${colors.BgGreen}  OK  ${colors.Reset} ${message}`); break;
         // case 'fail':    console.log(`${colors.BgRed} FAIL ${colors.Reset} ${message}`); break;
         // case 'warn':    console.log(`${colors.BgYellow} WARN ${colors.Reset} ${message}`); break;
     }
 };
+const _LOG_OK  = (message, context = undefined) => LOG_NEW('OK', message, context, colors.BgGreen, colors.FgBlack);
+const _LOG_FAIL  = (message, context = undefined) => LOG_NEW('FAIL', message, context, colors.BgRed, colors.FgBlack);
+const _LOG_INFO = (message, context = undefined) => LOG_NEW('INFO', message, context, colors.BgWhite, colors.FgBlack);
+const _LOG_WARN = (message, context = undefined) => LOG_NEW('WARN', message, context, colors.BgYellow, colors.FgBlack);
 
 // src: // https://www.netzprogrammierer.de/mit-javascript-auf-beliebige-dezimalstellen-runden/
 const Round = (wert, dez) =>  {
@@ -73,6 +80,33 @@ const Round = (wert, dez) =>  {
     if (!dez) { dez = 0; }
     const umrechnungsfaktor = Math.pow(10, dez);
     return Math.round(wert * umrechnungsfaktor) / umrechnungsfaktor;
+};
+const getPuppeteerArgs = (isWSL) => {
+    const args = isWSL ? [
+        "--disable-gpu",
+        "--renderer",
+        "--no-sandbox",
+        "--no-service-autorun",
+        "--no-experiments",
+        "--no-default-browser-check",
+        "--disable-dev-shm-usage",
+        "--disable-setuid-sandbox",
+        "--no-first-run",
+        "--no-zygote",
+        "--single-process",
+        "--disable-extensions"
+      ] : ['--no-sandbox'];
+    if (isWSL && args.length > 10){
+        _LOG_OK('WSL-CHECK', `specified args loaded`);
+    } else if (isWSL){
+        _LOG_FAIL('WSL-CHECK', `missing args: len ${args.length}`);
+    } else {
+        _LOG_INFO('WSL-CHECK', `no wsl environment`);
+    }
+    return args;
+};
+const environmentCheck = () => {
+    _LOG_INFO('Environment check', {plattform: process.platform, os: os.release(), terminal: process.env.TERM_PROGRAM });
 };
 const StartLoading = (text) => {
     return () => {
@@ -164,6 +198,7 @@ const GetType =  (value) => {
 };
 
 
+
 exports.isDevMode = () =>  IsDevMode;
 exports._writeFile = WriteFile;
 exports.colorize = Colorize;
@@ -176,6 +211,9 @@ exports.getSize = GetSize;
 exports.finishLoading = FinishLoading;
 exports.startLoading = StartLoading;
 exports.round = Round;
+exports.getPuppeteerArgs = getPuppeteerArgs;
+exports.environmentCheck = environmentCheck;
+exports.isWSL = isMicrosoft && hasLinuxPlattform;
 exports.LOG_OK  = (message, context = undefined) => LOG_NEW('OK', message, context, colors.BgGreen, colors.FgBlack);
 exports.LOG_FAIL  = (message, context = undefined) => LOG_NEW('FAIL', message, context, colors.BgRed, colors.FgBlack);
 exports.LOG_INFO = (message, context = undefined) => LOG_NEW('INFO', message, context, colors.BgWhite, colors.FgBlack);
