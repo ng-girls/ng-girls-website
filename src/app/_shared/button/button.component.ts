@@ -3,7 +3,7 @@ import { Component,  Input } from '@angular/core';
 @Component({
   selector: 'app-button',
   template: `
-    <button class="btn" *ngIf="type !== 'anchor'"(click)="openLink(link, type)" >
+    <button class="btn" *ngIf="type !== 'anchor'" (click)="openLink(link, type)" >
     {{label}} 
     </button>
     <a href="{{anchor}}" rel="{{rel}}" pageScroll [pageScrollOffset]="100"  *ngIf="anchor">
