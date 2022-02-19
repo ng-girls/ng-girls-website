@@ -6,7 +6,7 @@ import { Component,  Input } from '@angular/core';
     <button class="btn" *ngIf="type !== 'anchor'"(click)="openLink(link, type)" >
     {{label}} 
     </button>
-    <a href="{{anchor}}"  pageScroll [pageScrollOffset]="100"  *ngIf="anchor">
+    <a href="{{anchor}}" rel="{{rel}}" pageScroll [pageScrollOffset]="100"  *ngIf="anchor">
         <button class="btn">
           {{label}} 
         </button>
