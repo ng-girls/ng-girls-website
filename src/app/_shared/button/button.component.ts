@@ -49,6 +49,7 @@ export class ButtonComponent {
   @Input() type: any = 'link';
   @Input() anchor: any;
   @Input() label: any;
+  @Input() rel: any = 'noopener';
   constructor() { }
 
   openLink(link: string, type?: string) {
