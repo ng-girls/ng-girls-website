@@ -5,5 +5,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: |
-curl -XPOST -u "ng-girls:${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_WATER_05AC71003 }}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type:application/json" https://api.github.com/repos/willi84/ng-girls-website/dispatches --data '{"event_type":"build_application"}'
