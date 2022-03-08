@@ -7,6 +7,7 @@
     <div class="logo-navbar logo logo-dark visible-xs"></div>
     <ul class="links-container">
       <li *ngFor="let link of navLinks">
+        <!---TODO: if is home nofollow-->
         <a rel="noopener" class="current" href="{{link.link}}" *ngIf="link.scroll == true && isHome == true"  pageScroll [pageScrollOffset]="50">{{link.name}}</a>
         <a rel="noopener" class="current" href="{{link.link}}" *ngIf="link.scroll == false" >{{link.name}}</a>
         <a rel="noopener" class="current" href="{{baseUrl}}{{link.link}}" *ngIf="link.scroll == true && isHome == false" >{{link.name}}</a>
