@@ -23,6 +23,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "src/assets/styles"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"

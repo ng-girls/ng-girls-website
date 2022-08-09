@@ -1,0 +1,9 @@
+<div class="event-container" *ngIf="(event$ | async) as event">
+<h1>{{ event.title }}</h1>
+<h2>{{ event.city }}, {{event.state }}</h2>
+<p [innerHTML]="event.announcement"></p>
+<div class="call-for-action">
+<button mat-raised-button color="primary">Apply for the workshop</button>
+<button mat-raised-button color="primary">Call for mentors</button>
+</div>
+</div>

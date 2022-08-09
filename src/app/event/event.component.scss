@@ -1,0 +1,51 @@
+.event-container {
+  //min-height: 300px;
+  border-radius: 6px;
+  //background: linear-gradient(to right bottom, rgba(255, 255, 255, 1), rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%), rgba(255, 240, 245, 0.82));
+  background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%));
+  //background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%), rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%));
+  //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  //background-size: 400% 400%;
+  //background-position: 50% 50%;
+
+  color: black;
+  margin-bottom: 40px;
+  padding: 20px;
+  //animation: gradient 3s ease 1;
+
+}
+
+/*
+
+@keyframes gradient {
+  from {background-position: 100% 100%;}
+  to {background-position: 50% 50%;}
+}
+//@keyframes gradient {
+//  0% {
+//    background-position: 100% 100%;
+//    //background: linear-gradient(to right bottom, rgba(255, 255, 255, 1), rgba(179, 101, 101, 82%));
+//
+//  }
+//  50% {
+//    background-position: 50% 50%;
+//    //background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(255, 255, 255, 1), rgba(179, 101, 101, 1));
+//
+//  }
+//  100% {
+//    //background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%), rgba(255, 255, 255, 1),);
+//
+//    background-position: 50% 50%;
+//  }
+//}
+*/
+
+
+.call-for-action {
+  //display: flex;
+  button {
+    margin: 0 10px;
+  text-transform: uppercase;
+    background: #c5122d;
+  }
+}

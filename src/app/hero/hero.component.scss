@@ -1,4 +1,4 @@
-.hero {
+:host {
   background: #1a191f;
   background-image: url('../../assets/eclipse.png');
   background-attachment: fixed;
@@ -10,12 +10,12 @@
   width: 100%;
   min-height: 100%;
   color: #fff;
-  font-weight: 200;
+  //font-weight: 200;
   background-repeat: no-repeat;
   background-position: center center !important;
   background-size: cover !important;
   overflow: hidden;
-  padding-bottom: 60px;
+  //padding-bottom: 60px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -36,26 +36,41 @@
   max-width: 70%;
 }
 
-.event-card {
-  //background: darkred;
-  width: 160px;
-  //color: #000;
-  margin: 10px 20px;
-  //padding: 0;
-  //background-size: cover;
-  height: 60px;
-  //text-align: center;
-  //color: #fff;
-  font-style: italic;
-  border: 1px solid #777;
-  background: linear-gradient(to right bottom, #23006e8c, #6e00008c);
+.event-card{
+  text-decoration: none;
+
+ mat-card {
+   //background: darkred;
+   //cursor: pointer;
+   width: 160px;
+   //color: #000;
+   margin: 0 20px 30px;
+   //padding: 0;
+   //background-size: cover;
+   height: 60px;
+   //text-align: center;
+   //color: #fff;
+   font-style: italic;
+   border: 1px solid #777;
+   background: linear-gradient(to right bottom, #23006e8c, #6e00008c);
+   &.active {
+     border-color: #c5122d;
+ }
+
+  }
 }
 
 .upcoming-events-cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
   align-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding-top: 10px;
+}
+
+.event-details {
+  width: 60%;
+  margin: auto;
 }
