@@ -13,7 +13,8 @@ const events = [
     date: 'October 8',
     year: '2022',
     announcement: `We're excited to be part of <a href="https://2022.angularday.it/">AngularDay, Verona</a> - and bring the ngGirls workshop to the local community!
-<b>ngGirls @ Verona</b> will take place on Saturday, October 8th, from 9:30-17:30, at the conference venue. For more details and application: `
+<b>ngGirls @ Verona</b> will take place on Saturday, October 8th, from 9:30-17:30, at the conference venue. For more details and application: `,
+    sponsors: [{link: 'https://2022.angularday.it/', logo: 'assets/angularday-2022/angularday-logo.svg'}]
   },
   {
     id: 'berlin-2022',
@@ -24,7 +25,8 @@ const events = [
     date: 'October 8',
     year: '2022',
     announcement: `We're excited to be part of <a href="https://2022.angularday.it/">AngularDay, Berlin</a> - and bring the ngGirls workshop to the local community!
-<b>ngGirls @ Verona</b> will take place on Saturday, October 8th, from 9:30-17:30, at the conference venue. For more details and application: `
+<b>ngGirls @ Verona</b> will take place on Saturday, October 8th, from 9:30-17:30, at the conference venue. For more details and application: `,
+  sponsors: [{link: 'https://2022.angularday.it/', logo: 'assets/angularday-2022/angularday-logo.svg'}]
   },
   {
     id: 'warsaw-2022',
@@ -35,7 +37,8 @@ const events = [
     date: 'October 25',
     year: '2022',
     announcement: `We're excited to be part of <a href="https://2022.angularday.it/">AngularDay, Warsaw</a> - and bring the ngGirls workshop to the local community!
-<b>ngGirls @ Verona</b> will take place on Saturday, October 8th, from 9:30-17:30, at the conference venue. For more details and application: `
+<b>ngGirls @ Verona</b> will take place on Saturday, October 8th, from 9:30-17:30, at the conference venue. For more details and application: `,
+    sponsors: [{link: 'https://2022.angularday.it/', logo: 'assets/angularday-2022/angularday-logo.svg'}]
   }
 
 ];

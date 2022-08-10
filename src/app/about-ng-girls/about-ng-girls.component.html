@@ -1,0 +1,10 @@
+<div class="content">
+<div class="mat-display-2 header">About ngGirls</div>
+<div class="about-items">
+<div *ngFor="let item of about" class="about-item">
+<div class="mat-display-1 title">{{ item.title }}</div>
+<img class="about-image" [src]="'assets/about/motivation.jpg'">
+<div class="about-text">{{ item.text }}</div>
+</div>
+</div>
+</div>

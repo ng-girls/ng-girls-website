@@ -7,17 +7,22 @@ import { ChildrenOutletContexts } from '@angular/router';
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
-  animations: [ slideInAnimation ]
+  animations: [slideInAnimation]
 })
 export class HeroComponent implements OnInit {
   events = this.eventService.events;
 
-  constructor(private eventService: EventService, private contexts: ChildrenOutletContexts) { }
+  constructor(private eventService: EventService, private contexts: ChildrenOutletContexts) {
+  }
 
   ngOnInit(): void {
   }
+
   getAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
 
+  scrollTo(element: HTMLElement) {
+    element.scrollIntoView({behavior:'smooth'});
+  }
 }

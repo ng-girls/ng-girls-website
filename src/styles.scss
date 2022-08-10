@@ -30,6 +30,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #1a191f;
 }
 
 /*.ng-girls-website {
@@ -56,3 +57,17 @@ app-header p {
   }
 }
 
+.content {
+  max-width: 80%;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 600px){
+  .content {
+    max-width: 100%;
+    padding: 20px;
+  }
+}

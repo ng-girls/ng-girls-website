@@ -12,6 +12,8 @@ import { CdkScrollableModule, ScrollingModule } from '@angular/cdk/scrolling';
 import { HeaderComponent } from './header/header.component';
 import { EventComponent } from './event/event.component';
 import { MatButtonModule } from '@angular/material/button';
+import { AboutNgGirlsComponent } from './about-ng-girls/about-ng-girls.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     AnnouncementsComponent,
     PlaceholderComponent,
     HeaderComponent,
-    EventComponent
+    EventComponent,
+    AboutNgGirlsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     ScrollingModule,
     CdkScrollableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
