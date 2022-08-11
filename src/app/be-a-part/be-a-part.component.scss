@@ -1,0 +1,24 @@
+.be-a-part-content {
+  //display: flex;
+  //text-align: start;
+
+  column-count: 2;
+  /* display: flex; */
+  text-align: start;
+  column-gap: 80px;
+
+  .column {
+    overflow: auto //width: 600px;
+  }
+
+  .title {
+    margin-bottom: 24px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .be-a-part-content {
+    column-count: 1;
+  }
+}

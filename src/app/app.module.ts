@@ -12,8 +12,11 @@ import { CdkScrollableModule, ScrollingModule } from '@angular/cdk/scrolling';
 import { HeaderComponent } from './header/header.component';
 import { EventComponent } from './event/event.component';
 import { MatButtonModule } from '@angular/material/button';
-import { AboutNgGirlsComponent } from './about-ng-girls/about-ng-girls.component';
+import { AboutComponent } from './about/about.component';
 import { MatIconModule } from '@angular/material/icon';
+import { BeAPartComponent } from './be-a-part/be-a-part.component';
+import { CommunityComponent } from './community/community.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { MatIconModule } from '@angular/material/icon';
     PlaceholderComponent,
     HeaderComponent,
     EventComponent,
-    AboutNgGirlsComponent
+    AboutComponent,
+    BeAPartComponent,
+    CommunityComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,

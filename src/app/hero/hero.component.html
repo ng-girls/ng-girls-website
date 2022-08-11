@@ -5,7 +5,7 @@
 <div class="upcoming-events">
 <h1>Upcoming Events</h1>
 
-<div class="upcoming-events-cards">
+<div class="upcoming-events-cards" id="upcomingEvents">
 
 <a *ngFor="let event of events" class="event-card" [routerLink]="['event', event.id]">
 <mat-card routerLinkActive="active">

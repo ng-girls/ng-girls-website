@@ -3,7 +3,7 @@
 <div class="about-items">
 <div *ngFor="let item of about" class="about-item">
 <div class="mat-display-1 title">{{ item.title }}</div>
-<img class="about-image" [src]="'assets/about/motivation.jpg'">
+<img class="about-image" src="assets/about/{{item.title}}.jpg">
 <div class="about-text">{{ item.text }}</div>
 </div>
 </div>
