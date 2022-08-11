@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { BeAPartComponent } from './be-a-part/be-a-part.component';
 import { CommunityComponent } from './community/community.component';
 import { TeamComponent } from './team/team.component';
+import { FooterComponent } from './footer/footer.component';
+import { SeeYouComponent } from './see-you/see-you.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TeamComponent } from './team/team.component';
     AboutComponent,
     BeAPartComponent,
     CommunityComponent,
-    TeamComponent
+    TeamComponent,
+    FooterComponent,
+    SeeYouComponent
   ],
   imports: [
     BrowserModule,

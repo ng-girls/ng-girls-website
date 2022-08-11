@@ -1,0 +1,23 @@
+.community-items {
+
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.community-item {
+
+  width: 240px;
+  display: flex;
+  text-align: left;
+  font-size: 21px;
+  /* line-height: 30px; */
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+
+
+  .community-icon {
+    height: 80px;
+  }
+}
