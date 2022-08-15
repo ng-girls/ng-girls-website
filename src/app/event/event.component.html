@@ -7,8 +7,8 @@
 </div>
 <p [innerHTML]="event.announcement"></p>
 <div class="call-for-action">
-<button mat-raised-button color="primary">Apply for the workshop</button>
-<button mat-raised-button color="primary">Call for mentors</button>
+<a [href]="event.applicationForm" target="_blank"><button mat-raised-button color="primary">Apply for the workshop</button></a>
+<a [href]="event.mentorsForm" target="_blank"><button mat-raised-button color="primary">Call for mentors</button></a>
 </div>
 
 <div class="sponsors">

@@ -31,7 +31,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: #1a191f;
+  color: #595063;
 
   b {
     font-weight: 500;
@@ -39,6 +39,13 @@ body {
 
   ul {
     padding-inline-start: 20px;
+  }
+
+  a {
+    color: #c5122d;
+    &:visited {
+      color: darkslateblue;
+    }
   }
 }
 

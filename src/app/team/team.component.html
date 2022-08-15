@@ -5,7 +5,7 @@
         <div *ngFor="let member of team" class="team-member">
             <div style="background-image: url(assets/team/{{member.image}})" class="member-image"></div>
             <h2 class="member-name">{{ member.name }}</h2>
-            <h3 class="">{{ member.subtitle }}</h3>
+            <h3 class="subtitle" mat-color="primary">{{ member.subtitle }}</h3>
         </div>
     </div>
 </div>
