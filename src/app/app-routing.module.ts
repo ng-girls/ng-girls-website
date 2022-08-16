@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
-  { path: 'event/:eventId', component: EventComponent, data: { animation: 'event' } }
+  { path: 'event/:eventId', component: EventComponent, data: { animation: 'event' } },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
