@@ -4,18 +4,14 @@
   background-attachment: fixed;
   box-shadow: inset 0 0 12px 3px rgb(0 0 0 / 75%);
   position: relative;
-  min-height: 400px;
   padding-top: 0;
-  //background: #03a9f4;
   width: 100%;
   min-height: 100%;
   color: #fff;
-  //font-weight: 200;
   background-repeat: no-repeat;
   background-position: center center !important;
   background-size: cover !important;
   overflow: hidden;
-  //padding-bottom: 60px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -30,7 +26,6 @@
 }
 
 .hero-ng-girls-name {
-  //margin-top: 120px;
   margin-bottom: 40px;
   height: 17%;
   max-width: 70%;
@@ -40,16 +35,9 @@
   text-decoration: none;
 
   mat-card {
-    //background: darkred;
-    //cursor: pointer;
     width: 160px;
-    //color: #000;
     margin: 0 20px 30px;
-    //padding: 0;
-    //background-size: cover;
     height: 60px;
-    //text-align: center;
-    //color: #fff;
     font-style: italic;
     border: 1px solid #777;
     background: linear-gradient(to right bottom, #23006e8c, #6e00008c);
@@ -57,7 +45,6 @@
     .event-date {
       margin-bottom: -14px;
     }
-
 
     .arrow {
       display: none;
@@ -71,8 +58,6 @@
       width: 60px;
       font-size: 60px;
       color: #c5122d;
-
-
     }
 
     &.active {
@@ -83,7 +68,6 @@
         animation: arrow 3s linear infinite;
       }
     }
-
   }
 }
 
@@ -98,7 +82,6 @@
 }
 
 .event-details {
-  //width: 96%;
   margin: auto;
   padding-top: 10px;
 }

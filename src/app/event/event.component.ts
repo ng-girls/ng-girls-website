@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event.service';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event',

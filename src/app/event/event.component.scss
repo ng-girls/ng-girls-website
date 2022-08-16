@@ -1,61 +1,28 @@
 .event-container {
-  //min-height: 300px;
   border-radius: 6px;
-  //background: linear-gradient(to right bottom, rgba(255, 255, 255, 1), rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%), rgba(255, 240, 245, 0.82));
   background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%));
-  //background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%), rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%));
-  //background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  //background-size: 400% 400%;
-  //background-position: 50% 50%;
   box-shadow: 4px 7px 6px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 
 
   color: #1a191f;
   margin-bottom: 40px;
   padding: 20px;
-  //animation: gradient 3s ease 1;
-
 }
-
-/*
-
-@keyframes gradient {
-  from {background-position: 100% 100%;}
-  to {background-position: 50% 50%;}
-}
-//@keyframes gradient {
-//  0% {
-//    background-position: 100% 100%;
-//    //background: linear-gradient(to right bottom, rgba(255, 255, 255, 1), rgba(179, 101, 101, 82%));
-//
-//  }
-//  50% {
-//    background-position: 50% 50%;
-//    //background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(255, 255, 255, 1), rgba(179, 101, 101, 1));
-//
-//  }
-//  100% {
-//    //background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%), rgba(255, 255, 255, 1),);
-//
-//    background-position: 50% 50%;
-//  }
-//}
-*/
-
 
 .call-for-action {
   margin-block-end: 1em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  //display: flex;
+
   button {
     width: 214px;
     margin: 6px 10px;
     text-transform: uppercase;
     background: #c5122d;
+
     &:hover {
-      box-shadow: 4px 7px 6px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)
+      box-shadow: 4px 7px 6px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
     }
   }
 }

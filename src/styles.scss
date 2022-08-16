@@ -1,15 +1,6 @@
 @use '@angular/material' as mat;
-//@use '@angular/material/theming';
-//@use '@angular/material/core';
-//@include mat.mat-core();
-/* You can add global styles to this file, and also import other style files */
 
-//$my-custom-typography-config: mat.define-typography-config(112px);
 $my-custom-typography-config: mat.define-typography-config(
-//$display-4: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
-//$display-3: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
-//$display-2: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
-//$display-1: mat.define-typography-level(70px, 40px, 400),
 $headline:  mat.define-typography-level(34px, 48px, 400),
 $title: mat.define-typography-level(20px, 32px, 500),
 $body-1: mat.define-typography-level(16px, 32px, 400),
@@ -43,43 +34,18 @@ body {
 
   a {
     color: #c5122d;
+
     &:visited {
       color: darkslateblue;
     }
   }
 }
 
-/*.ng-girls-website {
-  h1 {
-    font-size: 34px;
-    font-weight: 400;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-
-}*/
-
-app-header p {
-  //background: blue;
-
-}
-
-.top {
-  app-header p {
-    background: red;
-  }
-}
-
 .content {
-  //max-width: 80%;
   margin: auto;
   padding: 40px;
   text-align: center;
   z-index: 1;
-  //width: inherit;
   @media screen and (min-width: 1200px) {
     max-width: 80%;
     width: inherit;
@@ -87,9 +53,7 @@ app-header p {
   @media screen and (max-width: 600px) {
     padding: 20px;
   }
-
 }
-
 
 .overlay {
   position: absolute;

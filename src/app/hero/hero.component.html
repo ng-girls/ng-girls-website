@@ -1,23 +1,21 @@
-
 <img src="../../assets/logo_big.png" class="hero-ng-girls-logo">
 <img src="../../assets/logoname.png" class="hero-ng-girls-name">
 
 <div class="upcoming-events">
-<h1>Upcoming Events</h1>
+  <h1>Upcoming Events</h1>
 
-<div class="upcoming-events-cards" id="upcomingEvents">
+  <div class="upcoming-events-cards" id="upcomingEvents">
+    <a *ngFor="let event of events" class="event-card" [routerLink]="['event', event.id]">
+      <mat-card routerLinkActive="active">
+        <mat-card-title>{{ event.city }}</mat-card-title>
+        <mat-card-subtitle class="event-date">{{ event.date }}</mat-card-subtitle>
+        <mat-icon class="arrow" (click)="scrollTo(eventElem)" aria-hidden="false" aria-label="Example home icon"
+                  fontIcon="keyboard_double_arrow_down"></mat-icon>
+      </mat-card>
+    </a>
+  </div>
 
-<a *ngFor="let event of events" class="event-card" [routerLink]="['event', event.id]">
-<mat-card routerLinkActive="active">
-  <mat-card-title>{{ event.city }}</mat-card-title>
-  <mat-card-subtitle class="event-date">{{ event.date }}</mat-card-subtitle>
-  <mat-icon class="arrow" (click)="scrollTo(eventElem)" aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_double_arrow_down"></mat-icon>
-</mat-card>
-</a>
-
-</div>
-
-<div class="event-details content" #eventElem>
-<router-outlet></router-outlet>
-</div>
+  <div class="event-details content" #eventElem>
+    <router-outlet></router-outlet>
+  </div>
 </div>

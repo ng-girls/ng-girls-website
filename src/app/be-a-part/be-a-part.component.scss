@@ -1,24 +1,17 @@
 .be-a-part-content {
-  //display: flex;
-  //text-align: start;
-
   column-count: 2;
-  /* display: flex; */
   text-align: start;
   column-gap: 80px;
 
+  @media (max-width: 768px) {
+    column-count: 1;
+  }
+
   .column {
-    overflow: auto //width: 600px;
+    overflow: auto;
   }
 
   .title {
     margin-bottom: 24px;
-  }
-
-}
-
-@media (max-width: 600px) {
-  .be-a-part-content {
-    column-count: 1;
   }
 }

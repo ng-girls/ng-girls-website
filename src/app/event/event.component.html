@@ -1,19 +1,26 @@
 <div class="event-container" *ngIf="(event$ | async) as event" id="event">
-<div class="header-row">
-<div class="event-title">
-<h1>{{ event.title }}</h1>
-<h2>{{ event.city }}, {{event.state }}</h2>
-</div>
-</div>
-<p [innerHTML]="event.announcement"></p>
-<div class="call-for-action">
-<a [href]="event.applicationForm" target="_blank"><button mat-raised-button color="primary">Apply for the workshop</button></a>
-<a [href]="event.mentorsForm" target="_blank"><button mat-raised-button color="primary">Call for mentors</button></a>
-</div>
+  <div class="header-row">
+    <div class="event-title">
+      <h1>{{ event.title }}</h1>
+      <h2>{{ event.city }}, {{event.state }}</h2>
+    </div>
+  </div>
 
-<div class="sponsors">
-<a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" class="logo">
-<img [src]="sponsor.logo">
-</a>
-</div>
+  <p [innerHTML]="event.announcement"></p>
+
+  <div class="call-for-action">
+    <a [href]="event.applicationForm" target="_blank">
+      <button mat-raised-button color="primary">Apply for the workshop</button>
+    </a>
+    <a [href]="event.mentorsForm" target="_blank">
+      <button mat-raised-button color="primary">Call for mentors</button>
+    </a>
+  </div>
+
+  <div class="sponsors">
+    <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" class="logo">
+      <img [src]="sponsor.logo">
+    </a>
+  </div>
+
 </div>

@@ -1,27 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewportRuler, CdkScrollable, ScrollDispatcher } from '@angular/cdk/overlay';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'ng-girls-website';
   top = true;
 
-  constructor(private scroll: ScrollDispatcher, private viewport: ViewportRuler){
-
-  }
-
-  ngOnInit() {
-    this.scroll.scrolled()
-      .subscribe(()=>{
-        const yPos = this.viewport.getViewportScrollPosition().top;
-        this.top = yPos < 16;
-
-        console.log(this.top)
-      })
-  }
+  constructor() { }
 
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
-import { DomSanitizer } from '@angular/platform-browser';
+import { map } from 'rxjs/operators';
 
 const events = [
   {
@@ -42,12 +41,9 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
 export class EventService {
   events = events;
   eventId$ = this.router.paramMap.pipe(
-    map(params => params.get('eventId')),
-    tap(console.log)
+    map(params => params.get('eventId'))
   );
 
-  constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer) {
-    // this.router.paramMap
-    this.eventId$.subscribe(console.log)
+  constructor(private router: ActivatedRoute) {
   }
 }

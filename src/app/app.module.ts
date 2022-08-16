@@ -5,11 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AnnouncementsComponent } from './announcements/announcements.component';
 import { MatCardModule } from '@angular/material/card';
-import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { CdkScrollableModule, ScrollingModule } from '@angular/cdk/scrolling';
-import { HeaderComponent } from './header/header.component';
 import { EventComponent } from './event/event.component';
 import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from './about/about.component';
@@ -24,9 +21,6 @@ import { SeeYouComponent } from './see-you/see-you.component';
   declarations: [
     AppComponent,
     HeroComponent,
-    AnnouncementsComponent,
-    PlaceholderComponent,
-    HeaderComponent,
     EventComponent,
     AboutComponent,
     BeAPartComponent,
@@ -48,4 +42,5 @@ import { SeeYouComponent } from './see-you/see-you.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

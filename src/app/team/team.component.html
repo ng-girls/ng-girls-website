@@ -1,11 +1,11 @@
 <div class="overlay solid-overlay"></div>
 <div class="content">
-    <div class="mat-display-2">ngGirls Team</div>
-    <div class="team-members">
-        <div *ngFor="let member of team" class="team-member">
-            <div style="background-image: url(assets/team/{{member.image}})" class="member-image"></div>
-            <h2 class="member-name">{{ member.name }}</h2>
-            <h3 class="subtitle" mat-color="primary">{{ member.subtitle }}</h3>
-        </div>
+  <div class="mat-display-2">ngGirls Team</div>
+  <div class="team-members">
+    <div *ngFor="let member of team" class="team-member">
+      <div style="background-image: url(assets/team/{{member.image}})" class="member-image"></div>
+      <h2 class="member-name">{{ member.name }}</h2>
+      <h3 class="subtitle" mat-color="primary">{{ member.subtitle }}</h3>
     </div>
+  </div>
 </div>

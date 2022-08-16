@@ -5,21 +5,16 @@
   box-shadow: inset 0 0 12px 3px rgb(0 0 0 / 75%);
   position: relative;
   padding-top: 0;
-  //background: #03a9f4;
   width: 100%;
   color: #fff;
-  //font-weight: 200;
   background-repeat: no-repeat;
   background-position: center center !important;
   background-size: cover !important;
   overflow: hidden;
-  //padding-bottom: 60px;
   text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
-
-
 }
 
 .solid-overlay {
@@ -32,19 +27,16 @@
 
 .team-members {
   display: grid;
-  //max-width: 1000px;
-  //grid-template-columns: repeat(3, 1fr);
   justify-content: space-around;
-    @media(min-width: 768px) {
+  @media(min-width: 768px) {
 
-  grid-template-columns: repeat(3, auto);
-  .team-member:first-child {
+    grid-template-columns: repeat(3, auto);
+    .team-member:first-child {
       grid-column: 2;
       grid-row: 1;
     }
   }
 
-  //justify-content: space-between;
   @media(max-width: 767px) {
     grid-template-columns: repeat(2, auto);
 
@@ -53,19 +45,9 @@
     grid-template-columns: repeat(1, auto);
   }
 
-  //display: flex;
-  //justify-content: space-evenly;
-  //flex-wrap: wrap;
-  //column-count: 3;
-  //column-gap: 40px;
-
   .team-member {
-    //overflow: auto;
     width: 200px;
     height: 200px;
-    //padding: 36px;
-    //width: 26%;
-    //height: 300px;
     text-align: center;
     padding-bottom: 20px;
 
@@ -90,18 +72,4 @@
       border-radius: 50%;
     }
   }
-
-
-  @media screen and (max-width: 600px) {
-    .about-items {
-      column-count: 1;
-
-      .about-item {
-      }
-
-      //padding: 20px 0;
-      //width: initial;
-    }
-  }
-
 }
