@@ -10,7 +10,8 @@
     "dev:ssr": "ng run ng-girls-website:serve-ssr",
     "serve:ssr": "node dist/ng-girls-website/server/main.js",
     "build:ssr": "ng build && ng run ng-girls-website:server",
-    "prerender": "ng run ng-girls-website:prerender"
+    "prerender": "ng run ng-girls-website:prerender --routes routes.txt",
+    "build:prerender": "ng build && ng run ng-girls-website:prerender --routes routes.txt"
   },
   "private": true,
   "dependencies": {
