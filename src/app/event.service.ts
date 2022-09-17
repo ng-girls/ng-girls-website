@@ -4,6 +4,26 @@ import { map } from 'rxjs/operators';
 
 const events = [
   {
+    id: 'ng-de-2022',
+    title: 'ngGirls @ NG-DE',
+    location: 'Berlin',
+    city: 'Berlin',
+    state: 'Germany',
+    date: 'October 4',
+    year: '2022',
+    applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSfZ2qMPfuigiq3KRnrTv30ndomTaGj6XK44RIvjHnnbIRO4Ow/viewform',
+    mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeEjunIiKEONuSWauN53qgxhcrGsMGd4P4I2gFi8ggxlR1Rbg/viewform',
+    announcement: `<a href="https://ng-de.org/" target="_blank">NG-DE</a> has been hosting ngGirls workshops already in their first edition. The <a href="https://www.meetup.com/de-DE/Angular-Meetup-Berlin/">Angular Berlin</a> community already supported ngGirls for multiple workshops. 
+We're happy to be back in Berlin for the wonderful community. <br/>
+<b>ngGirls @ NG-DE</b> will take place on Tuesday, October 4th, from 9:00-17:00. For more details and application: `,
+    sponsors: [
+      { link: 'https://ng-de.org/', logo: 'assets/events/ngde-2022/ng-de.svg' },
+      { link: 'https://workshops.de/', logo: 'assets/events/ngde-2022/workshops-de.svg' },
+      { link: 'https://www.meetup.com/de-DE/Angular-Meetup-Berlin/', logo: 'assets/events/ngde-2022/angular-berlin.svg' },
+      { link: 'https://angular.de/', logo: 'assets/events/ngde-2022/angular-de.svg' },
+    ]
+  },
+  {
     id: 'verona-2022',
     title: 'ngGirls @ angularday',
     location: 'Verona',
