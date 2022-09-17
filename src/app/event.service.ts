@@ -8,6 +8,7 @@ const events = [
     title: 'ngGirls @ NG-DE',
     location: 'Berlin',
     city: 'Berlin',
+    protected: true,
     state: 'Germany',
     date: 'October 4',
     year: '2022',
@@ -59,7 +60,8 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
   providedIn: 'root'
 })
 export class EventService {
-  events = events;
+  // showProtected = console.log(window.location)
+  events = window.location.search.indexOf('protected=true') > -1 ? events.map(event => {event.protected = false; return event;}) : events.filter(event => !event.protected);
   eventId$ = this.router.paramMap.pipe(
     map(params => params.get('eventId'))
   );
