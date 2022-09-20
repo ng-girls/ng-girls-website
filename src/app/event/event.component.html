@@ -1,11 +1,10 @@
 <div class="event-container" *ngIf="(event$ | async) as event" id="event">
-  <div class="header-row" *ngIf="event.protected == false || !event.protected">
+  <div class="header-row">
     <div class="event-title">
       <h1>{{ event.title }}</h1>
       <h2>{{ event.city }}, {{event.state }}</h2>
     </div>
   </div>
-  {{event.protected}}
 
   <p [innerHTML]="event.announcement"></p>
 

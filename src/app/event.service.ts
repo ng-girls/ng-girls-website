@@ -8,15 +8,14 @@ const events = [
     title: 'ngGirls @ NG-DE',
     location: 'Berlin',
     city: 'Berlin',
-    protected: true,
     state: 'Germany',
     date: 'October 4',
     year: '2022',
     applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSfZ2qMPfuigiq3KRnrTv30ndomTaGj6XK44RIvjHnnbIRO4Ow/viewform',
     mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeEjunIiKEONuSWauN53qgxhcrGsMGd4P4I2gFi8ggxlR1Rbg/viewform',
-    announcement: `<a href="https://ng-de.org/" target="_blank">NG-DE</a> has been hosting ngGirls workshops already in their first edition. The <a href="https://www.meetup.com/de-DE/Angular-Meetup-Berlin/">Angular Berlin</a> community already supported ngGirls for multiple workshops. 
-We're happy to be back in Berlin for the wonderful community. <br/>
-<b>ngGirls @ NG-DE</b> will take place on Tuesday, October 4th, from 9:00-17:00. For more details and application: `,
+    announcement: `ngGirls has been part of the Angular conference in Germany, <a href="https://ng-de.org/" target="_blank">NG-DE</a>, since its first edition, and has been supported by the wonderful Angular Berlin community. 
+    <br/>
+    We're excited to come back to Berlin with our free workshop!`,
     sponsors: [
       { link: 'https://ng-de.org/', logo: 'assets/events/ngde-2022/ng-de.svg' },
       { link: 'https://workshops.de/', logo: 'assets/events/ngde-2022/workshops-de.svg' },
@@ -60,8 +59,7 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
   providedIn: 'root'
 })
 export class EventService {
-  // showProtected = console.log(window.location)
-  events = window.location.search.indexOf('protected=true') > -1 ? events.map(event => {event.protected = false; return event;}) : events.filter(event => !event.protected);
+  events = events; 
   eventId$ = this.router.paramMap.pipe(
     map(params => params.get('eventId'))
   );

@@ -6,7 +6,7 @@
 
   <div class="upcoming-events-cards" id="upcomingEvents">
   <section *ngFor="let event of events">
-    <a class="event-card" [routerLink]="['event', event.id]" *ngIf="event.protected == false || !event.protected">
+    <a class="event-card" [routerLink]="['event', event.id]">
       <mat-card routerLinkActive="active">
         <mat-card-title>{{ event.city }}</mat-card-title>
         <mat-card-subtitle class="event-date">{{ event.date }}</mat-card-subtitle>
