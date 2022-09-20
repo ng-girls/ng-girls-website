@@ -5,7 +5,8 @@
   <h1>Upcoming Events</h1>
 
   <div class="upcoming-events-cards" id="upcomingEvents">
-    <a *ngFor="let event of events" class="event-card" [routerLink]="['event', event.id]">
+  <section *ngFor="let event of events">
+    <a class="event-card" [routerLink]="['event', event.id]">
       <mat-card routerLinkActive="active">
         <mat-card-title>{{ event.city }}</mat-card-title>
         <mat-card-subtitle class="event-date">{{ event.date }}</mat-card-subtitle>
@@ -13,6 +14,7 @@
                   fontIcon="keyboard_double_arrow_down"></mat-icon>
       </mat-card>
     </a>
+  </section>
   </div>
 
   <div class="event-details content" #eventElem>

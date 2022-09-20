@@ -4,6 +4,27 @@ import { map } from 'rxjs/operators';
 
 const events = [
   {
+    id: 'ng-de-2022',
+    title: 'ngGirls @ NG-DE',
+    location: 'Berlin',
+    city: 'Berlin',
+    state: 'Germany',
+    date: 'October 4',
+    year: '2022',
+    applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSfZ2qMPfuigiq3KRnrTv30ndomTaGj6XK44RIvjHnnbIRO4Ow/viewform',
+    mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeEjunIiKEONuSWauN53qgxhcrGsMGd4P4I2gFi8ggxlR1Rbg/viewform',
+    announcement: `ngGirls has been part of the Angular conference in Germany, <a href="https://ng-de.org/" target="_blank">NG-DE</a>, 
+    since its first edition, and has been supported by the wonderful <a href="https://www.meetup.com/de-DE/Angular-Meetup-Berlin/" target="_blank">Angular Berlin</a> community. 
+    <br/>
+    We're excited to come back to Berlin with our free workshop!`,
+    sponsors: [
+      { link: 'https://ng-de.org/', logo: 'assets/events/ngde-2022/ng-de.svg' },
+      { link: 'https://workshops.de/', logo: 'assets/events/ngde-2022/workshops-de.svg' },
+      { link: 'https://www.meetup.com/de-DE/Angular-Meetup-Berlin/', logo: 'assets/events/ngde-2022/angular-berlin.svg' },
+      { link: 'https://angular.de/', logo: 'assets/events/ngde-2022/angular-de.svg' },
+    ]
+  },
+  {
     id: 'verona-2022',
     title: 'ngGirls @ angularday',
     location: 'Verona',
@@ -39,7 +60,7 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
   providedIn: 'root'
 })
 export class EventService {
-  events = events;
+  events = events; 
   eventId$ = this.router.paramMap.pipe(
     map(params => params.get('eventId'))
   );
