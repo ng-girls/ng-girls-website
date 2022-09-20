@@ -13,7 +13,8 @@ const events = [
     year: '2022',
     applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSfZ2qMPfuigiq3KRnrTv30ndomTaGj6XK44RIvjHnnbIRO4Ow/viewform',
     mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeEjunIiKEONuSWauN53qgxhcrGsMGd4P4I2gFi8ggxlR1Rbg/viewform',
-    announcement: `ngGirls has been part of the Angular conference in Germany, <a href="https://ng-de.org/" target="_blank">NG-DE</a>, since its first edition, and has been supported by the wonderful Angular Berlin community. 
+    announcement: `ngGirls has been part of the Angular conference in Germany, <a href="https://ng-de.org/" target="_blank">NG-DE</a>, 
+    since its first edition, and has been supported by the wonderful <a href="https://www.meetup.com/de-DE/Angular-Meetup-Berlin/" target="_blank">Angular Berlin</a> community. 
     <br/>
     We're excited to come back to Berlin with our free workshop!`,
     sponsors: [
