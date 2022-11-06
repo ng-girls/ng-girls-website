@@ -30,7 +30,7 @@ import { SeeYouComponent } from './see-you/see-you.component';
     SeeYouComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
