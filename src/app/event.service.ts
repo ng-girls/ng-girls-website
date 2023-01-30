@@ -44,7 +44,7 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
     applicationForm: 'https://forms.gle/LjSiygW8nP7gH1kc9',
     mentorsForm: 'https://forms.gle/XYSapXdCzM5GFeix9',
     announcement: `We're excited to be part of <a href="https://ng-be.org/">NG-BE</a> - and bring the ngGirls workshop to the local community!
-<b>ngGirls @ NG-BE</b> will take place on Friday, December 24th, from 9 AM - 5 PM Central European Time (GMT +1) in the Ghent Expo Holiday Inn, Ghent, Belgium. For more details and application: `,
+<b>ngGirls @ NG-BE</b> will take place on Friday, March 24th, from 9 AM - 5 PM Central European Time (GMT +1) in the Ghent Expo Holiday Inn, Ghent, Belgium. For more details and application: `,
     sponsors: [{ link: 'https://ng-be.org/', logo: 'assets/events/ngbe-2023/ng-be-logo.png' }]
   }
 
