@@ -11,7 +11,7 @@ const events = [
     state: 'Poland',
     date: 'November 5',
     year: '2023',
-    applicationForm: '',
+    applicationForm: 'https://forms.gle/woPmCW9PVfSzZrZk8',
     mentorsForm: '',
     announcement: `<a href="http://ng-poland.pl/" target="_blank">NG-Poland Conf</a> has been hosting ngGirls workshops for many years.
 Feeling like family, we're happy to come back to Warsaw for the wonderful community,
