@@ -16,6 +16,8 @@ import { CommunityComponent } from './community/community.component';
 import { TeamComponent } from './team/team.component';
 import { FooterComponent } from './footer/footer.component';
 import { SeeYouComponent } from './see-you/see-you.component';
+import { CocComponent } from './coc/coc.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SeeYouComponent } from './see-you/see-you.component';
     CommunityComponent,
     TeamComponent,
     FooterComponent,
-    SeeYouComponent
+    SeeYouComponent,
+    CocComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
