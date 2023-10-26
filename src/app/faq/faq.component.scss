@@ -1,0 +1,31 @@
+.event-container {
+    border-radius: 6px;
+    background: linear-gradient(to right bottom, rgba(255, 240, 245, 0.82), rgba(179, 101, 101, 82%));
+    box-shadow: 4px 7px 6px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  
+  
+    color: #1a191f;
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+
+  .faq-body {
+    padding-left: 2%;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .coc-body ul{
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: left;
+}
+.coc-title{
+    padding-left: 2%;
+    text-align: left;
+    margin-bottom: 50px;
+  }
+.faq-title{
+    text-align: left;
+    font-weight: bold;
+  }
