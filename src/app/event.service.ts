@@ -29,9 +29,9 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
     year: '2023',
     applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeBooyy-i1vFQ1LbOQFsxk7X4dPrwzjEdpnzYzpOHpuL-bevQ/viewform',
     mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSfmk_tGgzk9SO7shtHDbO6nMUKWb-3jNrURSPzIEOZx3YIvHw/viewform',
-    announcement: `We're excited to be part of <a href="https://ngrome.io/">NG ROME MMXXIII</a> - and bring the ngGirls workshop to the local community!
+    announcement: `We're excited to be part of <a href="https://2023.ngrome.io/">NG ROME MMXXIII</a> - and bring the ngGirls workshop to the local community!
 <b>ngGirls @ NG ROME MMXXIII</b> will take place on Thursday, November 30th, from 9:00-17:00 in Rome. For more details and application: `,
-    sponsors: [{ link: 'https://ngrome.io//', logo: 'assets/events/rome-2023/logo.svg' }]
+    sponsors: [{ link: 'https://2023.ngrome.io/', logo: 'assets/events/rome-2023/logo.svg' }]
   }
 ];
 
