@@ -20,6 +20,20 @@ where the participants are enthusiastic and the mentors are so committed. <br/>
     sponsors: [{ link: 'http://ng-poland.pl/', logo: 'assets/events/ngpoland-2022/ngPoland.png' }]
   },
   {
+    id: 'verona-2023',
+    title: 'ngGirls @ angularday 2023',
+    location: 'Verona',
+    city: 'Verona',
+    state: 'Italy',
+    date: 'November 23',
+    year: '2023',
+    applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSf8uOZbx4rahJxBtuK-pH6sYzFJQrjXe3xEkOHJaH6ECigacw/viewform',
+    mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSfrk8ZaS5DL4xhf8bx9vs7grSAid2sLfAqcpFhZa8KSwpbUJw/viewform',
+    announcement: `We're excited to be part of <a href="https://2023.angularday.it">angularday 2023</a> - and bring the ngGirls workshop to the local community!
+<b>ngGirls @ angularday 2023</b> will take place on Thursday, November 23rd, from 9:00-17:00 in Verona. For more details and application: `,
+    sponsors: [{ link: 'https://2023.angularday.it', logo: 'assets/events/angularday-2022/angularday-logo.svg' }]
+  },
+  {
     id: 'rome-2023',
     title: 'ngGirls @ NG ROME MMXXIII',
     location: 'Rome',
