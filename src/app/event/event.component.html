@@ -10,10 +10,11 @@
 
   <div class="call-for-action">
     <a [href]="event.applicationForm" target="_blank">
-      <button mat-raised-button color="primary">Apply for the workshop</button>
+      <button mat-raised-button color="primary">{{event.applicationButton || "Apply for the workshop"}} </button>
+
     </a>
     <a [href]="event.mentorsForm" target="_blank">
-      <button mat-raised-button color="primary">Call for mentors</button>
+      <button mat-raised-button color="primary">{{event.mentorsButton || "Call for mentors" }}</button>
     </a>
   </div>
 
