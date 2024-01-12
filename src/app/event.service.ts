@@ -20,6 +20,20 @@ const events: Events = [
     announcement: `Nous avons le plaisir de vous annoncer notre prochain atelier ngGirls à Paris. Il sera porté par <a href="https://angulardevs.fr/" target="_blank">Angular Devs France</a> pour la communauté locale! <b>ngGirls @ Paris 2024</b> aura lieu le Samedi 3 Février de 9h à 17h à Paris.
     Pour plus de détails et vous inscrire: `,
     sponsors: [{ link: 'https://angulardevs.fr/', logo: 'assets/events/paris-2024/angular_devs_fr.webp' }]
+  },
+  {
+    id: 'rome-2024',
+    title: 'ngGirls @ NG ROME MMXXIV',
+    location: 'Rome',
+    city: 'Rome',
+    state: 'Italy',
+    date: 'June 26, 2024',
+    year: '2024',
+    applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLScpM4cBeqDtHkeKw8vZhPDbSdP_6wjtZMEOB6nOzVrFv6GrIg/viewform',
+    mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdYYM2momTb95ury4-BR2jjjTwAzdtOpuitTPR8XAR2gjEcpQ/viewform',
+    announcement: `We're excited to be part of <a href="https://2023.ngrome.io/">NG ROME MMXXIV</a> - and bring the ngGirls workshop to the local community!
+<b>ngGirls @ NG ROME MMXXIV</b> will take place on Wednesday, June 26th, from 9:00-17:00 in Rome. For more details and application: `,
+    sponsors: [{ link: 'https://ngrome.io/', logo: 'assets/events/rome-2024/logo.svg' }]
   }
 ];
 
