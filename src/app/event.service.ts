@@ -31,7 +31,7 @@ const events: Events = [
     year: '2024',
     applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdCfn6mN3VCmRNGSTRHMQl99T6MA7nqEXo-_RIwojSk5t9PkA/viewform',
     mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSd0sli7Jv9yjRTGq5vspHE_E9HuBO1u2qPlZTJ-0zTTEIbjKw/viewform',
-    announcement: `We're excited to be part of <a href="https://2023.ngrome.io/">NG-CONF 2024</a> - and bring the ngGirls workshop to the local community!
+    announcement: `We're excited to be part of <a href="https://ng-conf.org/">NG-CONF 2024</a> - and bring the ngGirls workshop to the local community!
     <b>ngGirls @ NG-CONF</b> will take place on Tuesday, March 19th, from 9:00-17:00 in Salt Lake City. For more details and application: `,
     sponsors: [
       { link: 'https://www.jetbrains.com/', logo: 'assets/events/ngconf-2024/jetbrains.svg' },
