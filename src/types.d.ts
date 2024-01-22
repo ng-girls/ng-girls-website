@@ -14,7 +14,7 @@ export type Event = {
     applicationForm: string;
     applicationButton?: string;
     mentorsButton?: string;
-    mentorsForm: string;
+    mentorsForm?: string;
     announcement: string;
     sponsors: Sponsor[];
 };
