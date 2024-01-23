@@ -9,11 +9,11 @@
   <p [innerHTML]="event.announcement"></p>
 
   <div class="call-for-action">
-    <a [href]="event.applicationForm" target="_blank">
+    <a *ngIf="event.applicationForm" [href]="event.applicationForm" target="_blank">
       <button mat-raised-button color="primary">{{event.applicationButton || "Apply for the workshop"}} </button>
 
     </a>
-    <a [href]="event.mentorsForm" target="_blank">
+    <a *ngIf="event.mentorsForm" [href]="event.mentorsForm" target="_blank">
       <button mat-raised-button color="primary">{{event.mentorsButton || "Call for mentors" }}</button>
     </a>
   </div>
