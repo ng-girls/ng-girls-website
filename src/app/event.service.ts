@@ -35,7 +35,7 @@ const events: Events = [
     <b>ngGirls @ NG-CONF</b> will take place on Tuesday, March 19th, from 9:00-17:00 in Salt Lake City. For more details and application: `,
     sponsors: [
       { link: 'https://www.jetbrains.com/', logo: 'assets/events/ngconf-2024/jetbrains.svg' },
-      { link: 'https://ng-conf.org/', logo: 'assets/events/ngconf-2024/logo.webp' }
+      { link: 'https://ng-conf.org/', logo: 'assets/events/ngconf-2024/logo_ngconf_2.png' }
     ]
   },
   {
