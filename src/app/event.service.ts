@@ -6,20 +6,18 @@ import { Events } from 'src/types';
 const events: Events = [
 
   {
-    id: 'paris-2024',
-    title: 'ngGirls @ Paris',
-    location: 'Paris',
-    city: 'Paris',
-    state: 'France',
-    date: 'February 3, 2024',
+    id: 'tu-berlin-2024',
+    title: 'ngGirls @ TU Berlin 2024',
+    location: 'Berlin',
+    city: 'Berlin',
+    state: 'Germany',
+    date: 'March 12, 2024',
     year: '2024',
-    applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeBvSIsUBw2KvpEGFqu7QnCWwcFSKa7MnK49AHO9VFGlwoVuA/viewform?usp=sf_link',
-    applicationButton: 'inscription participante',
-    // mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeBvSIsUBw2KvpEGFqu7QnCWwcFSKa7MnK49AHO9VFGlwoVuA/viewform?usp=sf_link',
-    // mentorsButton: 'inscription mentor',
-    announcement: `Nous avons le plaisir de vous annoncer notre prochain atelier ngGirls à Paris. Il sera porté par <a href="https://angulardevs.fr/" target="_blank">Angular Devs France</a> pour la communauté locale! <b>ngGirls @ Paris 2024</b> aura lieu le Samedi 3 Février de 9h à 17h à Paris.
-    Pour plus de détails et vous inscrire: `,
-    sponsors: [{ link: 'https://angulardevs.fr/', logo: 'assets/events/paris-2024/angular_devs_fr.webp' }]
+    // applicationForm: '',
+    mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSegHaopSqTCHvI2z-asBYkmuxZOHOqFODFUj_I5HDokHenRiw/viewform',
+    announcement: `We're excited to bring the ngGirls workshop to the local community at TU Berlin!
+<b>ngGirls @ NG TU Berlin</b> will take place on Tuesday, March 12th, from 9:00-17:00 in Berlin. For more details and application: `,
+    sponsors: [{ link: 'https://www.tu.berlin/', logo: 'assets/events/tu-berlin-2024/tu-logo.svg' }]
   },
   {
     id: 'ngconf-2024',

@@ -11,7 +11,7 @@ export type Event = {
     state: string;
     date: string;
     year: string;
-    applicationForm: string;
+    applicationForm?: string;
     applicationButton?: string;
     mentorsButton?: string;
     mentorsForm?: string;
