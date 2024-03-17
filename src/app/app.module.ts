@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SeeYouComponent } from './see-you/see-you.component';
 import { CocComponent } from './coc/coc.component';
 import { FaqComponent } from './faq/faq.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FaqComponent } from './faq/faq.component';
     ScrollingModule,
     CdkScrollableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
