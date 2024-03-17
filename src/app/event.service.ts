@@ -73,9 +73,11 @@ const events: Events = [
         { key: '📅', text: 'Tuesday March 19, 2024'},
         { key: '⏰', text: '9:00 - 17:00 MST (Salt Lake City, USA, GMT -7)'},
         { key: '🏠', text: 'The Grand American Hotel, Salt Lake City'},
-        { key: '🥤', text: 'Lunch and refreshments provided'}
+        { key: '🥤', text: 'Lunch and refreshments provided'},
+        { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
       ],
       basics: {
+        floorplan: 'assets/events/ngconf-2024/floorplan.png',
         timezone: 'Mountain Standard Time (GMT-7)'
       },
       dates: [

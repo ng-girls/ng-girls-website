@@ -15,10 +15,13 @@
           <td> {{info.text}}</td>
         </tr>
       </table>
+      <div *ngIf="event.timetable?.basics?.floorplan" class="floorplan">
+        <img width="400" src="{{event.timetable?.basics?.floorplan}}">
+      </div>
     </div>
 
     <div class="upcoming-events mt-30">
-      <h2>Instructors</h2>
+      <h2>Your Instructors</h2>
     </div>
     <div class="team-members">
       <div *ngFor="let member of team" class="team-member">
@@ -67,10 +70,18 @@
               </td>
             </tr>
           </table>
+        </div>
+        
       </div>
       
+      <div class="upcoming-events mt-30">
+        <h2>Sponsors</h2>
+      </div>
+    <div class="sponsors">
+      <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
+        <img [src]="sponsor.logo">
+      </a>
     </div>
-    
   </div>
 
   <!-- If the user is not authenticated or doesn't have access, show a message or redirect -->

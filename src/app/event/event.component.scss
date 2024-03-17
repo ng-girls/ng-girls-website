@@ -95,6 +95,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
   
   p{
     width: 100%;
@@ -136,4 +138,8 @@
   td:last-child{
     text-align: left;
   }
+}
+.floorplan{
+  margin-left: 10px;
+  margin-top: 10px;
 }
