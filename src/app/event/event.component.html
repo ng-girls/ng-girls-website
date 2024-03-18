@@ -14,7 +14,8 @@
           </td>
 
           <td *ngIf="!info.link"> {{info.text}}</td>
-          <td *ngIf="info.link"> <a href="{{info.link}}">{{info.text}}</a></td>
+          <td *ngIf="info.link"> <a href="{{info.link}}" target="_blank">{{info.text}}</a></td>
+          
         </tr>
       </table>
       <div *ngIf="event.timetable?.basics?.floorplan" class="floorplan">

@@ -55,8 +55,11 @@ const events: Events = [
         { key: '⏰', text: '9:00 - 17:00 MST (Salt Lake City, USA, GMT -7)'},
         { key: '🏠', text: 'The Grand American Hotel, Salt Lake City'},
         { key: '🥤', text: 'Lunch and refreshments provided'},
-        { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
         { key: '👨‍👦‍👦', text: 'Link to the groups', link: 'https://docs.google.com/presentation/d/1WbK7dg154tquToFlk8KBW2ppSfqdalMs0Xxn_6ZIXW8/edit#slide=id.gacb9094982_0_29'},
+        { key: '📚', text: 'ngGirls tutorial', link: 'https://ng-girls.gitbook.io/todo-list-tutorial'},
+        { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
+        { key: '🧭', text: 'Way to the workshop room', link: 'https://www.youtube.com/watch?v=nIbfPDzGETw'},
+
       ],
       basics: {
         floorplan: 'assets/events/ngconf-2024/floorplan.png',
