@@ -56,7 +56,7 @@ const events: Events = [
         { key: '🏠', text: 'The Grand American Hotel, Salt Lake City'},
         { key: '🥤', text: 'Lunch and refreshments provided'},
         { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
-        { key: '👨‍👦‍👦', text: 'Link to the groups', link: 'https://docs.google.com/spreadsheets/d/1EcMKcsvtegkWDJQNTozdJFJcJdlO8w4g5K6dF7GGfVU/edit#gid=0'},
+        { key: '👨‍👦‍👦', text: 'Link to the groups', link: 'https://docs.google.com/presentation/d/1WbK7dg154tquToFlk8KBW2ppSfqdalMs0Xxn_6ZIXW8/edit#slide=id.gacb9094982_0_29'},
       ],
       basics: {
         floorplan: 'assets/events/ngconf-2024/floorplan.png',
