@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { Events } from 'src/types';
+import { Events, Event } from 'src/types';
+import { HttpClient } from '@angular/common/http';
+import { map, switchMap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 const events: Events = [
 
@@ -28,6 +30,48 @@ const events: Events = [
     city: 'Salt Lake City',
     state: 'USA',
     date: 'March 19, 2024',
+    timetable: {
+      instructors: [],
+      groups: [
+        { 
+          mentor: [{ 'firstname': 'Sangeeta', 'lastname': 'Joshi', 'image': 'assets/events/ngconf-2024/mentors/sangeeta.jpg'}],
+          
+        },
+        { 
+          mentor: [{ 'firstname': 'Jan-Niklas', 'lastname': 'Wortmann', 'image': 'assets/events/ngconf-2024/mentors/jan-niklas.jfif'}],
+          
+        },
+        { 
+          mentor: [{ 'firstname': 'Craig', 'lastname': 'Spence', 'image': 'assets/events/ngconf-2024/mentors/craig.jfif'}],
+          
+        },
+        { 
+          mentor: [{ 'firstname': 'Nalini', 'lastname': 'Kodali', 'image': 'assets/events/ngconf-2024/mentors/female.svg'}],
+          
+        },
+      ],
+      infos: [
+        { key: '📅', text: 'Tuesday March 19, 2024'},
+        { key: '⏰', text: '9:00 - 17:00 MST (Salt Lake City, USA, GMT -7)'},
+        { key: '🏠', text: 'The Grand American Hotel, Salt Lake City'},
+        { key: '🥤', text: 'Lunch and refreshments provided'},
+        { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
+        { key: '👨‍👦‍👦', text: 'Link to the groups', link: 'https://docs.google.com/spreadsheets/d/1EcMKcsvtegkWDJQNTozdJFJcJdlO8w4g5K6dF7GGfVU/edit#gid=0'},
+      ],
+      basics: {
+        floorplan: 'assets/events/ngconf-2024/floorplan.png',
+        timezone: 'Mountain Standard Time (GMT-7)'
+      },
+      dates: [
+        { time: '09:00 - 09:15', text: '👋  Check in'},
+        { time: '09:15 - 10:00', text: '💡  Introduction to ngGirls and Angular'}, 
+        { time: '10:00 - 12:55', text: '🪑 start working in groups'},
+        { time: '12:55	        ', text: ' 📷 group photo'},
+        { time: '13:00 - 14:00', text: '🍕  Lunch break & networking'},
+        { time: '14:00 - 16:30', text: '⌨️  Coding & working'},
+        { time: '16:30 - 17:00', text: '🏆  Closing lecture and goodbyes' }
+      ]
+    },
     year: '2024',
     applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdCfn6mN3VCmRNGSTRHMQl99T6MA7nqEXo-_RIwojSk5t9PkA/viewform',
     mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSd0sli7Jv9yjRTGq5vspHE_E9HuBO1u2qPlZTJ-0zTTEIbjKw/viewform',
@@ -64,6 +108,49 @@ export class EventService {
     map(params => params.get('eventId'))
   );
 
-  constructor(private router: ActivatedRoute) {
+  constructor(private router: ActivatedRoute, private http: HttpClient, private route: ActivatedRoute) {
+  }
+   // Simulate fetching events asynchronously
+   getEvents(): Observable<any> {
+    return of(this.events); // Return static events wrapped in an observable
+  }
+
+  // Extract event ID from route parameters
+  getEventId(): Observable<string | null> {
+    return this.route.paramMap.pipe(
+      map(params => params.get('eventId'))
+    );
+  }
+
+  // Get events with the specified ID
+  getEventById(id: string): Observable<any> {
+    return this.getEvents().pipe(
+      map(events => events.find((event: Event) => event.id === id))
+    );
+  }
+  // Example of a method to retrieve the password associated with an event ID
+  getEventPassword(eventId: string): Observable<string> {
+    // Here, you would typically fetch the password from a data source like a backend server.
+    // For the sake of this example, I'll provide a hardcoded password.
+    // You should replace this with your actual implementation.
+
+    // Assuming you have a map of event IDs to passwords
+    const eventPasswords: { [eventId: string]: string } = {
+      'ngconf-2024': 'test',
+      // Add more event IDs and passwords as needed
+    };
+
+    // Retrieve the password for the provided event ID
+    const password = eventPasswords[eventId];
+
+    // If the password is found, return it as an observable
+    if (password) {
+      return of(password);
+    } else {
+      // If the password is not found, you might want to handle this differently.
+      // For example, you could return a default password, throw an error, or handle it in some other way.
+      // Here, I'll return an observable with an empty string.
+      return of('');
+    }
   }
 }
