@@ -57,6 +57,7 @@ const events: Events = [
         { key: '🥤', text: 'Lunch and refreshments provided'},
         { key: '👨‍👦‍👦', text: 'Link to the groups', link: 'https://docs.google.com/presentation/d/1WbK7dg154tquToFlk8KBW2ppSfqdalMs0Xxn_6ZIXW8/edit#slide=id.gacb9094982_0_29'},
         { key: '📚', text: 'ngGirls tutorial', link: 'https://ng-girls.gitbook.io/todo-list-tutorial'},
+        { key: '💬', text: 'Slack: #ng-conf-2024', link: 'https://ng-girls.slack.com/archives/C06P7HXLX8F'},
         { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
         { key: '🧭', text: 'Way to the workshop room', link: 'https://www.youtube.com/watch?v=nIbfPDzGETw'},
 
