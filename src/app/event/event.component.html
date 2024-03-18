@@ -1,27 +1,106 @@
 <div class="event-container" *ngIf="(event$ | async) as event" id="event">
-  <div class="header-row">
-    <div class="event-title">
-      <h1>{{ event.title }}</h1>
-      <h2>{{ event.city }}, {{event.state }}</h2>
+  <div *ngIf="isAuthenticated">
+    <!-- Add authenticated user content here -->
+    <p>Welcome to: </p>
+    <h1>{{event.title}}</h1>
+    <div class="upcoming-events mt-30">
+      <h2>Basics</h2>
+    </div>
+    <div class="infos">
+      <table>
+        <tr *ngFor="let info of event.timetable?.infos">
+          <td>
+            {{info.key}}
+          </td>
+
+          <td *ngIf="!info.link"> {{info.text}}</td>
+          <td *ngIf="info.link"> <a href="{{info.link}}">{{info.text}}</a></td>
+        </tr>
+      </table>
+      <div *ngIf="event.timetable?.basics?.floorplan" class="floorplan">
+        <img width="400" src="{{event.timetable?.basics?.floorplan}}">
+      </div>
+    </div>
+
+    <div class="upcoming-events mt-30">
+      <h2>Your Instructors</h2>
+    </div>
+    <div class="team-members">
+      <div *ngFor="let member of team" class="team-member">
+        <div style="background-image: url(assets/team/{{member.image}})" class="member-image"></div>
+        <h2 class="member-name">{{ member.name }}</h2>
+      </div>
+    </div>
+  
+    
+    <div class="event-timetable-wrapper">
+      <div class="event-timetable">
+        <p>Tentative schedule </p>
+        <p>{{event.timetable?.basics.timezone}}</p>
+          <table>
+            <tr  *ngFor="let dateItem of event.timetable?.dates">
+              <td>{{dateItem.time}}</td>
+              <td>{{dateItem.text}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+
+
+    <div class="upcoming-events mt-30">
+      <h2>Groups</h2>
+    </div>
+    <div class="groups">
+      <div *ngFor="let group of event.timetable?.groups; let groupIndex = index" class="group-item">
+        <h2 class="member-name">Group {{groupIndex + 1}}</h2>
+        <div class="team-members">
+          <div *ngFor="let member of group.mentor" class="team-member team-member--small">
+            <div style="background-image: url({{member.image}})" class="member-image"></div>
+            <h2 class="member-name">{{ member.firstname }}</h2>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+      
+      <div class="upcoming-events mt-30">
+        <h2>Sponsors</h2>
+      </div>
+    <div class="sponsors">
+      <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
+        <img [src]="sponsor.logo">
+      </a>
     </div>
   </div>
 
-  <p [innerHTML]="event.announcement"></p>
-
-  <div class="call-for-action">
-    <a *ngIf="event.applicationForm" [href]="event.applicationForm" target="_blank">
-      <button mat-raised-button color="primary">{{event.applicationButton || "Apply for the workshop"}} </button>
-
-    </a>
-    <a *ngIf="event.mentorsForm" [href]="event.mentorsForm" target="_blank">
-      <button mat-raised-button color="primary">{{event.mentorsButton || "Call for mentors" }}</button>
-    </a>
+  <!-- If the user is not authenticated or doesn't have access, show a message or redirect -->
+  <div *ngIf="!isAuthenticated">
+    <p>You are not authorized to view this page.</p>
+    <div class="header-row">
+      <div class="event-title">
+        <h1>{{ event.title }}</h1>
+        <h2>{{ event.city }}, {{event.state }}</h2>
+      </div>
+    </div>
+  
+    <p [innerHTML]="event.announcement"></p>
+  
+    <div class="call-for-action">
+      <a [href]="event.applicationForm" target="_blank">
+        <button mat-raised-button color="primary">{{event.applicationButton || "Apply for the workshop"}} </button>
+  
+      </a>
+      <a [href]="event.mentorsForm" target="_blank">
+        <button mat-raised-button color="primary">{{event.mentorsButton || "Call for mentors" }}</button>
+      </a>
+    </div>
+  
+    <div class="sponsors">
+      <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
+        <img [src]="sponsor.logo">
+      </a>
+    </div>
   </div>
-
-  <div class="sponsors">
-    <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
-      <img [src]="sponsor.logo">
-    </a>
-  </div>
+  
 
 </div>

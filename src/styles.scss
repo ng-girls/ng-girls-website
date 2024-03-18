@@ -1,5 +1,8 @@
 @use '@angular/material' as mat;
 
+@import 'src/_fonts.scss';
+
+
 $my-custom-typography-config: mat.define-typography-config(
 $headline:  mat.define-typography-level(34px, 48px, 400),
 $title: mat.define-typography-level(20px, 32px, 500),
@@ -61,4 +64,11 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.mt-10{
+  margin-top: 10px;
+}
+.mt-30{
+  margin-top: 30px;
 }

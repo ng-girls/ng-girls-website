@@ -30,3 +30,116 @@
 .sponsors img {
   height: 60px;
 }
+
+
+/** copied from teams **/
+
+.team-members {
+  display: grid;
+  justify-content: space-around;
+  @media(min-width: 768px) {
+
+    grid-template-columns: repeat(3, auto);
+    .team-member:first-child {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  @media(max-width: 767px) {
+    grid-template-columns: repeat(2, auto);
+
+  }
+  @media(max-width: 600px) {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  .team-member {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    padding-bottom: 20px;
+    &.team-member--small{
+      width: 100px;
+      height: 100px;
+      .member-image{
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .member-name {
+      margin-bottom: 0px;
+      // color: #ff8b9a;
+    }
+
+    .subtitle {
+      color: #ff1231;
+      font-size: 18px;
+      display: none;
+    }
+
+    .member-image {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+      overflow: hidden;
+      background-position: center center;
+      background-size: cover;
+      border-radius: 50%;
+    }
+  }
+}
+.event-timetable{
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  p{
+    width: 100%;
+  }
+  td:first-child{
+    text-align: right;
+  }
+  td:last-child{
+    text-align: left;
+  }
+
+}
+.groups{
+  display: flex;
+  flex-wrap: wrap; 
+  .group-item{
+    flex: 0 0 calc(50% - 10px); /* Two items per row with 10px space between */
+    margin: 5px; /* Adjust as needed for spacing */
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in item size */
+  }
+}
+.attendees {
+  margin-left: 20px;
+}
+.attendee-item{
+  margin-bottom: 2px;
+  text-align: left;
+}
+.infos{
+  margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  td:first-child{
+    text-align: right;
+  }
+  td:last-child{
+    text-align: left;
+  }
+}
+.floorplan{
+  margin-left: 10px;
+  margin-top: 10px;
+}
