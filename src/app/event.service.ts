@@ -72,7 +72,7 @@ const events: Events = [
         { time: '09:00 - 09:15', text: '👋  Check in'},
         { time: '09:15 - 10:00', text: '💡  Introduction to ngGirls and Angular'}, 
         { time: '10:00 - 12:55', text: '🪑 start working in groups'},
-        { time: '12:55	        ', text: ' 📷 group photo'},
+        { time: '12:30	        ', text: ' 📷 group photo'},
         { time: '13:00 - 14:00', text: '🍕  Lunch break & networking'},
         { time: '14:00 - 16:30', text: '⌨️  Coding & working'},
         { time: '16:30 - 17:00', text: '🏆  Closing lecture and goodbyes' }
