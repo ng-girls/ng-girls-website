@@ -58,7 +58,9 @@ const events: Events = [
         { key: '👨‍👦‍👦', text: 'Link to the groups', link: 'https://docs.google.com/presentation/d/1WbK7dg154tquToFlk8KBW2ppSfqdalMs0Xxn_6ZIXW8/edit#slide=id.gacb9094982_0_29'},
         { key: '📚', text: 'ngGirls tutorial', link: 'https://ng-girls.gitbook.io/todo-list-tutorial'},
         { key: '💬', text: 'Slack: #ng-conf-2024', link: 'https://ng-girls.slack.com/archives/C06P7HXLX8F'},
-        { key: '🚪', text: 'Room "Tuscany", 3rd floor'},
+        { key: '🖥️', text: 'Intro-Slides', link: 'https://docs.google.com/presentation/d/1CxymsF4wUQQOyesV__RHp5RFlAxrCgv5qoTE_BaHO6E/edit?usp=sharing'},
+        { key: '📶', text: 'WiFi - SSID: ngconf    [Password: h*******  (look at your black lanyard)]' },
+        { key: '🚪', text: 'Room "Hermitage" "T̶u̶s̶c̶a̶n̶y̶", 3rd floor'},
         { key: '🧭', text: 'Way to the workshop room', link: 'https://www.youtube.com/watch?v=nIbfPDzGETw'},
 
       ],
