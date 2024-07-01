@@ -4,36 +4,19 @@ import { Events, Event } from 'src/types';
 import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-
-const events: Events = [
-
-  {
-    id: 'rome-2024',
-    title: 'ngGirls @ NG ROME MMXXIV',
-    location: 'Rome',
-    city: 'Rome',
-    state: 'Italy',
-    date: 'June 26, 2024',
-    year: '2024',
-    applicationForm: 'https://docs.google.com/forms/d/e/1FAIpQLScpM4cBeqDtHkeKw8vZhPDbSdP_6wjtZMEOB6nOzVrFv6GrIg/viewform',
-    mentorsForm: 'https://docs.google.com/forms/d/e/1FAIpQLSdYYM2momTb95ury4-BR2jjjTwAzdtOpuitTPR8XAR2gjEcpQ/viewform',
-    announcement: `We're excited to be part of <a href="https://2023.ngrome.io/">NG ROME MMXXIV</a> - and bring the ngGirls workshop to the local community!
-<b>ngGirls @ NG ROME MMXXIV</b> will take place on Wednesday, June 26th, from 9:00-17:00 in Rome. For more details and application: `,
-    sponsors: [{ link: 'https://ngrome.io/', logo: 'assets/events/rome-2024/logo.svg' }]
-  }
-];
-
+import events from 'src/app/data/events.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  events = events;
+  events: Events = events;
   eventId$ = this.router.paramMap.pipe(
     map(params => params.get('eventId'))
   );
 
   constructor(private router: ActivatedRoute, private http: HttpClient, private route: ActivatedRoute) {
+    console.log('EventService created', events);
   }
    // Simulate fetching events asynchronously
    getEvents(): Observable<any> {
