@@ -11,5 +11,23 @@
       "mentorsForm": "https://forms.gle/Z2a3NRPZg41ETcRZ6",
       "announcement": "We're excited to be part of <a href=\"https://ng-de.org/\" target='_blank'>NG-DE 2024</a> - and bring the ngGirls workshop to the local community!\n  <b>ngGirls @ NG-DE 2024</b> will take place on Wednesday, October 9th, from 9:00-17:00 in Bonn. For more details and application: ",
       "sponsors": [{ "link": "https://ng-de.org/", "logo": "assets/events/ngde-2024/ng-de.svg" }]
+    },  
+    {
+      "id": "warsaw-2023",
+      "title": "ngGirls @ NG Poland",
+      "location": "Warsaw",
+      "city": "Warsaw",
+      "state": "Poland",
+      "date": "November 3",
+      "year": "2024",
+      "applicationForm": "https://forms.gle/UVSymbBbnuQjRE397",
+      "mentorsForm": "https://forms.gle/J9rcGvDzq73QUqaY6",
+      "announcement": "<a href=\"http://ng-poland.pl/\" target=\"_blank\">NG Poland Conf</a> has been hosting ngGirls workshops for many years. Feeling like family, we're happy to come back to Warsaw for the wonderful community, where the participants are enthusiastic and the mentors are so committed. <br/><b>ngGirls @ NG Poland</b> will take place on Sunday, November 3rd, from 10:00-17:00. For more details and application: ",
+      "sponsors": [
+        { 
+          "link": "http://ng-poland.pl/", 
+          "logo": "https://ng-poland.pl/images/logos/logo-small-2024.webp"
+        }
+      ]
     }
-  ]
+]
