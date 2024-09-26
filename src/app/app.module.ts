@@ -35,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     FaqComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
