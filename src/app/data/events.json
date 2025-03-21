@@ -1,15 +1,15 @@
 [
     {
-      "id": "venice-2025",
-      "title": "ngGirls @ ngVenice 2025",
-      "location": "Venice",
-      "city": "Venice",
+      "id": "rome-2025",
+      "title": "ngGirls @ NG Rome 2025",
+      "location": "Rome",
+      "city": "Rome",
       "state": "Italy",
-      "date": "March 13, 2025",
+      "date": "June 19, 2025",
       "year": "2025",
-      "applicationForm": "https://forms.gle/R3Pr7zAnKVmPq5PW8",
-      "mentorsForm": "https://forms.gle/yF6esKE5gNhsx8789",
-      "announcement": "We're excited to be part of <a href=\"https://ng-venice.org//\" target='_blank'>NG VENICE 2025</a> - and bring the ngGirls workshop to the local community!\n  <b>ngGirls @ NG VENICE 2025</b> will take place on Thursday, March 13th, from 9:00-17:00 in Venice. For more details and application: ",
-      "sponsors": [{ "link": "https://ng-venice.org/", "logo": "assets/events/venice-2025/ng-venice.svg" }]
+      "applicationForm": "https://forms.gle/kpkfKgSMiFnbbZK56",
+      "mentorsForm": "https://forms.gle/4vPJbVFdtdeX7AmB8",
+      "announcement": "We're excited to be part of <a href=\"https://ngrome.io/\" target='_blank'>NG Rome 2025</a> - and bring the ngGirls workshop to the local community!\n  <b>ngGirls @ NG Rome 2025</b> will take place on Thursday, June 19th, from 9:30-17:30 in Rome. For more details and application: ",
+      "sponsors": [{ "link": "https://ngrome.io/", "logo": "assets/events/rome-2025/logo.svg" }]
     }
 ]
