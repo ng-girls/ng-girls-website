@@ -10,6 +10,60 @@
       "applicationForm": "https://forms.gle/1AQdqCrQyqpb5hXr7",
       "mentorsForm": "https://forms.gle/HBCi1u7T94JpzL837",
       "announcement": "We're excited to be back at <a href=\"https://www.ng-poland.pl/\" target='_blank'>NG Poland 2025</a> - and bring the ngGirls workshop to the local community!\n  <b>ngGirls @ NG Poland 2025</b> will take place on Sunday, November 16th, from 10:00-17:00 in Warsaw. For more details and application: ",
-      "sponsors": [{"link": "https://www.ng-poland.pl/", "logo": "assets/events/ngpoland-2025/ngpoland-logo.png" }]
+      "sponsors": [
+        {"link": "https://www.ng-poland.pl/", "logo": "assets/events/ngpoland-2025/ngpoland-logo.png" },
+        {"link": "https://www.7n.com/", "logo": "assets/events/ngpoland-2025/7n.png" }
+      ],
+      "timetable": {
+        "instructors": [
+          { "firstname": "Lisa", "lastname": "Scelli", "image": "assets/events/ngpoland-2025/mentors/lisa.png"},
+          { "firstname": "Robert", "lastname": "Willemelis", "image": "assets/team/Robert.jpg"}
+        ],
+        "groups": [
+          {
+            "mentor": [{ "firstname": "Emilia", "lastname": "Joshi", "image": "assets/events/ngpoland-2025/mentors/emilia.jpg"}],
+            "attendee": [
+              { "firstname": "Ana", "image": "assets/female.svg" },
+              { "firstname": "Cansu", "image": "assets/female.svg" }
+            ]
+          },
+          {
+            "mentor": [{ "firstname": "Magdalena", "lastname": "Bober", "image": "assets/events/ngpoland-2025/mentors/magdalena.jpg"}],
+            "attendee": [
+              { "firstname": "Iwona", "image": "assets/female.svg" },
+              { "firstname": "Monika", "image": "assets/female.svg" },
+              { "firstname": "Joanna", "image": "assets/female.svg" }
+            ]
+
+          }
+        ],
+        "infos": [
+          { "key": "📅", "text": "Sunday, November 16, 2025" },
+          { "key": "⏰", "text": "10:00 - 17:00 (CET)" },
+          { "key": "🏠", "text": "7N Warsaw Office, ul. Puławska 182, 12 piętro, Warsaw" },
+          { "key": "🥤", "text": "Lunch and refreshments provided" },
+          { "key": "📶", "text": "SSID: 7NGuest: password: <ask-the-instructor> " },
+          { "key": "📚", "text": "ngGirls tutorial", "link": "https://ng-girls.gitbook.io/todo-list-tutorial" },
+          { "key": "💬", "text": "Slack: #ngpoland-2025", "link": "https://ng-girls.slack.com/archives/C09U07D0ANL"},
+          { "key": "📄", "text": "Slides of the introduction", "link": "https://www.ng-girls.org/event/ngPoland-2025" },
+          { "key": "🎟️", "text": "free Ticket for NG/JS/AI Poland: ask Robert" },
+          { "key": "❤️", "text": "Code of Conduct", "link": "https://www.ng-girls.org/coc", "post_text": "  (speak to Lisa)" }
+        ],
+        "basics": {
+          "floorplan": "assets/events/ngpoland-2025/floorplan.png",
+          "timezone": "Central European Time (CET)"
+        },
+        "dates": [
+          { "time": "09:30 - 10:00", "text": "🚌 Arriving" },
+          { "time": "10:00 - 10:15", "text": "👋 Check in" },
+          { "time": "10:15 - 10:25", "text": "💡 Introduction to ngGirls and workshop (by Robert & Shmuela*)" },
+          { "time": "10:25 - 10:40", "text": "🅰️ Little Big picture about Angular (by Lisa)" },
+          { "time": "10:40 - 13:00", "text": "🪑 Start working in groups" },
+          { "time": "13:00",        "text": "📷 Group photo" },
+          { "time": "13:00 - 14:00", "text": "🍕 Lunch break & networking" },
+          { "time": "14:00 - 16:30", "text": "⌨️ Coding & working" },
+          { "time": "16:45 - 17:00", "text": "🏆 Closing lecture and goodbyes" }
+        ]
+      }
     }
 ]

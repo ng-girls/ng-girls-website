@@ -39,9 +39,8 @@ export class EventComponent implements OnInit {
     // Retrieve password from query parameters
     this.route.queryParams.subscribe(params => {
       this.password = params['view'] || null;
+      this.isAuthenticated = this.checkAuthenticationStatus();
     });
-
-    this.isAuthenticated = this.checkAuthenticationStatus();
   }
 
   checkAuthenticationStatus(): boolean {
