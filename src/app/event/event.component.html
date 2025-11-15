@@ -14,26 +14,32 @@
           </td>
 
           <td *ngIf="!info.link"> {{info.text}}</td>
-          <td *ngIf="info.link"> <a href="{{info.link}}" target="_blank">{{info.text}}</a></td>
-          
+          <td *ngIf="info.link"> <a [href]="info.link" target="_blank">{{info.text}}</a>  <span *ngIf="info.post_text">{{info.post_text}}</span></td>
+
         </tr>
       </table>
       <div *ngIf="event.timetable?.basics?.floorplan" class="floorplan">
-        <img width="400" src="{{event.timetable?.basics?.floorplan}}">
+        <img width="400" [src]="event.timetable?.basics?.floorplan">
       </div>
     </div>
 
     <div class="upcoming-events mt-30">
       <h2>Your Instructors</h2>
     </div>
-    <div class="team-members">
-      <div *ngFor="let member of team" class="team-member">
-        <div style="background-image: url(assets/team/{{member.image}})" class="member-image"></div>
-        <h2 class="member-name">{{ member.name }}</h2>
+    <div class="team-members" *ngIf="event.timetable?.instructors?.length; else teamFallback">
+      <div *ngFor="let instructor of event.timetable?.instructors" class="team-member">
+        <div
+          class="member-image"
+          [style.background-image]="'url(' + instructor.image + ')'">
+        </div>
+        <h2 class="member-name">{{ instructor.firstname }} {{ instructor.lastname }}</h2>
       </div>
     </div>
-  
-    
+    <ng-template #teamFallback>
+      <p class="team-members__empty">We'll publish the instructor lineup soon.</p>
+    </ng-template>
+
+
     <div class="event-timetable-wrapper">
       <div class="event-timetable">
         <p>Tentative schedule </p>
@@ -56,17 +62,27 @@
         <h2 class="member-name">Group {{groupIndex + 1}}</h2>
         <div class="team-members">
           <div *ngFor="let member of group.mentor" class="team-member team-member--small">
-            <div style="background-image: url({{member.image}})" class="member-image"></div>
+            <div
+              class="member-image"
+              [style.background-image]="'url(' + member.image + ')'">
+            </div>
             <h2 class="member-name">{{ member.firstname }}</h2>
           </div>
         </div>
+        <div class="team-members">
+          <div *ngFor="let member of group.attendee" class="team-member team-member--small">
+            <div
+              class="member-image"
+              [style.background-image]="'url(' + member.image + ')'">
+            </div>
+            <h2 class="member-name">{{ member.firstname }}</h2>
+          </div>
         </div>
-        
       </div>
-      
-      <div class="upcoming-events mt-30">
-        <h2>Sponsors</h2>
-      </div>
+    </div>
+    <div class="upcoming-events mt-30">
+      <h2>Sponsors</h2>
+    </div>
     <div class="sponsors">
       <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
         <img [src]="sponsor.logo">
@@ -79,28 +95,27 @@
     <div class="header-row">
       <div class="event-title">
         <h1>{{ event.title }}</h1>
-        <h2>{{ event.city }}, {{event.state }}</h2>
+        <h2>{{ event.city }}, {{ event.state }}</h2>
       </div>
     </div>
-  
+
     <p [innerHTML]="event.announcement"></p>
-  
+
     <div class="call-for-action">
       <a [href]="event.applicationForm" target="_blank">
         <button mat-raised-button color="primary">{{event.applicationButton || "Apply for the workshop"}} </button>
-  
+
       </a>
       <a [href]="event.mentorsForm" target="_blank">
         <button mat-raised-button color="primary">{{event.mentorsButton || "Call for mentors" }}</button>
       </a>
     </div>
-  
+
     <div class="sponsors">
       <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
         <img [src]="sponsor.logo">
       </a>
     </div>
   </div>
-  
 
 </div>
