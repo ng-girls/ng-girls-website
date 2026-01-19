@@ -1,3 +1,15 @@
 [
-  
+  {
+    "id": "copenhagen-2026",
+    "title": "ngGirls @ Copenhagen 2026",
+    "location": "Copenhagen",
+    "city": "Copenhagen",
+    "state": "Denmark",
+    "date": "March 8, 2026",
+    "year": "2026",
+    "applicationForm": "https://forms.gle/placeholder-participants",
+    "mentorsForm": "https://forms.gle/placeholder-mentors",
+    "announcement": "Join us in Copenhagen for International Women's Day!\\n  <b>ngGirls @ Copenhagen 2026</b> will take place on Saturday, March 8th. For more details and application: ",
+    "sponsors": [{"link": "https://www.7n.com/", "logo": "assets/events/copenhagen-2026/7n.png"}]
+  }
 ]
