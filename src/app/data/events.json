@@ -1,3 +1,20 @@
 [
-  
+  {
+    "id": "copenhagen-2026",
+    "title": "ngGirls @ Copenhagen",
+    "location": "Copenhagen",
+    "city": "Copenhagen",
+    "state": "Denmark",
+    "date": "March 8th, 2026",
+    "year": "2026",
+    "applicationForm": "https://forms.gle/94kixjQBxBPDiX1F8",
+    "mentorsForm": "https://forms.gle/jnFAsndgh5FcVEnt8",
+    "announcement": "<p>We are excited to announce ngGirls workshop in Copenhagen on <strong>March 8th, 2026</strong> - International Women's Day! 🎉</p><p>This free, one-day workshop is designed to introduce women to the world of web development with Angular. Whether you're a complete beginner or have some coding experience, this workshop will help you build your first Angular application in a friendly and supportive environment.</p><p><b>ngGirls @ Copenhagen 2026</b> will take place on Sunday, March 8, 2026 from 10:00-17:00 in Copenhagen. For more details and application:</p>",
+    "sponsors": [
+      {
+        "link": "https://7n.com/",
+        "logo": "assets/events/copenhagen-2026/7n.png"
+      }
+    ]
+  }
 ]
