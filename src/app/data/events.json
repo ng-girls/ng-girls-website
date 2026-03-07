@@ -15,6 +15,78 @@
         "link": "https://7n.com/",
         "logo": "assets/events/copenhagen-2026/7n.png"
       }
-    ]
-  }
+    ],
+    "timetable": {
+        "instructors": [
+          { "firstname": "Sherry", "lastname": "List", "image": "assets/events/copenhagen-2026/people/sherry.jpg"},
+          { "firstname": "Robert", "lastname": "Willemelis", "image": "assets/team/Robert.jpg"}
+        ],
+        "groups": [
+          {
+            "mentor": [{ "firstname": "Piyush", "lastname": "Palod", "image": "assets/events/copenhagen-2026/people/piyush.webp"}],
+            "attendee": [
+              { "firstname": "Magdalena", "image": "assets/female.svg" },
+              { "firstname": "Nilma", "image": "assets/female.svg" },
+              { "firstname": "Benjina", "image": "assets/female.svg" },
+              { "firstname": "Sara", "image": "assets/female.svg" }
+            ]
+          },
+          {
+            "mentor": [{ "firstname": "Arla", "lastname": "Encanto", "image": "assets/events/copenhagen-2026/people/arla.jpg"}],
+            "attendee": [
+              { "firstname": "Sepideh", "image": "assets/female.svg" },
+              { "firstname": "Alberte", "image": "assets/female.svg" },
+              { "firstname": "Shahad ", "image": "assets/female.svg" },
+              { "firstname": "Aastha", "image": "assets/female.svg" }
+            ]
+          },
+          {
+            "mentor": [{ "firstname": "Marilag", "lastname": "Svennevig", "image": "assets/events/copenhagen-2026/people/marilag.jpg"}],
+            "attendee": [
+              { "firstname": "Herdis", "image": "assets/female.svg" },
+              { "firstname": "Arein ", "image": "assets/female.svg" },
+              { "firstname": "Kateryna", "image": "assets/female.svg" },
+              { "firstname": "Maja", "image": "assets/female.svg" }
+            ]
+          },
+          {
+            "mentor": [{ "firstname": "Robert", "lastname": "Willemelis", "image": "assets/team/Robert.jpg"}],
+            "attendee": [
+              { "firstname": "Kia", "image": "assets/female.svg" },
+              { "firstname": "Sara", "image": "assets/female.svg" },
+              { "firstname": "Eylem", "image": "assets/female.svg" },
+              { "firstname": "Rana", "image": "assets/female.svg" }
+            ]
+          }
+
+        ],
+        "infos": [
+          { "key": "📅", "text": "Sunday, March 8th, 2026" },
+          { "key": "⏰", "text": "09:00 - 17:00 (CET)" },
+          { "key": "🏠", "text": "7N Copenhagen Office, Emdrupvej 26B, 2. Sal, 2100 København Ø." },
+          { "key": "🥤", "text": "Breakfast, Lunch and refreshments provided" },
+          { "key": "📶", "text": "SSID: <tbd>: password: <tbd> " },
+          { "key": "📚", "text": "ngGirls tutorial", "link": "https://ng-girls.gitbook.io/todo-list-tutorial" },
+          { "key": "💬", "text": "Slack: #2026-copenhagen", "link": "https://ng-girls.slack.com/archives/C0AJX2Y4FS9"},
+          { "key": "📄", "text": "Slides of the introduction", "link": "https://bit.ly/slides-copenhagen-2026" },
+          { "key": "❤️", "text": "Code of Conduct", "link": "https://www.ng-girls.org/coc", "post_text": "  (speak to Sherry)" }
+        ],
+        "basics": {
+          "floorplan": "assets/events/copenhagen-2026/7n_copenhagen_map.png",
+          "timezone": "Central European Time (CET)"
+        },
+        "dates": [
+          { "time": "08:30 - 09:00", "text": "🥐 Arrival, coffee, and croissants" },
+          { "time": "09:00", "text": "👋 Workshop begins" },
+          { "time": "09:00 - 10:00", "text": "💡 Introduction to ngGirls, 7N & Angular (by Robert, Monika  & Shmuela*)" },
+          { "time": "10:00 - 11:00", "text": "🪑 Start working in groups" },
+          { "time": "12:00",        "text": "📷 Group photo" },
+          { "time": "12:00 - 13:00", "text": "🍕 Lunch break (buffet) & networking" },
+          { "time": "13:00 - 13:20", "text": "🎙️ Lightning Talk (by Sherry List)" },
+          { "time": "13:20 - 16:45", "text": "⌨️ Coding & working" },
+          { "time": "15:00", "text": "🎂 Cake" },
+          { "time": "16:45 - 17:00", "text": "🏆 Closing lecture and goodbyes" }
+        ]
+      }
+    }
 ]
