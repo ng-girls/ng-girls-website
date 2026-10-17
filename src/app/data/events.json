@@ -1,16 +1,20 @@
 [
   {
-    "id": "copenhagen-2026",
-    "title": "ngGirls @ Copenhagen",
-    "location": "Copenhagen",
-    "city": "Copenhagen",
-    "state": "Denmark",
-    "date": "March 8th, 2026",
+    "id": "poland-2026",
+    "title": "ngGirls @ NG Poland (AI edition)",
+    "location": "Warsaw",
+    "city": "Warsaw",
+    "state": "Poland",
+    "date": "November 15th, 2026",
     "year": "2026",
-    "applicationForm": "https://forms.gle/94kixjQBxBPDiX1F8",
-    "mentorsForm": "https://forms.gle/jnFAsndgh5FcVEnt8",
-    "announcement": "<p>We are excited to announce ngGirls workshop in Copenhagen on <strong>March 8th, 2026</strong> - International Women's Day! 🎉</p><p>This free, one-day workshop is designed to introduce women to the world of web development with Angular. Whether you're a complete beginner or have some coding experience, this workshop will help you build your first Angular application in a friendly and supportive environment.</p><p><b>ngGirls @ Copenhagen 2026</b> will take place on Sunday, March 8, 2026 from 09:00-17:00 in Copenhagen. For more details and application:</p>",
+    "applicationForm": "https://forms.gle/EVFvgeZZvDg3kdvNA",
+    "mentorsForm": "https://forms.gle/sRztZoUz123KAkw59",
+    "announcement": "<p>We are excited to announce ngGirls workshop in Warsaw on <strong>November 15th, 2026</strong>!</p><p>This free, one-day workshop is designed to introduce women to the world of web development with Angular and AI. Whether you're a complete beginner or have some coding experience, this workshop will help you build your first Angular application in a friendly and supportive environment.</p><p><b>ngGirls @ NG Poland (AI edition) 2026</b> will take place on Sunday, November 15, 2026 from 10:00-17:00 in Warsaw. For more details and application:</p>",
     "sponsors": [
+      {
+        "link": "https://ng-poland.pl/",
+        "logo": "assets/events/ngpoland-2025/ngpoland-logo.png"
+      },
       {
         "link": "https://7n.com/",
         "logo": "assets/events/copenhagen-2026/7n.png"
@@ -18,73 +22,41 @@
     ],
     "timetable": {
         "instructors": [
-          { "firstname": "Sherry", "lastname": "List", "image": "assets/events/copenhagen-2026/people/sherry.jpg"},
           { "firstname": "Robert", "lastname": "Willemelis", "image": "assets/team/Robert.jpg"}
         ],
         "groups": [
           {
-            "mentor": [{ "firstname": "Piyush", "lastname": "Palod", "image": "assets/events/copenhagen-2026/people/piyush.webp"}],
-            "attendee": [
-              { "firstname": "Magdalena", "image": "assets/female.svg" },
-              { "firstname": "Nilma", "image": "assets/female.svg" },
-              { "firstname": "Benjina", "image": "assets/female.svg" },
-              { "firstname": "Sara", "image": "assets/female.svg" }
-            ]
-          },
-          {
-            "mentor": [{ "firstname": "Arla", "lastname": "Encanto", "image": "assets/events/copenhagen-2026/people/arla.jpg"}],
-            "attendee": [
-              { "firstname": "Sepideh", "image": "assets/female.svg" },
-              { "firstname": "Alberte", "image": "assets/female.svg" },
-              { "firstname": "Shahad ", "image": "assets/female.svg" },
-              { "firstname": "Aastha", "image": "assets/female.svg" }
-            ]
-          },
-          {
-            "mentor": [{ "firstname": "Marilag", "lastname": "Svennevig", "image": "assets/events/copenhagen-2026/people/marilag.jpg"}],
-            "attendee": [
-              { "firstname": "Herdis", "image": "assets/female.svg" },
-              { "firstname": "Arein ", "image": "assets/female.svg" },
-              { "firstname": "Kateryna", "image": "assets/female.svg" },
-              { "firstname": "Maja", "image": "assets/female.svg" }
-            ]
-          },
-          {
             "mentor": [{ "firstname": "Robert", "lastname": "Willemelis", "image": "assets/team/Robert.jpg"}],
             "attendee": [
-              { "firstname": "Kia", "image": "assets/female.svg" },
-              { "firstname": "Sara", "image": "assets/female.svg" },
-              { "firstname": "Eylem", "image": "assets/female.svg" },
-              { "firstname": "Rana", "image": "assets/female.svg" }
+              { "firstname": "LOREM", "image": "assets/female.svg" }
             ]
           }
 
         ],
         "infos": [
-          { "key": "📅", "text": "Sunday, March 8th, 2026" },
-          { "key": "⏰", "text": "09:00 - 17:00 (CET)" },
-          { "key": "🏠", "text": "7N Copenhagen Office, Emdrupvej 26B, 2. Sal, 2100 København Ø." },
-          { "key": "🥤", "text": "Breakfast, Lunch and refreshments provided" },
+          { "key": "📅", "text": "Sunday, November 15th, 2026" },
+          { "key": "⏰", "text": "10:00 - 17:00 (CET)" },
+          { "key": "🏠", "text": "7N Warsaw Office, ul. Puławska 182, 12 piętro, Warsaw" },
+          { "key": "🥤", "text": "Lunch and refreshments provided" },
           { "key": "📶", "text": "SSID: <tbd>: password: <tbd> " },
           { "key": "📚", "text": "ngGirls tutorial", "link": "https://ng-girls.gitbook.io/todo-list-tutorial" },
-          { "key": "💬", "text": "Slack: #2026-copenhagen", "link": "https://ng-girls.slack.com/archives/C0AJX2Y4FS9"},
-          { "key": "📄", "text": "Slides of the introduction", "link": "https://bit.ly/slides-copenhagen-2026" },
+          { "key": "💬", "text": "Slack: #2026-poland", "link": ""},
+          { "key": "📄", "text": "Slides of the introduction", "link": "" },
           { "key": "❤️", "text": "Code of Conduct", "link": "https://www.ng-girls.org/coc", "post_text": "  (speak to Sherry)" }
         ],
         "basics": {
-          "floorplan": "assets/events/copenhagen-2026/7n_copenhagen_map.png",
+          "floorplan": "",
           "timezone": "Central European Time (CET)"
         },
         "dates": [
-          { "time": "08:30 - 09:00", "text": "🥐 Arrival, coffee, and croissants" },
-          { "time": "09:00", "text": "👋 Workshop begins" },
-          { "time": "09:00 - 10:00", "text": "💡 Introduction to ngGirls, 7N & Angular (by Robert, Monika  & Shmuela*)" },
-          { "time": "10:00 - 12:00", "text": "🪑 Start working in groups" },
-          { "time": "12:00",        "text": "📷 Group photo" },
-          { "time": "12:00 - 13:00", "text": "🍕 Lunch break (buffet) & networking" },
-          { "time": "13:00 - 13:20", "text": "🎙️ Lightning Talk (by Sherry List)" },
-          { "time": "13:20 - 16:45", "text": "⌨️ Coding & working" },
-          { "time": "15:00", "text": "🎂 Cake" },
+          { "time": "09:30 - 10:00", "text": "🚌 Arrival" },
+          { "time": "10:00", "text": "👋 Workshop begins" },
+          { "time": "10:10 - 10:20", "text": "💡 Introduction to ngGirls (by Robert & Shmuela*)" },
+          { "time": "10:20 - 10:45", "text": "🅰️ Little Big Picture about Angular" },
+          { "time": "10:45 - 13:00", "text": "🪑 Start working in groups" },
+          { "time": "13:00",        "text": "📷 Group photo" },
+          { "time": "13:00 - 14:00", "text": "🍕 Lunch break (buffet) & networking" },
+          { "time": "14:00 - 16:45", "text": "⌨️ Coding & working" },
           { "time": "16:45 - 17:00", "text": "🏆 Closing lecture and goodbyes" }
         ]
       }
