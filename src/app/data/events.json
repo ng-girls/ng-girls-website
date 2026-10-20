@@ -5,7 +5,7 @@
     "location": "Warsaw",
     "city": "Warsaw",
     "state": "Poland",
-    "date": "November 15th, 2026",
+    "date": "November 15, 2026",
     "year": "2026",
     "applicationForm": "https://forms.gle/EVFvgeZZvDg3kdvNA",
     "mentorsForm": "https://forms.gle/sRztZoUz123KAkw59",
@@ -13,11 +13,11 @@
     "sponsors": [
       {
         "link": "https://ng-poland.pl/",
-        "logo": "assets/events/ngpoland-2025/ngpoland-logo.png"
+        "logo": "assets/events/ngpoland-2026/ngpoland-logo.png"
       },
       {
-        "link": "https://7n.com/",
-        "logo": "assets/events/copenhagen-2026/7n.png"
+        "link": "https://darize.com/",
+        "logo": "assets/events/ngpoland-2026/darize-logo.svg"
       }
     ],
     "timetable": {
