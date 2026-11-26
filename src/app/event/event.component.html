@@ -99,9 +99,11 @@
       </div>
     </div>
 
-    <p [innerHTML]="event.announcement"></p>
+    <div *ngFor="let announcementItem of event.announcement" [innerHTML]="announcementItem"></div>
+    
 
     <div class="call-for-action">
+      <h3 class="workshop-sub-headline">👇 More Details and Application</h3>
       <a [href]="event.applicationForm" target="_blank">
         <button mat-raised-button color="primary">{{event.applicationButton || "Apply for the workshop"}} </button>
 
@@ -111,10 +113,26 @@
       </a>
     </div>
 
-    <div class="sponsors">
-      <a *ngFor="let sponsor of event.sponsors" [href]="sponsor.link" target="_blank" class="logo">
-        <img [src]="sponsor.logo">
-      </a>
+    <div class="event-goal-wrapper">
+      <h3 class="workshop-sub-headline">🎯 Our Workshop Goals</h3>
+      <div *ngFor="let detail of event.details" [innerHTML]="detail"></div>
+    </div>
+    <div class="sponsors" *ngIf="event.sponsors?.length">
+      <h3 class="workshop-sub-headline">🥰 Our Sponsors</h3>
+
+      <div class="sponsor" *ngFor="let sponsor of event.sponsors">
+        <a [href]="sponsor.link" target="_blank" rel="noopener" class="logo">
+          <img [src]="sponsor.logo" alt="Sponsor logo">
+        </a>
+        <div class="sponsor-text" *ngIf="sponsor.text">
+          {{ sponsor.text }}
+        </div>
+      </div>
+    </div>
+    <div class="event-goal-wrapper" *ngIf="event.note">
+      <small>
+        {{ event.note }}
+      </small>
     </div>
   </div>
 

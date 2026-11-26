@@ -2,6 +2,7 @@ export type Events = Event[];
 export type Sponsor = {
     link: string;
     logo: string;
+    text?: string;
 };
 export type Person = {
     firstname: string;
@@ -32,6 +33,8 @@ export type Event = {
     applicationButton?: string;
     mentorsButton?: string;
     mentorsForm?: string;
-    announcement: string;
+    announcement: string[];
     sponsors: Sponsor[];
+    details?: string[];
+    note?: string;
 };
