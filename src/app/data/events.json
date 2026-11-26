@@ -1,21 +1,37 @@
 [
   {
-    "id": "poland-2026",
-    "title": "ngGirls @ NG Poland (AI edition)",
+    "id": "poland-2027",
+    "title": "ngGirls @ Warsaw (AI edition)",
     "location": "Warsaw",
     "city": "Warsaw",
     "state": "Poland",
-    "date": "November 15, 2026",
-    "year": "2026",
-    "applicationForm": "https://forms.gle/EVFvgeZZvDg3kdvNA",
-    "mentorsForm": "https://forms.gle/sRztZoUz123KAkw59",
-    "announcement": "<p>We are excited to announce ngGirls workshop in Warsaw on <strong>November 15th, 2026</strong>!</p><p>This free, one-day workshop is designed to introduce women to the world of web development with Angular and AI. Whether you're a complete beginner or have some coding experience, this workshop will help you build your first Angular application in a friendly and supportive environment.</p><p><b>ngGirls @ NG Poland (AI edition) 2026</b> will take place on Sunday, November 15, 2026 from 10:00-17:00 in Warsaw. For more details and application:</p>",
+    "date": "January 17, 2027",
+    "year": "2027",
+    "applicationForm": "https://forms.gle/VVCtXnzD6ntMgPbTA",
+    "mentorsForm": "https://forms.gle/gLUrF1qWHQ6yne2y5",
+    "announcement": [
+      "<p>We are excited to announce ngGirls workshop in Warsaw on <strong>January 17, 2027</strong>!</p>",
+      "<p>This free, one-day workshop is designed to introduce women to the world of web development with Angular and the magic of AI ✨.</p>",
+      "<p>Whether you're a complete beginner or have some coding experience, this workshop will help you build your first Angular application in a friendly and supportive environment.</p>",
+      "<p><b>ngGirls @ Warsaw (AI edition) 2027</b> will take place on Sunday, January 17, 2027 from 10:00-17:00 at Darize office in Warsaw.</p>"
+    ],
+    "details": [
+      "<p>Together, we will build a little <strong>🧸 Review Buddy</strong> while exploring modern web development with and without AI.</p>",
+      "<p>🅰️ <strong>Angular Fundamentals: </strong>Component architecture, forms and application structure.</p>",
+      "<p>🛠️ <strong>Essential Developer Skills: </strong>Code reviews, coding patterns, research, continuous learning and documentation.</p>",
+      "<p>🤖 <strong>Introduction to AI: </strong>Get an overview of AI tools, their setup and common buzzwords.</p>",
+      "<p>⚖️ <strong>Opportunities & Challenges of AI: </strong>Explore security, tokens, agentic engineering and hallucinations.</p>",
+      "<p>🚀 <strong>AI-enhanced Coding with MCP: </strong>Discover how the Angular MCP Server can support your development workflow.</p>"
+    ],
+    "note": "The event has been postponed from its original date as part of ngGirls @ NG Poland 2026.",
     "sponsors": [
       {
+        "text": "NG Poland Conference",
         "link": "https://ng-poland.pl/",
         "logo": "assets/events/ngpoland-2026/ngpoland-logo.png"
       },
       {
+        "text": "Darize (location)",
         "link": "https://darize.com/",
         "logo": "assets/events/ngpoland-2026/darize-logo.svg"
       }
@@ -34,13 +50,13 @@
 
         ],
         "infos": [
-          { "key": "📅", "text": "Sunday, November 15th, 2026" },
+          { "key": "📅", "text": "Sunday, January 17th, 2027" },
           { "key": "⏰", "text": "10:00 - 17:00 (CET)" },
           { "key": "🏠", "text": "7N Warsaw Office, ul. Puławska 182, 12 piętro, Warsaw" },
           { "key": "🥤", "text": "Lunch and refreshments provided" },
           { "key": "📶", "text": "SSID: <tbd>: password: <tbd> " },
           { "key": "📚", "text": "ngGirls tutorial", "link": "https://ng-girls.gitbook.io/todo-list-tutorial" },
-          { "key": "💬", "text": "Slack: #2026-poland", "link": ""},
+          { "key": "💬", "text": "Slack: #2027-poland", "link": ""},
           { "key": "📄", "text": "Slides of the introduction", "link": "" },
           { "key": "❤️", "text": "Code of Conduct", "link": "https://www.ng-girls.org/coc", "post_text": "  (speak to Sherry)" }
         ],
